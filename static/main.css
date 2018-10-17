@@ -1,0 +1,99 @@
+*,:after,:before{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html{
+	font-size: 62.5%;
+	font-family: sans-serif;
+}
+body{
+	background: #fff;
+	color: #222;
+	font-family: 'Arial','Microsoft Yahei';
+	line-height: 25px;
+	font-size: 1.5rem;
+}
+a{
+	text-decoration: none;
+	color: #222;
+}
+a:hover{
+	color: #F40;
+}
+ul{
+	list-style: none;
+}
+input,textarea,select,button{
+	/*outline: none;*/
+	font-family: 'Arial','Microsoft Yahei';
+	color: #444;
+	font-size: 1.5rem;
+	border: 0;
+	border: 1px solid #ccc;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 5px;
+	vertical-align: top;
+}
+button{
+	cursor: pointer;
+}
+textarea{
+	/*右下角缩放*/
+	resize: none;
+	height: 60px;
+	line-height: 25px;
+	padding: 3px;
+}
+select{
+	/*默认倒三角*/
+	/*appearance:none;
+  	-moz-appearance:none;
+  	-webkit-appearance:none;*/
+}
+option{
+	font-size: 1.6rem;
+}
+img{
+	vertical-align:middle;
+}
+table{
+	width: 100%;
+	text-align: left;
+	/*默认白色边框*/
+	border-collapse:collapse;
+}
+.clearf::before,
+.clearf::after{
+	content: '';
+	height: 0;
+	line-height: 0;
+	display: block;
+	visibility: hidden;
+	clear: both;
+}
+
+h1,h2,h3,h4,h5,h6{color: #000;}
+i{font-style: normal;}
+
+input::-webkit-input-placeholder{
+	color: #777;
+	font-size: 1.25rem;
+}
+input::-webkit-input-placeholder{
+	color: #777;
+	font-size: 1.25rem;
+}
+input:-moz-placeholder{
+	color: #777;
+	font-size: 1.25rem;
+}
+input::-moz-placeholder{
+	color: #777;
+	font-size: 1.25rem;
+}
+input:-ms-input-placeholder{
+	color: #777;
+	font-size: 1.25rem;
+}

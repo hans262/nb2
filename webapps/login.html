@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>test</title>
+</head>
+<body>
+    <button id="btn">请求</button>
+    <script type="text/javascript" src="/static/Org.js"></script>
+    <script type="text/javascript">
+      O('#btn').addEventListener('click',function(){
+        ajax({
+          type:'get',
+          url:'/user',
+          data:{
+            username:'huahua',
+            passworld:'123456',
+          },
+          success:function(data){
+            console.log(data)
+          }
+        })
+      })
+    </script>
+</body>
+</html>
