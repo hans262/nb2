@@ -63,11 +63,11 @@ class Handler{
   routeHandler(req,res){
     Utils.setHeaders(res)//设置常用headers
     switch(true){
-      // case req.relativePath.startsWith('/static/') || req.relativePath==='/static' :
-      // let staticPath=path.join(this.projectPath,req.relativePath)
-      // req.absolutePath=staticPath
-      // respond.statics(req,res)
-      // break;
+      case req.relativePath.startsWith('/static/') || req.relativePath==='/static' :
+      let staticPath=path.join(this.projectPath,req.relativePath)
+      req.absolutePath=staticPath
+      respond.statics(req,res)
+      break;
       case router.next(req,res) :
       break;
       default :
