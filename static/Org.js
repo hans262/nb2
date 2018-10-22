@@ -30,7 +30,8 @@ let ajax=function(url,opt){
 	o.failed=(o.failed)?o.failed:function(){}
 	o.header=(o.header)?o.header:null
 	let xhr=(window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP")
-	if(o.data && (typeof o.data === 'object')){
+	
+	if(o.data && Object.prototype.toString.call(o.data)==='[object Object]'){
 		let arr=[]
 		for(let key in o.data) arr.push(key+'='+o.data[key])
 		o.data=arr.join('&')
