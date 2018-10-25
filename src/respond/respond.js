@@ -80,8 +80,13 @@ class Respond{
 					let content=`<h1>Index of ${req.relativePath}</h1>`
 					files.forEach(file=>{
 						let itemLink=path.join(req.relativePath,file)
-						if(fs.statSync(path.join(req.absolutePath,file)).isDirectory()){
-							itemLink=path.join(itemLink,'/')
+						try{
+							if(fs.statSync(path.join(req.absolutePath,file)).isDirectory()){
+								itemLink=path.join(itemLink,'/')
+							}
+						}catch(e){
+							console.log(e)
+							content+=`<p style="color:red">此路径没有可读权限</p>`
 						}
 	          content+=`<p><a href='${itemLink}'>${file}</a></p>`
 					})

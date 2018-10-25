@@ -38,8 +38,8 @@ class Utils{
   }
   static setHeaders(res){
     res.setHeader('Server','NodeJs Server/1.0')
-    res.setHeader('Vary','Accept-Encoding')
     res.setHeader('content-language','zh-CN')
+    res.setHeader('Vary','Accept-Encoding')
     res.setHeader('X-XSS-Protection','1; mode=block')//xss安全策略
     if(config.CrossDomain){
       res.setHeader('Access-Control-Allow-Method', 'GET, POST, OPTIONS')

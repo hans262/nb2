@@ -11,6 +11,7 @@ const session=require('./session')
 class Handler{
 	constructor(){
 		this.root=config.root
+    this.loginFlag=config.loginFlag
     this.projectPath=__dirname.split('src')[0]
 	}
   isLogin(req,res){
@@ -53,7 +54,7 @@ class Handler{
       case req.relativePath==='/loginReq' && req.method==='POST' :
       this.loginReqHandler(req,res)
       break;
-      case !this.isLogin(req,res) :
+      case this.loginFlag && !this.isLogin(req,res) :
       respond.redirect(res,'/login',302,'Temporarily Moved')
       break;
       default :

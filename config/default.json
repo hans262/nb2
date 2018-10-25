@@ -1,7 +1,7 @@
 {
   "port": 3000,
   "host": "127.0.0.1",
-  "root": "D:\\develop",
+  "root": "D:\\",
   "indexPage": "index.html",
   "zipMatch": "^\\.(css|js|html|woff)$",
   "METHODS": ["GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS"],
@@ -13,5 +13,6 @@
     "lastModified": true,
     "maxAge": 6000
   },
-  "CrossDomain": false
+  "CrossDomain": false,
+  "loginFlag": false
 }
