@@ -46,6 +46,9 @@ module.exports=Sql
 	}).catch(err=>{
 		console.log(err)
 	})
+
+	//全局获取，需要把连接池变成全局变量，其他页面也能获取
+	调用的时候需要检测是否存在，不存在再创建
 */
 
 
