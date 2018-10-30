@@ -73,27 +73,3 @@ table{
 	visibility: hidden;
 	clear: both;
 }
-
-h1,h2,h3,h4,h5,h6{color: #000;}
-i{font-style: normal;}
-
-input::-webkit-input-placeholder{
-	color: #777;
-	font-size: 1.25rem;
-}
-input::-webkit-input-placeholder{
-	color: #777;
-	font-size: 1.25rem;
-}
-input:-moz-placeholder{
-	color: #777;
-	font-size: 1.25rem;
-}
-input::-moz-placeholder{
-	color: #777;
-	font-size: 1.25rem;
-}
-input:-ms-input-placeholder{
-	color: #777;
-	font-size: 1.25rem;
-}

@@ -1,15 +1,15 @@
-const user=require('../controller/user')
+const fs=require('fs')
+const path=require('path')
 const config=require('../../config/default')
-const abc=require('../controller/abc')
 
 class Router{
 	constructor(){
 		this.METHODS=config.METHODS
 		this.routes=[]
-		// this.pushMethod()
-		this.pushRoutes()
+		// this.AddMethod()
+		this.AddRoutes()
 	}
-	pushMethod(){
+	AddMethod(){
 		this.METHODS.forEach(item=>{
 	    const method=item.toLowerCase()
 	    this[item]=function(path,fn){
@@ -17,13 +17,19 @@ class Router{
 	    }
 		})
 	}
-	pushRoutes(){
-		user.forEach(items=>{
-			this.routes.push(items)
+	AddRoutes(){
+		let projectPath=__dirname.split('src')[0]
+		let controllerPath=path.join(projectPath,'/src/controller/')
+		fs.readdir(controllerPath,(err,files)=>{
+			if(err){
+				console.error(JSON.stringify(err))
+				return
+			}
+			files.forEach(item=>{
+				let route=require('../controller/'+item)
+				this.routes.push(route)
+			})
 		})
-
-		this.routes.push(abc)
-		
 	}
 	next(req,res){
 		const method=req.method.toLowerCase()

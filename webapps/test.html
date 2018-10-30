@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>test</title>
+</head>
+<body>
+    <button id="btn">get/post</button>
+    <button id="jsonp">jsonp</button>
+    <hr>
+    <div>
+      <input id="img" type="file" multiple="multiple" />
+      <button id="upimg">upimg</button>
+    </div>
+    <hr>
+    <div>
+      <input id="file" type="file" multiple="multiple" />
+      <button id="upfile">upfile</button>
+    </div>
+    <script type="text/javascript" src="/static/Org.js"></script>
+    <script type="text/javascript">
+      O('#upfile').addEventListener('click',()=>{
+        let files=O('#file').files
+        let fd=new FormData()
+        for(let file of files){
+          fd.append('file',file)
+        }
+        ajax('/upfile',{
+          type:'post',
+          data:fd,
+          success:data=>{
+            console.log(data)
+          }
+        })
+      })
+
+      O('#upimg').addEventListener('click',()=>{
+        let files=O('#img').files
+        let fd=new FormData()
+        for(let file of files){
+          fd.append('file',file)
+        }
+        ajax('/upimg',{
+          type:'post',
+          data:fd,
+          success:data=>{
+            console.log(data)
+          }
+        })
+      })
+
+      O('#btn').addEventListener('click',()=>{
+        ajax('/post',{
+          type:'post',
+          data:{
+            username:'huahua',
+            passworld:'123456',
+          },
+          success:function(data){
+            console.log(data)
+          }
+        })
+      })
+      O('#jsonp').addEventListener('click',()=>{
+        jsonp({
+          url:'/jsonp',
+          callbackName:'getData',
+          data:{name:'zhangs',age:28},
+          success:data=>{
+            console.log(data)
+          }
+        })
+      })
+
+    </script>
+</body>
+</html>
