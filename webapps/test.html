@@ -61,9 +61,9 @@
           }
         })
       })
+      
       O('#jsonp').addEventListener('click',()=>{
-        jsonp({
-          url:'/jsonp',
+        jsonp('http://localhost:3000/jsonp',{
           callbackName:'getData',
           data:{name:'zhangs',age:28},
           success:data=>{
@@ -71,7 +71,6 @@
           }
         })
       })
-
     </script>
 </body>
 </html>

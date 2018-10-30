@@ -3,11 +3,10 @@ const mysqlConfig=require('../../config/mysqlConfig')
 
 class Sql{
 	constructor(){
-		if(!POOL){
-			this.createPool()
-		}
+		this.createPool()
 	}
 	createPool(){
+		if(POOL) return
 		global.POOL=mysql.createPool({
 		  connectionLimit: mysqlConfig.connectionLimit,
 		  host: mysqlConfig.host,
@@ -47,9 +46,6 @@ module.exports=Sql
 			console.log(e)
 		}
 	})()
-	
-	//全局获取，需要把连接池变成全局变量，其他页面也能获取
-	调用的时候需要检测是否存在，不存在再创建
 */
 
 

@@ -71,8 +71,9 @@ let ajax=function(url,opt){
 	})
 */
 
-let jsonp=function(o){
-	if(!o.url) return
+let jsonp=function(url,opt){
+	if(!url) return
+	let o = opt ? opt : {}
 	o.callbackName=(o.callbackName) ? o.callbackName : 'jsonpCallBack'
 	o.success=(o.success) ? o.success : function(){}
 	o.data=(o.data) ? o.data : null
@@ -80,7 +81,7 @@ let jsonp=function(o){
 		o.success(data)
 	}
 	let s=document.createElement('script')
-	s.src+=o.url+'?'+'callback='+o.callbackName
+	s.src+=url+'?'+'callback='+o.callbackName
 	if(o.data && typeof o.data==='object'){
 		let arr=[]
 		for(let key in o.data) arr.push(key+'='+o.data[key])
@@ -93,8 +94,7 @@ let jsonp=function(o){
 }
 /*
 	jsonp调用方法
-	jsonp({
-		url:'http://localhost:3000/jsonp', //必须
+	jsonp('http://localhost:3000/jsonp',{
 		callbackName:'getData', //定义在window对象向，不能起冲突名字
 		data:{name:'zhangs',age:28,},
 		success:function(data){

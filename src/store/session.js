@@ -5,8 +5,8 @@ class Session{
     this.createSession()
 	}
   createSession(){
-    if(global.sessions) return
-    global.sessions={}
+    if(SESSIONS) return
+    global.SESSIONS={}
   }
 	generate(){
     let session={}
@@ -15,19 +15,19 @@ class Session{
       expire:Date.now()+this.EXPIRES,
       count:0
     }
-    sessions[session.id]=session
+    SESSIONS[session.id]=session
     return session
   }
   reset(id){
-    const session=sessions[id]
+    const session=SESSIONS[id]
   	session.cookie.expire=Date.now()+this.EXPIRES
   	session.cookie.count++
   }
   delete(id){
-  	delete sessions[id]
+  	delete SESSIONS[id]
   }
   select(id){
-    const session=sessions[id]
+    const session=SESSIONS[id]
     return session ? session : null
   }
 }
