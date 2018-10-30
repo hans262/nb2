@@ -14,5 +14,5 @@
     "maxAge": 6000
   },
   "CrossDomain": false,
-  "loginFlag": false
+  "loginFlag": true
 }

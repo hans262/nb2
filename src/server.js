@@ -5,6 +5,7 @@ const cpus=require('os').cpus()
 const config=require('../config/default')
 const handler=new (require('./routes/handler'))
 
+
 class Server{
 	constructor(){
 		this.port=config.port

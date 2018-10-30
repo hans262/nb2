@@ -1,11 +1,12 @@
 const user=require('../controller/user')
 const config=require('../../config/default')
+const abc=require('../controller/abc')
 
 class Router{
 	constructor(){
 		this.METHODS=config.METHODS
 		this.routes=[]
-		this.pushMethod()
+		// this.pushMethod()
 		this.pushRoutes()
 	}
 	pushMethod(){
@@ -20,6 +21,9 @@ class Router{
 		user.forEach(items=>{
 			this.routes.push(items)
 		})
+
+		this.routes.push(abc)
+		
 	}
 	next(req,res){
 		const method=req.method.toLowerCase()

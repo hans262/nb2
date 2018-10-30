@@ -3,32 +3,30 @@ const mysqlConfig=require('../../config/mysqlConfig')
 
 class Sql{
 	constructor(){
-		this.connectionLimit=mysqlConfig.connectionLimit
-		this.host=mysqlConfig.host
-		this.port=mysqlConfig.port
-		this.user=mysqlConfig.user
-		this.password=mysqlConfig.password
-		this.database=mysqlConfig.database
-
-		this.pool;
+		if(!POOL){
+			this.createPool()
+		}
 	}
-	initPool(){
-		this.pool=mysql.createPool({
-		  connectionLimit: this.connectionLimit,
-		  host: this.host,
-		  port: this.port,
-		  user: this.user,
-		  password: this.password,
-		  database: this.database,
+	createPool(){
+		global.POOL=mysql.createPool({
+		  connectionLimit: mysqlConfig.connectionLimit,
+		  host: mysqlConfig.host,
+		  port: mysqlConfig.port,
+		  user: mysqlConfig.user,
+		  password: mysqlConfig.password,
+		  database: mysqlConfig.database,
 		})
 	}
 	queryPromise(queryString){
 		return new Promise((resolve,reject)=>{
-			this.pool.getConnection((err,connection)=>{
+			POOL.getConnection((err,connection)=>{
 				connection.query(queryString,(err,results,fields)=>{
-					if(!err) resolve(results)
-					else reject(err)
 					connection.release()
+					if(err){
+						reject(err)
+					}else{
+						resolve(results)
+					}
 				})
 			})
 		})
@@ -38,15 +36,18 @@ class Sql{
 module.exports=Sql
 
 
+
 /*
 	调用方法
-	sql.initPool()
-	sql.queryPromise("SELECT * FROM users").then(data=>{
-		console.log(data)
-	}).catch(err=>{
-		console.log(err)
-	})
-
+	(async function(){
+		const sql=new Sql()
+		try{
+			let result=await sql.queryPromise("SELECT * FROM users")
+		}catch(e){
+			console.log(e)
+		}
+	})()
+	
 	//全局获取，需要把连接池变成全局变量，其他页面也能获取
 	调用的时候需要检测是否存在，不存在再创建
 */
