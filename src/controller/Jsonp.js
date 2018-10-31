@@ -7,8 +7,10 @@ class Jsonp{
 	}
 	handler(req,res){
 		res.writeHead(200,{'Content-Type':'application/json; charset=utf-8'})
-		const DATA=url.parse(req.url,true).query
-		res.end(`${DATA.callback}(${JSON.stringify(DATA)})`)
+		let DATA=url.parse(req.url,true).query
+		const callback=DATA.callback
+		delete DATA.callback
+		res.end(`${callback}(${JSON.stringify(DATA)})`)
 	}
 	test(){
 		return 'test'

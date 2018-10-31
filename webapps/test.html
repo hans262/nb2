@@ -64,7 +64,6 @@
       
       O('#jsonp').addEventListener('click',()=>{
         jsonp('http://localhost:3000/jsonp',{
-          callbackName:'getData',
           data:{name:'zhangs',age:28},
           success:data=>{
             console.log(data)

@@ -16,11 +16,6 @@ let getStyle=function(ele,attr){
   return ele.currentStyle ? ele.currentStyle[attr] : window.getComputedStyle(ele, null)[attr]
 }
 
-let hover=function(ele,fn,fnn){
-  ele.addEventListener('mouseover',fn)
-  ele.addEventListener('mouseout',fnn)
-}
-
 let ajax=function(url,opt){
 	let o = opt ? opt : {}
 	o.type=(o.type)?o.type:'get'
@@ -74,14 +69,14 @@ let ajax=function(url,opt){
 let jsonp=function(url,opt){
 	if(!url) return
 	let o = opt ? opt : {}
-	o.callbackName=(o.callbackName) ? o.callbackName : 'jsonpCallBack'
+	let callback='callback'+Date.now()
 	o.success=(o.success) ? o.success : function(){}
 	o.data=(o.data) ? o.data : null
-	window[o.callbackName]=function(data){
+	window[callback]=function(data){
 		o.success(data)
 	}
 	let s=document.createElement('script')
-	s.src+=url+'?'+'callback='+o.callbackName
+	s.src+=url+'?'+'callback='+callback
 	if(o.data && typeof o.data==='object'){
 		let arr=[]
 		for(let key in o.data) arr.push(key+'='+o.data[key])
@@ -95,11 +90,10 @@ let jsonp=function(url,opt){
 /*
 	jsonp调用方法
 	jsonp('http://localhost:3000/jsonp',{
-		callbackName:'getData', //定义在window对象向，不能起冲突名字
 		data:{name:'zhangs',age:28,},
 		success:function(data){
-        console.log(data)
-      }
+      console.log(data)
+    }
 	})
 */
 
@@ -171,43 +165,20 @@ let getCookie=function(key){
 	不传返回对象
 */
 
-let Display=function(ele){
-	if(ele){
-		let style=getStyle(ele,'display')
-		if(style=='inline'||style=='block'||style=='inline-block'){
-			ele.style.display='none'
-		}else{
-			ele.style.display='block'
-		}
-	}
-}
-Display.prototype.hide=function(ele){
-	ele.style.display='none'
-}
-Display.prototype.show=function(ele){
-	ele.style.display='block'
-}
-/*
-	Display调用方法
-	·构造函数=>切换显示/隐藏，不传参不执行
-	·hide方法隐藏
-	·show方法显示
-*/
-
 let arrSort=function(arr){
-    let k=arr.length
-    while(k>0){
-        for (let i=0;i<arr.length-1;i++){
-        	//如果相邻第一个数大于第二个数，就替换位置
-            if (arr[i]>arr[i+1]){
-                let temp=arr[i]
-                arr[i]=arr[i+1]
-                arr[i+1]=temp
-            }
-        }
-        k--
+  let k=arr.length
+  while(k>0){
+    for (let i=0;i<arr.length-1;i++){
+    	//如果相邻第一个数大于第二个数，就替换位置
+      if (arr[i]>arr[i+1]){
+        let temp=arr[i]
+        arr[i]=arr[i+1]
+        arr[i+1]=temp
+      }
     }
-    return arr
+    k--
+  }
+  return arr
 }
 /*
 	冒泡排序调用方法
@@ -230,53 +201,54 @@ let loadImage=function(path){
 		console.log(resolve)
 	})
 */
+
 let animate=function(ele,attrs,time,callback){
-    //储存初始属性
-    let starts={}
-    for(let key in attrs){
-        if(key==='opacity'){
-            starts[key]=parseFloat(getStyle(ele,key))
-        }else{
-            //ie浏览器获取到的默认定位值为auto
-            if(getStyle(ele,key)==='auto'){
-                starts[key]=0
-            }else{
-                starts[key]=parseInt(getStyle(ele,key))
-            }
-        }
+  //储存初始属性
+  let starts={}
+  for(let key in attrs){
+    if(key==='opacity'){
+      starts[key]=parseFloat(getStyle(ele,key))
+    }else{
+      //ie浏览器获取到的默认定位值为auto
+      if(getStyle(ele,key)==='auto'){
+        starts[key]=0
+      }else{
+        starts[key]=parseInt(getStyle(ele,key))
+      }
     }
-    //将时间划分成100份
-    let speed=time/100
-    let end=0
-    ele.timer=setInterval(function(){
-        end+=9
-        for(key in attrs){
-            if(key==='opacity'){
-                //透明度单独处理
-                let deg=(attrs[key]-starts[key])*100* Math.sin((end/10)*(Math.PI / 180))
-                ele.style.opacity=(starts[key]*100+deg)/100
-            }else{
-               //求出增量,正弦值0-90度对应0-1之间的增量
-                let deg=(attrs[key]-starts[key]) * Math.sin((end/10)*(Math.PI / 180))
-                ele.style[key]=(starts[key]+deg)+'px'
-            }
-        }
-        if(end===900){
-            clearInterval(ele.timer)
-            if(callback) callback()
-        }
-    },speed)
+  }
+  //将时间划分成100份
+  let speed=time/100
+  let end=0
+  ele.timer=setInterval(function(){
+    end+=9
+    for(key in attrs){
+      if(key==='opacity'){
+        //透明度单独处理
+        let deg=(attrs[key]-starts[key])*100* Math.sin((end/10)*(Math.PI / 180))
+        ele.style.opacity=(starts[key]*100+deg)/100
+      }else{
+        //求出增量,正弦值0-90度对应0-1之间的增量
+        let deg=(attrs[key]-starts[key]) * Math.sin((end/10)*(Math.PI / 180))
+        ele.style[key]=(starts[key]+deg)+'px'
+      }
+    }
+    if(end===900){
+      clearInterval(ele.timer)
+      if(callback) callback()
+    }
+  },speed)
 }
 /*
 	调用方法
 	animate(ele,{
-       'left':'120',
-       'top':'100',
-       'opacity':'.3',
-    },2000,function(){
-        console.log('动画结束')
-        console.log(.3)
-    })
+		'left':'120',
+		'top':'100',
+		'opacity':'.3',
+  },2000,function(){
+    console.log('动画结束')
+    console.log(.3)
+  })
 */
 
 let throttle=function(fun,delay,time){
@@ -334,7 +306,6 @@ lazyLoad.prototype.init=function(){
 
 
 
-
 /*
 	=========浏览器兼容性处理=========
 
@@ -363,23 +334,8 @@ lazyLoad.prototype.init=function(){
 	取消默认事件
 	e.preventDefault()
 	
-	//JS遍历的用法
-	Oall('.ww').forEach(function(item,value){
-	    // console.log(item,value)
-	    item.addEventListener('click',function(e){
-	        console.log(456)
-	    })
-	})
-
 	设置属性、获取属性
 	el.setAttribute('val')
 	el.getAttribute('key','value')
-
-*/
-
-/*
-	=========常用正则=========
-	邮箱
-	/^[0-9A-z][A-z0-9\._-]{1,}@[A-z0-9-]{1,}[A-z0-9]\.[A-z\.]{1,}[A-z]$/
 
 */
