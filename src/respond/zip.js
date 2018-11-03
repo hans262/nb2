@@ -33,7 +33,6 @@ class Zip{
   respond(req,res){
     if(req.headers['range']){
       var range=this.parseRange(req.headers['range'],req.stats.size)
-      console.info(range)
       if(range){
         process.send({type:'info',msg:`[process] pid: ${process.pid} -info: ReadRange ${range.start}-${range.end}`})
         // bytes 0-100/9193

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8">
+	<title>WebSocket</title>
+</head>
+<body>
+	<button id="conn">connection</button>
+	<button id="close">close</button>
+	<br>
+	<input id="txt" type="text">
+	<input id="send" type="submit" value="send">
+	<script type="text/javascript">
+		const createConnection=function(data){
+			var ws=new WebSocket("ws://localhost:3000/chat?user=bill")
+			ws.onopen=function(evt){
+				console.log('connection is started.')
+			}
+			ws.onclose=function(evt){
+			  console.log('connection is closed.')
+			}
+			ws.onmessage=function(msg){
+				data(msg.data)
+			}
+			return ws
+		}
+		var ws=null
+		var conn=document.getElementById('conn')
+		conn.addEventListener('click',function(){
+			if(ws && ws.readyState===1){
+				console.log('connection is started!!!')
+			}else{
+				ws=createConnection(data=>{
+					console.log(data)
+				})
+			}
+		})
+
+		var close=document.getElementById('close')
+		close.addEventListener('click',function(){
+			if(ws && ws.readyState==1) ws.close()
+		})
+
+		var send=document.getElementById('send')
+		send.addEventListener('click',function(){
+			let txt=document.getElementById('txt').value
+			if(ws && ws.readyState==1){
+				ws.send(txt)
+			}else{
+				console.log('connection is closed or null')
+			}
+		})
+	</script>
+</body>
+</html>
