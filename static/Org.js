@@ -17,6 +17,47 @@ let getStyle=function(ele,attr){
 }
 
 let ajax=function(url,opt){
+	return new Promise((resolve,reject)=>{
+		opt = opt ? opt : {}
+		opt.type = opt.type ? opt.type : 'get'
+		opt.async = opt.async ? opt.async : true
+		opt.header = opt.header ? opt.header : null
+		opt.params = opt.params ? opt.params : null
+		let xhr=window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP")
+
+		if(opt.params && Object.prototype.toString.call(opt.params)==='[object Object]'){
+			if(Object.keys(opt.params).length===0){
+				opt.params=null
+			}else{
+				let arr=[]
+				for(let key in opt.params) arr.push(key+'='+opt.params[key])
+				opt.params=arr.join('&')
+			}
+		}
+		if(opt.params && opt.type==='get'){
+			url+='?'+opt.params
+			opt.params=null
+		}
+		xhr.open(opt.type,url,opt.async)
+		if(opt.header && (typeof opt.header === 'object')){
+			for(let key in opt.header) xhr.setRequestHeader(key,opt.header[key])
+		}
+		if(opt.params && opt.type==='post'){
+			xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+		}
+		xhr.send(opt.params)
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState===4){
+				if(xhr.status===200 || xhr.status===206){
+					resolve(xhr.responseText)
+				}else{
+					reject({url:xhr.responseURL,status:xhr.status,statusText:xhr.statusText})
+				}
+			}
+		}
+	})
+}
+let ajax2=function(url,opt){
 	let o = opt ? opt : {}
 	o.type=(o.type)?o.type:'get'
 	o.data=(o.data)?o.data:null
@@ -34,7 +75,7 @@ let ajax=function(url,opt){
 	if(o.data && o.type==='get'){
 		url+='?'
 		url+=o.data
-		data=null
+		o.data=null
 	}
 	xhr.open(o.type,url,o.async)
 	if(o.header && (typeof o.header === 'object')){

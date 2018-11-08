@@ -35,6 +35,7 @@ class UpImg{
 			// console.log(arr)
 			let arrlen=arr.length
 			// 0-5 6-11 len 7 13 19
+			
 			for(let i=0;i<arrlen;i++){
 				var name=bufferconcat.slice(arr[i][0],arr[i][1]).toString().split(';')[2].split('=')[1]
 				let filename=name.split('\"')[1]

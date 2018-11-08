@@ -25,13 +25,11 @@
         for(let file of files){
           fd.append('file',file)
         }
+
         ajax('/upfile',{
           type:'post',
-          data:fd,
-          success:data=>{
-            console.log(data)
-          }
-        })
+          params:fd,
+        }).then(result=>console.info(result))
       })
 
       O('#upimg').addEventListener('click',()=>{
@@ -42,24 +40,26 @@
         }
         ajax('/upimg',{
           type:'post',
-          data:fd,
-          success:data=>{
-            console.log(data)
-          }
-        })
+          params:fd,
+        }).then(result=>console.info(result))
       })
 
-      O('#btn').addEventListener('click',()=>{
-        ajax('/post',{
-          type:'post',
-          data:{
-            username:'huahua',
-            passworld:'123456',
-          },
-          success:function(data){
-            console.log(data)
-          }
-        })
+      O('#btn').addEventListener('click',async()=>{
+        // try{
+        //   let result=await ajax('/get',{params:{name:'bill',age:20}})
+        //   console.info(result)
+        // }catch(e){
+        //   console.info(e)
+        // }
+        try{
+          let result=await Promise.all([
+            ajax('/get',{params:{name:'bill',age:20}}),
+            ajax('/post',{type:'post',params:{name:'kemi',age:22}})
+          ])
+          console.info(result)
+        }catch(e){
+          console.info(e)
+        }
       })
       
       O('#jsonp').addEventListener('click',()=>{
