@@ -17,44 +17,45 @@
     <input id="file" type="file" multiple="multiple" />
     <button id="upfile">upfile</button>
   </div>
-  <script type="text/javascript" src="/static/Org.js"></script>
+  <script type="text/javascript" src="/static/ajax.js"></script>
   <script type="text/javascript">
-    O('#upfile').addEventListener('click',()=>{
-      let files=O('#file').files
-      let fd=new FormData()
-      for(let file of files){
-        fd.append('file',file)
-      }
+    // O('#upfile').addEventListener('click',()=>{
+    //   let files=O('#file').files
+    //   let fd=new FormData()
+    //   for(let file of files){
+    //     fd.append('file',file)
+    //   }
 
-      ajax('/upfile',{
-        type:'post',
-        params:fd,
-      }).then(result=>console.info(result))
-    })
+    //   ajax('/upfile',{
+    //     type:'post',
+    //     params:fd,
+    //   }).then(result=>console.info(result))
+    // })
 
-    O('#upimg').addEventListener('click',()=>{
-      let files=O('#img').files
-      let fd=new FormData()
-      for(let file of files){
-        fd.append('file',file)
-      }
-      ajax('/upimg',{
-        type:'post',
-        params:fd,
-      }).then(result=>console.info(result))
-    })
+    // O('#upimg').addEventListener('click',()=>{
+    //   let files=O('#img').files
+    //   let fd=new FormData()
+    //   for(let file of files){
+    //     fd.append('file',file)
+    //   }
+    //   ajax('/upimg',{
+    //     type:'post',
+    //     params:fd,
+    //   }).then(result=>console.info(result))
+    // })
 
     O('#btn').addEventListener('click',async()=>{
       // try{
-      //   let result=await ajax('/get',{params:{name:'bill',age:20}})
+      //   let result=await ajax.get('/get',{params:{name:'bill',age:20}})
       //   console.info(result)
       // }catch(e){
       //   console.info(e)
       // }
+
       try{
-        let result=await Promise.all([
-          ajax('/get',{params:{name:'bill',age:20}}),
-          ajax('/post',{type:'post',params:{name:'kemi',age:22}})
+        let result=await ajax.all([
+          ajax.get('/static/'),
+          ajax.post('/post',{type:'post',params:{name:'kemi',age:22}})
         ])
         console.info(result)
       }catch(e){
@@ -62,14 +63,14 @@
       }
     })
     
-    O('#jsonp').addEventListener('click',()=>{
-      jsonp('http://localhost:3000/jsonp',{
-        data:{name:'zhangs',age:28},
-        success:data=>{
-          console.log(data)
-        }
-      })
-    })
+    // O('#jsonp').addEventListener('click',()=>{
+    //   jsonp('http://localhost:3000/jsonp',{
+    //     data:{name:'zhangs',age:28},
+    //     success:data=>{
+    //       console.log(data)
+    //     }
+    //   })
+    // })
   </script>
 </body>
 </html>
