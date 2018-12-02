@@ -2,7 +2,7 @@
 class Post{
 	constructor(){
 		this.method='post'
-		this.path='/post'
+		this.path='/api/post'
 	}
 	async handler(req,res){
 		res.writeHead(200,{'Content-Type':'application/json; charset=utf-8'})

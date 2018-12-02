@@ -3,7 +3,7 @@ const url=require('url')
 class Get{
 	constructor(){
 		this.method='get'
-		this.path='/get'
+		this.path='/api/get'
 	}
 	handler(req,res){
 		res.writeHead(200,{'Content-Type':'application/json; charset=utf-8'})

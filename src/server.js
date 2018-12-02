@@ -21,7 +21,7 @@ class Server{
 		return server
 	}
 	marster(){
-		console.info(`[main process] pid: ${process.pid} is Running`) 
+		console.info(`[main process] pid: ${process.pid} is Running`)
 		//衍生process
 		if(this.isProcess){for(let cpu of cpus) cluster.fork()}else{cluster.fork()}
 		//每个子进程创建后，触发
@@ -56,4 +56,5 @@ class Server{
 		cluster.isMaster ? this.marster() : this.worker()
 	}
 }
+
 module.exports=Server
