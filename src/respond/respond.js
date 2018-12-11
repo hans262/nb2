@@ -20,6 +20,12 @@ class Respond{
 		respondLogin(req,res)
 	}
 	redirect(res,location,code,reasonPhrase){
+		process.send({
+			type: 'info',
+      pid: process.pid,
+      msgtype: 'info',
+      msg: 'Request Redirect'
+		})
 	  res.setHeader('Location',location)
 	  res.writeHead(code,reasonPhrase)
 	  res.end('reasonPhrase')

@@ -1,5 +1,5 @@
 # node-server
-A nodejs webserver project
+A nodejs webserver project.
 
 ### Installation dependency
 ```sh
