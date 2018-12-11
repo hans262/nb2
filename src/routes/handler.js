@@ -14,7 +14,7 @@ class Handler{
     this.loginFlag=config.loginFlag
 
     this.projectPath=__dirname.split('src')[0]
-    this.faviconPath=path.join(this.projectPath,'/static/favicon.ico')
+    this.faviconPath=path.join(this.projectPath,'/public/favicon.ico')
 	}
   system(req,res){
     switch(true){
@@ -38,11 +38,6 @@ class Handler{
       req.absolutePath=this.faviconPath
       respond.statics(req,res)
       break;
-      case req.relativePath.startsWith('/static/') :
-      let staticPath=path.join(this.projectPath,req.relativePath)
-      req.absolutePath=staticPath
-      respond.statics(req,res)
-      break;
       case router.next(req,res) :
       break;
       default :
@@ -58,7 +53,12 @@ class Handler{
     req.postdata=Utils.parsePostData(req)//挂载post数据
     req.cookies=Utils.parseCookie(req.headers.cookie)//挂载cookies
     
-    process.send({type:'info',msg:`[process] pid: ${process.pid} -req: ${req.absolutePath}`})
+    process.send({
+      type: 'info',
+      pid: process.pid,
+      msgtype: 'request',
+      msg: req.absolutePath
+    })
     this.system(req,res)
   }
 }

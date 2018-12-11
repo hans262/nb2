@@ -1,7 +1,10 @@
-# node-webserver
+# node-server
 
-## Project setup
->npm install
-
-### Compiles and hot-reloads for development
->npm run start
+## Installation dependency
+```sh
+npm install
+```
+## Startup project
+```sh
+npm start
+```

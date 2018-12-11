@@ -5,41 +5,45 @@ const cpus=require('os').cpus()
 const config=require('../config/default')
 const handler=new (require('./routes/handler'))
 
-
 class Server{
 	constructor(){
 		this.port=config.port
-  	this.hostname=config.host
+  	this.host=config.host
   	this.isProcess=config.isProcess
 	}
 	createServer(){
 		const server=http.createServer()
 		server.on('request',(req,res)=>handler.mount(req,res))
-		server.listen(this.port,this.hostname,()=>{
-		  process.send({type:'info',msg:`[process] pid: ${process.pid} -server: started port: ${this.port}`})
+		server.listen(this.port,this.host,()=>{
+		  process.send({
+		  	type: 'info',
+		  	pid: process.pid,
+		  	msgtype: 'server',
+		  	msg: `server is started on port: ${this.port}`
+		  })
 		})
 		return server
 	}
 	marster(){
-		console.info(`[main process] pid: ${process.pid} is Running`)
+		console.info(`[process] pid: ${process.pid} -> main process is running`)
 		//衍生process
 		if(this.isProcess){for(let cpu of cpus) cluster.fork()}else{cluster.fork()}
-		//每个子进程创建后，触发
-		cluster.on('listening',(worker,address)=>{
-			console.info(`[process] pid: ${worker.process.pid} -id: ${worker.id} is Running`)
-			// worker.send({type:'shutdown',msg:'shutdown'})//发送关闭命令
-    })
+
 		cluster.on('message',(worker,message,handle)=>{
 			//收到closed server，断开与主进程IPC管道
 			if(message.type==='closed') worker.disconnect()
-			if(message.type==='info') console.info(message.msg)
+			if(message.type==='info'){
+				console.info(
+					`[${message.msgtype}] pid: ${message.pid} -> ${message.msg}`
+				)
+			}
 		})
 		cluster.on('disconnect',worker=>{
 			//监听是否与主进程断开，然后杀死子进程
 			worker.kill()
 		})
 		cluster.on('exit',(worker,code,signal)=>{
-			console.info(`[process] pid: ${worker.process.pid} is Exited`)
+			console.info(`[process] pid: ${worker.process.pid} -> process is exited`)
 			cluster.fork()
 		})
 	}
@@ -52,7 +56,7 @@ class Server{
 			}
 		})
 	}
-	main(){
+	start(){
 		cluster.isMaster ? this.marster() : this.worker()
 	}
 }

@@ -14,7 +14,12 @@ class Zip{
   compressHandle(req,res,raw,statusCode,reasonPhrase){
     var stream=raw
     if(this.isZipShould(req.absolutePath)){
-      process.send({type:'info',msg:`[process] pid: ${process.pid} -info: ReadFile IsZiped`})
+      process.send({
+        type: 'info',
+        pid: process.pid,
+        msgtype: 'info',
+        msg: 'ReadFile IsZiped'
+      })
       const acceptEncoding=req.headers['accept-encoding'] ? req.headers['accept-encoding'] : ''
       if(acceptEncoding.match(/\bgzip\b/)){
         res.setHeader('Content-Encoding','gzip')
@@ -25,7 +30,12 @@ class Zip{
       }
     }else{
       res.setHeader('Content-Length',req.stats.size)
-      process.send({type:'info',msg:`[process] pid: ${process.pid} -info: ReadFile NotZiped`})
+      process.send({
+        type: 'info',
+        pid: process.pid,
+        msgtype: 'info',
+        msg: 'ReadFile NotZiped'
+      })
     }
     res.writeHead(statusCode,reasonPhrase)
     stream.pipe(res)
@@ -34,14 +44,24 @@ class Zip{
     if(req.headers['range']){
       var range=this.parseRange(req.headers['range'],req.stats.size)
       if(range){
-        process.send({type:'info',msg:`[process] pid: ${process.pid} -info: ReadRange ${range.start}-${range.end}`})
+        process.send({
+          type: 'info',
+          pid: process.pid,
+          msgtype: 'info',
+          msg: `ReadRange ${range.start}-${range.end}`
+        })
         // bytes 0-100/9193
         res.setHeader('Content-Range','bytes=' + range.start + '-' + range.end + '/' + req.stats.size)
         res.setHeader('Content-Length',(range.end - range.start + 1))
         var raw=fs.createReadStream(req.absolutePath,{'start': range.start,'end': range.end})
         this.compressHandle(req,res,raw,206,'Partial Content')
       }else{
-        process.send({type:'info',msg:`[process] pid: ${process.pid} -info: ReadRange 416`})
+        process.send({
+          type: 'info',
+          pid: process.pid,
+          msgtype: 'info',
+          msg: `ReadRange 416`
+        })
         res.removeHeader('Content-Length')
         res.setHeader('Content-Range', `bytes=*/${req.stats.size}`)
         res.writeHead(416,'Request Range Not Satisfiable')

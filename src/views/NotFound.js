@@ -1,5 +1,10 @@
 module.exports=(req,res)=>{
-	process.send({type:'info',msg:`[process] pid: ${process.pid} -info: ReadFile NotFound`})
+	process.send({
+		type: 'info',
+    pid: process.pid,
+    msgtype: 'info',
+    msg: 'Respond NotFound'
+	})
 	res.setHeader('Content-Type','text/html; charset=utf-8')
 	res.writeHead(404,'Not Found')
 	res.end(`

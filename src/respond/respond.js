@@ -25,7 +25,12 @@ class Respond{
 	  res.end('reasonPhrase')
 	}
 	notModified(res){
-		process.send({type:'info',msg:`[process] pid: ${process.pid} -info: ReadFile IsCached`})
+		process.send({
+			type: 'info',
+      pid: process.pid,
+      msgtype: 'info',
+      msg: 'ReadFile IsCached'
+		})
 		res.writeHead(304,'Not Modified')
   	res.end('Not Modified')
 	}
@@ -71,7 +76,6 @@ class Respond{
 				req.absolutePath=indexPath
 				this.isCache(req,res)
 			}else{
-				process.send({type:'info',msg:`[process] pid: ${process.pid} -info: ReadDir`})
 				fs.readdir(req.absolutePath,(err,files)=>{
 					if(err){
           	res.writeHead(500,'Server Error')
@@ -86,7 +90,12 @@ class Respond{
 								itemLink=path.join(itemLink,'/')
 							}
 						}catch(err){
-							console.error(JSON.stringify(err))
+							process.send({
+								type: 'info',
+					      pid: process.pid,
+					      msgtype: 'error',
+					      msg: JSON.stringify(err)
+							})
 							small+=`<small style="color:red">此路径没有可读权限</small>`
 						}
 	          content+=`<p><a href='${itemLink}'>${file}</a>${small}</p>`
