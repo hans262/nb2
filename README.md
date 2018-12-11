@@ -1,4 +1,4 @@
-# node-server
+# node-server [![Build Status]
 
 ## Installation dependency
 ```sh
