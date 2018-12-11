@@ -1,10 +1,11 @@
-# node-server [![Build Status](https://travis-ci.org/facebook/create-react-app.svg?branch=master)](https://travis-ci.org/facebook/create-react-app) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](https://github.com/facebook/create-react-app/pulls)
+# node-server
+A nodejs webserver project
 
-## Installation dependency
+### Installation dependency
 ```sh
 npm install
 ```
-## Startup project
+### Startup project
 ```sh
 npm start
 ```
