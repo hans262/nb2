@@ -4,8 +4,7 @@
   "root": "D:\\",
   "indexPage": "index.html",
   "zipMatch": "^\\.(css|js|html|woff)$",
-  "METHODS": ["GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS"],
-  "isProcess": false,
+  "isCluster": false,
   "cache": {
     "cacheControl": true,
     "expires": true,
@@ -13,6 +12,6 @@
     "lastModified": true,
     "maxAge": 6000
   },
-  "CrossDomain": false,
-  "loginFlag": false
+  "isCross": false,
+  "loginVerify": true
 }

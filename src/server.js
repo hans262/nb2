@@ -3,13 +3,13 @@ const cluster=require('cluster')//多核cpu集群
 const cpus=require('os').cpus()
 
 const config=require('../config/default')
-const handler=new (require('./routes/handler'))
+const handler=require('./routes/handler')
 
 class Server{
 	constructor(){
 		this.port=config.port
   	this.host=config.host
-  	this.isProcess=config.isProcess
+  	this.isCluster=config.isCluster
 	}
 	createServer(){
 		const server=http.createServer()
@@ -27,7 +27,7 @@ class Server{
 	marster(){
 		console.info(`[process] pid: ${process.pid} -> main process is running`)
 		//衍生process
-		if(this.isProcess){for(let cpu of cpus) cluster.fork()}else{cluster.fork()}
+		if(this.isCluster){for(let cpu of cpus) cluster.fork()}else{cluster.fork()}
 
 		cluster.on('message',(worker,message,handle)=>{
 			//收到closed server，断开与主进程IPC管道

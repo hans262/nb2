@@ -1,23 +1,12 @@
 const fs=require('fs')
 const path=require('path')
-const config=require('../../config/default')
 
 class Router{
 	constructor(){
-		this.METHODS=config.METHODS
 		this.routes=[]
-		// this.AddMethod()
-		this.AddRoutes()
+		this.addRoute()
 	}
-	AddMethod(){
-		this.METHODS.forEach(item=>{
-	    const method=item.toLowerCase()
-	    this[item]=function(path,fn){
-	    	this.routes.push({method, path, handler:fn})
-	    }
-		})
-	}
-	AddRoutes(){
+	addRoute(){
 		let projectPath=__dirname.split('src')[0]
 		let controllerPath=path.join(projectPath,'/src/controller/')
 		fs.readdir(controllerPath,(err,files)=>{
@@ -31,13 +20,15 @@ class Router{
 			})
 		})
 	}
-	next(req,res){
+
+	isExist(req,res){
 		const method=req.method.toLowerCase()
-		for(let v of this.routes){
-			if(v.method === method && v.path === req.relativePath){
-				v.handler(req,res)
-				return true
-			}
+		const route=this.routes.filter(item=>{
+			return item.method === method && item.path === req.relativePath
+		})
+		if(route[0]){
+			route[0].handler(req,res)
+			return true
 		}
 		return false
 	}

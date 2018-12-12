@@ -3,7 +3,7 @@ const config=require('../../config/default')
 
 class Utils{
 	constructor(){
-    this.CrossDomain=config.CrossDomain
+    this.isCross=config.isCross
 	}
 	static serialize(name,val,opt){
 		let pairs=[name + '=' + val]
@@ -41,7 +41,7 @@ class Utils{
     res.setHeader('content-language','zh-CN')
     res.setHeader('Vary','Accept-Encoding')
     res.setHeader('X-XSS-Protection','1; mode=block')//xss安全策略
-    if(config.CrossDomain){
+    if(config.isCross){
       res.setHeader('Access-Control-Allow-Method', 'GET, POST, OPTIONS')
       res.setHeader('Access-Control-Allow-Origin', '*')
     }

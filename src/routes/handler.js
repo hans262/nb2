@@ -11,12 +11,14 @@ const login=require('./login')
 class Handler{
 	constructor(){
 		this.root=config.root
-    this.loginFlag=config.loginFlag
+    this.loginVerify=config.loginVerify
 
     this.projectPath=__dirname.split('src')[0]
     this.faviconPath=path.join(this.projectPath,'/public/favicon.ico')
 	}
-  system(req,res){
+
+  routeHandler(req,res){
+    Utils.setHeaders(res)
     switch(true){
       case req.relativePath==='/login' && req.method==='GET' :
       respond.login(req,res)
@@ -24,26 +26,20 @@ class Handler{
       case req.relativePath==='/loginReq' && req.method==='POST' :
       login.loginReqHandler(req,res)
       break;
-      case this.loginFlag && !login.isLogin(req,res) :
+      case this.loginVerify && !login.isLogin(req,res) :
       respond.redirect(res,'/login',302,'Temporarily Moved')
       break;
-      default :
-      this.routeHandler(req,res)
-    }
-  }
-  routeHandler(req,res){
-    Utils.setHeaders(res)//设置headers
-    switch(true){
       case req.relativePath==='/favicon.ico' && req.method==='GET' :
       req.absolutePath=this.faviconPath
       respond.statics(req,res)
       break;
-      case router.next(req,res) :
+      case router.isExist(req,res) :
       break;
       default :
       respond.statics(req,res)
     }
   }
+
   mount(req,res){
     const UrlParse=url.parse(req.url,true)
     req.relativePath=decodeURI(UrlParse.pathname)//挂载相对路径
@@ -59,8 +55,8 @@ class Handler{
       msgtype: 'request',
       msg: req.absolutePath
     })
-    this.system(req,res)
+    this.routeHandler(req,res)
   }
 }
 
-module.exports=Handler
+module.exports=new Handler()
