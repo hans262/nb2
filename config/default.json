@@ -13,5 +13,5 @@
     "maxAge": 6000
   },
   "isCross": false,
-  "loginVerify": true
+  "loginVerify": false
 }
