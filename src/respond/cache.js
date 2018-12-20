@@ -23,7 +23,7 @@ class Cache{
       res.setHeader('Last-Modified',lastModified)
   	}
   	if(this.cache.etag){
-  		//token
+  		//token资源关联记号
   		res.setHeader('ETag',this.generateETag(stats))
   	}
   }
