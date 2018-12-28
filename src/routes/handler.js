@@ -42,6 +42,7 @@ class Handler{
 
   mount(req,res){
     const UrlParse=url.parse(req.url,true)
+
     req.relativePath=decodeURI(UrlParse.pathname)//挂载相对路径
     req.absolutePath=decodeURI(path.join(this.root,req.relativePath))//挂载绝对路径
 
