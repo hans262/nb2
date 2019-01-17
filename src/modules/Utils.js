@@ -1,4 +1,3 @@
-const querystring=require('querystring')
 const config=require('../../config/default')
 
 class Utils{
@@ -32,7 +31,7 @@ class Utils{
       let str=''
       req.on('data',chunk=>str+=chunk)
       req.on('end',()=>{
-        resolve(querystring.parse(str))
+        resolve(str)
       })
     })
   }
