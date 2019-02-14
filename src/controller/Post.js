@@ -1,3 +1,5 @@
+const querystring=require('querystring')
+
 // @post
 class Post{
 	constructor(){
@@ -7,7 +9,8 @@ class Post{
 	async handler(req,res){
 		res.writeHead(200,{'Content-Type':'application/json; charset=utf-8'})
 		const data=await req.postdata
-		res.end(JSON.stringify(data))
+		
+		res.end(JSON.stringify(querystring.parse(data)))
 	}
 	test(){
 		return 'test'

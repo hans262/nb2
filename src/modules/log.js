@@ -18,7 +18,7 @@ out.write('\r\n')
 out.end()
 
 out.on('error',function(){
-	console.log(writing failed)
+	// console.log(writing failed)
     console.log(error)
 })
 out.on('finish',function(){
