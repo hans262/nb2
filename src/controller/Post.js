@@ -9,7 +9,7 @@ class Post{
 	async handler(req,res){
 		res.writeHead(200,{'Content-Type':'application/json; charset=utf-8'})
 		const data=await req.postdata
-		res.end(JSON.stringify(querystring.parse(data)))
+		res.end(data)
 	}
 	test(){
 		return 'test'
