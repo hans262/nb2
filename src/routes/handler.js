@@ -47,7 +47,6 @@ class Handler{
     req.absolutePath=decodeURI(path.join(this.root,req.relativePath))//挂载绝对路径
 
     req.query=UrlParse.query//挂载get数据
-    req.postdata=Utils.parsePostData(req)//挂载post数据
     req.cookies=Utils.parseCookie(req.headers.cookie)//挂载cookies
     
     process.send({

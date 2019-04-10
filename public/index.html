@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>test</title>
+</head>
+<body>
+  <button id="btn">get/post</button>
+  <button id="jsonp">jsonp</button>
+  <hr>
+  <form action="/api/upfile" method="post" enctype="multipart/form-data">
+    <input type="file" name="file"/>
+    <button type="submit">上传</button>
+  </form>
+  <script src="ajax.js"></script>
+  <script>
+    O('#btn').addEventListener('click',()=>{
+      ajax.post('/api/post',{
+        params:{
+          name:'bill',
+          age:15
+        }
+      }).then(res=>{
+        console.log(res)
+      })
+    })
+  </script>
+</body>
+</html>

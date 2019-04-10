@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A nodejs webserver project",
   "scripts": {
-    "start": "node app.js"
+    "start": "node scripts/start.js"
   },
   "author": "ouna",
   "license": "MIT",

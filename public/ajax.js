@@ -60,7 +60,7 @@ class Ajax{
 	post(url,opt){
 		return new Promise((resolve,reject)=>{
 			opt=opt ? opt : {}
-			let { async=true, header=null, params }=opt
+			let { header=null, params }=opt
 			params=this.parseParams(params)
 			const xhr=new XMLHttpRequest()
 

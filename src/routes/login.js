@@ -31,7 +31,7 @@ class Login{
     return true
 	}
   async loginReqHandler(req,res){
-    const data=await req.postdata
+    const data='post数据'
     /*
       验证账号密码是否正确
       生成session

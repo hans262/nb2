@@ -1,4 +1,5 @@
 const querystring=require('querystring')
+const Utils=require('../modules/Utils')
 
 // @post
 class Post{
@@ -8,7 +9,7 @@ class Post{
 	}
 	async handler(req,res){
 		res.writeHead(200,{'Content-Type':'application/json; charset=utf-8'})
-		const data=await req.postdata
+		const data=await Utils.parsePostData(req)
 		res.end(data)
 	}
 	test(){
