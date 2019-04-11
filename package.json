@@ -1,7 +1,7 @@
 {
   "name": "node-server",
   "version": "1.0.0",
-  "description": "A nodejs webserver project",
+  "description": "nodejs server",
   "scripts": {
     "start": "node scripts/start.js"
   },

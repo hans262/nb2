@@ -1,6 +1,3 @@
-const querystring=require('querystring')
-const Utils=require('../modules/Utils')
-
 // @post
 class Post{
 	constructor(){
@@ -9,11 +6,14 @@ class Post{
 	}
 	async handler(req,res){
 		res.writeHead(200,{'Content-Type':'application/json; charset=utf-8'})
-		const data=await Utils.parsePostData(req)
-		res.end(data)
-	}
-	test(){
-		return 'test'
+		let chunks=[]
+		req.on('data',chunk=>{
+			chunks.push(chunk)
+		})
+		req.on('end',()=>{
+			const buffer=Buffer.concat(chunks)
+			res.end(buffer)
+		})
 	}
 }
 
