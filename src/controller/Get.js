@@ -8,7 +8,7 @@ class Get{
 	handler(req,res){
 		res.writeHead(200,{'Content-Type':'application/json; charset=utf-8'})
 		const DATA=url.parse(req.url,true).query
-	  res.end(JSON.stringify(DATA))
+		res.end(JSON.stringify(DATA))
 	}
 	test(){
 		return 'test'

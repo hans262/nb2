@@ -11,53 +11,77 @@ class Server{
   	this.host=config.host
   	this.isCluster=config.isCluster
 	}
-	createServer(){
-		const server=http.createServer()
-		server.on('request',(req,res)=>handler.mount(req,res))
-		return server
-	}
 	marster(){
-		console.info(`[process] pid: ${process.pid} -> main process is running`)
+		console.info(`[master] pid: ${process.pid} -> master process started`)
 		//衍生子进程
-		if(this.isCluster){for(let cpu of cpus) cluster.fork()}else{cluster.fork()}
+		if(this.isCluster){
+			cpus.forEach(()=>cluster.fork())
+		}else{
+			cluster.fork()
+		}
 
-		cluster.on('message',(worker,message,handle)=>{
-			//收到server closed ，断开与主进程IPC管道
-			if(message.type==='close') worker.disconnect()
-			if(message.type==='info'){
-				console.info(
-					`[${message.msgtype}] pid: ${message.pid} date: ${new Date()} -> ${message.msg}`
-				)
+		cluster.on('message',(worker, action)=>{
+			switch(action.type){
+				case 'info':
+					const { pid, msg, msgtype }=action
+					const nowTime=new Date().toLocaleString()
+					console.info(`[${msgtype}] pid: ${pid} date: ${nowTime} -> ${msg}`)
+					break
+				case 'restart':
+					//重启所有子进程
+					Object.values(cluster.workers).forEach((w,i)=>{
+						setTimeout(()=>{
+							w.send({type:'closeServer', code:1})
+						},2000*i)
+					})
+					break
+				case 'shutdown':
+					//关闭所有服务，断掉所有子进程
+					Object.values(cluster.workers).forEach(w=>{
+						w.send({type:'closeServer', code:0})
+					})
+					break
+				default:
+					throw new Error('No MsgType!')
 			}
 		})
-		cluster.on('disconnect',worker=>{
-			//监听与主进程IPC管道断开,然后kill子进程
-			worker.kill()
-		})
-		cluster.on('exit',(worker,code,signal)=>{
-			console.info(`[process] pid: ${worker.process.pid} -> process is exited`)
-			cluster.fork()
+
+		cluster.on('exit',(worker, code)=>{
+			console.info(`[worker] pid: ${worker.process.pid} -> worker process exited`)
+			if(code===1){
+				//表示重启事件
+				cluster.fork()
+			}
 		})
 	}
 	worker(){
-		const server=this.createServer()
+		const server=http.createServer((req,res)=>{
+			handler.mount(req,res)
+		})
 
 		server.listen(this.port,this.host,()=>{
 		  process.send({
 		  	type: 'info',
 		  	pid: process.pid,
-		  	msgtype: 'server',
-		  	msg: `server is started on port: ${this.port}`
+		  	msgtype: 'worker',
+		  	msg: `worker server started on port: ${this.port}`
 		  })
 		})
 
-		process.on('message', message=>{
-			if(message.type==='shutdown'){
-				server.close()//停止接收新的连接
-				process.send({type:'close',msg:'closed'})
+		process.on('message', action=>{
+			switch(action.type){
+				case 'closeServer':
+					//平滑重启
+					setTimeout(()=>{
+						process.exit(action.code)
+					},10000)
+					server.close()
+					break
+				default:
+					throw new Error('No MsgType!')
 			}
 		})
-		
+
 	}
 	start(){
 		cluster.isMaster ? this.marster() : this.worker()
