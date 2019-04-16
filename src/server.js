@@ -27,18 +27,18 @@ class Server{
 					const nowTime=new Date().toLocaleString()
 					console.info(`[${msgtype}] pid: ${pid} date: ${nowTime} -> ${msg}`)
 					break
-				case 'restart':
-					//重启所有子进程
+				case 'RE_START':
+					//重启
 					Object.values(cluster.workers).forEach((w,i)=>{
 						setTimeout(()=>{
-							w.send({type:'closeServer', code:1})
+							w.send({type:'CLOSE_SERVER', code:1})
 						},2000*i)
 					})
 					break
-				case 'shutdown':
-					//关闭所有服务，断掉所有子进程
+				case 'SHUT_DOWN':
+					//关机
 					Object.values(cluster.workers).forEach(w=>{
-						w.send({type:'closeServer', code:0})
+						w.send({type:'CLOSE_SERVER', code:0})
 					})
 					break
 				default:
@@ -49,7 +49,7 @@ class Server{
 		cluster.on('exit',(worker, code)=>{
 			console.info(`[worker] pid: ${worker.process.pid} -> worker process exited`)
 			if(code===1){
-				//表示重启事件
+				//重启
 				cluster.fork()
 			}
 		})
@@ -70,10 +70,11 @@ class Server{
 
 		process.on('message', action=>{
 			switch(action.type){
-				case 'closeServer':
-					//平滑重启
+				case 'CLOSE_SERVER':
+					//平滑关闭server
+					const { code }=action
 					setTimeout(()=>{
-						process.exit(action.code)
+						process.exit(code)
 					},10000)
 					server.close()
 					break

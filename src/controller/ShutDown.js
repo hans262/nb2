@@ -7,7 +7,7 @@ class ShutDown{
 	handler(req,res){
 		res.writeHead(200,{'Content-Type':'application/json; charset=utf-8'})
     res.end(`服务器将在10s后关闭！`)
-    process.send({type: 'shutdown'})
+    process.send({type: 'SHUT_DOWN'})
 	}
 	test(){
 		return 'test'

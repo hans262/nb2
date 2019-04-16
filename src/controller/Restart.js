@@ -7,7 +7,7 @@ class Restart{
 	handler(req,res){
 		res.writeHead(200,{'Content-Type':'application/json; charset=utf-8'})
     res.end(`服务器将在10后，平滑重启，不影响使用体验`)
-    process.send({type: 'restart'})
+    process.send({type: 'RE_START'})
 	}
 	test(){
 		return 'test'
