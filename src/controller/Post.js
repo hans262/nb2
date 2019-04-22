@@ -1,7 +1,7 @@
 // @post
 class Post{
 	constructor(){
-		this.method='post'
+		this.method='POST'
 		this.path='/api/post'
 	}
 	async handler(req,res){

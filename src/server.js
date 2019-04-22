@@ -3,7 +3,7 @@ const cluster=require('cluster')//多核cpu集群
 const cpus=require('os').cpus()
 
 const config=require('../config/default')
-const handler=require('./routes/handler')
+
 
 class Server{
 	constructor(){
@@ -55,6 +55,7 @@ class Server{
 		})
 	}
 	worker(){
+		const handler=require('./routes/handler')
 		const server=http.createServer((req,res)=>{
 			handler.mount(req,res)
 		})

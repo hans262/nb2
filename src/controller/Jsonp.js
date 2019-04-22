@@ -1,19 +1,14 @@
-const url=require('url')
 // @jsonp
 class Jsonp{
 	constructor(){
-		this.method='get'
+		this.method='GET'
 		this.path='/api/jsonp'
 	}
 	handler(req,res){
 		res.writeHead(200,{'Content-Type':'application/json; charset=utf-8'})
-		let DATA=url.parse(req.url,true).query
-		const callback=DATA.callback
-		delete DATA.callback
-		res.end(`${callback}(${JSON.stringify(DATA)})`)
-	}
-	test(){
-		return 'test'
+		const { query }=req
+		const { callback, ...data }=query
+		res.end(`${callback}(${JSON.stringify(data)})`)
 	}
 }
 

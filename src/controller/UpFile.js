@@ -1,6 +1,4 @@
 const fs=require('fs')
-const Utils=require('../modules/Utils')
-
 /**
  * 目前只支持单个文件上传，图片/文本等
  */
@@ -8,7 +6,7 @@ const Utils=require('../modules/Utils')
 // @upfile
 class UpFile{
 	constructor(){
-		this.method='post'
+		this.method='POST'
 		this.path='/api/upfile'
 	}
 	handler(req,res){
@@ -53,9 +51,6 @@ class UpFile{
 			res.writeHead(200,{'Content-Type':'application/json; charset=utf-8'})
 			res.end(JSON.stringify({sucess:true,result:'上传成功'}))
 		})
-	}
-	test(){
-		return 'test'
 	}
 }
 

@@ -1,17 +1,13 @@
-const url=require('url')
 // @get
 class Get{
 	constructor(){
-		this.method='get'
+		this.method='GET'
 		this.path='/api/get'
 	}
 	handler(req,res){
 		res.writeHead(200,{'Content-Type':'application/json; charset=utf-8'})
-		const DATA=url.parse(req.url,true).query
-		res.end(JSON.stringify(DATA))
-	}
-	test(){
-		return 'test'
+		const { query }=req
+		res.end(JSON.stringify(query))
 	}
 }
 

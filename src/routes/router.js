@@ -5,29 +5,29 @@ class Router{
 	constructor(){
 		this.routes=[]
 		this.addRoute()
+		this.handler=null
 	}
 	addRoute(){
-		let projectPath=__dirname.split('src')[0]
-		let controllerPath=path.join(projectPath,'/src/controller/')
+		let sourcePath=__dirname.split('src')[0]
+		let controllerPath=path.join(sourcePath,'/src/controller/')
 		fs.readdir(controllerPath,(err,files)=>{
 			if(err){
 				console.error(JSON.stringify(err))
 				return
 			}
-			files.forEach(item=>{
-				let route=require('../controller/'+item)
+			files.forEach(f=>{
+				let route=require('../controller/'+f)
 				this.routes.push(route)
 			})
 		})
 	}
 
-	isExist(req,res){
-		const method=req.method.toLowerCase()
-		const route=this.routes.filter(item=>{
-			return item.method === method && item.path === req.relativePath
-		})
-		if(route[0]){
-			route[0].handler(req,res)
+	isHit(req){
+		const { method, relativePath }=req
+		const route=this.routes.filter(r=>r.method === method && r.path === relativePath)
+		if(route.length){
+			const { handler }=route[0]
+			this.handler=handler
 			return true
 		}
 		return false

@@ -1,11 +1,11 @@
 {
   "name": "node-server",
-  "version": "1.0.0",
+  "version": "1.5.2",
   "description": "nodejs server",
   "scripts": {
     "start": "node scripts/start.js"
   },
-  "author": "ouna",
+  "author": "ounana",
   "license": "MIT",
   "dependencies": {
     "mysql": "^2.16.0",

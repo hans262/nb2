@@ -19,34 +19,36 @@ class Handler{
 
   routeHandler(req,res){
     Utils.setHeaders(res)
+    const { method, relativePath }=req
     switch(true){
-      case req.relativePath==='/login' && req.method==='GET' :
-      respond.login(req,res)
+      case relativePath==='/login' && method==='GET' :
+        respond.login(req,res)
       break;
-      case req.relativePath==='/loginReq' && req.method==='POST' :
-      login.loginReqHandler(req,res)
+      case relativePath==='/loginReq' && method==='POST' :
+        login.loginReqHandler(req,res)
       break;
       case this.loginVerify && !login.isLogin(req,res) :
-      respond.redirect(res,'/login',302,'Temporarily Moved')
+        respond.redirect(res,'/login',302,'Temporarily Moved')
       break;
-      case req.relativePath==='/favicon.ico' && req.method==='GET' :
-      req.absolutePath=this.faviconPath
-      respond.statics(req,res)
+      case relativePath==='/favicon.ico' && method==='GET' :
+        req.absolutePath=this.faviconPath
+        respond.statics(req,res)
       break;
-      case router.isExist(req,res) :
+      case router.isHit(req) :
+        router.handler(req,res)
       break;
       default :
-      respond.statics(req,res)
+        respond.statics(req,res)
     }
   }
 
   mount(req,res){
-    const UrlParse=url.parse(req.url,true)
+    const urlObj=url.parse(req.url,true)
 
-    req.relativePath=decodeURI(UrlParse.pathname)//挂载相对路径
+    req.relativePath=decodeURI(urlObj.pathname)//挂载相对路径
     req.absolutePath=decodeURI(path.join(this.root,req.relativePath))//挂载绝对路径
 
-    req.query=UrlParse.query//挂载get数据
+    req.query=urlObj.query//挂载get数据
     req.cookies=Utils.parseCookie(req.headers.cookie)//挂载cookies
     
     process.send({
