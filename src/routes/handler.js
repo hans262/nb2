@@ -2,6 +2,7 @@ const path=require('path')
 const url=require('url')
 
 const config=require('../../config/default')
+const resLogin=require('../middleware/Login')
 //class
 const Utils=require('../modules/Utils')
 const respond=require('../respond/respond')
@@ -21,8 +22,8 @@ class Handler{
     Utils.setHeaders(res)
     const { method, relativePath }=req
     switch(true){
-      case relativePath==='/login' && method==='GET' :
-        respond.login(req,res)
+      case relativePath===resLogin.path && method===resLogin.method :
+        resLogin.handler(req,res)
       break;
       case relativePath==='/loginReq' && method==='POST' :
         login.loginReqHandler(req,res)

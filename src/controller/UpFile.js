@@ -1,9 +1,8 @@
 const fs=require('fs')
+// @upfile 上传
 /**
  * 目前只支持单个文件上传，图片/文本等
  */
-
-// @upfile
 class UpFile{
 	constructor(){
 		this.method='POST'
