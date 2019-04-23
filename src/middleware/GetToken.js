@@ -3,4 +3,7 @@ class GetToken{
     this.method='POST'
     this.path
   }
+  handler(req,res){
+    
+  }
 }

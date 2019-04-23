@@ -16,7 +16,7 @@ class Login{
       }))
       return false
     }
-    if(req.session && req.session.cookie.expire < Date.now()){
+    if(req.session.expire < Date.now()){
       //超时
       session.delete(id)//-删除
       res.setHeader('Set-Cookie',Utils.serialize(session.key,'delete',{
@@ -27,7 +27,6 @@ class Login{
       return false //转到登陆
     }
     session.reset(id)//-重置
-    // process.send({type:'info',msg:session.sessions})
     return true
 	}
   async loginReqHandler(req,res){
@@ -43,7 +42,7 @@ class Login{
       req.session=session.generate()//-生成
       res.setHeader('Set-Cookie',Utils.serialize(session.key,req.session.id,{
         path:'/',
-        expires:new Date(Date.now()+session.EXPIRES),
+        expires:new Date(req.session.expire),
         httpOnly:true,
       }))
       res.writeHead(200,{'Content-Type':'application/json; charset=utf-8'})
