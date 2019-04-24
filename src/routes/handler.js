@@ -46,11 +46,11 @@ class Handler{
   mount(req,res){
     const urlObj=url.parse(req.url,true)
 
-    req.relativePath=decodeURI(urlObj.pathname)//挂载相对路径
-    req.absolutePath=decodeURI(path.join(this.root,req.relativePath))//挂载绝对路径
+    req.relativePath=decodeURI(urlObj.pathname)//相对路径
+    req.absolutePath=decodeURI(path.join(this.root,req.relativePath))//绝对路径
 
-    req.query=urlObj.query//挂载get数据
-    req.cookies=Utils.parseCookie(req.headers.cookie)//挂载cookies
+    req.query=urlObj.query//get数据
+    req.cookies=Utils.parseCookie(req.headers.cookie)//cookies
     
     process.send({
       type: 'info',
