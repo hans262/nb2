@@ -1,3 +1,2 @@
-const Server=require('../src/server.js')
-const app=new Server()
-app.start()
+const start=require('../src/server/master')
+start()
