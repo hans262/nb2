@@ -1,6 +1,5 @@
 
 function getCookie(req, key){
-  console.log(req.headers.cookie)
   const { cookie }=req.headers
   if(!cookie) return null
   const reg = new RegExp("(^| )" + key + "=([^;]*)(;|$)")

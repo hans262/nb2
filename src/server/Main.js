@@ -10,6 +10,7 @@ use(require('../middleware/Login'))
 use(require('../middleware/GetToken'))
 use(require('../middleware/CheckLogin'))
 
+
 use(function(req,res,next){
   res.end('C')
   // next()
