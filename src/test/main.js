@@ -1,7 +1,7 @@
-const { add, get }=require('./a')
-const run=require('./c')
-add(1)
-add(2)
+const a=require('./a')
 
+a.add(1)
+a.add(2)
 
+const { run }=require('./c')
 run()

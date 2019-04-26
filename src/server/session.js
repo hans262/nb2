@@ -3,7 +3,7 @@ class Session{
 		this.SESSIONS={}
     this.KEY='SESSION_ID'
     this.EXPIRES=20*60*1000//20分钟
-	}
+  }
 	generate(){
     const session={
       id:Date.now()+Math.random(),

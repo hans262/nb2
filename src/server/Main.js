@@ -1,20 +1,14 @@
+const session=require('./session')
 const MIDDLEWARES=[]
 
 function use(middleware){
   MIDDLEWARES.push(middleware)
 }
 
-const mount=require('../middleware/mount')
-use(mount)
-
-use(function(req,res,next){
-  const { method, relativePath }=req
-  if(method==='GET' && relativePath==='/login'){
-    
-  }else{
-    next()
-  }
-})
+use(require('../middleware/Mount'))
+use(require('../middleware/Login'))
+use(require('../middleware/GetToken'))
+use(require('../middleware/CheckLogin'))
 
 use(function(req,res,next){
   res.end('C')

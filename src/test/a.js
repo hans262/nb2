@@ -1,14 +1,13 @@
-const store=[]
-
-function add(x){
-  store.push(x)
+class A{
+  constructor(){
+    this.store=[]
+  }
+  add(v){
+    this.store.push(v)
+  }
+  get(){
+    return this.store
+  }
 }
 
-function get(){
-  return store
-}
-
-module.exports={
-  add,
-  get
-}
+module.exports=new A()

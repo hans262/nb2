@@ -1,7 +1,8 @@
-const { get }=require('./a')
+const a=require('./a')
 
 function run(){
-  console.log(get())
+  console.log(a.get())
 }
-console.log(get())
-module.exports=run
+module.exports={
+  run
+}
