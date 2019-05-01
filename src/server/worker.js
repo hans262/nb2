@@ -3,8 +3,8 @@ const conf=require('../../config/default')
 const { PORT, HOST }=conf
 
 function worker(){
-  const { handler }=require('./Main')
-  const server=http.createServer(handler)
+  const { HANDLER }=require('./Main')
+  const server=http.createServer(HANDLER)
 
   server.listen(PORT,HOST,()=>{
     process.send({

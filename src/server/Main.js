@@ -1,25 +1,9 @@
-const session=require('./session')
-const MIDDLEWARES=[]
+const { MIDDLEWARE }=require('../store/MIDDLEWARE')
 
-function use(middleware){
-  MIDDLEWARES.push(middleware)
-}
-
-use(require('../middleware/Mount'))
-use(require('../middleware/Login'))
-use(require('../middleware/GetToken'))
-use(require('../middleware/CheckLogin'))
-
-
-use(function(req,res,next){
-  res.end('C')
-  // next()
-})
-
-function handler(req,res){
+function HANDLER(req,res){
   let i=0
   function next(){
-    let middleware=MIDDLEWARES[i++]
+    let middleware=MIDDLEWARE[i++]
     if(!middleware) return
     middleware(req,res,next)
   }
@@ -27,6 +11,5 @@ function handler(req,res){
 }
 
 module.exports={
-  use,
-  handler
+  HANDLER
 }

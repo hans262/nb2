@@ -51,7 +51,7 @@ class Zip{
           msg: `ReadRange ${range.start}-${range.end}`
         })
         // bytes 0-100/9193
-        res.setHeader('Content-Range','bytes=' + range.start + '-' + range.end + '/' + req.stats.size)
+        res.setHeader('Content-Range',`bytes ${range.start}-${range.end}/${req.stats.size}`)
         res.setHeader('Content-Length',(range.end - range.start + 1))
         var raw=fs.createReadStream(req.absolutePath,{'start': range.start,'end': range.end})
         this.compressHandle(req,res,raw,206,'Partial Content')

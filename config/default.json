@@ -12,6 +12,6 @@
     "lastModified": true,
     "maxAge": 6000
   },
-  "CROSS": false,
+  "CROSS": true,
   "loginVerify": false
 }
