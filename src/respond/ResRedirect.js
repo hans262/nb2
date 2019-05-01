@@ -1,6 +1,4 @@
-
-
-module.exports=function(res,location,code,reasonPhrase){
+function ResRedirect(res,location,code,reasonPhrase){
   process.send({
     type: 'INFO',
     pid: process.pid,
@@ -9,8 +7,11 @@ module.exports=function(res,location,code,reasonPhrase){
   })
   res.setHeader('Location',location)
   res.writeHead(code,reasonPhrase)
-  res.end('reasonPhrase')
+  res.end()
 }
+
+module.exports=ResRedirect
+
 /**
  * 301永久
  * 302临时性

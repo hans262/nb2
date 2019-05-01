@@ -1,11 +1,12 @@
-# node-server
-Nodejs Server
+## node-server
+A small node server, and Configurable.
 
 ### Installation dependency
-```sh
-npm install
 ```
-### Startup project
-```sh
-npm start
+  npm install
+```
+
+### Startup program
+```
+  npm start
 ```

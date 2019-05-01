@@ -1,6 +1,7 @@
 const querystring = require('querystring')
 const { generate, KEY } = require('../store/SESSION')
 const setCoolie = require('../utils/setCookie')
+const ResRedirect = require('../respond/ResRedirect')
 
 function GetToken(req, res, next) {
   const { method, relativePath } = req
@@ -21,9 +22,7 @@ function GetToken(req, res, next) {
           expires: new Date(ses.expire),
           httpOnly: true,
         })
-        res.setHeader('Content-Type', 'text/html; charset=utf-8')
-        res.writeHead(200, 'OK')
-        res.end('登录成功')
+        ResRedirect(res, '/', 302, 'Login Success')
       } else {
         res.setHeader('Content-Type', 'text/html; charset=utf-8')
         res.writeHead(200, 'OK')

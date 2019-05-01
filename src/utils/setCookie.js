@@ -1,10 +1,4 @@
-/**
- * 
- * @param {*} res 
- * @param {*} name 
- * @param {*} val 
- * @param {*} opt 
- */
+
 function setCookie(res,name,val,opt){
   let pairs=[name + '=' + val]
   let o=opt ? opt : {}

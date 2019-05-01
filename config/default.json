@@ -1,17 +1,12 @@
 {
   "PORT": 5000,
   "HOST": "127.0.0.1",
-  "ROOT": "C:\\",
-  "indexPage": "index.html",
-  "zipMatch": "^\\.(css|js|html|woff)$",
+  "ROOT": "D:\\",
+  "INDEX_PAGE": "index.html",
+  "ZIP_MATCH": "^\\.(css|js|html|woff)$",
   "CLUSTER": false,
-  "cache": {
-    "cacheControl": true,
-    "expires": true,
-    "etag": true,
-    "lastModified": true,
-    "maxAge": 6000
-  },
+  "CACHE": true,
+  "CACHE_MAX_AGE":6000,
   "CROSS": true,
   "loginVerify": false
 }

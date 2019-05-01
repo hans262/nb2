@@ -1,6 +1,6 @@
 const path=require('path')
 
-const mimeTypes={
+const MIME_TYPES={
   "css": "text/css",
   "gif": "image/gif",
   "html": "text/html",
@@ -21,10 +21,12 @@ const mimeTypes={
   "xml": "text/xml",
 }
 
-const mime=(pathName)=>{
-  let ext=path.extname(pathName)
-  ext=ext ? ext.slice(1) : 'unknown'
-  return mimeTypes[ext] ? mimeTypes[ext] : mimeTypes['txt']
+function mime(pathName){
+  let ext=path.extname(pathName).slice(1)
+  const m=MIME_TYPES[ext]
+  return m ? m : MIME_TYPES['txt']
 }
 
-module.exports=mime
+module.exports={
+  mime
+}

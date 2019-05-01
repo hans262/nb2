@@ -1,13 +1,13 @@
 const getCookie = require('../utils/getCookie')
 const setCookie = require('../utils/setCookie')
-const redirect = require('../respond/redirect')
-const { KEY, select, remove, reset, SESSION } = require('../store/SESSION')
+const ResRedirect=require('../respond/ResRedirect')
+const { KEY, select, remove, reset } = require('../store/SESSION')
 
 function CheckLogin(req, res, next) {
   if (check(req, res)) {
     next()
   } else {
-    redirect(res, '/login', 302, 'Temporarily Moved')
+    ResRedirect(res, '/login', 302, 'Temporarily Moved')
   }
 }
 
