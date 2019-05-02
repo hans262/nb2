@@ -1,2 +1,2 @@
-const start=require('../src/server/master')
-start()
+const run = require('../src/server/master')
+run()

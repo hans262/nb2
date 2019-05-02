@@ -1,12 +1,12 @@
-const http=require('http')
-const conf=require('../../config/default')
-const { PORT, HOST }=conf
+const http = require('http')
+const conf = require('../../config/default')
+const { PORT, HOST } = conf
 
-function worker(){
-  const { HANDLER }=require('./Main')
-  const server=http.createServer(HANDLER)
+function worker() {
+  const { HANDLER } = require('./Main')
+  const server = http.createServer(HANDLER)
 
-  server.listen(PORT,HOST,()=>{
+  server.listen(PORT, HOST, () => {
     process.send({
       type: 'INFO',
       pid: process.pid,
@@ -15,14 +15,14 @@ function worker(){
     })
   })
 
-  process.on('message', action=>{
-    switch(action.type){
+  process.on('message', action => {
+    switch (action.type) {
       case 'CLOSE_SERVER':
         //平滑关闭server
-        const { code }=action
-        setTimeout(()=>{
+        const { code } = action
+        setTimeout(() => {
           process.exit(code)
-        },10000)
+        }, 10000)
         server.close()
         break
       default:
@@ -30,4 +30,4 @@ function worker(){
     }
   })
 }
-module.exports=worker
+module.exports = worker

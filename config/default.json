@@ -8,5 +8,10 @@
   "CACHE": true,
   "CACHE_MAX_AGE":6000,
   "CROSS": true,
-  "loginVerify": false
+  "LOGIN": true,
+  "USER":{
+    "username":"root",
+    "password":"123456"
+  },
+  "SESSION_EXPIRES":20
 }

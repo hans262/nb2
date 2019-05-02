@@ -1,10 +1,16 @@
-
+/**
+ * 生成ETag
+ * @param {object} stats 
+ */
 function generateETag(stats) {
   const mtime = stats.mtime.getTime().toString(16)//16进制
   const size = stats.size.toString(16)
   return `W/"${mtime}-${size}"`
 }
-
+/**
+ * 验证缓存
+ * @param {object} req 
+ */
 function isCache(req) {
   const { headers, stats } = req
   const { mtime } = stats

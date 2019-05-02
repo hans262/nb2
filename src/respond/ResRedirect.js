@@ -1,16 +1,16 @@
-function ResRedirect(res,location,code,reasonPhrase){
+function ResRedirect(res, location, code, reasonPhrase) {
   process.send({
     type: 'INFO',
     pid: process.pid,
     msgtype: 'REDIRECT',
     msg: location
   })
-  res.setHeader('Location',location)
-  res.writeHead(code,reasonPhrase)
+  res.setHeader('Location', location)
+  res.writeHead(code, reasonPhrase)
   res.end()
 }
 
-module.exports=ResRedirect
+module.exports = ResRedirect
 
 /**
  * 301永久

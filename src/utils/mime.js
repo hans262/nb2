@@ -1,6 +1,16 @@
-const path=require('path')
+const path = require('path')
 
-const MIME_TYPES={
+/**
+ * 获取mime类型
+ * @param {string} p 
+ */
+function mime(p) {
+  let ext = path.extname(p).slice(1)
+  const m = MIME_TYPES[ext]
+  return m ? m : MIME_TYPES['txt']
+}
+
+const MIME_TYPES = {
   "css": "text/css",
   "gif": "image/gif",
   "html": "text/html",
@@ -20,13 +30,6 @@ const MIME_TYPES={
   "wmv": "video/x-ms-wmv",
   "xml": "text/xml",
 }
-
-function mime(pathName){
-  let ext=path.extname(pathName).slice(1)
-  const m=MIME_TYPES[ext]
-  return m ? m : MIME_TYPES['txt']
-}
-
-module.exports={
+module.exports = {
   mime
 }

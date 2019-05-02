@@ -1,3 +1,4 @@
+const { LOGIN } = require('../../config/default')
 const MIDDLEWARE = []
 
 function useMiddleware(middleware) {
@@ -7,7 +8,9 @@ function useMiddleware(middleware) {
 useMiddleware(require('../middleware/Mount'))
 useMiddleware(require('../middleware/Login'))
 useMiddleware(require('../middleware/GetToken'))
-useMiddleware(require('../middleware/CheckLogin'))
+
+LOGIN && useMiddleware(require('../middleware/CheckLogin'))
+
 useMiddleware(require('../middleware/CheckController'))
 useMiddleware(require('../middleware/ResStatic'))
 

@@ -16,7 +16,7 @@ function ResFile(req, res) {
   
   //文件最后修改时间
   res.setHeader('Last-Modified', mtime.toUTCString())
-  //到期时间
+  //到期时间，单位秒
   const expire = (new Date(Date.now() + CACHE_MAX_AGE * 1000)).toUTCString()
   res.setHeader('Expires', expire)
   //实现缓存机制
@@ -28,6 +28,8 @@ function ResFile(req, res) {
   res.setHeader('Content-Type', mime(absolutePath) + '; charset=utf-8')
   //内容大小
   res.setHeader('Content-Length', size)
+  //数据分块发送
+  res.setHeader('Transfer-Encoding','chunked')
 
   if (req.headers['range']) {
     //范围请求

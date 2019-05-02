@@ -1,29 +1,29 @@
-const mysql=require('mysql')
-const mysqlConfig=require('../../config/mysqlConfig')
+const mysql = require('mysql')
+const mysqlConfig = require('../../config/mysqlConfig')
 
-class Sql{
-	constructor(){
+class Sql {
+	constructor() {
 		this.createPool()
 	}
-	createPool(){
-		if(global.POOL) return
-		global.POOL=mysql.createPool({
-		  connectionLimit: mysqlConfig.connectionLimit,
-		  host: mysqlConfig.host,
-		  port: mysqlConfig.port,
-		  user: mysqlConfig.user,
-		  password: mysqlConfig.password,
-		  database: mysqlConfig.database,
+	createPool() {
+		if (global.POOL) return
+		global.POOL = mysql.createPool({
+			connectionLimit: mysqlConfig.connectionLimit,
+			host: mysqlConfig.host,
+			port: mysqlConfig.port,
+			user: mysqlConfig.user,
+			password: mysqlConfig.password,
+			database: mysqlConfig.database,
 		})
 	}
-	queryPromise(queryString){
-		return new Promise((resolve,reject)=>{
-			POOL.getConnection((err,connection)=>{
-				connection.query(queryString,(err,results,fields)=>{
+	queryPromise(queryString) {
+		return new Promise((resolve, reject) => {
+			POOL.getConnection((err, connection) => {
+				connection.query(queryString, (err, results, fields) => {
 					connection.release()
-					if(err){
+					if (err) {
 						reject(err)
-					}else{
+					} else {
 						resolve(results)
 					}
 				})
@@ -32,7 +32,7 @@ class Sql{
 	}
 }
 
-module.exports=Sql
+module.exports = Sql
 
 
 /*

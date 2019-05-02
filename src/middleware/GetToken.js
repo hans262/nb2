@@ -2,6 +2,8 @@ const querystring = require('querystring')
 const { generate, KEY } = require('../store/SESSION')
 const setCoolie = require('../utils/setCookie')
 const ResRedirect = require('../respond/ResRedirect')
+const conf = require('../../config/default')
+const { USER } = conf
 
 function GetToken(req, res, next) {
   const { method, relativePath } = req
@@ -15,7 +17,7 @@ function GetToken(req, res, next) {
       const toString = buffer.toString()
       const toObj = querystring.parse(toString)
       const { username, password } = toObj
-      if (username === 'root' && password === '123456') {
+      if (username === USER.username && password === USER.password) {
         const ses = generate()
         setCoolie(res, KEY, ses.id, {
           path: '/',
