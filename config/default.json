@@ -1,14 +1,14 @@
 {
   "PORT": 5000,
   "HOST": "127.0.0.1",
-  "ROOT": "D:\\",
+  "ROOT": "C:\\",
   "INDEX_PAGE": "index.html",
   "ZIP_MATCH": "^\\.(css|js|html|woff)$",
   "CLUSTER": false,
   "CACHE": true,
   "CACHE_MAX_AGE":6000,
   "CROSS": true,
-  "LOGIN": true,
+  "LOGIN": false,
   "USER":{
     "username":"root",
     "password":"123456"
