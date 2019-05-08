@@ -1,63 +1,47 @@
 const mysql = require('mysql')
-const mysqlConfig = require('../../config/mysqlConfig')
+const conf = require('../../config/mysql')
+const {
+	CONNECTION_LIMIT, HOST, PORT, USER, PASSWORD, DATABASE
+} = conf
 
-class Sql {
-	constructor() {
-		this.createPool()
-	}
-	createPool() {
-		if (global.POOL) return
-		global.POOL = mysql.createPool({
-			connectionLimit: mysqlConfig.connectionLimit,
-			host: mysqlConfig.host,
-			port: mysqlConfig.port,
-			user: mysqlConfig.user,
-			password: mysqlConfig.password,
-			database: mysqlConfig.database,
-		})
-	}
-	queryPromise(queryString) {
-		return new Promise((resolve, reject) => {
-			POOL.getConnection((err, connection) => {
-				connection.query(queryString, (err, results, fields) => {
-					connection.release()
-					if (err) {
-						reject(err)
-					} else {
-						resolve(results)
-					}
-				})
+const POOL = mysql.createPool({
+	connectionLimit: CONNECTION_LIMIT,
+	host: HOST,
+	port: PORT,
+	user: USER,
+	password: PASSWORD,
+	database: DATABASE,
+})
+
+function QUERY(sql) {
+	return new Promise((resolve, reject) => {
+		POOL.getConnection((err, connection) => {
+			if(err) return reject(err)
+			connection.query(sql, (err, results, fields) => {
+				connection.release()
+				if (err) {
+					reject(err)
+				} else {
+					resolve(results)
+				}
 			})
 		})
-	}
+	})
 }
 
-module.exports = Sql
-
+module.exports = {
+	POOL,
+	QUERY
+}
 
 /*
-	调用方法，匿名函数注意上一句加引号
-	;(async function(){
-		const sql=new Sql()
+	;(async(){
+		const { QUERY }=require('./sql')
 		try{
-			let result=await sql.queryPromise("SELECT * FROM user")
+			const result=await QUERY("SELECT * FROM user")
 			console.log(result)
-		}catch(e){
-			console.log(JSON.stringify(e))
+		}catch(err){
+			console.log(err)
 		}
 	})()
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-

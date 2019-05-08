@@ -1,26 +1,33 @@
 const fs = require('fs')
+const { join } = require('path')
+const { LOG_PATH } = require('../utils/path')
 
-const d = new Date()
-var msg = 'Hello Worlds!'
+let STREAM=null
 
-const dd = d.toLocaleDateString()
-const logFileName = `../../log/${dd}.log`
+function CREATE_STREAM() {
+	if(STREAM){
+		STREAM.close()
+	}
+	const CURRENT_DAY = new Date().toLocaleDateString()
+	const FILE_NAME = join(LOG_PATH, `/${CURRENT_DAY}.log`)
+	STREAM = fs.createWriteStream(FILE_NAME, {
+		flags: 'a',
+		encoding: 'utf8'
+	})
+}
 
-const ds = d.toLocaleString()
-msg = `LOG: ${ds} MSG: ${msg}`
-const out = fs.createWriteStream(logFileName, {
-	flags: 'a',
-	encoding: 'utf8'
-})
+CREATE_STREAM()
 
-out.write(msg)
-out.write('\r\n')
-out.end()
+function WRITE(MSG) {
+	STREAM.write(MSG)
+	STREAM.write('\r\n')
+}
 
-out.on('error', function () {
-	// console.log(writing failed)
-	console.log(error)
-})
-out.on('finish', function () {
-	console.log("writing success!")
-})
+WRITE('DWQDQ')
+WRITE('SFSDF')
+
+module.exports = {
+	CREATE_STREAM,
+	STREAM,
+	WRITE,
+}
