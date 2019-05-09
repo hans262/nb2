@@ -1,8 +1,6 @@
 const { join } = require('path')
 
-const paths = __dirname.split('src')
-
-const SOURCE = paths[0]
+const SOURCE = join(__dirname,'../../')
 const LOG_PATH = join(SOURCE, '/log')
 
 module.exports = {
