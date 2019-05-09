@@ -18,7 +18,8 @@ function ResDir(req, res) {
       let href = path.join(relativePath, file)
       let small = ''
       try {
-        if (fs.statSync(path.join(absolutePath, file)).isDirectory()) {
+        const stats = fs.statSync(path.join(absolutePath, file))
+        if (stats.isDirectory()) {
           href += '/'
           file += '/'
         }
@@ -27,15 +28,16 @@ function ResDir(req, res) {
           type: 'INFO',
           pid: process.pid,
           msgtype: 'ERROR',
-          msg: JSON.stringify(err)
+          msg: err.message
         })
-        small += `<small style="color:red">此路径没有可读权限</small>`
+        small += `<small style="color:red">无权系统路径</small>`
       }
-      content += `<p><a href='${href}'>${file}</a>${small}</p>`
+      content += `<p><a href="${href}">${file}</a>${small}</p>`
     })
-    res.setHeader('Content-Type', 'text/html;charset=utf-8')
+    res.setHeader('Content-Type', 'text/html; charset=utf-8')
     res.writeHead(200, 'Access Directory')
     res.end(content)
+    process.send({ type: 'INFO', pid: process.pid, msgtype: 'RES_DIR', msg: absolutePath })
   }
 }
 module.exports = ResDir

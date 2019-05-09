@@ -1,11 +1,7 @@
 
 function ResNotFound(req, res) {
-  process.send({
-    type: 'INFO',
-    pid: process.pid,
-    msgtype: '404',
-    msg: req.absolutePath
-  })
+  const { absolutePath } = req
+  process.send({ type: 'INFO', pid: process.pid, msgtype: '404', msg: absolutePath })
   res.setHeader('Content-Type', 'text/html; charset=utf-8')
   res.writeHead(404, 'Not Found')
   res.end(`

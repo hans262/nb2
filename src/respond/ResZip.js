@@ -26,8 +26,11 @@ function ResZip(req, res) {
       res.removeHeader('Content-Length')
       stream = stream.pipe(zlib.createDeflate())
     }
+    process.send({ type: 'INFO', pid: process.pid, msgtype: 'RES_ZIP', msg: absolutePath })
+  } else {
+    process.send({ type: 'INFO', pid: process.pid, msgtype: 'RES_FILE', msg: absolutePath })
   }
-
+  
   res.writeHead(200, 'OK')
   stream.pipe(res)
 }

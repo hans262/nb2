@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+const { PUBLIC_PATH }=require('../utils/path')
 
 class DownLoad {
   constructor() {
@@ -9,8 +10,7 @@ class DownLoad {
   handler(req, res) {
     res.setHeader('Content-Type', 'application/octet-stream; charset=utf-8')
     res.setHeader('Content-Disposition', 'attachment; filename=ajax.js')
-    const pro = __dirname.split('src')[0]
-    const file = path.join(pro, 'public/ajax.js')
+    const file = path.join(PUBLIC_PATH, 'ajax.js')
     const ReadStream = fs.createReadStream(file, 'binary')
     ReadStream.pipe(res)
   }

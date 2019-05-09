@@ -32,12 +32,13 @@ function ResRange(req, res) {
 
     res.writeHead(206, 'Partial Content')
     stream.pipe(res)
-
+    process.send({ type: 'INFO', pid: process.pid, msgtype: 'RES_RANGE', msg: absolutePath })
   }else{
     res.removeHeader('Content-Length')
     res.setHeader('Content-Range', `bytes=*/${size}`)
     res.writeHead(416, 'Request Range Not Satisfiable')
     res.end()
+    process.send({ type: 'INFO', pid: process.pid, msgtype: '416', msg: absolutePath })
   }
 }
 
