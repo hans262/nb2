@@ -1,4 +1,4 @@
-const { LOGIN } = require('../../config/default')
+const { LOGIN } = REQUIRE('config/default')
 const MIDDLEWARE = []
 
 function useMiddleware(middleware) {

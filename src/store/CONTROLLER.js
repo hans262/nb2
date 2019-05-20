@@ -1,5 +1,6 @@
 const fs = require('fs')
-const { CONTROLLER_PATH } = require('../utils/path')
+const { join } = require('path')
+const { CONTROLLER_PATH } = REQUIRE('src/utils/path')
 
 const CONTROLLER = []
 function useController(controller) {
@@ -9,7 +10,7 @@ function useController(controller) {
 try {
   const files = fs.readdirSync(CONTROLLER_PATH)
   files.forEach(f => {
-    const c = require('../controller/' + f)
+    const c = require(join(CONTROLLER_PATH, f))
     useController(c)
   })
 } catch (error) {

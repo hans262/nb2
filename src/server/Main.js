@@ -1,4 +1,4 @@
-const { MIDDLEWARE } = require('../store/MIDDLEWARE')
+const { MIDDLEWARE } = REQUIRE('src/store/MIDDLEWARE')
 
 function HANDLER(req, res) {
   let i = 0

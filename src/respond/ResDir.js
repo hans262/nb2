@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const { INDEX_PAGE } = require('../../config/default')
+const { INDEX_PAGE } = REQUIRE('config/default')
 const ResRedirect = require('./ResRedirect')
 
 function ResDir(req, res) {

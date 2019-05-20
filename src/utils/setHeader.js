@@ -1,4 +1,4 @@
-const conf = require('../../config/default')
+const conf = REQUIRE('config/default')
 const { CROSS } = conf
 /**
  * 设置常用header

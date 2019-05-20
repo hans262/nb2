@@ -1,4 +1,4 @@
-const { SESSION_EXPIRES }=require('../../config/default')
+const { SESSION_EXPIRES }=REQUIRE('config/default')
 const SESSION = {}
 const KEY = 'SESSION_ID'
 const EXPIRES = SESSION_EXPIRES * 60 * 1000//20分钟

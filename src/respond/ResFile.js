@@ -1,8 +1,8 @@
-const { mime } = require('../utils/mime')
+const { mime } = REQUIRE('src/utils/mime')
 const { ResZip } = require('./ResZip')
 const { ResRange } = require('./ResRange')
-const { CACHE_MAX_AGE } = require('../../config/default')
-const { generateETag, isCache } = require('../utils/cache')
+const { CACHE_MAX_AGE } = REQUIRE('config/default')
+const { generateETag, isCache } = REQUIRE('src/utils/cache')
 const ResCache=require('./ResCache')
 
 function ResFile(req, res) {

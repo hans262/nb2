@@ -1,5 +1,5 @@
 const http = require('http')
-const conf = require('../../config/default')
+const conf = REQUIRE('config/default')
 const { PORT, HOST } = conf
 
 function worker() {

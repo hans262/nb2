@@ -1,17 +1,13 @@
 const cluster = require('cluster')
 const cpus = require('os').cpus()
-const conf = require('../../config/default')
+const conf = REQUIRE('config/default')
 const { CLUSTER } = conf
 
 function master() {
   const nowTime = new Date().toLocaleString()
   console.info(`[MASTER STARTUP] pid: ${process.pid} date: ${nowTime}`)
-  if (CLUSTER) {
-    cpus.forEach(() => cluster.fork())
-  } else {
-    cluster.fork()
-  }
-
+  CLUSTER ? cpus.forEach(() => cluster.fork()) : cluster.fork()
+  
   cluster.on('message', (worker, action) => {
     switch (action.type) {
       case 'INFO':
