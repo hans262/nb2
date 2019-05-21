@@ -12,9 +12,9 @@
 	<br>
 	<input id="txt" type="text">
 	<input id="send" type="submit" value="send">
-	<script type="text/javascript">
+	<script>
 		const createConnection = function (data) {
-			var ws = new WebSocket("ws://localhost:3000/chat?user=bill")
+			var ws = new WebSocket("ws://172.16.4.108:8888")
 			ws.onopen = function (evt) {
 				console.log('connection is started.')
 			}
