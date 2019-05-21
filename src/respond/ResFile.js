@@ -28,8 +28,6 @@ function ResFile(req, res) {
   res.setHeader('Content-Type', mime(absolutePath) + '; charset=utf-8')
   //内容大小
   res.setHeader('Content-Length', size)
-  //数据分块发送
-  res.setHeader('Transfer-Encoding','chunked')
 
   if (req.headers['range']) {
     //范围请求
