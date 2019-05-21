@@ -14,13 +14,8 @@ function Mount(req, res, next) {
   req.query = urlObj.query
   //常用header
   setHeader(res)
-
-  process.send({
-    type: 'INFO',
-    pid: process.pid,
-    msgtype: 'REQUEST',
-    msg: req.absolutePath
-  })
+  
+  process.send({ type: 'INFO', pid: process.pid, msgtype: 'REQUEST', msg: req.absolutePath })
   next()
 }
 module.exports = Mount

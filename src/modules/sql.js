@@ -18,12 +18,9 @@ function QUERY(sql) {
 		POOL.getConnection((err, connection) => {
 			if(err) return reject(err)
 			connection.query(sql, (err, results, fields) => {
+				//释放连接
 				connection.release()
-				if (err) {
-					reject(err)
-				} else {
-					resolve(results)
-				}
+				err ? reject(err) : resolve(results)
 			})
 		})
 	})
