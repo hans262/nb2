@@ -1,7 +1,7 @@
 {
   "name": "node-server",
   "version": "2.3.1",
-  "description": "A small node server",
+  "description": "Node Server Fast and Minimum",
   "scripts": {
     "start": "node scripts/start.js"
   },
