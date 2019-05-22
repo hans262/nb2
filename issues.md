@@ -13,23 +13,3 @@
   可解决方案：使用Redis做SESSION存储，或使用文件存储，或数据库存储
   目前还没实现
 ```
-
-### action 设置模式
-```
-  一个path对应它的几个方法
-  PATH ->METHOD
-    api/user
-      GET
-      POST
-      PUT
-      DELETE
-    api/list
-      GET
-      POST
-      PUT
-      DELETE
-  path的几种写法
-  api/user
-  api/user/5648dqw658dw4ghf42
-  
-```

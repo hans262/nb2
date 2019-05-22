@@ -1,13 +1,10 @@
-const { CONTROLLER }=require('../store/CONTROLLER')
+const { CONTROLLER } = require('../store/CONTROLLER')
 
-function CheckController(req,res,next){
+function CheckController(req, res, next) {
   const { method, relativePath } = req
-  const con=CONTROLLER.filter(c=>c.method === method && c.path === relativePath)
-  if(con.length){
-    const { handler }=con[0]
-    handler(req,res)
-  }else{
-    next()
-  }
+  const Con = CONTROLLER.find(v => v.PATH === relativePath)
+  if (!Con || !Con.prototype[method]) return next()
+  const r0 = new Con()
+  r0[method](req, res)
 }
-module.exports=CheckController
+module.exports = CheckController

@@ -3,11 +3,8 @@ const path = require('path')
 const { PUBLIC_PATH }=require('../utils/path')
 
 class DownLoad {
-  constructor() {
-    this.path = '/api/download'
-    this.method = 'POST'
-  }
-  handler(req, res) {
+  static PATH='/api/download'
+  POST(req, res) {
     res.setHeader('Content-Type', 'application/octet-stream; charset=utf-8')
     res.setHeader('Content-Disposition', 'attachment; filename=ajax.js')
     const file = path.join(PUBLIC_PATH, 'ajax.js')
@@ -15,7 +12,7 @@ class DownLoad {
     ReadStream.pipe(res)
   }
 }
-module.exports = new DownLoad()
+module.exports = DownLoad
 
 
 /*

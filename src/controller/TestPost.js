@@ -1,10 +1,6 @@
-// @post
-class Post {
-	constructor() {
-		this.method = 'POST'
-		this.path = '/api/post'
-	}
-	async handler(req, res) {
+class TestPost {
+	static PATH = '/api/post'
+	async POST(req, res) {
 		res.setHeader('Content-Type', 'application/octet-stream; charset=utf-8')
 		res.writeHead(200, 'OK')
 		let chunks = []
@@ -18,4 +14,4 @@ class Post {
 	}
 }
 
-module.exports = new Post()
+module.exports = TestPost

@@ -1,10 +1,6 @@
-// @jsonp
-class Jsonp {
-	constructor() {
-		this.method = 'GET'
-		this.path = '/api/jsonp'
-	}
-	handler(req, res) {
+class TestJsonp {
+	static PATH = '/api/jsonp'
+	GET(req, res) {
 		res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' })
 		const { query } = req
 		const { callback, ...data } = query
@@ -12,4 +8,4 @@ class Jsonp {
 	}
 }
 
-module.exports = new Jsonp()
+module.exports = TestJsonp

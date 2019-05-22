@@ -1,14 +1,11 @@
 const fs = require('fs')
-// @upfile 上传
 /**
+ * @upfile 上传
  * 目前只支持单个文件上传，图片/文本等
  */
 class UpFile {
-	constructor() {
-		this.method = 'POST'
-		this.path = '/api/upfile'
-	}
-	handler(req, res) {
+	static PATH = '/api/upfile'
+	POST(req, res) {
 		let chunks = []
 		req.on('data', chunk => {
 			chunks.push(chunk)
@@ -53,4 +50,4 @@ class UpFile {
 	}
 }
 
-module.exports = new UpFile()
+module.exports = UpFile
