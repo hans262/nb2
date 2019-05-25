@@ -1,7 +1,7 @@
 ## node-server
-Node Server Fast and Minimum, and Configurable.
+The smallest and fastest node server, and configurable.
 
-### dependence
+### ependence
 ```
   node > = 12.0.0 && npm > 6.0.0
   then
