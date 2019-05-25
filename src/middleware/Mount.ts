@@ -1,0 +1,21 @@
+import { parse } from 'url'
+import { join } from 'path'
+const conf = require('../../config/default')
+const setHeader = require('../utils/setHeader')
+const { ROOT } = conf
+
+function Mount(req, res, next) {
+  const urlObj = url.parse(req.url, true)
+  //相对路径
+  req.relativePath = decodeURI(urlObj.pathname)
+  //绝对路径
+  req.absolutePath = decodeURI(join(ROOT, req.relativePath))
+  //查询字符串
+  req.query = urlObj.query
+  //常用header
+  setHeader(res)
+  
+  process.send({ type: 'INFO', pid: process.pid, msgtype: 'REQUEST', msg: req.absolutePath })
+  next()
+}
+module.exports = Mount
