@@ -5,10 +5,13 @@ const { PUBLIC_PATH }=require('../utils/path')
 class DownLoad {
   static PATH='/api/download'
   POST(req, res) {
+    const filename='ajax.js'
+    const file = path.join(PUBLIC_PATH, filename)
     res.setHeader('Content-Type', 'application/octet-stream; charset=utf-8')
-    res.setHeader('Content-Disposition', 'attachment; filename=ajax.js')
-    const file = path.join(PUBLIC_PATH, 'ajax.js')
-    const ReadStream = fs.createReadStream(file, 'binary')
+    //设置为附件
+    res.setHeader('Content-Disposition', `attachment; filename=${filename}`)
+    
+    const ReadStream = fs.createReadStream(file)
     ReadStream.pipe(res)
   }
 }

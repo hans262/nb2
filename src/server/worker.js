@@ -20,10 +20,10 @@ function worker() {
       case 'CLOSE_SERVER':
         //平滑关闭server
         const { code } = action
+        server.close()
         setTimeout(() => {
           process.exit(code)
         }, 10000)
-        server.close()
         break
       default:
         throw new Error('No MsgType!')

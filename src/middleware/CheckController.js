@@ -5,6 +5,10 @@ function CheckController(req, res, next) {
   const Con = CONTROLLER.find(v => v.PATH === relativePath)
   if (!Con || !Con.prototype[method]) return next()
   const r0 = new Con()
-  r0[method](req, res)
+  try {
+    r0[method](req, res)
+  } catch (err) {
+    process.send({ type: 'INFO', pid: process.pid, msgtype: 'ERROR', msg: err.message })
+  }
 }
 module.exports = CheckController
