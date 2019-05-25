@@ -45,7 +45,7 @@ function master() {
 
 }
 
-function run() {
+function RUN() {
   if (cluster.isMaster) {
     master()
   } else {
@@ -54,4 +54,4 @@ function run() {
   }
 }
 
-module.exports = run
+module.exports = RUN
