@@ -1,23 +1,26 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var getCookie_1 = require("../utils/getCookie");
-var setCookie_1 = require("../utils/setCookie");
-var ResRedirect_1 = require("../respond/ResRedirect");
-var SESSION_1 = require("../store/SESSION");
+const getCookie_1 = __importDefault(require("../utils/getCookie"));
+const setCookie_1 = __importDefault(require("../utils/setCookie"));
+const ResRedirect_1 = __importDefault(require("../respond/ResRedirect"));
+const SESSION_1 = require("../store/SESSION");
 function CheckLogin(req, res, next) {
     if (check(req, res)) {
         next();
     }
     else {
-        ResRedirect_1.default(res, '/login', 302, 'Temporarily Moved');
+        ResRedirect_1.default(res, { location: '/login', code: 302, reasonPhrase: 'temporarily moved' });
     }
 }
 exports.default = CheckLogin;
 function check(req, res) {
-    var id = getCookie_1.default(req, SESSION_1.KEY);
+    let id = getCookie_1.default(req, SESSION_1.KEY);
     if (!id)
         return false; //id不存在
-    var ses = SESSION_1.select(id); //-查询
+    const ses = SESSION_1.select(id); //-查询
     if (!ses) {
         //session不存在
         setCookie_1.default(res, SESSION_1.KEY, 'delete', {

@@ -1,4 +1,4 @@
-class TestGet {
+export default class TestGet {
 	static PATH = '/api/get'
 	GET(req, res) {
 		res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' })
@@ -6,5 +6,3 @@ class TestGet {
 		res.end(JSON.stringify(query))
 	}
 }
-
-module.exports = TestGet

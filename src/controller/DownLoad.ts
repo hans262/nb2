@@ -13,7 +13,6 @@ export default class DownLoad {
   }
 }
 
-
 /*
   前端代码
   const res = await ajax('/api/download', {

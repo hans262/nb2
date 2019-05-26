@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var MIDDLEWARE_1 = require("../store/MIDDLEWARE");
+const MIDDLEWARE_1 = require("../store/MIDDLEWARE");
 function HANDLER(req, res) {
-    var i = 0;
+    let i = 0;
     function next() {
-        var middleware = MIDDLEWARE_1.MIDDLEWARE[i++];
+        let middleware = MIDDLEWARE_1.MIDDLEWARE[i++];
         if (!middleware)
             return;
         middleware(req, res, next);

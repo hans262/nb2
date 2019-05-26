@@ -8,8 +8,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @param {*} opt
  */
 function setCookie(res, key, val, opt) {
-    var pairs = [key + '=' + val];
-    var o = opt ? opt : {};
+    let pairs = [key + '=' + val];
+    let o = opt ? opt : {};
     if (o.maxAge)
         pairs.push('Max-Age=' + o.maxAge);
     if (o.domain)
@@ -22,7 +22,7 @@ function setCookie(res, key, val, opt) {
         pairs.push('HttpOnly');
     if (o.secure)
         pairs.push('Secure');
-    var result = pairs.join('; ');
+    const result = pairs.join('; ');
     res.setHeader('Set-Cookie', result);
 }
 exports.default = setCookie;

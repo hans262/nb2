@@ -7,6 +7,12 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "test",
+      "program": "${workspaceFolder}\\out\\store\\CONTROLLER.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "runapp",
       "program": "${workspaceFolder}\\out\\index.js"
     }

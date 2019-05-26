@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var conf_1 = require("../conf");
+const conf_1 = require("../conf");
 /**
  * 设置常用header
  * @param {object} res

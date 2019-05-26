@@ -1,4 +1,4 @@
-export default function login(req, res, next) {
+export default function login(req: any, res: any, next: Function) {
   const { method, relativePath } = req
   if (method === 'GET' && relativePath === '/login') {
     res.setHeader('Content-Type', 'text/html; charset=utf-8')

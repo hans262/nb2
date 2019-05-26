@@ -1,5 +1,5 @@
 // @restart 关机
-class ShutDown {
+export default class ShutDown {
 	static PATH = '/api/shutdown'
 	GET(req, res) {
 		res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' })
@@ -7,5 +7,3 @@ class ShutDown {
 		process.send({ type: 'SHUT_DOWN' })
 	}
 }
-
-module.exports = ShutDown

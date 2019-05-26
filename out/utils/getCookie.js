@@ -6,11 +6,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @param {string} key 键
  */
 function getCookie(req, key) {
-    var cookie = req.headers.cookie;
+    const { cookie } = req.headers;
     if (!cookie)
         return null;
-    var reg = new RegExp("(^| )" + key + "=([^;]*)(;|$)");
-    var arr = cookie.match(reg);
+    const reg = new RegExp("(^| )" + key + "=([^;]*)(;|$)");
+    const arr = cookie.match(reg);
     return arr ? unescape(arr[2]) : null;
 }
 exports.default = getCookie;

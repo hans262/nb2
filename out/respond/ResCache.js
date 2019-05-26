@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 function ResCache(req, res) {
-    var absolutePath = req.absolutePath;
+    const { absolutePath } = req;
     process.send({ type: 'INFO', pid: process.pid, msgtype: 'RES_CHCHE', msg: absolutePath });
     res.writeHead(304, 'Not Modified');
     res.end('Not Modified');

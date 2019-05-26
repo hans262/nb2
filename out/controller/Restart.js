@@ -1,14 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 // @restart 重启
-var Restart = /** @class */ (function () {
-    function Restart() {
-    }
-    Restart.prototype.GET = function (req, res) {
+class Restart {
+    GET(req, res) {
         res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
-        res.end("\u670D\u52A1\u5668\u5C06\u572810\u540E\uFF0C\u5E73\u6ED1\u91CD\u542F\uFF0C\u4E0D\u5F71\u54CD\u4F7F\u7528\u4F53\u9A8C");
+        res.end(`服务器将在10后，平滑重启，不影响使用体验`);
         process.send({ type: 'RE_START' });
-    };
-    Restart.PATH = '/api/restart';
-    return Restart;
-}());
-module.exports = Restart;
+    }
+}
+Restart.PATH = '/api/restart';
+exports.Restart = Restart;
 //# sourceMappingURL=Restart.js.map

@@ -7,11 +7,11 @@ export default function CheckLogin(req, res, next) {
   if (check(req, res)) {
     next()
   } else {
-    ResRedirect(res, '/login', 302, 'Temporarily Moved')
+    ResRedirect(res, { location: '/login', code: 302, reasonPhrase: 'temporarily moved' })
   }
 }
 
-function check(req, res) {
+function check(req: any, res: any) {
   let id = getCookie(req, KEY)
   if (!id) return false //id不存在
   const ses = select(id)//-查询

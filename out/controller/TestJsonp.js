@@ -1,3 +1,4 @@
+"use strict";
 var __rest = (this && this.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
@@ -7,17 +8,15 @@ var __rest = (this && this.__rest) || function (s, e) {
             t[p[i]] = s[p[i]];
     return t;
 };
-var TestJsonp = /** @class */ (function () {
-    function TestJsonp() {
-    }
-    TestJsonp.prototype.GET = function (req, res) {
+Object.defineProperty(exports, "__esModule", { value: true });
+class TestJsonp {
+    GET(req, res) {
         res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
-        var query = req.query;
-        var callback = query.callback, data = __rest(query, ["callback"]);
-        res.end(callback + "(" + JSON.stringify(data) + ")");
-    };
-    TestJsonp.PATH = '/api/jsonp';
-    return TestJsonp;
-}());
-module.exports = TestJsonp;
+        const { query } = req;
+        const { callback } = query, data = __rest(query, ["callback"]);
+        res.end(`${callback}(${JSON.stringify(data)})`);
+    }
+}
+TestJsonp.PATH = '/api/jsonp';
+exports.default = TestJsonp;
 //# sourceMappingURL=TestJsonp.js.map

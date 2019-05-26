@@ -1,5 +1,5 @@
 // @restart 重启
-class Restart {
+export class Restart {
 	static PATH = '/api/restart'
 	GET(req, res) {
 		res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' })
@@ -7,5 +7,3 @@ class Restart {
 		process.send({ type: 'RE_START' })
 	}
 }
-
-module.exports = Restart

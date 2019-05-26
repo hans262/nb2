@@ -1,10 +1,10 @@
 import { parse } from 'url'
 import { join } from 'path'
-const conf = require('../../config/default')
-const setHeader = require('../utils/setHeader')
-const { ROOT } = conf
+import { ROOT } from '../conf'
+import setHeader from '../utils/setHeader'
+import { LOG } from '../utils/log'
 
-export default function Mount(req, res, next) {
+export default function Mount(req: any, res: any, next) {
   const { pathname, query } = parse(req.url, true)
   //相对路径
   req.relativePath = decodeURI(pathname)
@@ -14,7 +14,8 @@ export default function Mount(req, res, next) {
   req.query = query
   //常用header
   setHeader(res)
-  
-  process.send({ type: 'INFO', pid: process.pid, msgtype: 'REQUEST', msg: req.absolutePath })
+
+  LOG({ type: 'REQUEST', pid: process.pid, msg: req.absolutePath })
+
   next()
 }

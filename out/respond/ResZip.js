@@ -1,17 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var fs = require('fs');
-var path = require('path');
-var zlib = require('zlib');
-var ZIP_MATCH = require('../../config/default').ZIP_MATCH;
+const fs = require('fs');
+const path = require('path');
+const zlib = require('zlib');
+const { ZIP_MATCH } = require('../../config/default');
 function isZip(absolutePath) {
-    var type = path.extname(absolutePath);
-    var matched = type.match(ZIP_MATCH); //压缩范围
+    const type = path.extname(absolutePath);
+    const matched = type.match(ZIP_MATCH); //压缩范围
     return matched;
 }
 function ResZip(req, res) {
-    var absolutePath = req.absolutePath;
-    var stream = fs.createReadStream(absolutePath);
+    const { absolutePath } = req;
+    let stream = fs.createReadStream(absolutePath);
     if (isZip(absolutePath)) {
         //需要压缩
         //客户端支持的压缩类型
@@ -19,7 +19,7 @@ function ResZip(req, res) {
         //所有要删除Content-Length属性
         res.setHeader('Transfer-Encoding', 'chunked');
         res.removeHeader('Content-Length');
-        var ZipType = req.headers['accept-encoding'];
+        const ZipType = req.headers['accept-encoding'];
         if (ZipType.match(/\bgzip\b/)) {
             res.setHeader('Content-Encoding', 'gzip');
             stream = stream.pipe(zlib.createGzip());

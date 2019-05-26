@@ -1,6 +1,6 @@
 import { existsSync, readdirSync, statSync } from 'fs'
 import { join } from 'path'
-import  { INDEX_PAGE } from '../conf'
+import { INDEX_PAGE } from '../conf'
 import ResRedirect from './ResRedirect'
 
 export default function ResDir(req, res) {
@@ -9,8 +9,8 @@ export default function ResDir(req, res) {
 
   if (existsSync(INDEX_PATH)) {
     //重定向一下
-    const location = join(relativePath, INDEX_PAGE)
-    ResRedirect(res, location, 302, 'Index exists')
+    const location: string = join(relativePath, INDEX_PAGE)
+    ResRedirect(res, { location, code: 302, reasonPhrase: 'index exists' })
   } else {
     const files = readdirSync(absolutePath)
     let content = `<h1>Index of ${req.relativePath}</h1>`

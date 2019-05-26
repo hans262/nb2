@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var path_1 = require("path");
+const path_1 = require("path");
 exports.SOURCE = path_1.join(__dirname, '../../');
 exports.LOG_PATH = path_1.join(exports.SOURCE, '/log');
 exports.CONTROLLER_PATH = path_1.join(exports.SOURCE, '/src/controller');

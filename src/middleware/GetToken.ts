@@ -4,15 +4,15 @@ import setCookie from '../utils/setCookie'
 import ResRedirect from '../respond/ResRedirect'
 import { USER } from '../conf'
 
-export default function GetToken(req, res, next) {
+export default function GetToken(req: any, res: any, next: Function) {
   const { method, relativePath } = req
   if (method === 'POST' && relativePath === '/getToken') {
-    let chunks = []
-    req.on('data', chunk => {
+    const chunks: Array<Buffer> = []
+    req.on('data', (chunk: Buffer) => {
       chunks.push(chunk)
     })
     req.on('end', () => {
-      const buffer = Buffer.concat(chunks)
+      const buffer: Buffer = Buffer.concat(chunks)
       const toString = buffer.toString()
       const toObj = parse(toString)
       const { username, password } = toObj
@@ -23,7 +23,7 @@ export default function GetToken(req, res, next) {
           expires: new Date(ses.expire),
           httpOnly: true,
         })
-        ResRedirect(res, '/', 302, 'Login Success')
+        ResRedirect(res, { location: '/', code: 302, reasonPhrase: 'login success' })
       } else {
         res.setHeader('Content-Type', 'text/html; charset=utf-8')
         res.writeHead(200, 'OK')

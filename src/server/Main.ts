@@ -1,8 +1,8 @@
 import { MIDDLEWARE } from '../store/MIDDLEWARE'
 
-export function HANDLER(req, res): void {
+export function HANDLER(req: any, res: any): void {
   let i = 0
-  function next() {
+  function next(): void {
     let middleware = MIDDLEWARE[i++]
     if (!middleware) return
     middleware(req, res, next)

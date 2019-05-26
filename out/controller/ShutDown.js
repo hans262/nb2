@@ -1,14 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 // @restart 关机
-var ShutDown = /** @class */ (function () {
-    function ShutDown() {
-    }
-    ShutDown.prototype.GET = function (req, res) {
+class ShutDown {
+    GET(req, res) {
         res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
-        res.end("\u670D\u52A1\u5668\u5C06\u572810s\u540E\u5173\u95ED\uFF01");
+        res.end(`服务器将在10s后关闭！`);
         process.send({ type: 'SHUT_DOWN' });
-    };
-    ShutDown.PATH = '/api/shutdown';
-    return ShutDown;
-}());
-module.exports = ShutDown;
+    }
+}
+ShutDown.PATH = '/api/shutdown';
+exports.default = ShutDown;
 //# sourceMappingURL=ShutDown.js.map

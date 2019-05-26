@@ -1,30 +1,33 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var querystring_1 = require("querystring");
-var SESSION_1 = require("../store/SESSION");
-var setCookie_1 = require("../utils/setCookie");
-var ResRedirect_1 = require("../respond/ResRedirect");
-var conf_1 = require("../conf");
+const querystring_1 = require("querystring");
+const SESSION_1 = require("../store/SESSION");
+const setCookie_1 = __importDefault(require("../utils/setCookie"));
+const ResRedirect_1 = __importDefault(require("../respond/ResRedirect"));
+const conf_1 = require("../conf");
 function GetToken(req, res, next) {
-    var method = req.method, relativePath = req.relativePath;
+    const { method, relativePath } = req;
     if (method === 'POST' && relativePath === '/getToken') {
-        var chunks_1 = [];
-        req.on('data', function (chunk) {
-            chunks_1.push(chunk);
+        const chunks = [];
+        req.on('data', (chunk) => {
+            chunks.push(chunk);
         });
-        req.on('end', function () {
-            var buffer = Buffer.concat(chunks_1);
-            var toString = buffer.toString();
-            var toObj = querystring_1.parse(toString);
-            var username = toObj.username, password = toObj.password;
+        req.on('end', () => {
+            const buffer = Buffer.concat(chunks);
+            const toString = buffer.toString();
+            const toObj = querystring_1.parse(toString);
+            const { username, password } = toObj;
             if (username === conf_1.USER.username && password === conf_1.USER.password) {
-                var ses = SESSION_1.generate();
+                const ses = SESSION_1.generate();
                 setCookie_1.default(res, SESSION_1.KEY, ses.id, {
                     path: '/',
                     expires: new Date(ses.expire),
                     httpOnly: true,
                 });
-                ResRedirect_1.default(res, '/', 302, 'Login Success');
+                ResRedirect_1.default(res, { location: '/', code: 302, reasonPhrase: 'login success' });
             }
             else {
                 res.setHeader('Content-Type', 'text/html; charset=utf-8');

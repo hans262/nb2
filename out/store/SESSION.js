@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var conf_1 = require("../conf");
+const conf_1 = require("../conf");
 exports.SESSION = {};
 exports.KEY = 'SESSION_ID';
 exports.EXPIRES = conf_1.SESSION_EXPIRES * 60 * 1000; //20分钟
 function generate() {
-    var session = {
+    const session = {
         id: Date.now() + Math.random(),
         expire: Date.now() + exports.EXPIRES,
         count: 0
@@ -15,7 +15,7 @@ function generate() {
 }
 exports.generate = generate;
 function reset(id) {
-    var session = exports.SESSION[id];
+    const session = exports.SESSION[id];
     session.expire = Date.now() + exports.EXPIRES;
     session.count++;
 }
