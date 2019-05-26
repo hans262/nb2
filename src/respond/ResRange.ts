@@ -1,4 +1,6 @@
 import { createReadStream } from 'fs'
+import { LOG } from '../modules/log'
+
 function parseRange(range, size) {
   //目前只处理第一个分段
   //必须格式: bytes=0-10
@@ -25,19 +27,19 @@ export default function ResRange(req, res) {
   let range = parseRange(req.headers['range'], size)
   //判断范围是否存在
   if (range) {
-    const {start, end}=range
+    const { start, end } = range
     res.setHeader('Content-Range', `bytes ${start}-${end}/${size}`)
-    res.setHeader('Content-Length', (end - start+1))
-    const stream = createReadStream(absolutePath, {start,end})
+    res.setHeader('Content-Length', (end - start + 1))
+    const stream = createReadStream(absolutePath, { start, end })
 
     res.writeHead(206, 'Partial Content')
     stream.pipe(res)
-    process.send({ type: 'INFO', pid: process.pid, msgtype: 'RES_RANGE', msg: absolutePath })
-  }else{
+    LOG({ type: 'RES_RANGE', msg: absolutePath })
+  } else {
     res.removeHeader('Content-Length')
     res.setHeader('Content-Range', `bytes=*/${size}`)
     res.writeHead(416, 'Request Range Not Satisfiable')
     res.end()
-    process.send({ type: 'INFO', pid: process.pid, msgtype: '416', msg: absolutePath })
+    LOG({ type: '416', msg: absolutePath })
   }
 }

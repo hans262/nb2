@@ -2,6 +2,7 @@ import { existsSync, readdirSync, statSync } from 'fs'
 import { join } from 'path'
 import { INDEX_PAGE } from '../conf'
 import ResRedirect from './ResRedirect'
+import { LOG } from '../modules/log'
 
 export default function ResDir(req, res) {
   const { absolutePath, relativePath } = req
@@ -24,12 +25,7 @@ export default function ResDir(req, res) {
           file += '/'
         }
       } catch (err) {
-        process.send({
-          type: 'INFO',
-          pid: process.pid,
-          msgtype: 'ERROR',
-          msg: err.message
-        })
+        LOG({ type: 'ERROR', msg: err.message})
         small += `<small style="color:red">无权系统路径</small>`
       }
       content += `<p><a href="${href}">${file}</a>${small}</p>`
@@ -37,6 +33,6 @@ export default function ResDir(req, res) {
     res.setHeader('Content-Type', 'text/html; charset=utf-8')
     res.writeHead(200, 'Access Directory')
     res.end(content)
-    process.send({ type: 'INFO', pid: process.pid, msgtype: 'RES_DIR', msg: absolutePath })
+    LOG({ type: 'RES_DIR', msg: absolutePath})
   }
 }

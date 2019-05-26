@@ -7,7 +7,7 @@ const url_1 = require("url");
 const path_1 = require("path");
 const conf_1 = require("../conf");
 const setHeader_1 = __importDefault(require("../utils/setHeader"));
-const log_1 = require("../utils/log");
+const log_1 = require("../modules/log");
 function Mount(req, res, next) {
     const { pathname, query } = url_1.parse(req.url, true);
     //相对路径
@@ -18,7 +18,7 @@ function Mount(req, res, next) {
     req.query = query;
     //常用header
     setHeader_1.default(res);
-    log_1.LOG({ type: 'REQUEST', pid: process.pid, msg: req.absolutePath });
+    log_1.LOG({ type: 'REQUEST', msg: req.absolutePath });
     next();
 }
 exports.default = Mount;

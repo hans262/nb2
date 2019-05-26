@@ -1,10 +1,13 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const MIDDLEWARE_1 = require("../store/MIDDLEWARE");
+const middleware_1 = __importDefault(require("../middleware"));
 function HANDLER(req, res) {
     let i = 0;
     function next() {
-        let middleware = MIDDLEWARE_1.MIDDLEWARE[i++];
+        let middleware = middleware_1.default[i++];
         if (!middleware)
             return;
         middleware(req, res, next);

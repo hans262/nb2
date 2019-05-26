@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
+const log_1 = require("../modules/log");
 function parseRange(range, size) {
     //目前只处理第一个分段
     //必须格式: bytes=0-10
@@ -31,14 +32,14 @@ function ResRange(req, res) {
         const stream = fs_1.createReadStream(absolutePath, { start, end });
         res.writeHead(206, 'Partial Content');
         stream.pipe(res);
-        process.send({ type: 'INFO', pid: process.pid, msgtype: 'RES_RANGE', msg: absolutePath });
+        log_1.LOG({ type: 'RES_RANGE', msg: absolutePath });
     }
     else {
         res.removeHeader('Content-Length');
         res.setHeader('Content-Range', `bytes=*/${size}`);
         res.writeHead(416, 'Request Range Not Satisfiable');
         res.end();
-        process.send({ type: 'INFO', pid: process.pid, msgtype: '416', msg: absolutePath });
+        log_1.LOG({ type: '416', msg: absolutePath });
     }
 }
 exports.default = ResRange;

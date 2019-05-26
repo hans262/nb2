@@ -1,4 +1,4 @@
-import { MIDDLEWARE } from '../store/MIDDLEWARE'
+import MIDDLEWARE from '../middleware'
 
 export function HANDLER(req: any, res: any): void {
   let i = 0

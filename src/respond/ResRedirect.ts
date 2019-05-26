@@ -1,4 +1,4 @@
-import { LOG } from '../utils/log'
+import { LOG } from '../modules/log'
 interface Redirect {
   location: string
   code: number
@@ -6,7 +6,7 @@ interface Redirect {
 }
 export default function ResRedirect(res: any, redirect: Redirect) {
   const { location, code, reasonPhrase } = redirect
-  LOG({ type: 'REDIRECT', pid: process.pid, msg: location })
+  LOG({ type: 'REDIRECT', msg: location })
   res.setHeader('Location', location)
   res.writeHead(code, reasonPhrase)
   res.end()

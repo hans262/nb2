@@ -1,6 +1,6 @@
 export const PORT = 5000
 export const HOST = "127.0.0.1"
-export const ROOT = "C:\\"
+export const ROOT = "D:\\"
 export const INDEX_PAGE = "index.html"
 export const ZIP_MATCH = "^\\.(css|js|html|woff)$"
 export const CLUSTER = false

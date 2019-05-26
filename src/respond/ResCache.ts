@@ -1,6 +1,8 @@
-export default function ResCache(req, res) {
+import { LOG } from '../modules/log'
+
+export default function ResCache(req: any, res: any) {
   const { absolutePath } = req
-  process.send({ type: 'INFO', pid: process.pid, msgtype: 'RES_CHCHE', msg: absolutePath })
+  LOG({ type: 'RES_CACHE', msg: absolutePath })
   res.writeHead(304, 'Not Modified')
   res.end('Not Modified')
 }

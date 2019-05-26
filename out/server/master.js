@@ -7,59 +7,34 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var cluster_1 = require("cluster");
-var os_1 = require("os");
-var conf_1 = require("../conf");
+const cluster_1 = require("cluster");
+const os_1 = require("os");
+const conf_1 = require("../conf");
+const log_1 = require("../modules/log");
 function master() {
-    var nowTime = new Date().toLocaleString();
-    console.info("[MASTER STARTUP] pid: " + process.pid + " date: " + nowTime);
-    conf_1.CLUSTER ? os_1.cpus().forEach(function () { return cluster_1.fork(); }) : cluster_1.fork();
-    cluster_1.on('message', function (worker, action) {
+    log_1.LOG({ type: 'MASTER STARTUP', msg: 'running' });
+    conf_1.CLUSTER ? os_1.cpus().forEach(() => cluster_1.fork()) : cluster_1.fork();
+    cluster_1.on('message', (worker, action) => {
         switch (action.type) {
-            case 'INFO':
-                var pid = action.pid, msg = action.msg, msgtype = action.msgtype;
-                var nowTime_1 = new Date().toLocaleString();
-                console.info("[" + msgtype + "] pid: " + pid + " date: " + nowTime_1 + " -> " + msg);
-                break;
             case 'RE_START':
                 //重启
-                Object.values(cluster_1.workers).forEach(function (w, i) {
-                    setTimeout(function () {
+                Object.values(cluster_1.workers).forEach((w, i) => {
+                    setTimeout(() => {
                         w.send({ type: 'CLOSE_SERVER', code: 1 });
                     }, 2000 * i);
                 });
                 break;
             case 'SHUT_DOWN':
                 //关机
-                Object.values(cluster_1.workers).forEach(function (w) {
+                Object.values(cluster_1.workers).forEach(w => {
                     w.send({ type: 'CLOSE_SERVER', code: 0 });
                 });
                 break;
@@ -67,32 +42,27 @@ function master() {
                 throw new Error('No MsgType!');
         }
     });
-    cluster_1.on('exit', function (worker, code) {
-        var nowTime = new Date().toLocaleString();
-        console.info("[WORKET EXIT] pid: " + worker.process.pid + " date: " + nowTime);
+    cluster_1.on('exit', (worker, code) => {
         if (code === 1) {
             //重启
+            log_1.LOG({ type: 'WORKET EXIT', pid: worker.process.pid, msg: 'restart' });
             cluster_1.fork();
+        }
+        else if (code === 0) {
+            //关机
+            log_1.LOG({ type: 'WORKET EXIT', pid: worker.process.pid, msg: 'shutdown' });
         }
     });
 }
 function RUN() {
-    return __awaiter(this, void 0, void 0, function () {
-        var worker;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    if (!cluster_1.isMaster) return [3 /*break*/, 1];
-                    master();
-                    return [3 /*break*/, 3];
-                case 1: return [4 /*yield*/, Promise.resolve().then(function () { return require('./worker'); })];
-                case 2:
-                    worker = (_a.sent()).worker;
-                    worker();
-                    _a.label = 3;
-                case 3: return [2 /*return*/];
-            }
-        });
+    return __awaiter(this, void 0, void 0, function* () {
+        if (cluster_1.isMaster) {
+            master();
+        }
+        else {
+            const { RUN } = yield Promise.resolve().then(() => __importStar(require('./worker')));
+            RUN();
+        }
     });
 }
 exports.RUN = RUN;

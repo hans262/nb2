@@ -1,9 +1,10 @@
 {
   "name": "node-server",
-  "version": "2.3.1",
+  "version": "3.0.0",
   "description": "Node Server Fast and Minimum",
   "scripts": {
     "start": "node out/index.js",
+    "cluster": "node out/cluster.js",
     "out": "tsc",
     "out:w": "tsc -watch"
   },

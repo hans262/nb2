@@ -1,3 +1,3 @@
 @echo off
 @echo hello!
-node scripts/start.js
+node out/cluster.js

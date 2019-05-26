@@ -7,6 +7,7 @@ const fs_1 = require("fs");
 const path_1 = require("path");
 const conf_1 = require("../conf");
 const ResRedirect_1 = __importDefault(require("./ResRedirect"));
+const log_1 = require("../modules/log");
 function ResDir(req, res) {
     const { absolutePath, relativePath } = req;
     const INDEX_PATH = path_1.join(absolutePath, conf_1.INDEX_PAGE); //index路径
@@ -29,12 +30,7 @@ function ResDir(req, res) {
                 }
             }
             catch (err) {
-                process.send({
-                    type: 'INFO',
-                    pid: process.pid,
-                    msgtype: 'ERROR',
-                    msg: err.message
-                });
+                log_1.LOG({ type: 'ERROR', msg: err.message });
                 small += `<small style="color:red">无权系统路径</small>`;
             }
             content += `<p><a href="${href}">${file}</a>${small}</p>`;
@@ -42,7 +38,7 @@ function ResDir(req, res) {
         res.setHeader('Content-Type', 'text/html; charset=utf-8');
         res.writeHead(200, 'Access Directory');
         res.end(content);
-        process.send({ type: 'INFO', pid: process.pid, msgtype: 'RES_DIR', msg: absolutePath });
+        log_1.LOG({ type: 'RES_DIR', msg: absolutePath });
     }
 }
 exports.default = ResDir;

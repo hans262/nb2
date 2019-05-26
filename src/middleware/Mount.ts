@@ -2,7 +2,7 @@ import { parse } from 'url'
 import { join } from 'path'
 import { ROOT } from '../conf'
 import setHeader from '../utils/setHeader'
-import { LOG } from '../utils/log'
+import { LOG } from '../modules/log'
 
 export default function Mount(req: any, res: any, next) {
   const { pathname, query } = parse(req.url, true)
@@ -15,7 +15,7 @@ export default function Mount(req: any, res: any, next) {
   //常用header
   setHeader(res)
 
-  LOG({ type: 'REQUEST', pid: process.pid, msg: req.absolutePath })
+  LOG({ type: 'REQUEST', msg: req.absolutePath })
 
   next()
 }
