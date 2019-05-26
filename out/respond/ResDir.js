@@ -1,12 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
 const path_1 = require("path");
 const conf_1 = require("../conf");
-const ResRedirect_1 = __importDefault(require("./ResRedirect"));
+const ResRedirect_1 = require("./ResRedirect");
 const log_1 = require("../modules/log");
 function ResDir(req, res) {
     const { absolutePath, relativePath } = req;

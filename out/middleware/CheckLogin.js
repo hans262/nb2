@@ -1,11 +1,8 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const getCookie_1 = __importDefault(require("../utils/getCookie"));
-const setCookie_1 = __importDefault(require("../utils/setCookie"));
-const ResRedirect_1 = __importDefault(require("../respond/ResRedirect"));
+const getCookie_1 = require("../utils/getCookie");
+const setCookie_1 = require("../utils/setCookie");
+const ResRedirect_1 = require("../respond/ResRedirect");
 const SESSION_1 = require("../store/SESSION");
 function CheckLogin(req, res, next) {
     if (check(req, res)) {

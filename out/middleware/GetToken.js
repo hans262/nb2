@@ -1,12 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const querystring_1 = require("querystring");
 const SESSION_1 = require("../store/SESSION");
-const setCookie_1 = __importDefault(require("../utils/setCookie"));
-const ResRedirect_1 = __importDefault(require("../respond/ResRedirect"));
+const setCookie_1 = require("../utils/setCookie");
+const ResRedirect_1 = require("../respond/ResRedirect");
 const conf_1 = require("../conf");
 function GetToken(req, res, next) {
     const { method, relativePath } = req;

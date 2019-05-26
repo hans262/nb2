@@ -1,15 +1,12 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const conf_1 = require("../conf");
-const Mount_1 = __importDefault(require("./Mount"));
-const Login_1 = __importDefault(require("./Login"));
-const GetToken_1 = __importDefault(require("./GetToken"));
-const CheckLogin_1 = __importDefault(require("./CheckLogin"));
-const CheckController_1 = __importDefault(require("./CheckController"));
-const ResStatic_1 = __importDefault(require("./ResStatic"));
+const Mount_1 = require("./Mount");
+const Login_1 = require("./Login");
+const GetToken_1 = require("./GetToken");
+const CheckLogin_1 = require("./CheckLogin");
+const CheckController_1 = require("./CheckController");
+const ResStatic_1 = require("./ResStatic");
 const MIDDLEWARE = [];
 function useMiddleware(middleware) {
     MIDDLEWARE.push(middleware);

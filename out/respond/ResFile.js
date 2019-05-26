@@ -1,14 +1,11 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const mime_1 = require("../utils/mime");
-const ResZip_1 = __importDefault(require("./ResZip"));
-const ResRange_1 = __importDefault(require("./ResRange"));
+const ResZip_1 = require("./ResZip");
+const ResRange_1 = require("./ResRange");
 const conf_1 = require("../conf");
 const cache_1 = require("../utils/cache");
-const ResCache_1 = __importDefault(require("./ResCache"));
+const ResCache_1 = require("./ResCache");
 function ResFile(req, res) {
     const { absolutePath, stats } = req;
     const { size, mtime } = stats;
