@@ -1,5 +1,4 @@
-
-function ResNotFound(req, res) {
+export default function ResNotFound(req, res) {
   const { absolutePath } = req
   process.send({ type: 'INFO', pid: process.pid, msgtype: '404', msg: absolutePath })
   res.setHeader('Content-Type', 'text/html; charset=utf-8')
@@ -9,5 +8,3 @@ function ResNotFound(req, res) {
 		<p>The requested URL ${req.relativePath} was not found on this server.</p>
 	`)
 }
-
-module.exports = ResNotFound

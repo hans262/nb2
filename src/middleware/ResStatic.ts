@@ -1,12 +1,12 @@
-const fs = require('fs')
-const ResNotFound = require('../respond/ResNotFound')
-const ResDir = require('../respond/ResDir')
-const ResFile = require('../respond/ResFile')
+import { stat } from 'fs'
+import ResNotFound from '../respond/ResNotFound'
+import ResDir from '../respond/ResDir'
+import ResFile from '../respond/ResFile'
 
-function ResStatic(req, res, next) {
+export default function ResStatic(req, res, next) {
   const { absolutePath } = req
 
-  fs.stat(absolutePath, (err, stats) => {
+  stat(absolutePath, (err, stats) => {
     if (err) {
       return ResNotFound(req, res)
     }
@@ -20,8 +20,5 @@ function ResStatic(req, res, next) {
     if (stats.isFile()) {
       return ResFile(req, res)
     }
-
   })
-
 }
-module.exports = ResStatic

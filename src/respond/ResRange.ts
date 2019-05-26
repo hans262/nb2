@@ -1,4 +1,4 @@
-const fs = require('fs')
+import { createReadStream } from 'fs'
 function parseRange(range, size) {
   //目前只处理第一个分段
   //必须格式: bytes=0-10
@@ -18,7 +18,7 @@ function parseRange(range, size) {
   return { start, end }
 }
 
-function ResRange(req, res) {
+export default function ResRange(req, res) {
   const { absolutePath } = req
   const { size } = req.stats
   //拿到范围，解析范围
@@ -28,7 +28,7 @@ function ResRange(req, res) {
     const {start, end}=range
     res.setHeader('Content-Range', `bytes ${start}-${end}/${size}`)
     res.setHeader('Content-Length', (end - start+1))
-    const stream = fs.createReadStream(absolutePath, {start,end})
+    const stream = createReadStream(absolutePath, {start,end})
 
     res.writeHead(206, 'Partial Content')
     stream.pipe(res)
@@ -40,8 +40,4 @@ function ResRange(req, res) {
     res.end()
     process.send({ type: 'INFO', pid: process.pid, msgtype: '416', msg: absolutePath })
   }
-}
-
-module.exports = {
-  ResRange
 }

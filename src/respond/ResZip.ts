@@ -9,7 +9,7 @@ function isZip(absolutePath) {
   return matched
 }
 
-function ResZip(req, res) {
+export default function ResZip(req, res) {
   const { absolutePath } = req
   let stream = fs.createReadStream(absolutePath)
 
@@ -37,8 +37,4 @@ function ResZip(req, res) {
 
   res.writeHead(200, 'OK')
   stream.pipe(res)
-}
-
-module.exports = {
-  ResZip
 }

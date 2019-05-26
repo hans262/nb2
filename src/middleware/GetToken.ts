@@ -1,11 +1,10 @@
-const querystring = require('querystring')
-const { generate, KEY } = require('../store/SESSION')
-const setCoolie = require('../utils/setCookie')
-const ResRedirect = require('../respond/ResRedirect')
-const conf = require('../../config/default')
-const { USER } = conf
+import { parse } from 'querystring'
+import { generate, KEY } from '../store/SESSION'
+import setCookie from '../utils/setCookie'
+import ResRedirect from '../respond/ResRedirect'
+import { USER } from '../conf'
 
-function GetToken(req, res, next) {
+export default function GetToken(req, res, next) {
   const { method, relativePath } = req
   if (method === 'POST' && relativePath === '/getToken') {
     let chunks = []
@@ -15,11 +14,11 @@ function GetToken(req, res, next) {
     req.on('end', () => {
       const buffer = Buffer.concat(chunks)
       const toString = buffer.toString()
-      const toObj = querystring.parse(toString)
+      const toObj = parse(toString)
       const { username, password } = toObj
       if (username === USER.username && password === USER.password) {
         const ses = generate()
-        setCoolie(res, KEY, ses.id, {
+        setCookie(res, KEY, ses.id, {
           path: '/',
           expires: new Date(ses.expire),
           httpOnly: true,
@@ -35,4 +34,3 @@ function GetToken(req, res, next) {
     next()
   }
 }
-module.exports = GetToken

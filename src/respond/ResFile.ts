@@ -1,10 +1,9 @@
 import { mime } from '../utils/mime'
-const { ResZip } = require('./ResZip')
-
-const { ResRange } = require('./ResRange')
-const { CACHE_MAX_AGE } = REQUIRE('config/default')
-const { generateETag, isCache } = REQUIRE('src/utils/cache')
-const ResCache=require('./ResCache')
+import ResZip from './ResZip'
+import ResRange from './ResRange'
+import { CACHE_MAX_AGE } from '../conf'
+import { generateETag, isCache } from '../utils/cache'
+import ResCache from './ResCache'
 
 export default function ResFile(req, res) {
   const { absolutePath, stats } = req

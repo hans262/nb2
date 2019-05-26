@@ -1,5 +1,4 @@
-const { CONTROLLER } = require('../store/CONTROLLER')
-
+import { CONTROLLER } from '../store/CONTROLLER'
 function CheckController(req, res, next) {
   const { method, relativePath } = req
   const Con = CONTROLLER.find(v => v.PATH === relativePath)

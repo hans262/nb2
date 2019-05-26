@@ -1,9 +1,9 @@
-const getCookie = require('../utils/getCookie')
-const setCookie = require('../utils/setCookie')
-const ResRedirect=require('../respond/ResRedirect')
-const { KEY, select, remove, reset } = require('../store/SESSION')
+import getCookie from '../utils/getCookie'
+import setCookie from '../utils/setCookie'
+import ResRedirect from '../respond/ResRedirect'
+import { KEY, select, remove, reset } from '../store/SESSION'
 
-function CheckLogin(req, res, next) {
+export default function CheckLogin(req, res, next) {
   if (check(req, res)) {
     next()
   } else {
@@ -37,5 +37,3 @@ function check(req, res) {
   reset(id)//-重置
   return true
 }
-
-module.exports = CheckLogin
