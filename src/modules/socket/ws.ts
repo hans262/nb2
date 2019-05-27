@@ -1,5 +1,5 @@
-const WebSocket = require('ws')
-const wss = new WebSocket.Server({ port: 8888 })
+import { Server } from 'ws'
+const wss: Server = new Server({ port: 8888 })
 
 wss.on('connection', function (ws) {
   ws.send('you are user ' + wss.clients.size)

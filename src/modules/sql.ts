@@ -1,10 +1,7 @@
-const mysql = require('mysql')
-const conf = require('../../config/mysql')
-const {
-	CONNECTION_LIMIT, HOST, PORT, USER, PASSWORD, DATABASE
-} = conf
+import { createPool, Pool } from 'mysql'
+import { CONNECTION_LIMIT, HOST, PORT, USER, PASSWORD, DATABASE } from '../conf/mysql'
 
-const POOL = mysql.createPool({
+export const POOL: Pool = createPool({
 	connectionLimit: CONNECTION_LIMIT,
 	host: HOST,
 	port: PORT,
@@ -13,22 +10,17 @@ const POOL = mysql.createPool({
 	database: DATABASE,
 })
 
-function QUERY(sql) {
+export function QUERY(sql: string): Promise<{}> {
 	return new Promise((resolve, reject) => {
 		POOL.getConnection((err, connection) => {
-			if(err) return reject(err)
-			connection.query(sql, (err, results, fields) => {
+			if (err) return reject(err)
+			connection.query(sql, (err, results) => {
 				//释放连接
 				connection.release()
 				err ? reject(err) : resolve(results)
 			})
 		})
 	})
-}
-
-module.exports = {
-	POOL,
-	QUERY
 }
 
 /*

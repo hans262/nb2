@@ -1,15 +1,15 @@
-export const PORT = 5000
-export const HOST = "127.0.0.1"
-export const ROOT = "D:\\"
-export const INDEX_PAGE = "index.html"
-export const ZIP_MATCH = "^\\.(css|js|html|woff)$"
-export const CLUSTER = false
-export const CACHE = true
-export const CACHE_MAX_AGE =6000
-export const CROSS = true
-export const LOGIN = false
-export const USER = {
+export const PORT: number = 5000
+export const HOST: string = "127.0.0.1"
+export const ROOT: string = "C:\\"
+export const INDEX_PAGE: string = "index.html"
+export const ZIP_MATCH: string = "^\\.(css|js|html|woff)$"
+export const CLUSTER: boolean = false
+export const CACHE: boolean = true
+export const CACHE_MAX_AGE: number = 6000
+export const CROSS: boolean = true
+export const LOGIN: boolean = false
+export const USER: any = {
   "username": "root",
   "password": "123456"
 }
-export const SESSION_EXPIRES = 20
+export const SESSION_EXPIRES: number = 20

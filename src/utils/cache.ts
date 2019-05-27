@@ -1,8 +1,10 @@
+import { Stats } from 'fs'
+
 /**
  * 生成ETag
  * @param {object} stats 
  */
-export function generateETag(stats) {
+export function generateETag(stats: Stats) {
   const mtime = stats.mtime.getTime().toString(16)//16进制
   const size = stats.size.toString(16)
   return `W/"${mtime}-${size}"`

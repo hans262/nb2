@@ -1,37 +1,32 @@
-const crypto = require('crypto')
+import { createHash, createHmac, createCipher, createDecipher } from 'crypto'
 
-function MD5(data) {
-	var hash = crypto.createHash('md5')
+export function MD5(data) {
+	var hash = createHash('md5')
 	hash.update(data)
 	return hash.digest('hex')
 }
 
-function Hmac(data) {
-	const hmac = crypto.createHmac('md5', 'secret-key')
+export function Hmac(data) {
+	const hmac = createHmac('md5', 'secret-key')
 	hmac.update(data)
 	return hmac.digest('hex')
 }
 
-function Cipher(data, key) {
-	const cipher = crypto.createCipher('aes-128-ecb', key)
+export function Cipher(data, key) {
+	const cipher = createCipher('aes-128-ecb', key)
 	var crypted = cipher.update(data, 'utf8', 'hex')
 	crypted += cipher.final('hex')
 	return crypted
 }
 
-function Decipher(encrypted, key) {
-	const decipher = crypto.createDecipher('aes-128-ecb', key)
+export function Decipher(encrypted, key) {
+	const decipher = createDecipher('aes-128-ecb', key)
 	var decrypted = decipher.update(encrypted, 'hex', 'utf8')
 	decrypted += decipher.final('utf8')
 	return decrypted
 }
 
-module.exports = {
-	MD5,
-	Hmac,
-	Cipher,
-	Decipher
-}
+
 
 /*
 

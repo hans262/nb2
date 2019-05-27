@@ -1,10 +1,10 @@
-import { createServer } from 'http'
+import { createServer, Server } from 'http'
 import { PORT, HOST } from '../conf'
 import { HANDLER } from './Main'
 import { LOG } from '../modules/log'
 
 export async function RUN(): Promise<void> {
-  const server = createServer(HANDLER)
+  const server: Server = createServer(HANDLER)
   server.listen(PORT, HOST, () => {
     LOG({ type: 'WORKER STARTUP', msg: `port: ${PORT}` })
   })
