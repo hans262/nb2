@@ -2,23 +2,28 @@ import getCookie from '../utils/getCookie'
 import setCookie from '../utils/setCookie'
 import ResRedirect from '../respond/ResRedirect'
 import { KEY, select, remove, reset } from '../store/SESSION'
+import { ServerResponse } from 'http';
+import { Req } from '../Interface/Req';
+import { Session } from '../Interface/Session';
 
-export default function CheckLogin(req, res, next) {
+export default function CheckLogin(req: Req, res: ServerResponse, next: Function): void {
   if (check(req, res)) {
     next()
   } else {
-    ResRedirect(res, { location: '/login', code: 302, reasonPhrase: 'temporarily moved' })
+    ResRedirect({ res, location: '/login', code: 302, reasonPhrase: 'temporarily moved' })
   }
 }
 
-function check(req: any, res: any) {
-  let id = getCookie(req, KEY)
+function check(req: Req, res: ServerResponse): boolean {
+  const id: string = getCookie(req, KEY)
   if (!id) return false //id不存在
-  const ses = select(id)//-查询
+  const ses: Session = select(id)//-查询
   if (!ses) {
     //session不存在
-    setCookie(res, KEY, 'delete', {
-      path: '/',
+    setCookie({
+      res,
+      key: KEY,
+      value: 'delete',
       expires: new Date(),
       httpOnly: true
     })
@@ -27,8 +32,10 @@ function check(req: any, res: any) {
   if (ses.expire < Date.now()) {
     //超时
     remove(id)//-删除
-    setCookie(res, KEY, 'delete', {
-      path: '/',
+    setCookie({
+      res,
+      key: KEY,
+      value: 'delete',
       expires: new Date(),
       httpOnly: true
     })

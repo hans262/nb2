@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * 获取cookie
- * @param {object} req
- * @param {string} key 键
+ * @param req
+ * @param key 键
  */
 function getCookie(req, key) {
     const { cookie } = req.headers;

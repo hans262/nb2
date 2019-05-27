@@ -1,19 +1,30 @@
+import { ServerResponse } from "http";
+
 /**
- * 
- * @param {object} res 
- * @param {string} key 键
- * @param {string} val 值 
- * @param {*} opt 
+ * 设置cookie
+ * @param cookie Cookie
  */
-export default function setCookie(res, key, val, opt) {
-  let pairs = [key + '=' + val]
-  let o = opt ? opt : {}
-  if (o.maxAge) pairs.push('Max-Age=' + o.maxAge)
-  if (o.domain) pairs.push('Domain=' + o.domain)
-  if (o.path) pairs.push('Path=' + o.path)
-  if (o.expires) pairs.push('Expires=' + o.expires.toGMTString())
-  if (o.httpOnly) pairs.push('HttpOnly')
-  if (o.secure) pairs.push('Secure')
-  const result = pairs.join('; ')
+export default function setCookie(cookie: Cookie) {
+  const { res, key, value, maxAge, domain, path, expires, httpOnly, secure } = cookie
+  let pairs: Array<string> = [key + '=' + value]
+  if (maxAge) pairs.push('Max-Age=' + maxAge)
+  if (domain) pairs.push('Domain=' + domain)
+  if (path) pairs.push('Path=' + path)
+  if (expires) pairs.push('Expires=' + expires.toUTCString())
+  if (httpOnly) pairs.push('HttpOnly')
+  if (secure) pairs.push('Secure')
+  const result: string = pairs.join('; ')
   res.setHeader('Set-Cookie', result)
+}
+
+interface Cookie {
+  res: ServerResponse
+  key: string
+  value: string
+  maxAge?: string
+  domain?: string
+  path?: string
+  expires?: Date
+  httpOnly?: boolean
+  secure?: boolean
 }

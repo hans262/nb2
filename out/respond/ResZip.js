@@ -20,7 +20,7 @@ function ResZip(req, res) {
         //所有要删除Content-Length属性
         res.setHeader('Transfer-Encoding', 'chunked');
         res.removeHeader('Content-Length');
-        const ZipType = req.headers['accept-encoding'];
+        const ZipType = req.headers['accept-encoding'].toString();
         if (ZipType.match(/\bgzip\b/)) {
             res.setHeader('Content-Encoding', 'gzip');
             stream = stream.pipe(zlib_1.createGzip());

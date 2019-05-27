@@ -4,7 +4,7 @@ const middleware_1 = require("../middleware");
 function HANDLER(req, res) {
     let i = 0;
     function next() {
-        let middleware = middleware_1.default[i++];
+        const middleware = middleware_1.default[i++];
         if (!middleware)
             return;
         middleware(req, res, next);

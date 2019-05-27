@@ -1,16 +1,16 @@
-const path = require('path')
+import { extname } from 'path'
 
 /**
  * 获取mime类型
- * @param {string} p 
+ * @param path 
  */
-export function mime(p) {
-  let ext = path.extname(p).slice(1)
-  const m = MIME_TYPES[ext]
-  return m ? m : MIME_TYPES['unknown']
+export function mime(path: string): string {
+  let ext = extname(path).slice(1)
+  const type: string = MIME_TYPES[ext]
+  return type ? type : MIME_TYPES['unknown']
 }
 
-const MIME_TYPES = {
+const MIME_TYPES: any = {
   "css": "text/css",
   "gif": "image/gif",
   "html": "text/html",

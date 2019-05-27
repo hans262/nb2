@@ -11,11 +11,11 @@ function ResDir(req, res) {
     if (fs_1.existsSync(INDEX_PATH)) {
         //重定向一下
         const location = path_1.join(relativePath, conf_1.INDEX_PAGE);
-        ResRedirect_1.default(res, { location, code: 302, reasonPhrase: 'index exists' });
+        ResRedirect_1.default({ res, location, code: 302, reasonPhrase: 'index exists' });
     }
     else {
         const files = fs_1.readdirSync(absolutePath);
-        let content = `<h1>Index of ${req.relativePath}</h1>`;
+        let content = `<h1>Index of ${relativePath}</h1>`;
         files.forEach(file => {
             let href = path_1.join(relativePath, file);
             let small = '';

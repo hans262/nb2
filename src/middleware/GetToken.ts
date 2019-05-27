@@ -1,10 +1,13 @@
-import { parse } from 'querystring'
+import { parse, ParsedUrlQuery } from 'querystring'
 import { generate, KEY } from '../store/SESSION'
 import setCookie from '../utils/setCookie'
 import ResRedirect from '../respond/ResRedirect'
 import { USER } from '../conf'
+import { Req } from '../Interface/Req';
+import { ServerResponse } from 'http';
+import { Session } from '../Interface/Session';
 
-export default function GetToken(req: any, res: any, next: Function) {
+export default function GetToken(req: Req, res: ServerResponse, next: Function): void {
   const { method, relativePath } = req
   if (method === 'POST' && relativePath === '/getToken') {
     const chunks: Array<Buffer> = []
@@ -13,17 +16,20 @@ export default function GetToken(req: any, res: any, next: Function) {
     })
     req.on('end', () => {
       const buffer: Buffer = Buffer.concat(chunks)
-      const toString = buffer.toString()
-      const toObj = parse(toString)
+      const toQueryString: string = buffer.toString()
+      const toObj: ParsedUrlQuery = parse(toQueryString)
       const { username, password } = toObj
       if (username === USER.username && password === USER.password) {
-        const ses = generate()
-        setCookie(res, KEY, ses.id, {
+        const ses: Session = generate()
+        setCookie({
+          res,
+          key: KEY,
+          value: ses.id,
           path: '/',
           expires: new Date(ses.expire),
-          httpOnly: true,
+          httpOnly: true
         })
-        ResRedirect(res, { location: '/', code: 302, reasonPhrase: 'login success' })
+        ResRedirect({ res, location: '/', code: 302, reasonPhrase: 'login success' })
       } else {
         res.setHeader('Content-Type', 'text/html; charset=utf-8')
         res.writeHead(200, 'OK')

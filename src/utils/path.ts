@@ -1,6 +1,6 @@
-import { join } from 'path'
+import { join } from 'path';
 
-export const SOURCE = join(__dirname, '../../')
-export const LOG_PATH = join(SOURCE, '/log')
-export const CONTROLLER_PATH = join(SOURCE, '/src/controller')
-export const PUBLIC_PATH = join(SOURCE, '/public')
+export const SOURCE: string = join(__dirname, '../../')
+export const LOG_PATH: string = join(SOURCE, '/log')
+export const CONTROLLER_PATH: string = join(SOURCE, '/src/controller')
+export const PUBLIC_PATH: string = join(SOURCE, '/public')

@@ -1,15 +1,18 @@
-import { createReadStream } from 'fs'
+import { createReadStream, ReadStream } from 'fs'
 import { join } from 'path'
 import { PUBLIC_PATH } from '../utils/path'
+import { Req } from '../Interface/Req';
+import { ServerResponse } from 'http';
 
 export default class DownLoad {
-  static PATH='/api/download'
-  POST(req, res) {
+  static PATH = '/api/download'
+  POST(req: Req, res: ServerResponse): void {
+    const file: string = 'ajax.js'
+    const filename: string = join(PUBLIC_PATH, file)
     res.setHeader('Content-Type', 'application/octet-stream; charset=utf-8')
-    res.setHeader('Content-Disposition', 'attachment; filename=ajax.js')
-    const file = join(PUBLIC_PATH, 'ajax.js')
-    const ReadStream = createReadStream(file, 'binary')
-    ReadStream.pipe(res)
+    res.setHeader('Content-Disposition', `attachment; filename=${file}`)
+    const reader: ReadStream = createReadStream(filename)
+    reader.pipe(res)
   }
 }
 

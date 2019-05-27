@@ -6,7 +6,7 @@ exports.KEY = 'SESSION_ID';
 exports.EXPIRES = conf_1.SESSION_EXPIRES * 60 * 1000; //20分钟
 function generate() {
     const session = {
-        id: Date.now() + Math.random(),
+        id: (Date.now() + Math.random()).toString(),
         expire: Date.now() + exports.EXPIRES,
         count: 0
     };

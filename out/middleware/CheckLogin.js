@@ -9,19 +9,21 @@ function CheckLogin(req, res, next) {
         next();
     }
     else {
-        ResRedirect_1.default(res, { location: '/login', code: 302, reasonPhrase: 'temporarily moved' });
+        ResRedirect_1.default({ res, location: '/login', code: 302, reasonPhrase: 'temporarily moved' });
     }
 }
 exports.default = CheckLogin;
 function check(req, res) {
-    let id = getCookie_1.default(req, SESSION_1.KEY);
+    const id = getCookie_1.default(req, SESSION_1.KEY);
     if (!id)
         return false; //id不存在
     const ses = SESSION_1.select(id); //-查询
     if (!ses) {
         //session不存在
-        setCookie_1.default(res, SESSION_1.KEY, 'delete', {
-            path: '/',
+        setCookie_1.default({
+            res,
+            key: SESSION_1.KEY,
+            value: 'delete',
             expires: new Date(),
             httpOnly: true
         });
@@ -30,8 +32,10 @@ function check(req, res) {
     if (ses.expire < Date.now()) {
         //超时
         SESSION_1.remove(id); //-删除
-        setCookie_1.default(res, SESSION_1.KEY, 'delete', {
-            path: '/',
+        setCookie_1.default({
+            res,
+            key: SESSION_1.KEY,
+            value: 'delete',
             expires: new Date(),
             httpOnly: true
         });

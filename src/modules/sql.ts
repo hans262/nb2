@@ -1,4 +1,4 @@
-import { createPool, Pool } from 'mysql'
+import { createPool, Pool, MysqlError, PoolConnection } from 'mysql'
 import { CONNECTION_LIMIT, HOST, PORT, USER, PASSWORD, DATABASE } from '../conf/mysql'
 
 export const POOL: Pool = createPool({
@@ -10,12 +10,12 @@ export const POOL: Pool = createPool({
 	database: DATABASE,
 })
 
-export function QUERY(sql: string): Promise<{}> {
+export function QUERY<T>(sql: string): Promise<T> {
 	return new Promise((resolve, reject) => {
-		POOL.getConnection((err, connection) => {
+		POOL.getConnection((err: MysqlError, connection: PoolConnection) => {
 			if (err) return reject(err)
-			connection.query(sql, (err, results) => {
-				//释放连接
+			connection.query(sql, (err: MysqlError, results: T) => {
+				//释放
 				connection.release()
 				err ? reject(err) : resolve(results)
 			})

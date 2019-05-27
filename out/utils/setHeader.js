@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const conf_1 = require("../conf");
 /**
  * 设置常用header
- * @param {object} res
+ * @param res
  */
 function setHeader(res) {
     //服务器类型

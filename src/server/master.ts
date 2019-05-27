@@ -3,7 +3,7 @@ import { cpus } from 'os'
 import { CLUSTER } from '../conf'
 import { LOG } from '../modules/log'
 
-function master() {
+function master(): void {
   LOG({ type: 'MASTER STARTUP', msg: 'running' })
   CLUSTER ? cpus().forEach(() => fork()) : fork()
 

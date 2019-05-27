@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * 生成ETag
- * @param {object} stats
+ * @param stats
  */
 function generateETag(stats) {
     const mtime = stats.mtime.getTime().toString(16); //16进制
@@ -12,7 +12,7 @@ function generateETag(stats) {
 exports.generateETag = generateETag;
 /**
  * 验证缓存
- * @param {object} req
+ * @param req
  */
 function isCache(req) {
     const { headers, stats } = req;

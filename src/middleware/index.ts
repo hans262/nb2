@@ -7,9 +7,9 @@ import CheckLogin from './CheckLogin'
 import CheckController from './CheckController'
 import ResStatic from './ResStatic'
 
-const MIDDLEWARE: Array<any> = []
+const MIDDLEWARE: Array<Function> = []
 
-function useMiddleware(middleware) {
+function useMiddleware(middleware: Function): void {
   MIDDLEWARE.push(middleware)
 }
 

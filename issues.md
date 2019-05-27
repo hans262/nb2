@@ -16,5 +16,5 @@
 
 ### typescript重构
 ```
-  stage === 3
+  stage === 4
 ```

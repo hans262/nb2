@@ -1,22 +1,23 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
+const path_1 = require("../utils/path");
+const path_2 = require("path");
 /**
- * @upfile 上传
- * 目前只支持单个文件上传，图片/文本等
+ * 上传 目前只支持单个文件上传
  */
 class UpFile {
     POST(req, res) {
-        let chunks = [];
-        req.on('data', chunk => {
+        const chunks = [];
+        req.on('data', (chunk) => {
             chunks.push(chunk);
         });
         req.on('end', () => {
             // const boundary=req.headers['content-type'].split('boundary=')[1] //多文件分割符
             //拿到总的数据体
-            let buffers = Buffer.concat(chunks);
+            const buffers = Buffer.concat(chunks);
             //统计\r\n数据的索引位置
-            let rems = [];
+            const rems = [];
             for (let i = 0; i < buffers.length; i++) {
                 //13代表\r 10代表\n
                 if (buffers[i] == 13 && buffers[i + 1] == 10) {
@@ -33,15 +34,14 @@ class UpFile {
             console.log(buffers.slice(rems[1] + 2, rems[2]).toString());
             console.log('第四行');
             console.log(buffers.slice(rems[2] + 2, rems[3]).toString());
-            console.log('第五行');
+            // console.log('第五行')
             // console.log(buffers.slice(rems[3]+2,rems[4]).toString())
             //文件名
-            console.log('文件名');
             const fileName = buffers.slice(rems[0] + 2, rems[1]).toString().match(/(?<=filename=")[^"]+(?=")/)[0];
-            console.log(fileName);
+            console.log('文件名: ' + fileName);
             //文件内容
             const fileBuf = buffers.slice(rems[3] + 2, rems[rems.length - 2]);
-            fs_1.writeFileSync("./public/" + fileName, fileBuf, 'utf8');
+            fs_1.writeFileSync(path_2.join(path_1.PUBLIC_PATH, fileName), fileBuf, 'utf8');
             //相应客户端
             res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
             res.end(JSON.stringify({ sucess: true, result: '上传成功' }));

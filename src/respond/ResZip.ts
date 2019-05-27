@@ -1,18 +1,20 @@
-import { createReadStream } from 'fs'
+import { createReadStream, ReadStream } from 'fs'
 import { extname } from 'path'
-import { createGzip, createDeflate } from 'zlib'
+import { createGzip, createDeflate, Gzip, Deflate } from 'zlib'
 import { ZIP_MATCH } from '../conf'
 import { LOG } from '../modules/log'
+import { Req } from '../Interface/Req';
+import { ServerResponse } from 'http';
 
-function isZip(absolutePath) {
+function isZip(absolutePath: string) {
   const type = extname(absolutePath)
   const matched = type.match(ZIP_MATCH)//压缩范围
   return matched
 }
 
-export default function ResZip(req, res) {
+export default function ResZip(req: Req, res: ServerResponse): void {
   const { absolutePath } = req
-  let stream:any = createReadStream(absolutePath)
+  let stream: ReadStream | Gzip | Deflate = createReadStream(absolutePath)
 
   if (isZip(absolutePath)) {
     //需要压缩
@@ -23,7 +25,7 @@ export default function ResZip(req, res) {
     res.setHeader('Transfer-Encoding', 'chunked')
     res.removeHeader('Content-Length')
 
-    const ZipType = req.headers['accept-encoding']
+    const ZipType: string = req.headers['accept-encoding'].toString()
     if (ZipType.match(/\bgzip\b/)) {
       res.setHeader('Content-Encoding', 'gzip')
       stream = stream.pipe(createGzip())

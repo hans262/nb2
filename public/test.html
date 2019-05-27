@@ -7,15 +7,15 @@
 </head>
 
 <body>
-  <button id="btn">下载</button>
+  <button id="btn">发送</button>
   <script src="ajax.js"></script>
   <script>
     const btn = document.getElementById('btn')
     btn.addEventListener('click', async () => {
       const res = await ajax('/api/post', {
-        params: '带我去带我去',
+        params: 'dwqdqw',
         type: 'post',
-        responseType: 'arraybuffer'
+        // responseType: 'arraybuffer'
       })
       console.log(res)
     })

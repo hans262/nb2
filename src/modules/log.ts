@@ -4,16 +4,16 @@ interface Message {
   pid?: number
 }
 
-export function LOG(massage: Message) {
-  const { type, msg, pid=process.pid } = massage
-  const nowTime = new Date().toLocaleString()
+export function LOG(massage: Message): void {
+  const { type, msg, pid = process.pid } = massage
+  const nowTime: string = new Date().toLocaleString()
   console.info(`[${type}] pid: ${pid} date: ${nowTime} -> ${msg}`)
 }
 
 interface Cmd {
   type: string
 }
-export function SEND(cmd: Cmd) {
+export function SEND(cmd: Cmd): void {
   const { type } = cmd
   if (process.send) {
     process.send({ type })

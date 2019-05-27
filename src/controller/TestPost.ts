@@ -1,14 +1,17 @@
+import { Req } from "../Interface/Req";
+import { ServerResponse } from "http";
+
 export default class TestPost {
 	static PATH = '/api/post'
-	async POST(req, res) {
+	POST(req: Req, res: ServerResponse): void {
 		res.setHeader('Content-Type', 'application/octet-stream; charset=utf-8')
 		res.writeHead(200, 'OK')
-		let chunks = []
-		req.on('data', chunk => {
+		const chunks: Array<Buffer> = []
+		req.on('data', (chunk: Buffer) => {
 			chunks.push(chunk)
 		})
 		req.on('end', () => {
-			const buffer = Buffer.concat(chunks)
+			const buffer: Buffer = Buffer.concat(chunks)
 			res.end(buffer)
 		})
 	}

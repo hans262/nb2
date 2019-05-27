@@ -16,7 +16,7 @@ function QUERY(sql) {
             if (err)
                 return reject(err);
             connection.query(sql, (err, results) => {
-                //释放连接
+                //释放
                 connection.release();
                 err ? reject(err) : resolve(results);
             });

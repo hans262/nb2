@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const log_1 = require("../modules/log");
-// @restart 重启
 class Restart {
     GET(req, res) {
         res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });

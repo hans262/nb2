@@ -2,6 +2,30 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
 const log_1 = require("../modules/log");
+function ResRange(req, res) {
+    const { absolutePath, stats } = req;
+    const { size } = stats;
+    //拿到范围，解析范围
+    const range = parseRange(req.headers['range'], size);
+    //判断范围是否存在
+    if (range) {
+        const { start, end } = range;
+        res.setHeader('Content-Range', `bytes ${start}-${end}/${size}`);
+        res.setHeader('Content-Length', (end - start + 1));
+        const stream = fs_1.createReadStream(absolutePath, { start, end });
+        res.writeHead(206, 'Partial content');
+        stream.pipe(res);
+        log_1.LOG({ type: 'RES_RANGE', msg: absolutePath });
+    }
+    else {
+        res.removeHeader('Content-Length');
+        res.setHeader('Content-Range', `bytes=*/${size}`);
+        res.writeHead(416, 'Out of range');
+        res.end();
+        log_1.LOG({ type: '416', msg: absolutePath });
+    }
+}
+exports.default = ResRange;
 function parseRange(range, size) {
     //目前只处理第一个分段
     //必须格式: bytes=0-10
@@ -17,30 +41,9 @@ function parseRange(range, size) {
         return null;
     if (end >= size)
         return null;
-    return { start, end };
+    const r = {
+        start, end
+    };
+    return r;
 }
-function ResRange(req, res) {
-    const { absolutePath } = req;
-    const { size } = req.stats;
-    //拿到范围，解析范围
-    let range = parseRange(req.headers['range'], size);
-    //判断范围是否存在
-    if (range) {
-        const { start, end } = range;
-        res.setHeader('Content-Range', `bytes ${start}-${end}/${size}`);
-        res.setHeader('Content-Length', (end - start + 1));
-        const stream = fs_1.createReadStream(absolutePath, { start, end });
-        res.writeHead(206, 'Partial Content');
-        stream.pipe(res);
-        log_1.LOG({ type: 'RES_RANGE', msg: absolutePath });
-    }
-    else {
-        res.removeHeader('Content-Length');
-        res.setHeader('Content-Range', `bytes=*/${size}`);
-        res.writeHead(416, 'Request Range Not Satisfiable');
-        res.end();
-        log_1.LOG({ type: '416', msg: absolutePath });
-    }
-}
-exports.default = ResRange;
 //# sourceMappingURL=ResRange.js.map

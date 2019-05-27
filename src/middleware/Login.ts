@@ -1,4 +1,7 @@
-export default function login(req: any, res: any, next: Function) {
+import { Req } from "../Interface/Req";
+import { ServerResponse } from "http";
+
+export default function login(req: Req, res: ServerResponse, next: Function): void {
   const { method, relativePath } = req
   if (method === 'GET' && relativePath === '/login') {
     res.setHeader('Content-Type', 'text/html; charset=utf-8')
