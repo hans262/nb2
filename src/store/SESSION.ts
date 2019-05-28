@@ -1,7 +1,7 @@
 import { SESSION_EXPIRES } from '../conf'
-import { Session } from '../Interface/Session';
+import { Session, SessionStore } from '../Interface/Session';
 
-export const SESSION: any = {}
+export const SESSION: SessionStore = {}
 export const KEY: string = 'SESSION_ID'
 export const EXPIRES: number = SESSION_EXPIRES * 60 * 1000//20分钟
 

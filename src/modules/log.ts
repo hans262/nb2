@@ -1,4 +1,4 @@
-interface Message {
+export interface Message {
   type: string
   msg: string
   pid?: number
@@ -10,10 +10,10 @@ export function LOG(massage: Message): void {
   console.info(`[${type}] pid: ${pid} date: ${nowTime} -> ${msg}`)
 }
 
-interface Cmd {
+export interface Action {
   type: string
 }
-export function SEND(cmd: Cmd): void {
+export function SEND(cmd: Action): void {
   const { type } = cmd
   if (process.send) {
     process.send({ type })

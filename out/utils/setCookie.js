@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
- * 设置cookie
+ * 设置cookie 不能设置中文
  * @param cookie Cookie
  */
 function setCookie(cookie) {
@@ -19,8 +19,17 @@ function setCookie(cookie) {
         pairs.push('HttpOnly');
     if (secure)
         pairs.push('Secure');
-    const result = pairs.join('; ');
-    res.setHeader('Set-Cookie', result);
+    const cur = pairs.join('; ');
+    const pre = res.getHeader('set-cookie');
+    if (!pre) {
+        return res.setHeader('Set-Cookie', cur);
+    }
+    if (typeof pre === 'string') {
+        return res.setHeader('Set-Cookie', [pre, cur]);
+    }
+    if (Array.isArray(pre)) {
+        return res.setHeader('Set-Cookie', [...pre, cur]);
+    }
 }
 exports.default = setCookie;
 //# sourceMappingURL=setCookie.js.map

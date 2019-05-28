@@ -1,0 +1,13 @@
+import { User } from "../Interface/User";
+export declare const PORT: number;
+export declare const HOST: string;
+export declare const ROOT: string;
+export declare const INDEX_PAGE: string;
+export declare const ZIP_MATCH: string;
+export declare const CLUSTER: boolean;
+export declare const CACHE: boolean;
+export declare const CACHE_MAX_AGE: number;
+export declare const CROSS: boolean;
+export declare const LOGIN: boolean;
+export declare const USER: User;
+export declare const SESSION_EXPIRES: number;

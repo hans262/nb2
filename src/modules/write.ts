@@ -1,33 +1,23 @@
-import { createWriteStream } from 'fs'
+import { createWriteStream, WriteStream } from 'fs'
 import { join } from 'path'
 import { LOG_PATH } from '../utils/path'
 
-let STREAM = null
-
-function CREATE_STREAM() {
-	if (STREAM) {
-		STREAM.close()
-	}
+export function CREATE_STREAM(): WriteStream {
 	const CURRENT_DAY = new Date().toLocaleDateString()
 	const FILE_NAME = join(LOG_PATH, `/${CURRENT_DAY}.log`)
-	STREAM = createWriteStream(FILE_NAME, {
+	const STREAM = createWriteStream(FILE_NAME, {
 		flags: 'a',
 		encoding: 'utf8'
 	})
+	return STREAM
 }
 
-CREATE_STREAM()
+const STREAM=CREATE_STREAM()
 
-function WRITE(MSG) {
+export function WRITE(MSG) {
 	STREAM.write(MSG)
 	STREAM.write('\r\n')
 }
 
 WRITE('DWQDQ')
 WRITE('SFSDF')
-
-module.exports = {
-	CREATE_STREAM,
-	STREAM,
-	WRITE,
-}

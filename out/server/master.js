@@ -16,7 +16,8 @@ function master() {
     log_1.LOG({ type: 'MASTER STARTUP', msg: 'running' });
     conf_1.CLUSTER ? os_1.cpus().forEach(() => cluster_1.fork()) : cluster_1.fork();
     cluster_1.on('message', (worker, action) => {
-        switch (action.type) {
+        const { type } = action;
+        switch (type) {
             case 'RE_START':
                 //重启
                 Object.values(cluster_1.workers).forEach((w, i) => {
@@ -27,7 +28,7 @@ function master() {
                 break;
             case 'SHUT_DOWN':
                 //关机
-                Object.values(cluster_1.workers).forEach(w => {
+                Object.values(cluster_1.workers).forEach((w) => {
                     w.send({ type: 'CLOSE_SERVER', code: 0 });
                 });
                 break;
@@ -36,14 +37,16 @@ function master() {
         }
     });
     cluster_1.on('exit', (worker, code) => {
-        if (code === 1) {
-            //重启
-            log_1.LOG({ type: 'WORKET EXIT', pid: worker.process.pid, msg: 'restart' });
-            cluster_1.fork();
-        }
-        else if (code === 0) {
-            //关机
-            log_1.LOG({ type: 'WORKET EXIT', pid: worker.process.pid, msg: 'shutdown' });
+        switch (code) {
+            case 1:
+                //重启
+                log_1.LOG({ type: 'WORKET EXIT', pid: worker.process.pid, msg: 'restart' });
+                return cluster_1.fork();
+            case 0:
+                //关机
+                return log_1.LOG({ type: 'WORKET EXIT', pid: worker.process.pid, msg: 'shutdown' });
+            default:
+                throw new Error('process exception');
         }
     });
 }
