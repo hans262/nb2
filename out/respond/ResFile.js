@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const mime_1 = require("../utils/mime");
-const ResZip_1 = require("./ResZip");
-const ResRange_1 = require("./ResRange");
 const conf_1 = require("../conf");
 const cache_1 = require("../utils/cache");
+const mime_1 = require("../utils/mime");
 const ResCache_1 = require("./ResCache");
+const ResRange_1 = require("./ResRange");
+const ResZip_1 = require("./ResZip");
 function ResFile(req, res) {
     const { absolutePath, stats } = req;
     const { size, mtime } = stats;

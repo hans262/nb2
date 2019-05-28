@@ -1,5 +1,5 @@
-import { LOG } from '../modules/log'
 import { ServerResponse } from 'http';
+import { LOG } from '../modules/log';
 
 /**
  * 重定向 301永久/302临时

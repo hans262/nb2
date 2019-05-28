@@ -1,6 +1,6 @@
 {
   "name": "node-server",
-  "version": "3.1.0",
+  "version": "3.1.2",
   "description": "Node Server Fast and Minimum",
   "scripts": {
     "start": "node out/index.js",

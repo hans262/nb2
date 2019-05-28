@@ -1,4 +1,4 @@
-import { Stats } from 'fs'
+import { Stats } from 'fs';
 import { Req } from '../Interface/Req';
 
 /**

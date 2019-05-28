@@ -1,10 +1,10 @@
-import { createReadStream, ReadStream } from 'fs'
-import { extname } from 'path'
-import { createGzip, createDeflate, Gzip, Deflate } from 'zlib'
-import { ZIP_MATCH } from '../conf'
-import { LOG } from '../modules/log'
-import { Req } from '../Interface/Req';
+import { createReadStream, ReadStream } from 'fs';
 import { ServerResponse } from 'http';
+import { extname } from 'path';
+import { createDeflate, createGzip, Deflate, Gzip } from 'zlib';
+import { ZIP_MATCH } from '../conf';
+import { Req } from '../Interface/Req';
+import { LOG } from '../modules/log';
 
 function isZip(absolutePath: string) {
   const type = extname(absolutePath)

@@ -1,11 +1,11 @@
-import { mime } from '../utils/mime'
-import ResZip from './ResZip'
-import ResRange from './ResRange'
-import { CACHE_MAX_AGE } from '../conf'
-import { generateETag, isCache } from '../utils/cache'
-import ResCache from './ResCache'
-import { Req } from '../Interface/Req';
 import { ServerResponse } from 'http';
+import { CACHE_MAX_AGE } from '../conf';
+import { Req } from '../Interface/Req';
+import { generateETag, isCache } from '../utils/cache';
+import { mime } from '../utils/mime';
+import ResCache from './ResCache';
+import ResRange from './ResRange';
+import ResZip from './ResZip';
 
 export default function ResFile(req: Req, res: ServerResponse): void {
   const { absolutePath, stats } = req

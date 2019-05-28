@@ -1,11 +1,11 @@
-import { LOGIN } from '../conf'
+import { LOGIN } from '../conf';
+import CheckController from './CheckController';
+import CheckLogin from './CheckLogin';
+import GetToken from './GetToken';
+import Login from './Login';
+import Mount from './Mount';
+import ResStatic from './ResStatic';
 
-import Mount from './Mount'
-import Login from './Login'
-import GetToken from './GetToken'
-import CheckLogin from './CheckLogin'
-import CheckController from './CheckController'
-import ResStatic from './ResStatic'
 
 const MIDDLEWARE: Array<Function> = []
 

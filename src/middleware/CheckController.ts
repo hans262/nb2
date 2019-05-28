@@ -1,6 +1,6 @@
-import CONTROLLER from '../controller'
-import { Req } from '../Interface/Req';
 import { ServerResponse } from 'http';
+import CONTROLLER from '../controller';
+import { Req } from '../Interface/Req';
 
 export default function CheckController(req: Req, res: ServerResponse, next: Function): void {
   const { method, relativePath } = req

@@ -1,10 +1,10 @@
 import { ServerResponse } from 'http';
-import { parse } from 'url'
-import { join } from 'path'
-import { ROOT } from '../conf'
-import setHeader from '../utils/setHeader'
-import { LOG } from '../modules/log'
+import { join } from 'path';
+import { parse } from 'url';
+import { ROOT } from '../conf';
 import { Req } from '../Interface/Req';
+import { LOG } from '../modules/log';
+import setHeader from '../utils/setHeader';
 
 export default function Mount(req: Req, res: ServerResponse, next: Function): void {
   const { pathname, query } = parse(req.url, true)

@@ -1,5 +1,5 @@
-import MIDDLEWARE from '../middleware'
 import { IncomingMessage, ServerResponse } from 'http';
+import MIDDLEWARE from '../middleware';
 
 export function HANDLER(req: IncomingMessage, res: ServerResponse): void {
   let i = 0

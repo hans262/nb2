@@ -1,2 +1,2 @@
-import { RUN } from './server/master'
+import { RUN } from './server/master';
 RUN()

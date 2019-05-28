@@ -1,7 +1,7 @@
-import { createServer, Server } from 'http'
-import { PORT, HOST } from '../conf'
-import { HANDLER } from './Main'
-import { LOG } from '../modules/log'
+import { createServer, Server } from 'http';
+import { HOST, PORT } from '../conf';
+import { LOG } from '../modules/log';
+import { HANDLER } from './Main';
 
 export async function RUN(): Promise<void> {
   const server: Server = createServer(HANDLER)

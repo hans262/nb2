@@ -1,4 +1,4 @@
-import { SESSION_EXPIRES } from '../conf'
+import { SESSION_EXPIRES } from '../conf';
 import { Session, SessionStore } from '../Interface/Session';
 
 export const SESSION: SessionStore = {}

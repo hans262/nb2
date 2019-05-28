@@ -1,5 +1,5 @@
-import { IncomingMessage } from "http";
 import { Stats } from "fs";
+import { IncomingMessage } from "http";
 import { ParsedUrlQuery } from "querystring";
 
 export interface Req extends IncomingMessage {

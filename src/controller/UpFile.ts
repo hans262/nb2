@@ -1,8 +1,8 @@
-import { writeFileSync } from 'fs'
-import { Req } from '../Interface/Req';
+import { writeFileSync } from 'fs';
 import { ServerResponse } from 'http';
-import { PUBLIC_PATH } from '../utils/path'
-import { join } from 'path'
+import { join } from 'path';
+import { Req } from '../Interface/Req';
+import { PUBLIC_PATH } from '../utils/path';
 /**
  * 上传 目前只支持单个文件上传
  */

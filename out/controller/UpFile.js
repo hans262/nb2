@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
-const path_1 = require("../utils/path");
-const path_2 = require("path");
+const path_1 = require("path");
+const path_2 = require("../utils/path");
 /**
  * 上传 目前只支持单个文件上传
  */
@@ -41,7 +41,7 @@ class UpFile {
             console.log('文件名: ' + fileName);
             //文件内容
             const fileBuf = buffers.slice(rems[3] + 2, rems[rems.length - 2]);
-            fs_1.writeFileSync(path_2.join(path_1.PUBLIC_PATH, fileName), fileBuf, 'utf8');
+            fs_1.writeFileSync(path_1.join(path_2.PUBLIC_PATH, fileName), fileBuf, 'utf8');
             //相应客户端
             res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
             res.end(JSON.stringify({ sucess: true, result: '上传成功' }));

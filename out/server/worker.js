@@ -10,8 +10,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const http_1 = require("http");
 const conf_1 = require("../conf");
-const Main_1 = require("./Main");
 const log_1 = require("../modules/log");
+const Main_1 = require("./Main");
 function RUN() {
     return __awaiter(this, void 0, void 0, function* () {
         const server = http_1.createServer(Main_1.HANDLER);

@@ -1,7 +1,7 @@
-import { createReadStream, ReadStream } from 'fs'
-import { LOG } from '../modules/log'
-import { Req } from '../Interface/Req';
+import { createReadStream, ReadStream } from 'fs';
 import { ServerResponse } from 'http';
+import { Req } from '../Interface/Req';
+import { LOG } from '../modules/log';
 
 export default function ResRange(req: Req, res: ServerResponse): void {
   const { absolutePath, stats } = req

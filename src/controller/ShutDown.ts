@@ -1,6 +1,6 @@
-import { SEND } from '../modules/log'
 import { ServerResponse } from 'http';
 import { Req } from '../Interface/Req';
+import { SEND } from '../modules/log';
 
 export default class ShutDown {
 	static PATH = '/api/shutdown'

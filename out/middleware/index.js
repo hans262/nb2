@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const conf_1 = require("../conf");
-const Mount_1 = require("./Mount");
-const Login_1 = require("./Login");
-const GetToken_1 = require("./GetToken");
-const CheckLogin_1 = require("./CheckLogin");
 const CheckController_1 = require("./CheckController");
+const CheckLogin_1 = require("./CheckLogin");
+const GetToken_1 = require("./GetToken");
+const Login_1 = require("./Login");
+const Mount_1 = require("./Mount");
 const ResStatic_1 = require("./ResStatic");
 const MIDDLEWARE = [];
 function useMiddleware(middleware) {

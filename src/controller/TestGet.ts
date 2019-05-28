@@ -1,5 +1,5 @@
-import { Req } from "../Interface/Req";
 import { ServerResponse } from "http";
+import { Req } from "../Interface/Req";
 
 export default class TestGet {
 	static PATH = '/api/get'

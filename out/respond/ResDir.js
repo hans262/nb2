@@ -3,8 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
 const path_1 = require("path");
 const conf_1 = require("../conf");
-const ResRedirect_1 = require("./ResRedirect");
 const log_1 = require("../modules/log");
+const ResRedirect_1 = require("./ResRedirect");
 function ResDir(req, res) {
     const { absolutePath, relativePath } = req;
     const INDEX_PATH = path_1.join(absolutePath, conf_1.INDEX_PAGE); //index路径

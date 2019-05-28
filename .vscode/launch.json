@@ -7,14 +7,40 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "run",
-      "program": "${workspaceFolder}\\out\\index.js"
+      "name": "Cluster",
+      "program": "${workspaceFolder}/src/cluster.ts",
+      "autoAttachChildProcesses": true,
+      "outFiles": [
+        "${workspaceFolder}/out/**/*.js"
+      ]
     },
     {
       "type": "node",
       "request": "launch",
-      "name": "test",
-      "program": "${workspaceFolder}\\out\\test\\index.js"
+      "name": "Worker",
+      "program": "${workspaceFolder}/src/index.ts",
+      "outFiles": [
+        "${workspaceFolder}/out/**/*.js"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Test",
+      "program": "${workspaceFolder}/src/test/index.ts",
+      "outFiles": [
+        "${workspaceFolder}/out/**/*.js"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Test2",
+      "program": "${workspaceFolder}/src/test/index.ts",
+      "preLaunchTask": "Out",
+      "outFiles": [
+        "${workspaceFolder}/out/**/*.js"
+      ]
     }
   ]
 }

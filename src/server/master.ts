@@ -1,7 +1,7 @@
-import { isMaster, fork, on, workers, Worker } from 'cluster'
-import { cpus } from 'os'
-import { CLUSTER } from '../conf'
-import { LOG, Action } from '../modules/log'
+import { fork, isMaster, on, Worker, workers } from 'cluster';
+import { cpus } from 'os';
+import { CLUSTER } from '../conf';
+import { Action, LOG } from '../modules/log';
 
 function master(): void {
   LOG({ type: 'MASTER STARTUP', msg: 'running' })

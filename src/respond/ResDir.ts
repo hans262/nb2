@@ -1,10 +1,10 @@
-import { existsSync, readdirSync, statSync } from 'fs'
-import { join } from 'path'
-import { INDEX_PAGE } from '../conf'
-import ResRedirect from './ResRedirect'
-import { LOG } from '../modules/log'
-import { Req } from '../Interface/Req';
+import { existsSync, readdirSync, statSync } from 'fs';
 import { ServerResponse } from 'http';
+import { join } from 'path';
+import { INDEX_PAGE } from '../conf';
+import { Req } from '../Interface/Req';
+import { LOG } from '../modules/log';
+import ResRedirect from './ResRedirect';
 
 export default function ResDir(req: Req, res: ServerResponse): void {
   const { absolutePath, relativePath } = req

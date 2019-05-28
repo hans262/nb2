@@ -1,8 +1,8 @@
-import { createReadStream, ReadStream } from 'fs'
-import { join } from 'path'
-import { PUBLIC_PATH } from '../utils/path'
-import { Req } from '../Interface/Req';
+import { createReadStream, ReadStream } from 'fs';
 import { ServerResponse } from 'http';
+import { join } from 'path';
+import { Req } from '../Interface/Req';
+import { PUBLIC_PATH } from '../utils/path';
 
 export default class DownLoad {
   static PATH = '/api/download'

@@ -1,11 +1,11 @@
-import { parse, ParsedUrlQuery } from 'querystring'
-import { generate, KEY } from '../store/SESSION'
-import setCookie from '../utils/setCookie'
-import ResRedirect from '../respond/ResRedirect'
-import { USER } from '../conf'
-import { Req } from '../Interface/Req';
 import { ServerResponse } from 'http';
+import { parse, ParsedUrlQuery } from 'querystring';
+import { USER } from '../conf';
+import { Req } from '../Interface/Req';
 import { Session } from '../Interface/Session';
+import ResRedirect from '../respond/ResRedirect';
+import { generate, KEY } from '../store/SESSION';
+import setCookie from '../utils/setCookie';
 
 export default function GetToken(req: Req, res: ServerResponse, next: Function): void {
   const { method, relativePath } = req

@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const getCookie_1 = require("../utils/getCookie");
-const setCookie_1 = require("../utils/setCookie");
 const ResRedirect_1 = require("../respond/ResRedirect");
 const SESSION_1 = require("../store/SESSION");
+const getCookie_1 = require("../utils/getCookie");
+const setCookie_1 = require("../utils/setCookie");
 function CheckLogin(req, res, next) {
     if (check(req, res)) {
         next();

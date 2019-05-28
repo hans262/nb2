@@ -1,6 +1,6 @@
-import { LOG } from '../modules/log'
-import { Req } from '../Interface/Req';
 import { ServerResponse } from 'http';
+import { Req } from '../Interface/Req';
+import { LOG } from '../modules/log';
 
 export default function ResNotFound(req: Req, res: ServerResponse): void {
   const { absolutePath, relativePath } = req

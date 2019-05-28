@@ -6,5 +6,5 @@ function createArray<T>(length: number, value: T): Array<T> {
   return result;
 }
 
-const result = createArray(5, 'x'); // ['x', 'x', 'x']
+const result = createArray(3, 'x2')
 console.log(result)

@@ -1,10 +1,10 @@
-import getCookie from '../utils/getCookie'
-import setCookie from '../utils/setCookie'
-import ResRedirect from '../respond/ResRedirect'
-import { KEY, select, remove, reset } from '../store/SESSION'
 import { ServerResponse } from 'http';
 import { Req } from '../Interface/Req';
 import { Session } from '../Interface/Session';
+import ResRedirect from '../respond/ResRedirect';
+import { KEY, remove, reset, select } from '../store/SESSION';
+import getCookie from '../utils/getCookie';
+import setCookie from '../utils/setCookie';
 
 export default function CheckLogin(req: Req, res: ServerResponse, next: Function): void {
   if (check(req, res)) {

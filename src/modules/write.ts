@@ -1,6 +1,6 @@
-import { createWriteStream, WriteStream } from 'fs'
-import { join } from 'path'
-import { LOG_PATH } from '../utils/path'
+import { createWriteStream, WriteStream } from 'fs';
+import { join } from 'path';
+import { LOG_PATH } from '../utils/path';
 
 export function CREATE_STREAM(): WriteStream {
 	const CURRENT_DAY = new Date().toLocaleDateString()
