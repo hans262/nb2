@@ -27,16 +27,4 @@ function Decipher(encrypted, key) {
     return decrypted;
 }
 exports.Decipher = Decipher;
-/*
-
-AES  对称加密解密  安全级别--->
-算法 aes192 aes-128-ecb aes-256-cbc
-
-MD5  哈希加密  安全级别--->
-算法 md5 sha1 sha256 sha512
-
-Hmac  哈希加密 安全级别--->
-算法 md5 sha1 sha256 sha512
-
-*/ 
 //# sourceMappingURL=encrypt.js.map

@@ -13,13 +13,12 @@ const os_1 = require("os");
 const conf_1 = require("../conf");
 const log_1 = require("../modules/log");
 function master() {
-    log_1.LOG({ type: 'MASTER STARTUP', msg: 'NodeServer version: 3.1.2' });
+    log_1.LOG({ type: 'MASTER STARTUP', msg: 'NodeServer version: 3.2.2' });
     conf_1.CLUSTER ? os_1.cpus().forEach(() => cluster_1.fork()) : cluster_1.fork();
     cluster_1.on('message', (worker, action) => {
         const { type } = action;
         switch (type) {
             case 'RE_START':
-                //重启
                 Object.values(cluster_1.workers).forEach((w, i) => {
                     setTimeout(() => {
                         w.send({ type: 'CLOSE_SERVER', code: 1 });
@@ -27,7 +26,6 @@ function master() {
                 });
                 break;
             case 'SHUT_DOWN':
-                //关机
                 Object.values(cluster_1.workers).forEach((w) => {
                     w.send({ type: 'CLOSE_SERVER', code: 0 });
                 });
@@ -39,11 +37,9 @@ function master() {
     cluster_1.on('exit', (worker, code) => {
         switch (code) {
             case 1:
-                //重启
                 log_1.LOG({ type: 'WORKET EXIT', pid: worker.process.pid, msg: 'restart' });
                 return cluster_1.fork();
             case 0:
-                //关机
                 return log_1.LOG({ type: 'WORKET EXIT', pid: worker.process.pid, msg: 'shutdown' });
             default:
                 throw new Error('process exception');

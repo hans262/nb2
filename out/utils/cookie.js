@@ -1,10 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/**
- * 获取cookie
- * @param req
- * @param key 键
- */
 function getCookie(req, key) {
     const { cookie } = req.headers;
     if (!cookie)
@@ -14,10 +9,6 @@ function getCookie(req, key) {
     return arr ? unescape(arr[2]) : null;
 }
 exports.getCookie = getCookie;
-/**
- * 设置cookie 不能设置中文
- * @param cookie Cookie
- */
 function setCookie(cookie) {
     const { res, key, value, maxAge, domain, path, expires, httpOnly, secure } = cookie;
     let pairs = [key + '=' + value];

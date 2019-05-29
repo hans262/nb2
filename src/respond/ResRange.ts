@@ -4,8 +4,8 @@ import { Req } from '../Interface/Req';
 import { LOG } from '../modules/log';
 
 export default function ResRange(req: Req, res: ServerResponse): void {
-  const { absolutePath, stats } = req
-  const { size } = stats
+  const { __absolutePath, __stats } = req
+  const { size } = __stats
   //拿到范围，解析范围
   const range: Range = parseRange(req.headers['range'], size)
   //判断范围是否存在
@@ -13,17 +13,17 @@ export default function ResRange(req: Req, res: ServerResponse): void {
     const { start, end } = range
     res.setHeader('Content-Range', `bytes ${start}-${end}/${size}`)
     res.setHeader('Content-Length', (end - start + 1))
-    const stream: ReadStream = createReadStream(absolutePath, { start, end })
+    const stream: ReadStream = createReadStream(__absolutePath, { start, end })
 
     res.writeHead(206, 'Partial content')
     stream.pipe(res)
-    LOG({ type: 'RES_RANGE', msg: absolutePath })
+    LOG({ type: 'RES_RANGE', msg: __absolutePath })
   } else {
     res.removeHeader('Content-Length')
     res.setHeader('Content-Range', `bytes=*/${size}`)
     res.writeHead(416, 'Out of range')
     res.end()
-    LOG({ type: '416', msg: absolutePath })
+    LOG({ type: '416', msg: __absolutePath })
   }
 }
 

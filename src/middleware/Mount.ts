@@ -9,15 +9,15 @@ import setHeader from '../utils/setHeader';
 export default function Mount(req: Req, res: ServerResponse, next: Function): void {
   const { pathname, query } = parse(req.url, true)
   //相对路径
-  req.relativePath = decodeURI(pathname)
+  req.__relativePath = decodeURI(pathname)
   //绝对路径
-  req.absolutePath = decodeURI(join(ROOT, req.relativePath))
+  req.__absolutePath = decodeURI(join(ROOT, req.__relativePath))
   //查询字符串
-  req.query = query
+  req.__query = query
   //常用header
   setHeader(res)
 
-  LOG({ type: 'REQUEST', msg: req.absolutePath })
+  LOG({ type: 'REQUEST', msg: req.__absolutePath })
 
   next()
 }

@@ -12,8 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 class TestJsonp {
     GET(req, res) {
         res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
-        const { query } = req;
-        const { callback } = query, data = __rest(query, ["callback"]);
+        const { __query } = req;
+        const { callback } = __query, data = __rest(__query, ["callback"]);
         res.end(`${callback}(${JSON.stringify(data)})`);
     }
 }

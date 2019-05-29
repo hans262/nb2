@@ -15,10 +15,9 @@ exports.default = CheckLogin;
 function check(req, res) {
     const id = cookie_1.getCookie(req, SESSION_1.KEY);
     if (!id)
-        return false; //id不存在
-    const ses = SESSION_1.select(id); //-查询
+        return false;
+    const ses = SESSION_1.select(id);
     if (!ses) {
-        //session不存在
         cookie_1.setCookie({
             res,
             key: SESSION_1.KEY,
@@ -29,8 +28,7 @@ function check(req, res) {
         return false;
     }
     if (ses.expire < Date.now()) {
-        //超时
-        SESSION_1.remove(id); //-删除
+        SESSION_1.remove(id);
         cookie_1.setCookie({
             res,
             key: SESSION_1.KEY,
@@ -38,9 +36,9 @@ function check(req, res) {
             expires: new Date(),
             httpOnly: true
         });
-        return false; //转到登陆
+        return false;
     }
-    SESSION_1.reset(id); //-重置
+    SESSION_1.reset(id);
     return true;
 }
 //# sourceMappingURL=CheckLogin.js.map

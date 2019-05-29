@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const conf_1 = require("../conf");
 exports.SESSION = {};
 exports.KEY = 'SESSION_ID';
-exports.EXPIRES = conf_1.SESSION_EXPIRES * 60 * 1000; //20分钟
+exports.EXPIRES = conf_1.SESSION_EXPIRES * 60 * 1000;
 function generate() {
     const session = {
         id: (Date.now() + Math.random()).toString(),

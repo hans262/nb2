@@ -4,7 +4,7 @@ import { CLUSTER } from '../conf';
 import { Action, LOG } from '../modules/log';
 
 function master(): void {
-  LOG({ type: 'MASTER STARTUP', msg: 'NodeServer version: 3.1.2' })
+  LOG({ type: 'MASTER STARTUP', msg: 'NodeServer version: 3.2.2' })
   CLUSTER ? cpus().forEach(() => fork()) : fork()
 
   on('message', (worker: Worker, action: Action) => {

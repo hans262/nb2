@@ -2,8 +2,8 @@ import { ServerResponse } from "http";
 import { Req } from "../Interface/Req";
 
 export default function login(req: Req, res: ServerResponse, next: Function): void {
-  const { method, relativePath } = req
-  if (method === 'GET' && relativePath === '/login') {
+  const { method, __relativePath } = req
+  if (method === 'GET' && __relativePath === '/login') {
     res.setHeader('Content-Type', 'text/html; charset=utf-8')
     res.writeHead(200, 'OK')
     res.end(`

@@ -6,8 +6,8 @@ const ResRedirect_1 = require("../respond/ResRedirect");
 const SESSION_1 = require("../store/SESSION");
 const cookie_1 = require("../utils/cookie");
 function GetToken(req, res, next) {
-    const { method, relativePath } = req;
-    if (method === 'POST' && relativePath === '/getToken') {
+    const { method, __relativePath } = req;
+    if (method === 'POST' && __relativePath === '/getToken') {
         const chunks = [];
         req.on('data', (chunk) => {
             chunks.push(chunk);

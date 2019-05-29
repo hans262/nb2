@@ -16,7 +16,6 @@ function QUERY(sql) {
             if (err)
                 return reject(err);
             connection.query(sql, (err, results) => {
-                //释放
                 connection.release();
                 err ? reject(err) : resolve(results);
             });
@@ -24,15 +23,4 @@ function QUERY(sql) {
     });
 }
 exports.QUERY = QUERY;
-/*
-    ;(async(){
-        const { QUERY }=require('./sql')
-        try{
-            const result=await QUERY("SELECT * FROM user")
-            console.log(result)
-        }catch(err){
-            console.log(err)
-        }
-    })()
-*/ 
 //# sourceMappingURL=sql.js.map

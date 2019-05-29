@@ -8,8 +8,8 @@ import { generate, KEY } from '../store/SESSION';
 import { setCookie } from '../utils/cookie';
 
 export default function GetToken(req: Req, res: ServerResponse, next: Function): void {
-  const { method, relativePath } = req
-  if (method === 'POST' && relativePath === '/getToken') {
+  const { method, __relativePath } = req
+  if (method === 'POST' && __relativePath === '/getToken') {
     const chunks: Array<Buffer> = []
     req.on('data', (chunk: Buffer) => {
       chunks.push(chunk)

@@ -1,4 +1,4 @@
-import { existsSync, readdirSync, statSync } from 'fs';
+import { readdirSync, statSync } from 'fs';
 import { ServerResponse } from 'http';
 import { join } from 'path';
 import { INDEX_PAGE } from '../conf';
@@ -7,34 +7,33 @@ import { LOG } from '../modules/log';
 import ResRedirect from './ResRedirect';
 
 export default function ResDir(req: Req, res: ServerResponse): void {
-  const { absolutePath, relativePath } = req
-  const INDEX_PATH: string = join(absolutePath, INDEX_PAGE)//index路径
-
-  if (existsSync(INDEX_PATH)) {
-    //重定向一下
-    const location: string = join(relativePath, INDEX_PAGE)
-    ResRedirect({ res, location, code: 302, reasonPhrase: 'index exists' })
-  } else {
-    const files: Array<string> = readdirSync(absolutePath)
-    let content: string = `<h1>Index of ${relativePath}</h1>`
-    files.forEach(file => {
-      let href: string = join(relativePath, file)
-      let small: string = ''
-      try {
-        const stats = statSync(join(absolutePath, file))
-        if (stats.isDirectory()) {
-          href += '/'
-          file += '/'
-        }
-      } catch (err) {
-        LOG({ type: 'ERROR', msg: err.message })
-        small += `<small style="color:red">无权系统路径</small>`
-      }
-      content += `<p><a href="${href}">${file}</a>${small}</p>`
-    })
-    res.setHeader('Content-Type', 'text/html; charset=utf-8')
-    res.writeHead(200, 'Access Directory')
-    res.end(content)
-    LOG({ type: 'RES_DIR', msg: absolutePath })
+  const { __absolutePath, __relativePath } = req
+  const files: Array<string> = readdirSync(__absolutePath)
+  
+  if (files.includes(INDEX_PAGE)) {
+    //index存在
+    const location: string = join(__relativePath, INDEX_PAGE)
+    return ResRedirect({ res, location, code: 302, reasonPhrase: 'index exists' })
   }
+
+  let content: string = `<h1>Index of ${__relativePath}</h1>`
+  files.forEach(file => {
+    let href: string = join(__relativePath, file)
+    let small: string = ''
+    try {
+      const stats = statSync(join(__absolutePath, file))
+      if (stats.isDirectory()) {
+        href += '/'
+        file += '/'
+      }
+    } catch (err) {
+      LOG({ type: 'ERROR', msg: err.message })
+      small += `<small style="color:red">无权系统路径</small>`
+    }
+    content += `<p><a href="${href}">${file}</a>${small}</p>`
+  })
+  res.setHeader('Content-Type', 'text/html; charset=utf-8')
+  res.writeHead(200, 'Access Directory')
+  res.end(content)
+  LOG({ type: 'RES_DIR', msg: __absolutePath })
 }

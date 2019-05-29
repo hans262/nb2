@@ -22,7 +22,6 @@ function RUN() {
             switch (action.type) {
                 case 'CLOSE_SERVER':
                     const { code } = action;
-                    //平滑关闭server
                     server.close();
                     setTimeout(() => {
                         process.exit(code);

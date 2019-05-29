@@ -1,27 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/**
- * 生成ETag
- * @param stats
- */
 function generateETag(stats) {
-    const mtime = stats.mtime.getTime().toString(16); //16进制
+    const mtime = stats.mtime.getTime().toString(16);
     const size = stats.size.toString(16);
     return `W/"${mtime}-${size}"`;
 }
 exports.generateETag = generateETag;
-/**
- * 验证缓存
- * @param req
- */
 function isCache(req) {
-    const { headers, stats } = req;
-    const { mtime } = stats;
-    const noneMatch = headers['if-none-match']; //ETag
-    const lastModified = headers['if-modified-since']; //最后修改时间
+    const { headers, __stats } = req;
+    const { mtime } = __stats;
+    const noneMatch = headers['if-none-match'];
+    const lastModified = headers['if-modified-since'];
     if (!(noneMatch || lastModified))
         return false;
-    if (noneMatch !== generateETag(stats))
+    if (noneMatch !== generateETag(__stats))
         return false;
     if (lastModified !== mtime.toUTCString())
         return false;

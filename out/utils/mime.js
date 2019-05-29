@@ -1,10 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const path_1 = require("path");
-/**
- * 获取mime类型
- * @param path
- */
 function mime(path) {
     let ext = path_1.extname(path).slice(1);
     const type = MIME_TYPES[ext];

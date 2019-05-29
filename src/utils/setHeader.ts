@@ -2,7 +2,7 @@ import { ServerResponse } from 'http';
 import { CROSS } from '../conf';
 
 /**
- * 设置常用header
+ * 常用header
  * @param res 
  */
 export default function setHeader(res: ServerResponse): void {
