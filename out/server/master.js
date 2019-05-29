@@ -13,7 +13,7 @@ const os_1 = require("os");
 const conf_1 = require("../conf");
 const log_1 = require("../modules/log");
 function master() {
-    log_1.LOG({ type: 'MASTER STARTUP', msg: 'running' });
+    log_1.LOG({ type: 'MASTER STARTUP', msg: 'NodeServer version: 3.1.2' });
     conf_1.CLUSTER ? os_1.cpus().forEach(() => cluster_1.fork()) : cluster_1.fork();
     cluster_1.on('message', (worker, action) => {
         const { type } = action;

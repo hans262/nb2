@@ -4,7 +4,7 @@ const querystring_1 = require("querystring");
 const conf_1 = require("../conf");
 const ResRedirect_1 = require("../respond/ResRedirect");
 const SESSION_1 = require("../store/SESSION");
-const setCookie_1 = require("../utils/setCookie");
+const cookie_1 = require("../utils/cookie");
 function GetToken(req, res, next) {
     const { method, relativePath } = req;
     if (method === 'POST' && relativePath === '/getToken') {
@@ -19,7 +19,7 @@ function GetToken(req, res, next) {
             const { username, password } = toObj;
             if (username === conf_1.USER.username && password === conf_1.USER.password) {
                 const ses = SESSION_1.generate();
-                setCookie_1.default({
+                cookie_1.setCookie({
                     res,
                     key: SESSION_1.KEY,
                     value: ses.id,

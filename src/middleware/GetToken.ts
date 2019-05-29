@@ -5,7 +5,7 @@ import { Req } from '../Interface/Req';
 import { Session } from '../Interface/Session';
 import ResRedirect from '../respond/ResRedirect';
 import { generate, KEY } from '../store/SESSION';
-import setCookie from '../utils/setCookie';
+import { setCookie } from '../utils/cookie';
 
 export default function GetToken(req: Req, res: ServerResponse, next: Function): void {
   const { method, relativePath } = req

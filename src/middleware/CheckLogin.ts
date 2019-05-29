@@ -3,8 +3,7 @@ import { Req } from '../Interface/Req';
 import { Session } from '../Interface/Session';
 import ResRedirect from '../respond/ResRedirect';
 import { KEY, remove, reset, select } from '../store/SESSION';
-import getCookie from '../utils/getCookie';
-import setCookie from '../utils/setCookie';
+import { setCookie, getCookie } from '../utils/cookie';
 
 export default function CheckLogin(req: Req, res: ServerResponse, next: Function): void {
   if (check(req, res)) {

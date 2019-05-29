@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 function LOG(massage) {
     const { type, msg, pid = process.pid } = massage;
-    const nowTime = new Date().toLocaleString();
-    console.info(`[${type}] pid: ${pid} date: ${nowTime} -> ${msg}`);
+    const date = new Date().toLocaleString();
+    console.info(`[${date}] [${type}] pid: ${pid} -> ${msg}`);
 }
 exports.LOG = LOG;
 function SEND(cmd) {

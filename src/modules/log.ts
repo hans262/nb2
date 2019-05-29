@@ -6,8 +6,8 @@ export interface Message {
 
 export function LOG(massage: Message): void {
   const { type, msg, pid = process.pid } = massage
-  const nowTime: string = new Date().toLocaleString()
-  console.info(`[${type}] pid: ${pid} date: ${nowTime} -> ${msg}`)
+  const date: string = new Date().toLocaleString()
+  console.info(`[${date}] [${type}] pid: ${pid} -> ${msg}`)
 }
 
 export interface Action {

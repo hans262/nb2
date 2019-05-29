@@ -2,8 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const ResRedirect_1 = require("../respond/ResRedirect");
 const SESSION_1 = require("../store/SESSION");
-const getCookie_1 = require("../utils/getCookie");
-const setCookie_1 = require("../utils/setCookie");
+const cookie_1 = require("../utils/cookie");
 function CheckLogin(req, res, next) {
     if (check(req, res)) {
         next();
@@ -14,13 +13,13 @@ function CheckLogin(req, res, next) {
 }
 exports.default = CheckLogin;
 function check(req, res) {
-    const id = getCookie_1.default(req, SESSION_1.KEY);
+    const id = cookie_1.getCookie(req, SESSION_1.KEY);
     if (!id)
         return false; //id不存在
     const ses = SESSION_1.select(id); //-查询
     if (!ses) {
         //session不存在
-        setCookie_1.default({
+        cookie_1.setCookie({
             res,
             key: SESSION_1.KEY,
             value: 'delete',
@@ -32,7 +31,7 @@ function check(req, res) {
     if (ses.expire < Date.now()) {
         //超时
         SESSION_1.remove(id); //-删除
-        setCookie_1.default({
+        cookie_1.setCookie({
             res,
             key: SESSION_1.KEY,
             value: 'delete',

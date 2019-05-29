@@ -10,7 +10,10 @@ export function mime(path: string): string {
   return type ? type : MIME_TYPES['unknown']
 }
 
-const MIME_TYPES: any = {
+interface Mime {
+  [name: string]: string
+}
+const MIME_TYPES: Mime = {
   "css": "text/css",
   "gif": "image/gif",
   "html": "text/html",
