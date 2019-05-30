@@ -9,14 +9,15 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-class TestJsonp {
+exports.default = new class TestJsonp {
+    constructor() {
+        this.PATH = '/api/jsonp';
+    }
     GET(req, res) {
         res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
         const { __query } = req;
         const { callback } = __query, data = __rest(__query, ["callback"]);
         res.end(`${callback}(${JSON.stringify(data)})`);
     }
-}
-TestJsonp.PATH = '/api/jsonp';
-exports.default = TestJsonp;
+};
 //# sourceMappingURL=TestJsonp.js.map

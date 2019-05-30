@@ -11,11 +11,11 @@ const MIDDLEWARE = [];
 function useMiddleware(middleware) {
     MIDDLEWARE.push(middleware);
 }
-useMiddleware(Mount_1.default);
-useMiddleware(Login_1.default);
-useMiddleware(GetToken_1.default);
-conf_1.LOGIN && useMiddleware(CheckLogin_1.default);
-useMiddleware(CheckController_1.default);
-useMiddleware(ResStatic_1.default);
+useMiddleware(Mount_1.Mount);
+useMiddleware(Login_1.Login);
+useMiddleware(GetToken_1.GetToken);
+conf_1.LOGIN && useMiddleware(CheckLogin_1.CheckLogin);
+useMiddleware(CheckController_1.CheckController);
+useMiddleware(ResStatic_1.ResStatic);
 exports.default = MIDDLEWARE;
 //# sourceMappingURL=index.js.map

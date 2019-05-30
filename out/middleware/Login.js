@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-function login(req, res, next) {
+exports.Login = function (req, res, next) {
     const { method, __relativePath } = req;
     if (method === 'GET' && __relativePath === '/login') {
         res.setHeader('Content-Type', 'text/html; charset=utf-8');
@@ -16,6 +16,5 @@ function login(req, res, next) {
     else {
         next();
     }
-}
-exports.default = login;
+};
 //# sourceMappingURL=Login.js.map

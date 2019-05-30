@@ -37,7 +37,7 @@
       "request": "launch",
       "name": "Test2",
       "program": "${workspaceFolder}/src/test/index.ts",
-      "preLaunchTask": "Out",
+      "preLaunchTask": "out",
       "outFiles": [
         "${workspaceFolder}/out/**/*.js"
       ]

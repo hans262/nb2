@@ -1,13 +1,14 @@
 import { ServerResponse } from 'http';
 import { parse, ParsedUrlQuery } from 'querystring';
 import { USER } from '../conf';
+import { Middleware } from '../Interface/Middleware';
 import { Req } from '../Interface/Req';
 import { Session } from '../Interface/Session';
 import ResRedirect from '../respond/ResRedirect';
 import { generate, KEY } from '../store/SESSION';
 import { setCookie } from '../utils/cookie';
 
-export default function GetToken(req: Req, res: ServerResponse, next: Function): void {
+export const GetToken: Middleware = function (req: Req, res: ServerResponse, next: Function): void {
   const { method, __relativePath } = req
   if (method === 'POST' && __relativePath === '/getToken') {
     const chunks: Array<Buffer> = []

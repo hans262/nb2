@@ -1,13 +1,14 @@
 import { writeFileSync } from 'fs';
 import { ServerResponse } from 'http';
 import { join } from 'path';
+import { Controller } from '../Interface/Controller';
 import { Req } from '../Interface/Req';
 import { PUBLIC_PATH } from '../utils/path';
 /**
  * 上传 目前只支持单个文件上传
  */
-export default class UpFile {
-	static PATH = '/api/upfile'
+export default new class UpFile implements Controller {
+	PATH = '/api/upfile'
 	POST(req: Req, res: ServerResponse): void {
 		const chunks: Array<Buffer> = []
 		req.on('data', (chunk: Buffer) => {

@@ -3,7 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
 const path_1 = require("path");
 const path_2 = require("../utils/path");
-class UpFile {
+exports.default = new class UpFile {
+    constructor() {
+        this.PATH = '/api/upfile';
+    }
     POST(req, res) {
         const chunks = [];
         req.on('data', (chunk) => {
@@ -34,7 +37,5 @@ class UpFile {
             res.end(JSON.stringify({ sucess: true, result: '上传成功' }));
         });
     }
-}
-UpFile.PATH = '/api/upfile';
-exports.default = UpFile;
+};
 //# sourceMappingURL=UpFile.js.map

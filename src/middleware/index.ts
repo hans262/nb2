@@ -1,15 +1,15 @@
 import { LOGIN } from '../conf';
-import CheckController from './CheckController';
-import CheckLogin from './CheckLogin';
-import GetToken from './GetToken';
-import Login from './Login';
-import Mount from './Mount';
-import ResStatic from './ResStatic';
+import { CheckController } from './CheckController';
+import { CheckLogin } from './CheckLogin';
+import { GetToken } from './GetToken';
+import { Login } from './Login';
+import { Mount } from './Mount';
+import { ResStatic } from './ResStatic';
+import { Middleware } from '../Interface/Middleware';
 
+const MIDDLEWARE: Array<Middleware> = []
 
-const MIDDLEWARE: Array<Function> = []
-
-function useMiddleware(middleware: Function): void {
+function useMiddleware(middleware: Middleware): void {
   MIDDLEWARE.push(middleware)
 }
 

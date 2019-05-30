@@ -1,7 +1,8 @@
 import { ServerResponse } from "http";
+import { Middleware } from "../Interface/Middleware";
 import { Req } from "../Interface/Req";
 
-export default function login(req: Req, res: ServerResponse, next: Function): void {
+export const Login: Middleware = function (req: Req, res: ServerResponse, next: Function): void {
   const { method, __relativePath } = req
   if (method === 'GET' && __relativePath === '/login') {
     res.setHeader('Content-Type', 'text/html; charset=utf-8')

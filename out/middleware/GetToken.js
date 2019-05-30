@@ -5,7 +5,7 @@ const conf_1 = require("../conf");
 const ResRedirect_1 = require("../respond/ResRedirect");
 const SESSION_1 = require("../store/SESSION");
 const cookie_1 = require("../utils/cookie");
-function GetToken(req, res, next) {
+exports.GetToken = function (req, res, next) {
     const { method, __relativePath } = req;
     if (method === 'POST' && __relativePath === '/getToken') {
         const chunks = [];
@@ -39,6 +39,5 @@ function GetToken(req, res, next) {
     else {
         next();
     }
-}
-exports.default = GetToken;
+};
 //# sourceMappingURL=GetToken.js.map

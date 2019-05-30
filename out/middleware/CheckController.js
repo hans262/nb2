@@ -1,13 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const controller_1 = require("../controller");
-function CheckController(req, res, next) {
+exports.CheckController = function (req, res, next) {
     const { method, __relativePath } = req;
-    const Con = controller_1.default.find(v => v.PATH === __relativePath);
-    if (!Con || !Con.prototype[method])
+    const controller = controller_1.default.find(c => c.PATH === __relativePath);
+    if (!controller || !controller[method])
         return next();
-    const r0 = new Con();
-    r0[method](req, res);
-}
-exports.default = CheckController;
+    controller[method](req, res);
+};
 //# sourceMappingURL=CheckController.js.map

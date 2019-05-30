@@ -3,15 +3,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const ResRedirect_1 = require("../respond/ResRedirect");
 const SESSION_1 = require("../store/SESSION");
 const cookie_1 = require("../utils/cookie");
-function CheckLogin(req, res, next) {
+exports.CheckLogin = function (req, res, next) {
     if (check(req, res)) {
         next();
     }
     else {
         ResRedirect_1.default({ res, location: '/login', code: 302, reasonPhrase: 'temporarily moved' });
     }
-}
-exports.default = CheckLogin;
+};
 function check(req, res) {
     const id = cookie_1.getCookie(req, SESSION_1.KEY);
     if (!id)

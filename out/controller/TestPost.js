@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-class TestPost {
+exports.default = new class TestPost {
+    constructor() {
+        this.PATH = '/api/post';
+    }
     POST(req, res) {
         res.setHeader('Content-Type', 'application/octet-stream; charset=utf-8');
         res.writeHead(200, 'OK');
@@ -13,7 +16,5 @@ class TestPost {
             res.end(buffer);
         });
     }
-}
-TestPost.PATH = '/api/post';
-exports.default = TestPost;
+};
 //# sourceMappingURL=TestPost.js.map

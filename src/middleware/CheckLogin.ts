@@ -1,11 +1,12 @@
 import { ServerResponse } from 'http';
+import { Middleware } from '../Interface/Middleware';
 import { Req } from '../Interface/Req';
 import { Session } from '../Interface/Session';
 import ResRedirect from '../respond/ResRedirect';
 import { KEY, remove, reset, select } from '../store/SESSION';
-import { setCookie, getCookie } from '../utils/cookie';
+import { getCookie, setCookie } from '../utils/cookie';
 
-export default function CheckLogin(req: Req, res: ServerResponse, next: Function): void {
+export const CheckLogin: Middleware = function (req: Req, res: ServerResponse, next: Function): void {
   if (check(req, res)) {
     next()
   } else {
