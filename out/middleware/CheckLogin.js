@@ -8,7 +8,7 @@ exports.CheckLogin = function (req, res, next) {
         next();
     }
     else {
-        ResRedirect_1.default({ res, location: '/login', code: 302, reasonPhrase: 'temporarily moved' });
+        ResRedirect_1.ResRedirect({ res, location: '/login', code: 302, reasonPhrase: 'temporarily moved' });
     }
 };
 function check(req, res) {

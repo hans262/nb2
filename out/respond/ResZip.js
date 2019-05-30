@@ -11,5 +11,5 @@ function ResZip(req, res) {
     stream.pipe(__zipstream).pipe(res);
     log_1.LOG({ type: 'RES_ZIP', msg: __absolutePath });
 }
-exports.default = ResZip;
+exports.ResZip = ResZip;
 //# sourceMappingURL=ResZip.js.map

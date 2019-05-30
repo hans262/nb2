@@ -5,7 +5,7 @@ import { LOG } from '../modules/log';
  * 重定向 301永久/302临时
  * @param redirect 
  */
-export default function ResRedirect(redirect: Redirect): void {
+export function ResRedirect(redirect: Redirect): void {
   const { res, location, code, reasonPhrase } = redirect
   LOG({ type: 'REDIRECT', msg: location })
   res.setHeader('Location', location)

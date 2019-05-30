@@ -4,7 +4,7 @@ const path_1 = require("path");
 function mime(path) {
     let ext = path_1.extname(path).slice(1);
     const type = MIME_TYPES[ext];
-    return type ? type : MIME_TYPES['unknown'];
+    return type ? type : MIME_TYPES['txt'];
 }
 exports.mime = mime;
 const MIME_TYPES = {
@@ -18,7 +18,7 @@ const MIME_TYPES = {
     "json": "application/json",
     "pdf": "application/pdf",
     "png": "image/png",
-    "svg": "svg+xml",
+    "svg": "image/svg+xml",
     "swf": "application/x-shockwave-flash",
     "tiff": "image/tiff",
     "txt": "text/plain",

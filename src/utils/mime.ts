@@ -7,7 +7,7 @@ import { extname } from 'path'
 export function mime(path: string): string {
   let ext = extname(path).slice(1)
   const type: string = MIME_TYPES[ext]
-  return type ? type : MIME_TYPES['unknown']
+  return type ? type : MIME_TYPES['txt']
 }
 
 interface Mime {
@@ -24,7 +24,7 @@ const MIME_TYPES: Mime = {
   "json": "application/json",
   "pdf": "application/pdf",
   "png": "image/png",
-  "svg": "svg+xml",
+  "svg": "image/svg+xml",
   "swf": "application/x-shockwave-flash",
   "tiff": "image/tiff",
   "txt": "text/plain",

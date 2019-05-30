@@ -4,13 +4,14 @@ const fs_1 = require("fs");
 const path_1 = require("path");
 const conf_1 = require("../conf");
 const log_1 = require("../modules/log");
-const ResRedirect_1 = require("./ResRedirect");
+const ResVerify_1 = require("./ResVerify");
 function ResDir(req, res) {
     const { __absolutePath, __relativePath } = req;
     const files = fs_1.readdirSync(__absolutePath);
     if (files.includes(conf_1.INDEX_PAGE)) {
-        const location = path_1.join(__relativePath, conf_1.INDEX_PAGE);
-        return ResRedirect_1.default({ res, location, code: 302, reasonPhrase: 'index exists' });
+        req.__absolutePath = path_1.join(__absolutePath, conf_1.INDEX_PAGE);
+        req.__stats = fs_1.statSync(req.__absolutePath);
+        return ResVerify_1.ResVerify(req, res);
     }
     let content = `<h1>Index of ${__relativePath}</h1>`;
     files.forEach(file => {
@@ -34,5 +35,5 @@ function ResDir(req, res) {
     res.end(content);
     log_1.LOG({ type: 'RES_DIR', msg: __absolutePath });
 }
-exports.default = ResDir;
+exports.ResDir = ResDir;
 //# sourceMappingURL=ResDir.js.map

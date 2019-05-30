@@ -4,12 +4,12 @@ import { Req } from '../Interface/Req';
 import { generateETag, isCache } from '../utils/cache';
 import { mime } from '../utils/mime';
 import { isZip } from '../utils/zip';
-import ResCache from './ResCache';
+import { ResCache } from './ResCache';
 import ResFile from './ResFile';
-import ResRange from './ResRange';
-import ResZip from './ResZip';
+import { ResRange } from './ResRange';
+import { ResZip } from './ResZip';
 
-export default function ResVerify(req: Req, res: ServerResponse): void {
+export function ResVerify(req: Req, res: ServerResponse): void {
   const { __absolutePath, __stats } = req
   const { size, mtime } = __stats
 

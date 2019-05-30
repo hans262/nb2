@@ -2,7 +2,7 @@ import { User } from "../Interface/User";
 
 export const PORT: number = 5000
 export const HOST: string = "127.0.0.1"
-export const ROOT: string = "C:\\"
+export const ROOT: string = "D://"
 export const INDEX_PAGE: string = "index.html"
 export const ZIP_MATCH: string = "^\.(css|js|html|woff)$"
 export const CLUSTER: boolean = false
@@ -17,3 +17,5 @@ export const USER: User = {
 }
 //unit minute
 export const SESSION_EXPIRES: number = 20
+//is react app
+export const REACT_APP: boolean = false

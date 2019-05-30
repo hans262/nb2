@@ -7,9 +7,9 @@ function ResNotFound(req, res) {
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
     res.writeHead(404, 'Not Found');
     res.end(`
-		<h1>Not Found</h1>
-		<p>The requested URL ${__relativePath} was not found on this server.</p>
-	`);
+  	<h1>Not Found</h1>
+  	<p>The requested URL ${__relativePath} was not found on this server.</p>
+  `);
 }
-exports.default = ResNotFound;
+exports.ResNotFound = ResNotFound;
 //# sourceMappingURL=ResNotFound.js.map

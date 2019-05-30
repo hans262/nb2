@@ -14,7 +14,7 @@ export function CREATE_STREAM(): WriteStream {
 
 const STREAM=CREATE_STREAM()
 
-export function WRITE(MSG) {
+export function WRITE(MSG:string): void {
 	STREAM.write(MSG)
 	STREAM.write('\r\n')
 }

@@ -4,16 +4,21 @@ import { join } from 'path';
 import { INDEX_PAGE } from '../conf';
 import { Req } from '../Interface/Req';
 import { LOG } from '../modules/log';
-import ResRedirect from './ResRedirect';
+import { ResVerify } from './ResVerify';
 
-export default function ResDir(req: Req, res: ServerResponse): void {
+export function ResDir(req: Req, res: ServerResponse): void {
   const { __absolutePath, __relativePath } = req
   const files: Array<string> = readdirSync(__absolutePath)
-  
+
   if (files.includes(INDEX_PAGE)) {
     //index存在
-    const location: string = join(__relativePath, INDEX_PAGE)
-    return ResRedirect({ res, location, code: 302, reasonPhrase: 'index exists' })
+
+    req.__absolutePath=join(__absolutePath, INDEX_PAGE)
+    req.__stats= statSync(req.__absolutePath)
+    return ResVerify(req,res)
+    // const location: string = join(__relativePath, INDEX_PAGE)
+    // return ResRedirect({ res, location, code: 302, reasonPhrase: 'index exists' })
+
   }
 
   let content: string = `<h1>Index of ${__relativePath}</h1>`

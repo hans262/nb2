@@ -3,7 +3,7 @@ import { ServerResponse } from 'http';
 import { Req } from '../Interface/Req';
 import { LOG } from '../modules/log';
 
-export default function ResRange(req: Req, res: ServerResponse): void {
+export function ResRange(req: Req, res: ServerResponse): void {
   const { __absolutePath, __stats } = req
   const { size } = __stats
   //拿到范围，解析范围

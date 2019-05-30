@@ -27,7 +27,7 @@ exports.GetToken = function (req, res, next) {
                     expires: new Date(ses.expire),
                     httpOnly: true
                 });
-                ResRedirect_1.default({ res, location: '/', code: 302, reasonPhrase: 'login success' });
+                ResRedirect_1.ResRedirect({ res, location: '/', code: 302, reasonPhrase: 'login success' });
             }
             else {
                 res.setHeader('Content-Type', 'text/html; charset=utf-8');

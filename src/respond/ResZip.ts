@@ -3,7 +3,7 @@ import { ServerResponse } from 'http';
 import { Req } from '../Interface/Req';
 import { LOG } from '../modules/log';
 
-export default function ResZip(req: Req, res: ServerResponse): void {
+export function ResZip(req: Req, res: ServerResponse): void {
   const { __absolutePath, __zipstream } = req
   //数据需要压缩，分块传输，所以无法得知数据体的真实大小
   //所有要删除Content-Length属性

@@ -7,5 +7,5 @@ function ResCache(req, res) {
     res.writeHead(304, 'Not Modified');
     res.end('Not Modified');
 }
-exports.default = ResCache;
+exports.ResCache = ResCache;
 //# sourceMappingURL=ResCache.js.map

@@ -8,5 +8,5 @@ function ResRedirect(redirect) {
     res.writeHead(code, reasonPhrase);
     res.end();
 }
-exports.default = ResRedirect;
+exports.ResRedirect = ResRedirect;
 //# sourceMappingURL=ResRedirect.js.map

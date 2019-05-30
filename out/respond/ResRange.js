@@ -23,7 +23,7 @@ function ResRange(req, res) {
         log_1.LOG({ type: '416', msg: __absolutePath });
     }
 }
-exports.default = ResRange;
+exports.ResRange = ResRange;
 function parseRange(range, size) {
     const r0 = range.match(/^bytes=(\d+)-(\d+)$/);
     if (!r0)
