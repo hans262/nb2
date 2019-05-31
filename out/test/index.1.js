@@ -1,9 +1,12 @@
-let myArray = newFunction();
-function newFunction() {
-    return {
-        25: 'huahua',
-        setTime: function (d) {
-        }
-    };
+function getLength(something) {
+    if (something.length) {
+        return something.length;
+    }
+    else {
+        return something.toString().length;
+    }
 }
+const results = getLength('dwqdqw');
+console.log(results);
+debugger;
 //# sourceMappingURL=index.1.js.map

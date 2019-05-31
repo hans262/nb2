@@ -1,14 +1,11 @@
-interface StringArray<T> {
-  setTime(d: Date): void
-  [id:number]:string
+//断言
+function getLength(something: string | number): number {
+  if ((<string>something).length) {
+    return (<string>something).length;
+  } else {
+    return something.toString().length;
+  }
 }
-
-let myArray: StringArray<string> = newFunction()
-
-function newFunction(): StringArray<string> {
-  return {
-    25: 'huahua',
-    setTime: function (d: Date): void {
-    }
-  };
-}
+const results = getLength('dwqdqw')
+console.log(results)
+debugger

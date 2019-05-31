@@ -1,5 +1,3 @@
-let someValue = 2555;
-let strLength = someValue.length;
 function createArray(length, value) {
     let result = [];
     for (let i = 0; i < length; i++) {

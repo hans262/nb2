@@ -12,13 +12,9 @@ export function ResDir(req: Req, res: ServerResponse): void {
 
   if (files.includes(INDEX_PAGE)) {
     //index存在
-
     req.__absolutePath=join(__absolutePath, INDEX_PAGE)
     req.__stats= statSync(req.__absolutePath)
     return ResVerify(req,res)
-    // const location: string = join(__relativePath, INDEX_PAGE)
-    // return ResRedirect({ res, location, code: 302, reasonPhrase: 'index exists' })
-
   }
 
   let content: string = `<h1>Index of ${__relativePath}</h1>`
