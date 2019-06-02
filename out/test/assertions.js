@@ -6,7 +6,6 @@ function getLength(something) {
         return something.toString().length;
     }
 }
-const results = getLength('dwqdqw');
-console.log(results);
-debugger;
-//# sourceMappingURL=index.1.js.map
+const len = getLength('dwqdqw');
+console.log(len);
+//# sourceMappingURL=assertions.js.map

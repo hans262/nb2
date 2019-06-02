@@ -1,4 +1,5 @@
 const array = [125, 'dwq', true];
+const object = { name: 'huahua' };
 const myType = [123, 'hello', false];
 var Status;
 (function (Status) {
@@ -11,9 +12,14 @@ var Color;
     Color[Color["Blue"] = 1] = "Blue";
     Color[Color["Green"] = 2] = "Green";
 })(Color || (Color = {}));
+var Size;
+(function (Size) {
+    Size[Size["L"] = 120] = "L";
+    Size[Size["M"] = 110] = "M";
+    Size[Size["S"] = 100] = "S";
+})(Size || (Size = {}));
 const myStatus = Status.Ready;
 const color = Color.Blue;
-let stu;
-stu[0] = 'huahua';
-stu[1] = 18;
-//# sourceMappingURL=index.3.js.map
+const size = Size.M;
+const Person = ['huahua', 18];
+//# sourceMappingURL=types.js.map
