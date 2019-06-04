@@ -7,16 +7,22 @@
  * 作用：提升代码的可复用性
  */
 
+//泛型接口
+interface CreateArrayFunc {
+  <T>(length: number, value: T): Array<T>
+}
+
 //泛型函数
-function createArray<T>(length: number, value: T): Array<T> {
+let createArray: CreateArrayFunc
+createArray = function <T>(length: number, value: T): Array<T> {
   const result: Array<T> = [];
   for (let i = 0; i < length; i++) {
     result[i] = value;
   }
   return result;
 }
-// const stringArrray: Array<string> = createArray<string>(3, 'hello')
-// const numberArray: Array<number> = createArray<number>(3, 123)
+const stringArrray: Array<string> = createArray<string>(3, 'hello')
+const numberArray: Array<number> = createArray<number>(3, 123)
 
 //泛型类
 class CreateArray<T>{
@@ -30,11 +36,6 @@ class CreateArray<T>{
     return this.result
   }
 }
-// console.log(new CreateArray<string>(3, 'hello').getResult())
-// console.log(new CreateArray<number>(3, 123).getResult())
-
-//泛型接口
-interface Config {
-  <T>(value: T): T
-}
+const strArrary: Array<string> = new CreateArray<string>(3, 'hello').getResult()
+const numArrary: Array<number> = new CreateArray<number>(3, 123).getResult()
 

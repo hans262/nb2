@@ -1,4 +1,7 @@
-//泛型类
+/**
+ * 泛型类
+ * 创建DB的复用例子
+ */
 class User {
   public username: string
   public password: string
@@ -11,12 +14,12 @@ class Student {
   public name: string
   public age: number
   constructor(name: string, age: number) {
-    this.name=name
-    this.age=age
+    this.name = name
+    this.age = age
   }
 }
 
-class DB<T> {
+class CreateDB<T> {
   public list: Array<T>
   constructor() {
     this.list = []
@@ -27,13 +30,13 @@ class DB<T> {
 }
 
 const user: User = new User('root', '123456')
-const userDb = new DB<User>()
+const userDb = new CreateDB<User>()
 userDb.insert(user)
-console.log(userDb.list)
+const userList: Array<User> = userDb.list
 
-const student:Student= new Student('huahua',18)
-const studentDb=new DB<Student>()
+const student: Student = new Student('huahua', 18)
+const studentDb = new CreateDB<Student>()
 studentDb.insert(student)
-console.log(studentDb.list)
+const studentList: Array<Student> = studentDb.list
 
 debugger

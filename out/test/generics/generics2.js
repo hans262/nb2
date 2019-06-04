@@ -10,7 +10,7 @@ class Student {
         this.age = age;
     }
 }
-class DB {
+class CreateDB {
     constructor() {
         this.list = [];
     }
@@ -19,12 +19,12 @@ class DB {
     }
 }
 const user = new User('root', '123456');
-const userDb = new DB();
+const userDb = new CreateDB();
 userDb.insert(user);
-console.log(userDb.list);
+const userList = userDb.list;
 const student = new Student('huahua', 18);
-const studentDb = new DB();
+const studentDb = new CreateDB();
 studentDb.insert(student);
-console.log(studentDb.list);
+const studentList = studentDb.list;
 debugger;
 //# sourceMappingURL=generics2.js.map

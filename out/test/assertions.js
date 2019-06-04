@@ -6,6 +6,8 @@ function getLength(something) {
         return something.toString().length;
     }
 }
-const len = getLength('dwqdqw');
-console.log(len);
+const len = getLength(123);
+const len2 = getLength('hello');
+const len3 = getLength(true);
+debugger;
 //# sourceMappingURL=assertions.js.map

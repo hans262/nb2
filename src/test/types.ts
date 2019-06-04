@@ -2,7 +2,7 @@
 type MyArray = Array<string | number | boolean>
 const array: MyArray = [125, 'dwq', true]
 type MyObject = { name?: string }
-const object:MyObject = { name: 'huahua'}
+const object: MyObject = { name: 'huahua' }
 
 //联合类型 多个类型的组合
 const myType: Array<string | number | boolean> = [123, 'hello', false]
