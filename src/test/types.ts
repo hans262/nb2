@@ -17,3 +17,7 @@ const size: Size = Size.M
 
 //元组 已知数量和类型的数组
 const Person: [string, number] = ['huahua', 18]
+
+//只读
+const testA: readonly number[] = [1, 2, 3]
+const testB: readonly [number, string] = [2, 'hello']

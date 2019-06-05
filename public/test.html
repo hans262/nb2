@@ -12,9 +12,11 @@
   <script>
     const btn = document.getElementById('btn')
     btn.addEventListener('click', async () => {
-      const res = await ajax('/api/post', {
-        params: 'dwqdqw',
-        type: 'post',
+      const res = await ajax('http://127.0.0.1:5000/LUO/develop/node-server/package.json', {
+        type: 'get',
+        headers:{
+          Range:'bytes=0-20'
+        }
         // responseType: 'arraybuffer'
       })
       console.log(res)

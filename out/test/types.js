@@ -22,4 +22,6 @@ const myStatus = Status.Ready;
 const color = Color.Blue;
 const size = Size.M;
 const Person = ['huahua', 18];
+const testA = [1, 2, 3];
+const testB = [2, 'hello'];
 //# sourceMappingURL=types.js.map

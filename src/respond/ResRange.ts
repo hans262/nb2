@@ -27,7 +27,6 @@ export function ResRange(req: Req, res: ServerResponse): void {
   }
 }
 
-
 interface Range {
   start: number
   end: number

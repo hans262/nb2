@@ -19,9 +19,8 @@ debugger
 
 /**
  * const 断言 ->
- * 让对象变成只读，杀手级功能
- * 
- * const x={ text: 'hello' } as const
- * let y = 25 as const
- * 
+ * 断言成只读功能
  */
+
+const x={ text: 'hello' } as const
+let y = 25 as const
