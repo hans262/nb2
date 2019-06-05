@@ -8,7 +8,7 @@ export const ZIP_MATCH: string = "^\.(css|js|html|woff)$"
 export const CLUSTER: boolean = false
 export const CACHE: boolean = true
 //unit second
-export const CACHE_MAX_AGE: number = 6000
+export const CACHE_MAX_AGE: number = 3600
 export const CROSS: boolean = true
 export const LOGIN: boolean = false
 export const USER: User = {

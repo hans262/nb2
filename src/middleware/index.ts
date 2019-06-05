@@ -1,11 +1,12 @@
 import { LOGIN } from '../conf';
+import { Middleware } from '../Interface/Middleware';
 import { CheckController } from './CheckController';
 import { CheckLogin } from './CheckLogin';
 import { GetToken } from './GetToken';
-import { Login } from './Login';
+import { Later } from './Later';
+import { LoginPage } from './LoginPage';
 import { Mount } from './Mount';
-import { ResStatic } from './ResStatic';
-import { Middleware } from '../Interface/Middleware';
+import { ResFavicon } from './ResFavicon';
 
 const MIDDLEWARE: Array<Middleware> = []
 
@@ -14,10 +15,11 @@ function useMiddleware(middleware: Middleware): void {
 }
 
 useMiddleware(Mount)
-useMiddleware(Login)
-useMiddleware(GetToken)
+useMiddleware(ResFavicon)
+LOGIN && useMiddleware(LoginPage)
+LOGIN && useMiddleware(GetToken)
 LOGIN && useMiddleware(CheckLogin)
 useMiddleware(CheckController)
-useMiddleware(ResStatic)
+useMiddleware(Later)
 
 export default MIDDLEWARE

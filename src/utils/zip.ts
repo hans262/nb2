@@ -10,8 +10,8 @@ import { Req } from "../Interface/Req";
  */
 export function isZip(req: Req, res: ServerResponse): boolean {
   const { __absolutePath } = req
-  const type = extname(__absolutePath)
-  const matched = type.match(ZIP_MATCH)//压缩范围
+  const type: string = extname(__absolutePath)
+  const matched: RegExpMatchArray = type.match(ZIP_MATCH)//压缩范围
   if (!matched) return false
   const EncodeType: string = req.headers['accept-encoding'].toString()
   if (EncodeType.match(/\bgzip\b/)) {

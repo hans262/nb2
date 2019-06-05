@@ -4,7 +4,7 @@ import { join } from 'path';
 import { INDEX_PAGE } from '../conf';
 import { Req } from '../Interface/Req';
 import { LOG } from '../modules/log';
-import { ResVerify } from './ResVerify';
+import { ResStatic } from './ResStatic';
 
 export function ResDir(req: Req, res: ServerResponse): void {
   const { __absolutePath, __relativePath } = req
@@ -12,9 +12,8 @@ export function ResDir(req: Req, res: ServerResponse): void {
 
   if (files.includes(INDEX_PAGE)) {
     //index存在
-    req.__absolutePath=join(__absolutePath, INDEX_PAGE)
-    req.__stats= statSync(req.__absolutePath)
-    return ResVerify(req,res)
+    req.__absolutePath = join(__absolutePath, INDEX_PAGE)
+    return ResStatic(req, res)
   }
 
   let content: string = `<h1>Index of ${__relativePath}</h1>`

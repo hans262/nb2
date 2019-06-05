@@ -32,9 +32,7 @@ export const GetToken: Middleware = function (req: Req, res: ServerResponse, nex
         })
         ResRedirect({ res, location: '/', code: 302, reasonPhrase: 'login success' })
       } else {
-        res.setHeader('Content-Type', 'text/html; charset=utf-8')
-        res.writeHead(200, 'OK')
-        res.end('登录失败')
+        ResRedirect({ res, location: '/login', code: 302, reasonPhrase: 'login failed' })
       }
     })
   } else {

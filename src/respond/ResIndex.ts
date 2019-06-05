@@ -13,7 +13,6 @@ export function ResIndex(req: Req, res: ServerResponse): void {
     req.__absolutePath = INDEX_PATH
     return ResVerify(req, res)
   } catch (err) {
-    console.log(err)
     return ResNotFound(req, res)
   }
 }

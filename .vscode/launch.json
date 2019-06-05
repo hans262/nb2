@@ -27,7 +27,7 @@
       "type": "node",
       "request": "launch",
       "name": "Test",
-      "program": "${workspaceFolder}/src/test/generics/generics3.ts",
+      "program": "${workspaceFolder}/src/test/index.ts",
       "outFiles": [
         "${workspaceFolder}/out/**/*.js"
       ]

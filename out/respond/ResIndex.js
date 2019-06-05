@@ -13,7 +13,6 @@ function ResIndex(req, res) {
         return ResVerify_1.ResVerify(req, res);
     }
     catch (err) {
-        console.log(err);
         return ResNotFound_1.ResNotFound(req, res);
     }
 }
