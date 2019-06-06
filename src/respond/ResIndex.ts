@@ -1,4 +1,4 @@
-import { statSync } from "fs";
+import { statSync, stat } from "fs";
 import { ServerResponse } from "http";
 import { join } from 'path';
 import { INDEX_PAGE, ROOT } from "../conf";
@@ -8,11 +8,12 @@ import { ResNotFound } from "./ResNotFound";
 
 export function ResIndex(req: Req, res: ServerResponse): void {
   const INDEX_PATH: string = join(ROOT, INDEX_PAGE)
-  try {
-    req.__stats = statSync(INDEX_PATH)
-    req.__absolutePath = INDEX_PATH
-    return ResVerify(req, res)
-  } catch (err) {
+  stat(INDEX_PATH, (err: NodeJS.ErrnoException, stats) => {
+    if (stats && stats.isFile()) {
+      req.__stats = statSync(INDEX_PATH)
+      req.__absolutePath = INDEX_PATH
+      return ResVerify(req, res)
+    }
     return ResNotFound(req, res)
-  }
+  })
 }
