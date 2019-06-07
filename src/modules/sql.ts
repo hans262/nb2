@@ -22,15 +22,3 @@ export function QUERY<T>(sql: string): Promise<T> {
 		})
 	})
 }
-
-/*
-	;(async(){
-		const { QUERY }=require('./sql')
-		try{
-			const result=await QUERY("SELECT * FROM user")
-			console.log(result)
-		}catch(err){
-			console.log(err)
-		}
-	})()
-*/

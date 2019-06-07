@@ -1,0 +1,1 @@
+type MyArrays<T> = Array<T>

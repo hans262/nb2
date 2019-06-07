@@ -22,5 +22,5 @@ debugger
  * 断言成只读功能
  */
 
-const x={ text: 'hello' } as const
+const x = { text: 'hello' } as const
 let y = 25 as const

@@ -1,7 +1,7 @@
 import { Req } from "../Interface/Req";
 import { ServerResponse } from "http";
 
-export abstract class Controller {
+export interface Controller {
   PATH: string
   GET?(req: Req, res: ServerResponse): void
   POST?(req: Req, res: ServerResponse): void
