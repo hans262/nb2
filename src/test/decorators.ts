@@ -20,9 +20,10 @@ function attr<T extends { new(...args: any[]): {} }>(target: T) {
   }
 }
 
-@path('/user')
+@path('/api/user')
 @attr
-class Test { }
-console.log(Test)
-console.log(new Test())
+class SelectUser { }
+
+console.log(SelectUser)
+console.log(new SelectUser())
 debugger

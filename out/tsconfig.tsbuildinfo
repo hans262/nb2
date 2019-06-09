@@ -517,35 +517,39 @@
         "version": "391ce78218e1c0182f7b4208e7f38a2cc96c5d4524b36496b6f19ee20071549b",
         "signature": "c288f56f4693e3be214a042590a806d9e38970e7e9fae479ba2ef44103943d95"
       },
+      "d:/develop/node-server/src/test/decorators.ts": {
+        "version": "3fd419bbe63ce70169a3656cf5d97bf46e3fea65443ea0f9d24be729fe63bdee",
+        "signature": "33f70f48c4df0801660a2bdfe287fb0bdc5930d4c920501928ae8c76c1952064"
+      },
       "d:/develop/node-server/src/test/index.ts": {
-        "version": "087d11fe4340c0fac7bb9110e23a79c6bb82f6d834bfcda4b40b111e63ac61d9",
-        "signature": "a97f4cd24d47ad47ba5931f59bee3b977f8c29cb719196db4333373c8d1913bd"
+        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "d:/develop/node-server/src/test/keyof.ts": {
+        "version": "0dc2327947e99c25bddd359c6d3db5aa88e6d9dfd3428616fb0db02d7320c0d4",
+        "signature": "c82406cd6567f7636f72fe3608a5898b26b83924ed7d44a77ba811c3bd8d15fb"
       },
       "d:/develop/node-server/src/test/namespace.ts": {
         "version": "be33409826d03436ab229f7c8e0dfc636454a2453ff8a5091b7e133d4eccd016",
         "signature": "07fddb2af327f201b461dd9e36e5ccb276b96850af5e4263e720d31e7d18b734"
       },
       "d:/develop/node-server/src/test/other.ts": {
-        "version": "835dad8fbc9c7d230d5c9db7ffe7a8f764b9b02dc4b6ea7debd80f1929193d48",
+        "version": "226dd84c2b9c20de2acff42acbe2b0219eaf3e6767c70d495848eed38746dc27",
         "signature": "4264b594a8ce81be2e4771cbddb323b528207388cfc6d254102e364372a7c5ea"
       },
       "d:/develop/node-server/src/test/types.ts": {
         "version": "27d704d1240825a861427e32c35fd0bbba9f7e17263d54cd51b6133d0dbc1e72",
         "signature": "fd9ab94ca37372a9b934c351bc68a00027d19cff390c616181ed71e292e8202c"
       },
-      "d:/develop/node-server/src/test/decorators/decorators.ts": {
-        "version": "3bbef00a2a2de6be39d860c234c41fd467e79c8b4c9d1a85249c7d5653397aa2",
-        "signature": "260f8ddeaad72041ac7decb6bc1852f37a60644748299661ec203e6541fd5bd5"
-      },
-      "d:/develop/node-server/src/test/generics/generics.ts": {
+      "d:/develop/node-server/src/test/generics/demo.ts": {
         "version": "463ed574afe4c28bff57614368379ddcf44a92de45a856db425b6f6f3f03fb0a",
         "signature": "7aad0000b1729429028b83ad460382a820b6f8a96a9de8be7c62a02b4560d9e0"
       },
-      "d:/develop/node-server/src/test/generics/generics2.ts": {
+      "d:/develop/node-server/src/test/generics/demo2.ts": {
         "version": "b92d15cec68efebe60d9d208feaf03e7d52ff1aea20c81ec47a38db6365a492e",
         "signature": "57771ff65f80733b7540bf8f943213dffc86cf39aaeaacb5f292b6b3647682c8"
       },
-      "d:/develop/node-server/src/test/generics/generics3.ts": {
+      "d:/develop/node-server/src/test/generics/demo3.ts": {
         "version": "f9622072dbb3f65e50c09448e39d907e8bc2f068209445786082e57cb17fc745",
         "signature": "9d9342eefba73af86b048fd2042e7c703658b429725e469535f79a4e7e89bac6"
       }
@@ -1360,7 +1364,15 @@
         "d:/develop/node-server/node_modules/@types/node/util.d.ts",
         "d:/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "d:/develop/node-server/src/test/decorators.ts": [
+        "d:/develop/node-server/node_modules/@types/node/util.d.ts",
+        "d:/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "d:/develop/node-server/src/test/index.ts": [
+        "d:/develop/node-server/node_modules/@types/node/util.d.ts",
+        "d:/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/node-server/src/test/keyof.ts": [
         "d:/develop/node-server/node_modules/@types/node/util.d.ts",
         "d:/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1376,19 +1388,15 @@
         "d:/develop/node-server/node_modules/@types/node/util.d.ts",
         "d:/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/develop/node-server/src/test/decorators/decorators.ts": [
+      "d:/develop/node-server/src/test/generics/demo.ts": [
         "d:/develop/node-server/node_modules/@types/node/util.d.ts",
         "d:/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/develop/node-server/src/test/generics/generics.ts": [
+      "d:/develop/node-server/src/test/generics/demo2.ts": [
         "d:/develop/node-server/node_modules/@types/node/util.d.ts",
         "d:/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/develop/node-server/src/test/generics/generics2.ts": [
-        "d:/develop/node-server/node_modules/@types/node/util.d.ts",
-        "d:/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/node-server/src/test/generics/generics3.ts": [
+      "d:/develop/node-server/src/test/generics/demo3.ts": [
         "d:/develop/node-server/node_modules/@types/node/util.d.ts",
         "d:/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ]
@@ -2073,14 +2081,15 @@
       "d:/develop/node-server/node_modules/@types/ws/index.d.ts",
       "d:/develop/node-server/src/modules/socket/ws.ts",
       "d:/develop/node-server/src/test/assertions.ts",
+      "d:/develop/node-server/src/test/decorators.ts",
       "d:/develop/node-server/src/test/index.ts",
+      "d:/develop/node-server/src/test/keyof.ts",
       "d:/develop/node-server/src/test/namespace.ts",
       "d:/develop/node-server/src/test/other.ts",
       "d:/develop/node-server/src/test/types.ts",
-      "d:/develop/node-server/src/test/decorators/decorators.ts",
-      "d:/develop/node-server/src/test/generics/generics.ts",
-      "d:/develop/node-server/src/test/generics/generics2.ts",
-      "d:/develop/node-server/src/test/generics/generics3.ts"
+      "d:/develop/node-server/src/test/generics/demo.ts",
+      "d:/develop/node-server/src/test/generics/demo2.ts",
+      "d:/develop/node-server/src/test/generics/demo3.ts"
     ]
   },
   "version": "3.5.1"
