@@ -16,4 +16,5 @@ exports.USER = {
 };
 exports.SESSION_EXPIRES = 20;
 exports.REACT_APP = true;
+exports.SOCKET_PORT = 8888;
 //# sourceMappingURL=index.js.map

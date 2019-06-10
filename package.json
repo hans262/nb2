@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node out/worker.js",
     "cluster": "node out/cluster.js",
+    "socket": "node out/server/socket.js",
     "out": "tsc",
     "out:w": "tsc -watch"
   },

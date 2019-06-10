@@ -19,3 +19,4 @@ export const USER: User = {
 export const SESSION_EXPIRES: number = 20
 //is react app
 export const REACT_APP: boolean = true
+export const SOCKET_PORT: number = 8888

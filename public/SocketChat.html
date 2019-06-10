@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<meta charset="utf-8">
+	<title>WebSocket</title>
+</head>
+
+<body>
+	<button id="connect">连接</button>
+	<button id="close">断开</button>
+	<br>
+	<input id="text" type="text">
+	<input id="send" type="submit" value="发送">
+	<script>
+		const connectNode = document.getElementById('connect')
+		const closeNode = document.getElementById('close')
+		const sendNode = document.getElementById('send')
+		const textNode = document.getElementById('text')
+
+		function createConnect(url) {
+			const ws = new WebSocket('ws://127.0.0.1:8888')
+			ws.onopen = function (event) {
+				console.log('连接成功')
+			}
+			ws.onclose = function (event) {
+				console.log('断开连接')
+			}
+			ws.onmessage = function (event) {
+				console.log(event.data)
+			}
+			return ws
+		}
+
+		let ws = null
+
+		connectNode.addEventListener('click', function () {
+			if (ws && ws.readyState === 1) {
+				console.log('已连接')
+				return
+			}
+			ws = createConnect()
+		})
+
+		closeNode.addEventListener('click', function () {
+			if (ws && ws.readyState == 1) {
+				ws.close()
+			}
+		})
+		sendNode.addEventListener('click', function () {
+			if (!ws || ws.readyState !== 1) {
+				console.log('未连接')
+				return
+			}
+			const data = textNode.value
+			ws.send(data)
+		})
+	</script>
+</body>
+
+</html>

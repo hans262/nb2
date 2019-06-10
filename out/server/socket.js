@@ -1,9 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const ws_1 = require("ws");
-const wss = new ws_1.Server({ port: 8888 });
+const conf_1 = require("../conf");
+const wss = new ws_1.Server({ port: conf_1.SOCKET_PORT });
 wss.on('connection', ws => {
-    ws.send('you are user ' + wss.clients.size);
+    const userId = wss.clients.size;
+    console.log(`用户 ${userId} 进来了`);
+    ws.send(`你是用户： ${userId}`);
     ws.on('message', msg => {
         console.log(msg);
         wss.clients.forEach(client => {
@@ -11,4 +14,4 @@ wss.on('connection', ws => {
         });
     });
 });
-//# sourceMappingURL=ws.js.map
+//# sourceMappingURL=socket.js.map
