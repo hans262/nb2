@@ -1,9 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const fs_1 = require("fs");
+const path_1 = require("path");
+const path_2 = require("../utils/path");
 function LOG(massage) {
     const { type, msg, pid = process.pid } = massage;
     const date = new Date().toLocaleString();
-    console.info(`[${date}] [${type}] pid: ${pid} -> ${msg}`);
+    const str = `[${date}] [${type}] pid: ${pid} -> ${msg}`;
+    console.info(str);
+    WRITE_LINE(str);
 }
 exports.LOG = LOG;
 function SEND(cmd) {
@@ -16,4 +21,13 @@ function SEND(cmd) {
     }
 }
 exports.SEND = SEND;
+function WRITE_LINE(data) {
+    const currentDay = new Date().toLocaleDateString();
+    const fileName = path_1.join(path_2.LOG_PATH, `/${currentDay}.log`);
+    data += '\r\n';
+    fs_1.writeFileSync(fileName, data, {
+        flag: 'a'
+    });
+}
+exports.WRITE_LINE = WRITE_LINE;
 //# sourceMappingURL=log.js.map

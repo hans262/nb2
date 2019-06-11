@@ -133,9 +133,13 @@
         "version": "84da415cd151c466bc8b5559bb14811ddfb43852d02521f80022e1b35c4999cf",
         "signature": "b3fb874dabf5cc7d50a27082543c11373e24290e9752ad8bad7c01fa33fe36d7"
       },
+      "c:/luo/develop/node-server/src/utils/path.ts": {
+        "version": "17bb6d2af3e2254e8a5dd38946cf077b8292f1e21a90bb3360b659d4f5b5d5ea",
+        "signature": "4c3906720acd2c4e25606508b1e34fa7686a9faba34f561ee51fbfd6c2af192e"
+      },
       "c:/luo/develop/node-server/src/modules/log.ts": {
-        "version": "893a1092e98ee0addc2a9ac71d503d69a408bc8641ff0127c76a2b5236d12f6c",
-        "signature": "85b03859e8eb2a1ad58eb2683fb66b3f83322ffcdb325c5d0133274679179492"
+        "version": "9bd99f787fa2cb79e6f5d925cd3b439f95e16682b9186684a9f955600fc6dceb",
+        "signature": "a0b4bc1a79ff165dafe3d481d1096842024bcbfa772e1c4222c3de3883d29a57"
       },
       "c:/luo/develop/node-server/src/interface/req.ts": {
         "version": "a6b97583fccaf9935a8288684dbb7d268356db72279ae07aa6449cfd1dcf6f99",
@@ -148,10 +152,6 @@
       "c:/luo/develop/node-server/src/interface/controller.ts": {
         "version": "94cd80c47148be1630ab17649f0c99b3f2e9e36fb5f8cf26854777d294444be9",
         "signature": "a089cb5f00437fc0214d17ae8d84fe49d3251bcd2310bf0b080c0b8403799ab5"
-      },
-      "c:/luo/develop/node-server/src/utils/path.ts": {
-        "version": "17bb6d2af3e2254e8a5dd38946cf077b8292f1e21a90bb3360b659d4f5b5d5ea",
-        "signature": "4c3906720acd2c4e25606508b1e34fa7686a9faba34f561ee51fbfd6c2af192e"
       },
       "c:/luo/develop/node-server/src/controller/download.ts": {
         "version": "15c5a1f66d7127e4b041916359c6fe394c8ed7419c269df5028ca7e20e0a8420",
@@ -308,6 +308,10 @@
       "c:/luo/develop/node-server/src/conf/mysql.ts": {
         "version": "a86023be4180efd342a0db664a11a8891bd67f7383a23fc3ca88b2c772d21c15",
         "signature": "6d298c4131993aabbef0821f0e819d7d3de0d1a85e1b8770675efa1cdbf767b4"
+      },
+      "c:/luo/develop/node-server/src/modules/base64.ts": {
+        "version": "64535939d77f90fec19ac5be32f6a24282e445513748a9c300e3a4ff449a1ce2",
+        "signature": "e78a4048fefef3c107a4d5221f4c96048699007df8e0c45ffc09b7a5c229da1f"
       },
       "c:/luo/develop/node-server/src/modules/encrypt.ts": {
         "version": "afa3d8b2c1316a89f87d3687ea0e57350b558c382e5dd5e22450e4e6c04f93e6",
@@ -501,10 +505,6 @@
         "version": "8b79608c40b35dcef90548b56eef898733829419ba78078b401cafedffdc6a83",
         "signature": "29528ae9d108977900ea5babe9d6c1270ea0a31c156d85eca5241be5539e9cda"
       },
-      "c:/luo/develop/node-server/src/modules/write.ts": {
-        "version": "36db938e7958ea1ed72bd80eab5e243512208ffe258fa9c42706707fc925aa33",
-        "signature": "6419d09fe6f4afde23d6626ce6c67e3ce2e3c4ee2a550bdeb5057cca63a16548"
-      },
       "c:/luo/develop/node-server/node_modules/@types/ws/index.d.ts": {
         "version": "72b8e5974345f122fb42452ab341cbcbe9835e973db4979862e973ab7d6091aa",
         "signature": "72b8e5974345f122fb42452ab341cbcbe9835e973db4979862e973ab7d6091aa"
@@ -532,10 +532,6 @@
       "c:/luo/develop/node-server/src/test/namespace.ts": {
         "version": "be33409826d03436ab229f7c8e0dfc636454a2453ff8a5091b7e133d4eccd016",
         "signature": "07fddb2af327f201b461dd9e36e5ccb276b96850af5e4263e720d31e7d18b734"
-      },
-      "c:/luo/develop/node-server/src/test/other.ts": {
-        "version": "226dd84c2b9c20de2acff42acbe2b0219eaf3e6767c70d495848eed38746dc27",
-        "signature": "4264b594a8ce81be2e4771cbddb323b528207388cfc6d254102e364372a7c5ea"
       },
       "c:/luo/develop/node-server/src/test/types.ts": {
         "version": "27d704d1240825a861427e32c35fd0bbba9f7e17263d54cd51b6133d0dbc1e72",
@@ -698,7 +694,15 @@
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "c:/luo/develop/node-server/src/utils/path.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/path.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "c:/luo/develop/node-server/src/modules/log.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/path.d.ts",
+        "c:/luo/develop/node-server/src/utils/path.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -719,11 +723,6 @@
       "c:/luo/develop/node-server/src/interface/controller.ts": [
         "c:/luo/develop/node-server/src/interface/req.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/src/utils/path.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/path.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1050,6 +1049,10 @@
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "c:/luo/develop/node-server/src/modules/base64.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "c:/luo/develop/node-server/src/modules/encrypt.ts": [
         "c:/luo/develop/node-server/node_modules/@types/node/crypto.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
@@ -1338,13 +1341,6 @@
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "c:/luo/develop/node-server/src/modules/write.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/fs.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/path.d.ts",
-        "c:/luo/develop/node-server/src/utils/path.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
       "c:/luo/develop/node-server/node_modules/@types/ws/index.d.ts": [
         "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts",
@@ -1377,10 +1373,6 @@
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "c:/luo/develop/node-server/src/test/namespace.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/src/test/other.ts": [
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1576,6 +1568,20 @@
       "c:/luo/develop/node-server/src/middleware/checklogin.ts": [
         "c:/luo/develop/node-server/src/interface/middleware.ts"
       ],
+      "c:/luo/develop/node-server/src/controller/upfile.ts": [
+        "c:/luo/develop/node-server/src/interface/req.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
+      ],
+      "c:/luo/develop/node-server/src/controller/index.ts": [
+        "c:/luo/develop/node-server/src/interface/controller.ts"
+      ],
+      "c:/luo/develop/node-server/src/middleware/checkcontroller.ts": [
+        "c:/luo/develop/node-server/src/interface/middleware.ts"
+      ],
+      "c:/luo/develop/node-server/src/controller/download.ts": [
+        "c:/luo/develop/node-server/src/interface/req.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
+      ],
       "c:/luo/develop/node-server/src/respond/resnotfound.ts": [
         "c:/luo/develop/node-server/src/interface/req.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
@@ -1603,12 +1609,6 @@
         "c:/luo/develop/node-server/src/interface/req.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
       ],
-      "c:/luo/develop/node-server/src/controller/index.ts": [
-        "c:/luo/develop/node-server/src/interface/controller.ts"
-      ],
-      "c:/luo/develop/node-server/src/middleware/checkcontroller.ts": [
-        "c:/luo/develop/node-server/src/interface/middleware.ts"
-      ],
       "c:/luo/develop/node-server/src/controller/restart.ts": [
         "c:/luo/develop/node-server/src/interface/req.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
@@ -1630,10 +1630,6 @@
         "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts",
         "c:/luo/develop/node-server/src/interface/req.ts"
       ],
-      "c:/luo/develop/node-server/src/controller/upfile.ts": [
-        "c:/luo/develop/node-server/src/interface/req.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
-      ],
       "c:/luo/develop/node-server/src/controller/testpost.ts": [
         "c:/luo/develop/node-server/src/interface/req.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
@@ -1646,10 +1642,6 @@
         "c:/luo/develop/node-server/src/interface/req.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
       ],
-      "c:/luo/develop/node-server/src/controller/download.ts": [
-        "c:/luo/develop/node-server/src/interface/req.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
-      ],
       "c:/luo/develop/node-server/src/interface/controller.ts": [
         "c:/luo/develop/node-server/src/interface/req.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
@@ -1657,9 +1649,6 @@
       "c:/luo/develop/node-server/src/interface/middleware.ts": [
         "c:/luo/develop/node-server/src/interface/req.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
-      ],
-      "c:/luo/develop/node-server/src/modules/write.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/fs.d.ts"
       ],
       "c:/luo/develop/node-server/src/modules/sql.ts": [
         "c:/luo/develop/node-server/node_modules/@types/mysql/index.d.ts"
@@ -1985,11 +1974,11 @@
       "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.esnext.bigint.d.ts",
       "c:/luo/develop/node-server/src/interface/user.ts",
       "c:/luo/develop/node-server/src/conf/index.ts",
+      "c:/luo/develop/node-server/src/utils/path.ts",
       "c:/luo/develop/node-server/src/modules/log.ts",
       "c:/luo/develop/node-server/src/interface/req.ts",
       "c:/luo/develop/node-server/src/interface/middleware.ts",
       "c:/luo/develop/node-server/src/interface/controller.ts",
-      "c:/luo/develop/node-server/src/utils/path.ts",
       "c:/luo/develop/node-server/src/controller/download.ts",
       "c:/luo/develop/node-server/src/controller/restart.ts",
       "c:/luo/develop/node-server/src/controller/shutdown.ts",
@@ -2029,6 +2018,7 @@
       "c:/luo/develop/node-server/src/cluster.ts",
       "c:/luo/develop/node-server/src/worker.ts",
       "c:/luo/develop/node-server/src/conf/mysql.ts",
+      "c:/luo/develop/node-server/src/modules/base64.ts",
       "c:/luo/develop/node-server/src/modules/encrypt.ts",
       "c:/luo/develop/node-server/node_modules/@types/node/globals.d.ts",
       "c:/luo/develop/node-server/node_modules/@types/node/assert.d.ts",
@@ -2077,7 +2067,6 @@
       "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/index.d.ts",
       "c:/luo/develop/node-server/node_modules/@types/mysql/index.d.ts",
       "c:/luo/develop/node-server/src/modules/sql.ts",
-      "c:/luo/develop/node-server/src/modules/write.ts",
       "c:/luo/develop/node-server/node_modules/@types/ws/index.d.ts",
       "c:/luo/develop/node-server/src/server/socket.ts",
       "c:/luo/develop/node-server/src/test/assertions.ts",
@@ -2085,7 +2074,6 @@
       "c:/luo/develop/node-server/src/test/index.ts",
       "c:/luo/develop/node-server/src/test/keyof.ts",
       "c:/luo/develop/node-server/src/test/namespace.ts",
-      "c:/luo/develop/node-server/src/test/other.ts",
       "c:/luo/develop/node-server/src/test/types.ts",
       "c:/luo/develop/node-server/src/test/generics/demo.ts",
       "c:/luo/develop/node-server/src/test/generics/demo2.ts",
