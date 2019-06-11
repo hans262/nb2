@@ -1,6 +1,6 @@
 {
   "name": "node-server",
-  "version": "3.3.5",
+  "version": "3.4.0",
   "description": "Node Server Fast and Minimum",
   "scripts": {
     "start": "node out/worker.js",
