@@ -1,0 +1,18 @@
+[2019-6-12 21:59:50] [MASTER STARTUP] pid: 12308 -> NodeServer version: 3.4.2
+[2019-6-12 21:59:51] [WORKER STARTUP] pid: 9400 -> port: 5000
+[2019-6-12 21:59:56] [REQUEST] pid: 9400 -> D:\develop\node-server\package.json
+[2019-6-12 21:59:56] [RES_CACHE] pid: 9400 -> D:\develop\node-server\package.json
+[2019-6-12 21:59:56] [REQUEST] pid: 9400 -> D:\favicon.ico
+[2019-6-12 21:59:56] [RES_FILE] pid: 9400 -> D:\develop\node-server\public\favicon.ico
+[2019-6-12 21:59:56] [REQUEST] pid: 9400 -> D:\develop\node-server\package.json
+[2019-6-12 21:59:56] [RES_CACHE] pid: 9400 -> D:\develop\node-server\package.json
+[2019-6-12 21:59:56] [REQUEST] pid: 9400 -> D:\favicon.ico
+[2019-6-12 21:59:56] [RES_FILE] pid: 9400 -> D:\develop\node-server\public\favicon.ico
+[2019-6-12 22:00:04] [REQUEST] pid: 9400 -> D:\develop\node-server\.vscode\
+[2019-6-12 22:00:04] [RES_DIR] pid: 9400 -> D:\develop\node-server\.vscode\
+[2019-6-12 22:00:08] [REQUEST] pid: 9400 -> D:\develop\node-server\.gitignore
+[2019-6-12 22:00:08] [RES_FILE] pid: 9400 -> D:\develop\node-server\.gitignore
+[2019-6-12 22:00:12] [REQUEST] pid: 9400 -> D:\develop\node-server\.vscode\
+[2019-6-12 22:00:12] [RES_DIR] pid: 9400 -> D:\develop\node-server\.vscode\
+[2019-6-12 22:00:15] [REQUEST] pid: 9400 -> D:\develop\node-server\.vscode\launch.json
+[2019-6-12 22:00:15] [RES_FILE] pid: 9400 -> D:\develop\node-server\.vscode\launch.json
