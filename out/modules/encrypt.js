@@ -7,22 +7,22 @@ function MD5(data) {
     return hash.digest('hex');
 }
 exports.MD5 = MD5;
-function Hmac(data) {
-    const hmac = crypto_1.createHmac('md5', 'secret-key');
+function Hmac(data, key) {
+    const hmac = crypto_1.createHmac('md5', key);
     hmac.update(data);
     return hmac.digest('hex');
 }
 exports.Hmac = Hmac;
-function Cipher(data, key) {
-    const cipher = crypto_1.createCipher('aes-128-ecb', key);
-    var crypted = cipher.update(data, 'utf8', 'hex');
+function Cipher(data, key, iv) {
+    const cipher = crypto_1.createCipheriv('aes-128-cbc', key, iv);
+    let crypted = cipher.update(data, 'utf8', 'hex');
     crypted += cipher.final('hex');
     return crypted;
 }
 exports.Cipher = Cipher;
-function Decipher(encrypted, key) {
-    const decipher = crypto_1.createDecipher('aes-128-ecb', key);
-    var decrypted = decipher.update(encrypted, 'hex', 'utf8');
+function Decipher(data, key, iv) {
+    const decipher = crypto_1.createDecipheriv('aes-128-cbc', key, iv);
+    let decrypted = decipher.update(data, 'hex', 'utf8');
     decrypted += decipher.final('utf8');
     return decrypted;
 }
