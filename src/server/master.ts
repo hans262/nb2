@@ -2,9 +2,10 @@ import { fork, isMaster, on, Worker, workers } from 'cluster';
 import { cpus } from 'os';
 import { CLUSTER } from '../conf';
 import { Action, LOG } from '../modules/log';
+import packageConf from '../utils/packageConf'
 
 function master(): void {
-  LOG({ type: 'MASTER STARTUP', msg: `NodeServer version: 3.4.0` })
+  LOG({ type: 'MASTER STARTUP', msg: `NodeServer version: ${packageConf.version}` })
   CLUSTER ? cpus().forEach(() => fork()) : fork()
 
   on('message', (worker: Worker, action: Action) => {
