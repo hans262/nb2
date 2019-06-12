@@ -1,0 +1,18 @@
+[2019-6-12 09:07:20] [MASTER STARTUP] pid: 2356 -> NodeServer version: 3.2.2
+[2019-6-12 09:07:22] [WORKER STARTUP] pid: 11668 -> port: 5000
+[2019-6-12 09:08:27] [MASTER STARTUP] pid: 5000 -> NodeServer version: 3.2.2
+[2019-6-12 09:08:28] [WORKER STARTUP] pid: 3156 -> port: 5000
+[2019-6-12 09:20:42] [WORKER STARTUP] pid: 5444 -> port: 5000
+[2019-6-12 09:21:22] [MASTER STARTUP] pid: 4780 -> NodeServer version: 555
+[2019-6-12 09:21:24] [WORKER STARTUP] pid: 11204 -> port: 5000
+[2019-6-12 09:33:03] [WORKER STARTUP] pid: 6232 -> port: 5000
+[2019-6-12 09:33:46] [WORKER STARTUP] pid: 2572 -> port: 5000
+[2019-6-12 09:36:13] [MASTER STARTUP] pid: 1288 -> NodeServer version: 555
+[2019-6-12 09:36:15] [WORKER STARTUP] pid: 10080 -> port: 5000
+[2019-6-12 09:41:37] [WORKET EXIT] pid: 10080 -> restart
+[2019-6-12 09:41:54] [MASTER STARTUP] pid: 5788 -> NodeServer version: 555
+[2019-6-12 09:41:56] [WORKER STARTUP] pid: 2508 -> port: 5000
+[2019-6-12 09:43:37] [MASTER STARTUP] pid: 6560 -> NodeServer version: 555
+[2019-6-12 09:43:39] [WORKER STARTUP] pid: 8000 -> port: 5000
+[2019-6-12 09:46:33] [MASTER STARTUP] pid: 14284 -> NodeServer version: 3.4.0
+[2019-6-12 09:46:35] [WORKER STARTUP] pid: 9388 -> port: 5000
