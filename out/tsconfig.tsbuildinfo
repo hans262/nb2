@@ -530,8 +530,8 @@
         "signature": "33f70f48c4df0801660a2bdfe287fb0bdc5930d4c920501928ae8c76c1952064"
       },
       "c:/luo/develop/node-server/src/test/index.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        "version": "f2c03552513625b487ca2805db9caceec11f0a5bb37bf0dd8696e3c10bda55e5",
+        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
       },
       "c:/luo/develop/node-server/src/test/keyof.ts": {
         "version": "0dc2327947e99c25bddd359c6d3db5aa88e6d9dfd3428616fb0db02d7320c0d4",
@@ -566,6 +566,7 @@
       "removeComments": true,
       "experimentalDecorators": true,
       "incremental": true,
+      "watch": true,
       "configFilePath": "C:/LUO/develop/node-server/tsconfig.json"
     },
     "referencedMap": {
@@ -1385,6 +1386,7 @@
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "c:/luo/develop/node-server/src/test/index.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1541,52 +1543,43 @@
       "c:/luo/develop/node-server/src/conf/index.ts": [
         "c:/luo/develop/node-server/src/interface/user.ts"
       ],
-      "c:/luo/develop/node-server/src/middleware/index.ts": [
-        "c:/luo/develop/node-server/src/interface/middleware.ts"
+      "c:/luo/develop/node-server/src/interface/req.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/querystring.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/zlib.d.ts"
       ],
-      "c:/luo/develop/node-server/src/server/main.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
-      ],
-      "c:/luo/develop/node-server/src/middleware/mount.ts": [
-        "c:/luo/develop/node-server/src/interface/middleware.ts"
-      ],
-      "c:/luo/develop/node-server/src/utils/setheader.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
-      ],
-      "c:/luo/develop/node-server/src/respond/resstatic.ts": [
+      "c:/luo/develop/node-server/src/interface/middleware.ts": [
         "c:/luo/develop/node-server/src/interface/req.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
       ],
-      "c:/luo/develop/node-server/src/middleware/resfavicon.ts": [
-        "c:/luo/develop/node-server/src/interface/middleware.ts"
-      ],
-      "c:/luo/develop/node-server/src/middleware/later.ts": [
-        "c:/luo/develop/node-server/src/interface/middleware.ts"
-      ],
-      "c:/luo/develop/node-server/src/respond/resdir.ts": [
+      "c:/luo/develop/node-server/src/interface/controller.ts": [
         "c:/luo/develop/node-server/src/interface/req.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
       ],
-      "c:/luo/develop/node-server/src/respond/resindex.ts": [
+      "c:/luo/develop/node-server/src/controller/download.ts": [
         "c:/luo/develop/node-server/src/interface/req.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
       ],
-      "c:/luo/develop/node-server/src/respond/resverify.ts": [
+      "c:/luo/develop/node-server/src/controller/restart.ts": [
         "c:/luo/develop/node-server/src/interface/req.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
       ],
-      "c:/luo/develop/node-server/src/utils/zip.ts": [
+      "c:/luo/develop/node-server/src/controller/shutdown.ts": [
         "c:/luo/develop/node-server/src/interface/req.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
       ],
-      "c:/luo/develop/node-server/src/middleware/gettoken.ts": [
-        "c:/luo/develop/node-server/src/interface/middleware.ts"
+      "c:/luo/develop/node-server/src/controller/testget.ts": [
+        "c:/luo/develop/node-server/src/interface/req.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
       ],
-      "c:/luo/develop/node-server/src/store/session.ts": [
-        "c:/luo/develop/node-server/src/interface/session.ts"
+      "c:/luo/develop/node-server/src/controller/testjsonp.ts": [
+        "c:/luo/develop/node-server/src/interface/req.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
       ],
-      "c:/luo/develop/node-server/src/middleware/checklogin.ts": [
-        "c:/luo/develop/node-server/src/interface/middleware.ts"
+      "c:/luo/develop/node-server/src/controller/testpost.ts": [
+        "c:/luo/develop/node-server/src/interface/req.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
       ],
       "c:/luo/develop/node-server/src/controller/upfile.ts": [
         "c:/luo/develop/node-server/src/interface/req.ts",
@@ -1598,23 +1591,31 @@
       "c:/luo/develop/node-server/src/middleware/checkcontroller.ts": [
         "c:/luo/develop/node-server/src/interface/middleware.ts"
       ],
-      "c:/luo/develop/node-server/src/controller/download.ts": [
+      "c:/luo/develop/node-server/src/respond/resredirect.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
+      ],
+      "c:/luo/develop/node-server/src/store/session.ts": [
+        "c:/luo/develop/node-server/src/interface/session.ts"
+      ],
+      "c:/luo/develop/node-server/src/utils/cookie.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts",
+        "c:/luo/develop/node-server/src/interface/req.ts"
+      ],
+      "c:/luo/develop/node-server/src/middleware/checklogin.ts": [
+        "c:/luo/develop/node-server/src/interface/middleware.ts"
+      ],
+      "c:/luo/develop/node-server/src/middleware/gettoken.ts": [
+        "c:/luo/develop/node-server/src/interface/middleware.ts"
+      ],
+      "c:/luo/develop/node-server/src/respond/resdir.ts": [
         "c:/luo/develop/node-server/src/interface/req.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
       ],
-      "c:/luo/develop/node-server/src/respond/resnotfound.ts": [
-        "c:/luo/develop/node-server/src/interface/req.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
+      "c:/luo/develop/node-server/src/utils/cache.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/node-server/src/interface/req.ts"
       ],
-      "c:/luo/develop/node-server/src/respond/reszip.ts": [
-        "c:/luo/develop/node-server/src/interface/req.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
-      ],
-      "c:/luo/develop/node-server/src/respond/resrange.ts": [
-        "c:/luo/develop/node-server/src/interface/req.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
-      ],
-      "c:/luo/develop/node-server/src/respond/resfile.ts": [
+      "c:/luo/develop/node-server/src/utils/zip.ts": [
         "c:/luo/develop/node-server/src/interface/req.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
       ],
@@ -1622,56 +1623,54 @@
         "c:/luo/develop/node-server/src/interface/req.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
       ],
-      "c:/luo/develop/node-server/src/respond/resredirect.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
-      ],
-      "c:/luo/develop/node-server/src/controller/shutdown.ts": [
+      "c:/luo/develop/node-server/src/respond/resfile.ts": [
         "c:/luo/develop/node-server/src/interface/req.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
       ],
-      "c:/luo/develop/node-server/src/controller/restart.ts": [
+      "c:/luo/develop/node-server/src/respond/resrange.ts": [
         "c:/luo/develop/node-server/src/interface/req.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
       ],
-      "c:/luo/develop/node-server/src/interface/req.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/fs.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/querystring.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/zlib.d.ts"
+      "c:/luo/develop/node-server/src/respond/reszip.ts": [
+        "c:/luo/develop/node-server/src/interface/req.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
+      ],
+      "c:/luo/develop/node-server/src/respond/resverify.ts": [
+        "c:/luo/develop/node-server/src/interface/req.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
+      ],
+      "c:/luo/develop/node-server/src/respond/resnotfound.ts": [
+        "c:/luo/develop/node-server/src/interface/req.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
+      ],
+      "c:/luo/develop/node-server/src/respond/resindex.ts": [
+        "c:/luo/develop/node-server/src/interface/req.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
+      ],
+      "c:/luo/develop/node-server/src/respond/resstatic.ts": [
+        "c:/luo/develop/node-server/src/interface/req.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
+      ],
+      "c:/luo/develop/node-server/src/middleware/later.ts": [
+        "c:/luo/develop/node-server/src/interface/middleware.ts"
       ],
       "c:/luo/develop/node-server/src/middleware/loginpage.ts": [
         "c:/luo/develop/node-server/src/interface/middleware.ts"
       ],
-      "c:/luo/develop/node-server/src/utils/cache.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/fs.d.ts",
-        "c:/luo/develop/node-server/src/interface/req.ts"
-      ],
-      "c:/luo/develop/node-server/src/utils/cookie.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts",
-        "c:/luo/develop/node-server/src/interface/req.ts"
-      ],
-      "c:/luo/develop/node-server/src/controller/testpost.ts": [
-        "c:/luo/develop/node-server/src/interface/req.ts",
+      "c:/luo/develop/node-server/src/utils/setheader.ts": [
         "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
       ],
-      "c:/luo/develop/node-server/src/controller/testjsonp.ts": [
-        "c:/luo/develop/node-server/src/interface/req.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
+      "c:/luo/develop/node-server/src/middleware/mount.ts": [
+        "c:/luo/develop/node-server/src/interface/middleware.ts"
       ],
-      "c:/luo/develop/node-server/src/controller/testget.ts": [
-        "c:/luo/develop/node-server/src/interface/req.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
+      "c:/luo/develop/node-server/src/middleware/resfavicon.ts": [
+        "c:/luo/develop/node-server/src/interface/middleware.ts"
       ],
-      "c:/luo/develop/node-server/src/interface/controller.ts": [
-        "c:/luo/develop/node-server/src/interface/req.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
+      "c:/luo/develop/node-server/src/middleware/index.ts": [
+        "c:/luo/develop/node-server/src/interface/middleware.ts"
       ],
-      "c:/luo/develop/node-server/src/interface/middleware.ts": [
-        "c:/luo/develop/node-server/src/interface/req.ts",
+      "c:/luo/develop/node-server/src/server/main.ts": [
         "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
-      ],
-      "c:/luo/develop/node-server/src/modules/sql.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/mysql/index.d.ts"
       ],
       "c:/luo/develop/node-server/src/modules/encrypt.ts": [
         "c:/luo/develop/node-server/node_modules/@types/node/crypto.d.ts"
@@ -1681,6 +1680,211 @@
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "c:/luo/develop/node-server/node_modules/@types/node/assert.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/async_hooks.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/buffer.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/events/index.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/child_process.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/net.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/stream.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/cluster.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/child_process.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/net.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/console.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/constants.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/crypto.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/stream.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/dgram.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/net.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/dns.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/dns.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/domain.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/fs.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/stream.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/url.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/stream.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/url.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/net.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/http2.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/net.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/stream.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/tls.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/url.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/https.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/tls.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/url.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/inspector.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/module.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/net.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/stream.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/dns.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/os.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/path.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/perf_hooks.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/async_hooks.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/process.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/punycode.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/querystring.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/readline.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/stream.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/repl.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/readline.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/vm.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/stream.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/string_decoder.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/timers.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/tls.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/crypto.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/dns.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/net.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/stream.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/trace_events.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/tty.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/net.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/url.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/querystring.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/v8.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/stream.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/vm.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/worker_threads.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/vm.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/stream.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/zlib.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/stream.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1727,20 +1931,19 @@
         "c:/luo/develop/node-server/node_modules/@types/node/zlib.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/globals.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/globals.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/index.d.ts": [
         "c:/luo/develop/node-server/node_modules/@types/node/base.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/globals.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/ws/index.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/https.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/net.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/index.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "c:/luo/develop/node-server/node_modules/@types/mysql/index.d.ts": [
         "c:/luo/develop/node-server/node_modules/@types/node/stream.d.ts",
@@ -1749,216 +1952,15 @@
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "c:/luo/develop/node-server/node_modules/@types/node/async_hooks.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      "c:/luo/develop/node-server/src/modules/sql.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/mysql/index.d.ts"
       ],
-      "c:/luo/develop/node-server/node_modules/@types/node/perf_hooks.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/async_hooks.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/buffer.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/events/index.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/child_process.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/net.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/stream.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/cluster.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/child_process.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/net.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/console.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/constants.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/crypto.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/stream.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/tls.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/crypto.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/dns.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/net.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/stream.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/https.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/tls.d.ts",
+      "c:/luo/develop/node-server/node_modules/@types/ws/index.d.ts": [
         "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/url.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/http2.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/https.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/net.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/stream.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/tls.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/url.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/dgram.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/net.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/dns.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/dns.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/net.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/stream.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/dns.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/tty.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/net.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/stream.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/url.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/net.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/domain.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/worker_threads.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/vm.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/stream.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/stream.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/zlib.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/stream.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/v8.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/stream.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/readline.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/stream.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/repl.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/readline.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/vm.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/fs.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/stream.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/url.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/inspector.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/events.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/module.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/os.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/path.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/process.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/punycode.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/querystring.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/url.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/querystring.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/string_decoder.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/timers.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/trace_events.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/globals.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/globals.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts"
-      ],
-      "c:/luo/develop/node-server/node_modules/@types/node/vm.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/index.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ]
