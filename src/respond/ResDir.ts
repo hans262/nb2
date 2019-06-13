@@ -1,4 +1,4 @@
-import { readdirSync, statSync } from 'fs';
+import { Dirent, readdirSync } from 'fs';
 import { ServerResponse } from 'http';
 import { join } from 'path';
 import { INDEX_PAGE } from '../conf';
@@ -8,29 +8,23 @@ import { ResStatic } from './ResStatic';
 
 export function ResDir(req: Req, res: ServerResponse): void {
   const { __absolutePath, __relativePath } = req
-  const files: Array<string> = readdirSync(__absolutePath)
-
-  if (files.includes(INDEX_PAGE)) {
+  const dirents: Array<Dirent> = readdirSync(__absolutePath, {
+    withFileTypes: true
+  })
+  if (dirents.find(d => d.name === INDEX_PAGE)) {
     //index存在
     req.__absolutePath = join(__absolutePath, INDEX_PAGE)
     return ResStatic(req, res)
   }
-
   let content: string = `<h1>Index of ${__relativePath}</h1>`
-  files.forEach(file => {
-    let href: string = join(__relativePath, file)
-    let small: string = ''
-    try {
-      const stats = statSync(join(__absolutePath, file))
-      if (stats.isDirectory()) {
-        href += '/'
-        file += '/'
-      }
-    } catch (err) {
-      LOG({ type: 'ERROR', msg: err.message })
-      small += `<small style="color:red">无权系统路径</small>`
+  dirents.forEach(file => {
+    let { name } = file
+    let href: string = join(__relativePath, name)
+    if (file.isDirectory()) {
+      href += '/'
+      name += '/'
     }
-    content += `<p><a href="${href}">${file}</a>${small}</p>`
+    content += `<p><a href="${href}">${name}</a></p>`
   })
   res.setHeader('Content-Type', 'text/html; charset=utf-8')
   res.writeHead(200, 'Access Directory')

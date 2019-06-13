@@ -2,15 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const crypto_1 = require("crypto");
 function MD5(data) {
-    var hash = crypto_1.createHash('md5');
-    hash.update(data);
-    return hash.digest('hex');
+    return crypto_1.createHash('md5').update(data).digest('hex');
 }
 exports.MD5 = MD5;
 function Hmac(data, key) {
-    const hmac = crypto_1.createHmac('md5', key);
-    hmac.update(data);
-    return hmac.digest('hex');
+    return crypto_1.createHmac('md5', key).update(data).digest('hex');
 }
 exports.Hmac = Hmac;
 function Cipheriv(data, key, iv) {

@@ -13,9 +13,7 @@ import {
  * @param data 源
  */
 export function MD5(data: BinaryLike): string {
-	var hash = createHash('md5')
-	hash.update(data)
-	return hash.digest('hex')
+	return createHash('md5').update(data).digest('hex')
 }
 
 /**
@@ -25,9 +23,7 @@ export function MD5(data: BinaryLike): string {
  * @param key 密钥
  */
 export function Hmac(data: BinaryLike, key: BinaryLike): string {
-	const hmac = createHmac('md5', key)
-	hmac.update(data)
-	return hmac.digest('hex')
+	return createHmac('md5', key).update(data).digest('hex')
 }
 
 /**
