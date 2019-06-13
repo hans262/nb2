@@ -1,8 +1,8 @@
 import { fork, isMaster, on, Worker, workers } from 'cluster';
 import { cpus } from 'os';
 import { CLUSTER } from '../conf';
+import packageConf from '../conf/packageConf';
 import { Action, LOG } from '../modules/log';
-import packageConf from '../utils/packageConf'
 
 function master(): void {
   LOG({ type: 'MASTER STARTUP', msg: `NodeServer version: ${packageConf.version}` })

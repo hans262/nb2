@@ -40,5 +40,4 @@ export function ResVerify(req: Req, res: ServerResponse): void {
   }
   //需要压缩
   ResZip(req, res)
-
 }

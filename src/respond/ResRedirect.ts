@@ -7,10 +7,10 @@ import { LOG } from '../modules/log';
  */
 export function ResRedirect(redirect: Redirect): void {
   const { res, location, code, reasonPhrase } = redirect
-  LOG({ type: 'REDIRECT', msg: location })
   res.setHeader('Location', location)
   res.writeHead(code, reasonPhrase)
   res.end()
+  LOG({ type: 'REDIRECT', msg: location })
 }
 
 interface Redirect {

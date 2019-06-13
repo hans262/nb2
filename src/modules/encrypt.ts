@@ -37,7 +37,7 @@ export function Hmac(data: BinaryLike, key: BinaryLike): string {
  * @param key 
  * @param iv 
  */
-export function Cipher(data: string, key: CipherKey, iv: BinaryLike): string {
+export function Cipheriv(data: string, key: CipherKey, iv: BinaryLike): string {
 	const cipher = createCipheriv('aes-128-cbc', key, iv)
 	let crypted = cipher.update(data, 'utf8', 'hex')
 	crypted += cipher.final('hex')
@@ -51,7 +51,7 @@ export function Cipher(data: string, key: CipherKey, iv: BinaryLike): string {
  * @param key 
  * @param iv 
  */
-export function Decipher(data: string, key: BinaryLike, iv: BinaryLike): string {
+export function Decipheriv(data: string, key: BinaryLike, iv: BinaryLike): string {
 	const decipher = createDecipheriv('aes-128-cbc', key, iv)
 	let decrypted = decipher.update(data, 'hex', 'utf8')
 	decrypted += decipher.final('utf8')
@@ -62,9 +62,9 @@ export function Decipher(data: string, key: BinaryLike, iv: BinaryLike): string 
  * 用法
  * const key = Buffer.from('9vApxLk5G3PAsJrM', 'utf8');
  * const iv = Buffer.from('FnJL7EDzjqWjcaY9', 'utf8');
- * console.log(Cipher('hello', key, iv))
+ * console.log(Cipheriv('hello', key, iv))
  * //dd5c27de141494924da6e6db3276de20
- * console.log(Decipher('dd5c27de141494924da6e6db3276de20', key, iv))
+ * console.log(Decipheriv('dd5c27de141494924da6e6db3276de20', key, iv))
  */
 
 /*

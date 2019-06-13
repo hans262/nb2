@@ -13,18 +13,18 @@ function Hmac(data, key) {
     return hmac.digest('hex');
 }
 exports.Hmac = Hmac;
-function Cipher(data, key, iv) {
+function Cipheriv(data, key, iv) {
     const cipher = crypto_1.createCipheriv('aes-128-cbc', key, iv);
     let crypted = cipher.update(data, 'utf8', 'hex');
     crypted += cipher.final('hex');
     return crypted;
 }
-exports.Cipher = Cipher;
-function Decipher(data, key, iv) {
+exports.Cipheriv = Cipheriv;
+function Decipheriv(data, key, iv) {
     const decipher = crypto_1.createDecipheriv('aes-128-cbc', key, iv);
     let decrypted = decipher.update(data, 'hex', 'utf8');
     decrypted += decipher.final('utf8');
     return decrypted;
 }
-exports.Decipher = Decipher;
+exports.Decipheriv = Decipheriv;
 //# sourceMappingURL=encrypt.js.map

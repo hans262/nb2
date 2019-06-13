@@ -2,10 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
 const log_1 = require("../modules/log");
+const parseRange_1 = require("../utils/parseRange");
 function ResRange(req, res) {
     const { __absolutePath, __stats } = req;
     const { size } = __stats;
-    const range = parseRange(req.headers['range'], size);
+    const range = parseRange_1.parseRange(req.headers['range'], size);
     if (range) {
         const { start, end } = range;
         res.setHeader('Content-Range', `bytes ${start}-${end}/${size}`);
@@ -24,19 +25,4 @@ function ResRange(req, res) {
     }
 }
 exports.ResRange = ResRange;
-function parseRange(range, size) {
-    const r0 = range.match(/^bytes=(\d+)-(\d+)$/);
-    if (!r0)
-        return null;
-    const start = parseInt(r0[1]);
-    const end = parseInt(r0[2]);
-    if (start > end)
-        return null;
-    if (end >= size)
-        return null;
-    const r = {
-        start, end
-    };
-    return r;
-}
 //# sourceMappingURL=ResRange.js.map
