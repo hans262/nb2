@@ -5,12 +5,19 @@ import { INDEX_PAGE } from '../conf';
 import { Req } from '../Interface/Req';
 import { LOG } from '../modules/log';
 import { ResStatic } from './ResStatic';
+import { ResNotFound } from './ResNotFound';
 
 export function ResDir(req: Req, res: ServerResponse): void {
   const { __absolutePath, __relativePath } = req
-  const dirents: Array<Dirent> = readdirSync(__absolutePath, {
-    withFileTypes: true
-  })
+  let dirents: Array<Dirent>
+  try {
+    dirents = readdirSync(__absolutePath, {
+      withFileTypes: true
+    })
+  } catch (error) {
+    LOG({ type: 'ERROR', msg: error.message })
+    return ResNotFound(req, res)
+  }
   if (dirents.find(d => d.name === INDEX_PAGE)) {
     //index存在
     req.__absolutePath = join(__absolutePath, INDEX_PAGE)

@@ -1,0 +1,77 @@
+[2019-6-14 10:22:36] [MASTER STARTUP] pid: 3456 -> NodeServer version: 3.4.2
+[2019-6-14 10:22:38] [WORKER STARTUP] pid: 8292 -> port: 5000
+[2019-6-14 10:22:48] [REQUEST] pid: 8292 -> C:\
+[2019-6-14 10:22:48] [RES_DIR] pid: 8292 -> C:\
+[2019-6-14 10:22:52] [REQUEST] pid: 8292 -> C:\Documents and Settings
+[2019-6-14 10:22:53] [WORKET EXIT] pid: 8292 -> restart
+[2019-6-14 10:22:55] [WORKER STARTUP] pid: 1684 -> port: 5000
+[2019-6-14 10:22:57] [REQUEST] pid: 1684 -> C:\Documents and Settings
+[2019-6-14 10:22:57] [WORKET EXIT] pid: 1684 -> restart
+[2019-6-14 10:22:59] [WORKER STARTUP] pid: 8876 -> port: 5000
+[2019-6-14 10:23:03] [REQUEST] pid: 8876 -> C:\Documents and Settings
+[2019-6-14 10:23:03] [WORKET EXIT] pid: 8876 -> restart
+[2019-6-14 10:23:05] [WORKER STARTUP] pid: 3744 -> port: 5000
+[2019-6-14 10:23:33] [REQUEST] pid: 3744 -> C:\Documents and Settings
+[2019-6-14 10:23:33] [WORKET EXIT] pid: 3744 -> restart
+[2019-6-14 10:23:34] [WORKER STARTUP] pid: 2508 -> port: 5000
+[2019-6-14 10:25:34] [MASTER STARTUP] pid: 10704 -> NodeServer version: 3.4.2
+[2019-6-14 10:25:36] [WORKER STARTUP] pid: 3096 -> port: 5000
+[2019-6-14 10:25:41] [REQUEST] pid: 3096 -> C:\
+[2019-6-14 10:25:41] [RES_DIR] pid: 3096 -> C:\
+[2019-6-14 10:25:45] [REQUEST] pid: 3096 -> C:\Documents and Settings
+[2019-6-14 10:25:45] [WORKET EXIT] pid: 3096 -> restart
+[2019-6-14 10:25:47] [WORKER STARTUP] pid: 8160 -> port: 5000
+[2019-6-14 10:25:51] [REQUEST] pid: 8160 -> C:\Documents and Settings
+[2019-6-14 10:25:51] [WORKET EXIT] pid: 8160 -> restart
+[2019-6-14 10:26:03] [WORKER STARTUP] pid: 812 -> port: 5000
+[2019-6-14 10:26:06] [REQUEST] pid: 812 -> C:\Documents and Settings
+[2019-6-14 10:27:18] [WORKER STARTUP] pid: 2272 -> port: 5000
+[2019-6-14 10:27:20] [REQUEST] pid: 2272 -> C:\Documents and Settings
+[2019-6-14 10:27:38] [WORKER STARTUP] pid: 2520 -> port: 5000
+[2019-6-14 10:27:40] [REQUEST] pid: 2520 -> C:\Documents and Settings
+[2019-6-14 10:28:24] [WORKER STARTUP] pid: 4140 -> port: 5000
+[2019-6-14 10:28:25] [REQUEST] pid: 4140 -> C:\Documents and Settings
+[2019-6-14 10:30:01] [WORKER STARTUP] pid: 2524 -> port: 5000
+[2019-6-14 10:30:04] [REQUEST] pid: 2524 -> C:\Documents and Settings
+[2019-6-14 10:33:35] [WORKER STARTUP] pid: 10508 -> port: 5000
+[2019-6-14 10:33:40] [REQUEST] pid: 10508 -> C:\Documents and Settings
+[2019-6-14 10:33:57] [WORKER STARTUP] pid: 9364 -> port: 5000
+[2019-6-14 10:33:59] [REQUEST] pid: 9364 -> C:\Documents and Settings
+[2019-6-14 10:34:37] [WORKER STARTUP] pid: 10704 -> port: 5000
+[2019-6-14 10:34:38] [REQUEST] pid: 10704 -> C:\Documents and Settings
+[2019-6-14 10:34:38] [404] pid: 10704 -> C:\Documents and Settings
+[2019-6-14 10:35:26] [MASTER STARTUP] pid: 9512 -> NodeServer version: 3.4.2
+[2019-6-14 10:35:28] [WORKER STARTUP] pid: 3724 -> port: 5000
+[2019-6-14 10:35:36] [REQUEST] pid: 3724 -> C:\Documents and Settings
+[2019-6-14 10:35:36] [404] pid: 3724 -> C:\Documents and Settings
+[2019-6-14 10:35:36] [REQUEST] pid: 3724 -> C:\favicon.ico
+[2019-6-14 10:35:36] [RES_FILE] pid: 3724 -> C:\LUO\develop\node-server\public\favicon.ico
+[2019-6-14 10:35:39] [REQUEST] pid: 3724 -> C:\
+[2019-6-14 10:35:39] [RES_DIR] pid: 3724 -> C:\
+[2019-6-14 10:35:41] [REQUEST] pid: 3724 -> C:\$Recycle.Bin\
+[2019-6-14 10:35:41] [RES_DIR] pid: 3724 -> C:\$Recycle.Bin\
+[2019-6-14 10:35:44] [REQUEST] pid: 3724 -> C:\hiberfil.sys
+[2019-6-14 10:35:44] [404] pid: 3724 -> C:\hiberfil.sys
+[2019-6-14 10:35:51] [REQUEST] pid: 3724 -> C:\pagefile.sys
+[2019-6-14 10:35:51] [404] pid: 3724 -> C:\pagefile.sys
+[2019-6-14 10:35:53] [REQUEST] pid: 3724 -> C:\System Volume Information\
+[2019-6-14 10:35:53] [404] pid: 3724 -> C:\System Volume Information\
+[2019-6-14 10:35:55] [REQUEST] pid: 3724 -> C:\swapfile.sys
+[2019-6-14 10:35:55] [404] pid: 3724 -> C:\swapfile.sys
+[2019-6-14 10:36:02] [REQUEST] pid: 3724 -> C:\Program Files (x86)\
+[2019-6-14 10:36:02] [RES_DIR] pid: 3724 -> C:\Program Files (x86)\
+[2019-6-14 11:28:15] [WORKER STARTUP] pid: 7892 -> port: 5000
+[2019-6-14 11:28:18] [REQUEST] pid: 7892 -> D:\
+[2019-6-14 11:28:18] [404] pid: 7892 -> D:\
+[2019-6-14 11:28:32] [WORKER STARTUP] pid: 10092 -> port: 5000
+[2019-6-14 11:28:33] [REQUEST] pid: 10092 -> C:\
+[2019-6-14 11:28:33] [RES_DIR] pid: 10092 -> C:\
+[2019-6-14 11:28:33] [REQUEST] pid: 10092 -> C:\favicon.ico
+[2019-6-14 11:28:33] [RES_FILE] pid: 10092 -> c:\LUO\develop\node-server\public\favicon.ico
+[2019-6-14 11:28:35] [REQUEST] pid: 10092 -> C:\Documents and Settings
+[2019-6-14 11:29:29] [WORKER STARTUP] pid: 11528 -> port: 5000
+[2019-6-14 11:29:34] [REQUEST] pid: 11528 -> C:\Documents and Settings
+[2019-6-14 11:29:34] [ERROR] pid: 11528 -> EPERM: operation not permitted, scandir 'C:\Documents and Settings'
+[2019-6-14 11:29:34] [404] pid: 11528 -> C:\Documents and Settings
+[2019-6-14 11:29:34] [REQUEST] pid: 11528 -> C:\favicon.ico
+[2019-6-14 11:29:34] [RES_FILE] pid: 11528 -> c:\LUO\develop\node-server\public\favicon.ico
