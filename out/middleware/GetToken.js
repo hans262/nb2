@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const querystring_1 = require("querystring");
 const conf_1 = require("../conf");
 const ResRedirect_1 = require("../respond/ResRedirect");
-const SESSION_1 = require("../store/SESSION");
+const Session_1 = require("../modules/Session");
 const cookie_1 = require("../utils/cookie");
 exports.GetToken = function (req, res, next) {
     const { method, __relativePath } = req;
@@ -18,10 +18,10 @@ exports.GetToken = function (req, res, next) {
             const toObj = querystring_1.parse(toQueryString);
             const { username, password } = toObj;
             if (username === conf_1.USER.username && password === conf_1.USER.password) {
-                const ses = SESSION_1.generate();
+                const ses = Session_1.generate();
                 cookie_1.setCookie({
                     res,
-                    key: SESSION_1.KEY,
+                    key: Session_1.KEY,
                     value: ses.id,
                     path: '/',
                     expires: new Date(ses.expire),

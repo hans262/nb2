@@ -11,7 +11,7 @@ export interface Message {
 export function LOG(massage: Message): void {
   const { type, msg, pid = process.pid } = massage
   const date: string = new Date().toLocaleString()
-  const str: string = `[${date}] [${type}] pid: ${pid} -> ${msg}`
+  const str: string = `[${date}] [${pid}] [${type}] -> ${msg}`
   console.info(str)
   WRITE_LINE(str)
 }

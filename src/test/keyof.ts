@@ -14,7 +14,7 @@ type K1 = keyof Persion
 type K2 = keyof Array<Persion>
 type K3 = keyof { [x: string]: Persion }
 
-//映射只读
+//映射可选
 type Partials<T> = {
   [P in keyof T]?: T[P]
 }

@@ -6,7 +6,7 @@ const path_2 = require("../utils/path");
 function LOG(massage) {
     const { type, msg, pid = process.pid } = massage;
     const date = new Date().toLocaleString();
-    const str = `[${date}] [${type}] pid: ${pid} -> ${msg}`;
+    const str = `[${date}] [${pid}] [${type}] -> ${msg}`;
     console.info(str);
     WRITE_LINE(str);
 }

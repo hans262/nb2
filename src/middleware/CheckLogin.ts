@@ -3,7 +3,7 @@ import { Middleware } from '../Interface/Middleware';
 import { Req } from '../Interface/Req';
 import { Session } from '../Interface/Session';
 import { ResRedirect } from '../respond/ResRedirect';
-import { KEY, remove, reset, select } from '../store/SESSION';
+import { KEY, remove, reset, select } from '../modules/Session';
 import { getCookie, setCookie } from '../utils/cookie';
 
 export const CheckLogin: Middleware = function (req: Req, res: ServerResponse, next: Function): void {

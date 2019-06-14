@@ -5,7 +5,7 @@ import { Middleware } from '../Interface/Middleware';
 import { Req } from '../Interface/Req';
 import { Session } from '../Interface/Session';
 import { ResRedirect } from '../respond/ResRedirect';
-import { generate, KEY } from '../store/SESSION';
+import { generate, KEY } from '../modules/Session';
 import { setCookie } from '../utils/cookie';
 
 export const GetToken: Middleware = function (req: Req, res: ServerResponse, next: Function): void {

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const ResRedirect_1 = require("../respond/ResRedirect");
-const SESSION_1 = require("../store/SESSION");
+const Session_1 = require("../modules/Session");
 const cookie_1 = require("../utils/cookie");
 exports.CheckLogin = function (req, res, next) {
     if (check(req, res)) {
@@ -12,14 +12,14 @@ exports.CheckLogin = function (req, res, next) {
     }
 };
 function check(req, res) {
-    const id = cookie_1.getCookie(req, SESSION_1.KEY);
+    const id = cookie_1.getCookie(req, Session_1.KEY);
     if (!id)
         return false;
-    const ses = SESSION_1.select(id);
+    const ses = Session_1.select(id);
     if (!ses) {
         cookie_1.setCookie({
             res,
-            key: SESSION_1.KEY,
+            key: Session_1.KEY,
             value: 'delete',
             expires: new Date(),
             httpOnly: true
@@ -27,17 +27,17 @@ function check(req, res) {
         return false;
     }
     if (ses.expire < Date.now()) {
-        SESSION_1.remove(id);
+        Session_1.remove(id);
         cookie_1.setCookie({
             res,
-            key: SESSION_1.KEY,
+            key: Session_1.KEY,
             value: 'delete',
             expires: new Date(),
             httpOnly: true
         });
         return false;
     }
-    SESSION_1.reset(id);
+    Session_1.reset(id);
     return true;
 }
 //# sourceMappingURL=CheckLogin.js.map

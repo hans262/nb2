@@ -28,4 +28,4 @@ function select(id) {
     return exports.SESSION[id];
 }
 exports.select = select;
-//# sourceMappingURL=SESSION.js.map
+//# sourceMappingURL=Session.js.map

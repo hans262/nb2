@@ -142,7 +142,7 @@
         "signature": "54bef095a0dc97bb6125db50aa4aaee26eaf5dd351d4fa41e67aae61d1fb9743"
       },
       "c:/luo/develop/node-server/src/modules/log.ts": {
-        "version": "9bd99f787fa2cb79e6f5d925cd3b439f95e16682b9186684a9f955600fc6dceb",
+        "version": "6e822bd9a58e3b2c584e41610dfa527b194729289f1e345cf85827f28d43f3ea",
         "signature": "a0b4bc1a79ff165dafe3d481d1096842024bcbfa772e1c4222c3de3883d29a57"
       },
       "c:/luo/develop/node-server/src/interface/req.ts": {
@@ -201,7 +201,7 @@
         "version": "331fcc6b4f7c4bcafca30ca76855f69c80680d93a86138222b17d648a8c47de4",
         "signature": "3655d2608b640c156db880745585165c5880158959fd409508105198c258e89c"
       },
-      "c:/luo/develop/node-server/src/store/session.ts": {
+      "c:/luo/develop/node-server/src/modules/session.ts": {
         "version": "3691b591766866619186def9a2da9e98db177cc10626f7a3b601dd191e007c86",
         "signature": "589e0dc21c8af26f16f19e340a229854ac24e43bbd6fe6ad05045849da7d4836"
       },
@@ -210,11 +210,11 @@
         "signature": "71f25937b9a4913bab5739d59bc9b049f3d5fc27f26ba21cb079a1ba48f49660"
       },
       "c:/luo/develop/node-server/src/middleware/checklogin.ts": {
-        "version": "e5ce7a043d2635dd70a709533bb8135d30f660cf5ab4957b46afc8301281101e",
+        "version": "3b22d790cd8851d13b69ce69346caf8fc969e55aa90fcd7ca166721c91d32cab",
         "signature": "b2440a620aab5aaedadc98adfde0c48d8096fb1b2ec21b4715e4ef6c69f2cae9"
       },
       "c:/luo/develop/node-server/src/middleware/gettoken.ts": {
-        "version": "0bb4f2892a7a41857bb1185eebfd135d859da2c4f281843184ea1e1c86197cbc",
+        "version": "17340efbbc6b0164c74781fa613660fc24a87db40880d6283498e42ecb49950e",
         "signature": "02834e7b33e39d8a30e9e1ca6f3122d10b3bd3289af9f7d667b09657bc865bde"
       },
       "c:/luo/develop/node-server/src/respond/resnotfound.ts": {
@@ -542,7 +542,7 @@
         "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
       },
       "c:/luo/develop/node-server/src/test/keyof.ts": {
-        "version": "0dc2327947e99c25bddd359c6d3db5aa88e6d9dfd3428616fb0db02d7320c0d4",
+        "version": "e69053dd791f27d5f4b0063671f9903c925f4dd22c701782dd482dcfce0e02ef",
         "signature": "c82406cd6567f7636f72fe3608a5898b26b83924ed7d44a77ba811c3bd8d15fb"
       },
       "c:/luo/develop/node-server/src/test/namespace.ts": {
@@ -835,7 +835,7 @@
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "c:/luo/develop/node-server/src/store/session.ts": [
+      "c:/luo/develop/node-server/src/modules/session.ts": [
         "c:/luo/develop/node-server/src/conf/index.ts",
         "c:/luo/develop/node-server/src/interface/session.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
@@ -853,7 +853,7 @@
         "c:/luo/develop/node-server/src/interface/req.ts",
         "c:/luo/develop/node-server/src/interface/session.ts",
         "c:/luo/develop/node-server/src/respond/resredirect.ts",
-        "c:/luo/develop/node-server/src/store/session.ts",
+        "c:/luo/develop/node-server/src/modules/session.ts",
         "c:/luo/develop/node-server/src/utils/cookie.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
@@ -866,7 +866,7 @@
         "c:/luo/develop/node-server/src/interface/req.ts",
         "c:/luo/develop/node-server/src/interface/session.ts",
         "c:/luo/develop/node-server/src/respond/resredirect.ts",
-        "c:/luo/develop/node-server/src/store/session.ts",
+        "c:/luo/develop/node-server/src/modules/session.ts",
         "c:/luo/develop/node-server/src/utils/cookie.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
@@ -1610,7 +1610,7 @@
       "c:/luo/develop/node-server/src/respond/resredirect.ts": [
         "c:/luo/develop/node-server/node_modules/@types/node/http.d.ts"
       ],
-      "c:/luo/develop/node-server/src/store/session.ts": [
+      "c:/luo/develop/node-server/src/modules/session.ts": [
         "c:/luo/develop/node-server/src/interface/session.ts"
       ],
       "c:/luo/develop/node-server/src/utils/cookie.ts": [
@@ -2014,6 +2014,7 @@
       "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.esnext.intl.d.ts",
       "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.esnext.bigint.d.ts",
       "c:/luo/develop/node-server/src/interface/user.ts",
+      "c:/luo/develop/node-server/src/conf/index.ts",
       "c:/luo/develop/node-server/src/conf/packageconf.ts",
       "c:/luo/develop/node-server/src/utils/path.ts",
       "c:/luo/develop/node-server/src/modules/log.ts",
@@ -2031,7 +2032,7 @@
       "c:/luo/develop/node-server/src/middleware/checkcontroller.ts",
       "c:/luo/develop/node-server/src/interface/session.ts",
       "c:/luo/develop/node-server/src/respond/resredirect.ts",
-      "c:/luo/develop/node-server/src/store/session.ts",
+      "c:/luo/develop/node-server/src/modules/session.ts",
       "c:/luo/develop/node-server/src/utils/cookie.ts",
       "c:/luo/develop/node-server/src/middleware/checklogin.ts",
       "c:/luo/develop/node-server/src/middleware/gettoken.ts",
@@ -2116,13 +2117,12 @@
       "c:/luo/develop/node-server/src/test/assertions.ts",
       "c:/luo/develop/node-server/src/test/decorators.ts",
       "c:/luo/develop/node-server/src/test/index.ts",
-      "c:/luo/develop/node-server/src/test/keyof.ts",
       "c:/luo/develop/node-server/src/test/namespace.ts",
       "c:/luo/develop/node-server/src/test/types.ts",
       "c:/luo/develop/node-server/src/test/generics/demo.ts",
       "c:/luo/develop/node-server/src/test/generics/demo2.ts",
       "c:/luo/develop/node-server/src/test/generics/demo3.ts",
-      "c:/luo/develop/node-server/src/conf/index.ts"
+      "c:/luo/develop/node-server/src/test/keyof.ts"
     ]
   },
   "version": "3.4.5"
