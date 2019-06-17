@@ -5,5 +5,5 @@ exports.HOST = "localhost";
 exports.PORT = 3306;
 exports.USER = "root";
 exports.PASSWORD = "123456";
-exports.DATABASE = "mydb";
+exports.DATABASE = "my_db";
 //# sourceMappingURL=mysql.js.map

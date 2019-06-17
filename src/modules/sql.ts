@@ -1,4 +1,4 @@
-import { createPool, MysqlError, Pool, PoolConnection } from 'mysql';
+import { createPool, MysqlError, Pool, PoolConnection, queryCallback } from 'mysql';
 import { CONNECTION_LIMIT, DATABASE, HOST, PASSWORD, PORT, USER } from '../conf/mysql';
 
 export const POOL: Pool = createPool({
@@ -11,7 +11,10 @@ export const POOL: Pool = createPool({
 })
 
 export function QUERY<T>(sql: string): Promise<T> {
-	return new Promise((resolve, reject) => {
+	return new Promise<T>((
+		resolve: (value?: T | PromiseLike<T>) => void,
+		reject: (reason?: MysqlError) => void
+	) => {
 		POOL.getConnection((err: MysqlError, connection: PoolConnection) => {
 			if (err) return reject(err)
 			connection.query(sql, (err: MysqlError, results: T) => {
@@ -22,3 +25,17 @@ export function QUERY<T>(sql: string): Promise<T> {
 		})
 	})
 }
+
+; (async () => {
+	type User = {
+		username: string
+		passwrod: string
+	};
+
+	const insert = await QUERY(`INSERT INTO user (username,password) VALUES ('tom2', 123456)`)
+	console.log(insert)
+	
+	const users: User[] = await QUERY<User[]>(`SELECT * FROM user`)
+	console.log(users)
+
+})()
