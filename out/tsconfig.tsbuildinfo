@@ -314,7 +314,7 @@
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
       },
       "c:/luo/develop/node-server/src/conf/mysql.ts": {
-        "version": "a86023be4180efd342a0db664a11a8891bd67f7383a23fc3ca88b2c772d21c15",
+        "version": "42924edd847d9dd1829b77df1d270225531c7d0d871bd49d1cc477f88475e2e0",
         "signature": "6d298c4131993aabbef0821f0e819d7d3de0d1a85e1b8770675efa1cdbf767b4"
       },
       "c:/luo/develop/node-server/src/modules/base64.ts": {
@@ -518,8 +518,8 @@
         "signature": "a114702e7d4c1e5164f978c5b0e426d1cf6e09222b09e7a93679c5eef2f20351"
       },
       "c:/luo/develop/node-server/src/modules/sql.ts": {
-        "version": "8b79608c40b35dcef90548b56eef898733829419ba78078b401cafedffdc6a83",
-        "signature": "29528ae9d108977900ea5babe9d6c1270ea0a31c156d85eca5241be5539e9cda"
+        "version": "b85063afb06d4b504a00f4fda355ed24d8580dc52582cec6ba41474e87e3c6b0",
+        "signature": "208f135c47ab40cd963f203b17a3e10c2ea99b4f1b726a830e13efa531cd7823"
       },
       "c:/luo/develop/node-server/node_modules/@types/ws/index.d.ts": {
         "version": "72b8e5974345f122fb42452ab341cbcbe9835e973db4979862e973ab7d6091aa",
@@ -550,8 +550,8 @@
         "signature": "07fddb2af327f201b461dd9e36e5ccb276b96850af5e4263e720d31e7d18b734"
       },
       "c:/luo/develop/node-server/src/test/types.ts": {
-        "version": "27d704d1240825a861427e32c35fd0bbba9f7e17263d54cd51b6133d0dbc1e72",
-        "signature": "fd9ab94ca37372a9b934c351bc68a00027d19cff390c616181ed71e292e8202c"
+        "version": "becb4cc5cfaed5ddbfe8519e3d92353c78dba5a7ba780200fa6bb9ec99392cfb",
+        "signature": "e13e661c1c3e58fe9879a6f1c8a9b817f5fad1e14ff26241c424ade56eb6a4fb"
       },
       "c:/luo/develop/node-server/src/test/generics/demo.ts": {
         "version": "463ed574afe4c28bff57614368379ddcf44a92de45a856db425b6f6f3f03fb0a",
@@ -2117,12 +2117,12 @@
       "c:/luo/develop/node-server/src/test/assertions.ts",
       "c:/luo/develop/node-server/src/test/decorators.ts",
       "c:/luo/develop/node-server/src/test/index.ts",
+      "c:/luo/develop/node-server/src/test/keyof.ts",
       "c:/luo/develop/node-server/src/test/namespace.ts",
       "c:/luo/develop/node-server/src/test/types.ts",
       "c:/luo/develop/node-server/src/test/generics/demo.ts",
       "c:/luo/develop/node-server/src/test/generics/demo2.ts",
-      "c:/luo/develop/node-server/src/test/generics/demo3.ts",
-      "c:/luo/develop/node-server/src/test/keyof.ts"
+      "c:/luo/develop/node-server/src/test/generics/demo3.ts"
     ]
   },
   "version": "3.4.5"

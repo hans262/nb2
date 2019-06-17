@@ -6,6 +6,7 @@ type MyArray = Array<string | number | boolean>
 const array: MyArray = [125, 'hello', true]
 type MyObject = { name?: string }
 const object: MyObject = { name: 'huahua' }
+type MyType = typeof object
 
 /**
  * 联合类型 ->
