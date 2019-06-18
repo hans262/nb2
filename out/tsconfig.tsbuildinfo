@@ -518,7 +518,7 @@
         "signature": "a114702e7d4c1e5164f978c5b0e426d1cf6e09222b09e7a93679c5eef2f20351"
       },
       "c:/luo/develop/node-server/src/modules/sql.ts": {
-        "version": "8c47f9aaa3ffd7b114429f6b83f64551ce5ae97ef640d2749177c68bcd329c52",
+        "version": "8e3fa04e66a6730f1f0159d7fe16ff472bfe3bddef47cb7c1e3521e5b9f1ba79",
         "signature": "29528ae9d108977900ea5babe9d6c1270ea0a31c156d85eca5241be5539e9cda"
       },
       "c:/luo/develop/node-server/node_modules/@types/ws/index.d.ts": {
@@ -2111,7 +2111,6 @@
       "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/globals.d.ts",
       "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/index.d.ts",
       "c:/luo/develop/node-server/node_modules/@types/mysql/index.d.ts",
-      "c:/luo/develop/node-server/src/modules/sql.ts",
       "c:/luo/develop/node-server/node_modules/@types/ws/index.d.ts",
       "c:/luo/develop/node-server/src/server/socket.ts",
       "c:/luo/develop/node-server/src/test/assertions.ts",
@@ -2122,7 +2121,8 @@
       "c:/luo/develop/node-server/src/test/types.ts",
       "c:/luo/develop/node-server/src/test/generics/demo.ts",
       "c:/luo/develop/node-server/src/test/generics/demo2.ts",
-      "c:/luo/develop/node-server/src/test/generics/demo3.ts"
+      "c:/luo/develop/node-server/src/test/generics/demo3.ts",
+      "c:/luo/develop/node-server/src/modules/sql.ts"
     ]
   },
   "version": "3.4.5"

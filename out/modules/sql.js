@@ -33,9 +33,7 @@ function QUERY(sql) {
 exports.QUERY = QUERY;
 ;
 (() => __awaiter(this, void 0, void 0, function* () {
-    const insert = yield QUERY(`INSERT INTO user (username,password) VALUES ('tom', 123456)`);
-    console.log(insert);
-    const users = yield QUERY(`SELECT * FROM user`);
+    const users = yield QUERY(`SELECT * FROM user ORDER BY password DESC`);
     console.log(users);
 }))();
 //# sourceMappingURL=sql.js.map

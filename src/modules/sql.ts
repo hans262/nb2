@@ -31,11 +31,6 @@ export function QUERY<T>(sql: string): Promise<T> {
 		username: string
 		passwrod: string
 	};
-
-	const insert = await QUERY(`INSERT INTO user (username,password) VALUES ('tom', 123456)`)
-	console.log(insert)
-
-	const users: User[] = await QUERY<User[]>(`SELECT * FROM user`)
+	const users: User[] = await QUERY<User[]>(`SELECT * FROM user ORDER BY password DESC`)
 	console.log(users)
-
 })()
