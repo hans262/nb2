@@ -518,8 +518,8 @@
         "signature": "a114702e7d4c1e5164f978c5b0e426d1cf6e09222b09e7a93679c5eef2f20351"
       },
       "c:/luo/develop/node-server/src/modules/sql.ts": {
-        "version": "b85063afb06d4b504a00f4fda355ed24d8580dc52582cec6ba41474e87e3c6b0",
-        "signature": "208f135c47ab40cd963f203b17a3e10c2ea99b4f1b726a830e13efa531cd7823"
+        "version": "8c47f9aaa3ffd7b114429f6b83f64551ce5ae97ef640d2749177c68bcd329c52",
+        "signature": "29528ae9d108977900ea5babe9d6c1270ea0a31c156d85eca5241be5539e9cda"
       },
       "c:/luo/develop/node-server/node_modules/@types/ws/index.d.ts": {
         "version": "72b8e5974345f122fb42452ab341cbcbe9835e973db4979862e973ab7d6091aa",
@@ -554,7 +554,7 @@
         "signature": "e13e661c1c3e58fe9879a6f1c8a9b817f5fad1e14ff26241c424ade56eb6a4fb"
       },
       "c:/luo/develop/node-server/src/test/generics/demo.ts": {
-        "version": "463ed574afe4c28bff57614368379ddcf44a92de45a856db425b6f6f3f03fb0a",
+        "version": "e59d41a1e72cfd7385a6111e2056fd16c0103d14b5a4a120a2e9aa07b89de0b9",
         "signature": "7aad0000b1729429028b83ad460382a820b6f8a96a9de8be7c62a02b4560d9e0"
       },
       "c:/luo/develop/node-server/src/test/generics/demo2.ts": {

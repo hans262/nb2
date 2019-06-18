@@ -10,11 +10,14 @@ export const POOL: Pool = createPool({
 	database: DATABASE,
 })
 
-export function QUERY(sql: string): Promise<any> {
-	return new Promise<any>((resolve: (value: any) => void, reject: (value: MysqlError) => void) => {
+export function QUERY<T>(sql: string): Promise<T> {
+	return new Promise<T>((
+		resolve: (value?: T | PromiseLike<T>) => void,
+		reject: (reason?: MysqlError) => void
+	) => {
 		POOL.getConnection((err: MysqlError, connection: PoolConnection) => {
 			if (err) return reject(err)
-			connection.query(sql, (err: MysqlError, results:any) => {
+			connection.query(sql, (err: MysqlError, results: T) => {
 				//释放
 				connection.release()
 				err ? reject(err) : resolve(results)
@@ -24,8 +27,15 @@ export function QUERY(sql: string): Promise<any> {
 }
 
 ; (async () => {
-	const result: Array<any> = await QUERY('SELECT*FROM user')
-	console.log(result)
-	const result2: Array<any> = await QUERY('SELECT*FROM user')
-	console.log(result2)
+	type User = {
+		username: string
+		passwrod: string
+	};
+
+	const insert = await QUERY(`INSERT INTO user (username,password) VALUES ('tom', 123456)`)
+	console.log(insert)
+
+	const users: User[] = await QUERY<User[]>(`SELECT * FROM user`)
+	console.log(users)
+
 })()
