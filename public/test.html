@@ -7,19 +7,10 @@
 </head>
 
 <body>
-  <button id="btn">发送</button>
-  <script src="ajax.js"></script>
-  <script>
-    const btn = document.getElementById('btn')
-    btn.addEventListener('click', async () => {
-      const res = await ajax('/api/post', {
-        type: 'post',
-        params: 'hello'
-        // responseType: 'arraybuffer'
-      })
-      console.log(res)
-    })
-  </script>
+  <form method="post" enctype="multipart/form-data" action="/api/upfiles">
+    <input type="file" name="myfile" multiple="multiple" />
+    <input type="submit" value="上传" />
+  </form>
 </body>
 
 </html>

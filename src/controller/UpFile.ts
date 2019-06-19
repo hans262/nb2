@@ -5,7 +5,7 @@ import { Controller } from '../Interface/Controller';
 import { Req } from '../Interface/Req';
 import { PUBLIC_PATH } from '../utils/path';
 /**
- * 上传 目前只支持单个文件上传
+ * 单文件上传
  */
 export default new class UpFile implements Controller {
 	PATH = '/api/upfile'
