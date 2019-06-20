@@ -1,21 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const multiparty_1 = require("multiparty");
 exports.default = new class UpFile {
     constructor() {
         this.PATH = '/api/upfiles';
     }
-    getBoundary(req) {
-        const contentType = req.headers['content-type'];
-        return contentType ? contentType.split('boundary=')[1] : null;
-    }
     POST(req, res) {
-        const chunks = [];
-        req.on('data', (chunk) => {
-            chunks.push(chunk);
-        });
-        req.on('end', () => {
-            const buffers = Buffer.concat(chunks);
-            console.log(buffers.toString());
+        const form = new multiparty_1.Form();
+        form.parse(req, (err, fields, files) => {
+            console.log(files);
             res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
             res.end(JSON.stringify({ sucess: true, result: '上传成功' }));
         });

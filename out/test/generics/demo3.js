@@ -6,7 +6,7 @@ function tests(arg) {
     return arg.length;
 }
 function copyFields(target, source) {
-    const result = Object.assign({}, target);
+    const result = { ...target };
     for (let key in source) {
         result[key] = source[key];
     }

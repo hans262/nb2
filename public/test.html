@@ -7,10 +7,39 @@
 </head>
 
 <body>
-  <form method="post" enctype="multipart/form-data" action="/api/upfiles">
-    <input type="file" name="myfile" multiple="multiple" />
-    <input type="submit" value="上传" />
-  </form>
+  <input id="file" type="file" name="myfile" multiple="multiple" />
+  <button id="submit">上传</button>
+  <button id="btn">test</button>
+  <script src="ajax.js"></script>
+  <script>
+    const submitNode = document.getElementById('submit')
+    const fileNode = document.getElementById('file')
+    submitNode.addEventListener('click', async (e) => {
+      const { files } = fileNode
+      const { length } = files
+      if (!length) return
+      const formData = new FormData()
+      let i = 0
+      while (i < length) {
+        formData.append('myfile', files[i])
+        i++
+      }
+      const result = await ajax('/api/upfiles', {
+        type: 'post',
+        params: formData
+      })
+      console.log(result)
+    })
+
+    const btnNode = document.getElementById('btn')
+    btnNode.addEventListener('click', async () => {
+      const result = await ajax('/api/post', {
+        type: 'post',
+        params: 'dwqdwqdwqdwqdw'
+      })
+      console.log(result)
+    })
+  </script>
 </body>
 
 </html>

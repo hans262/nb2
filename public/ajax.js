@@ -11,19 +11,23 @@ function ajax(url, opt = {}) {
 			params = null
 		}
 		xhr.open(type, url)
-		//设置请求头
-		if (headers && headers.toString() === '[object Object]') {
-			for (let key in headers) xhr.setRequestHeader(key, headers[key])
-		}
 		//设置超时
 		xhr.timeout = timeout
 		//设置响应枚举
 		xhr.responseType = responseType
-		//监听上传进度
-		xhr.upload.onprogress = function (ev) { }
+		//上传进度
+		xhr.upload.onprogress = function (ev) {
+			console.log('进度：' + (100 * ev.loaded / ev.total).toFixed(2) + '%')
+		}
 		//处理post请求
 		if (type === 'post' && params) {
-			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+			if (params.toString() !== '[object FormData]') {
+				xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+			}
+		}
+		//设置请求头
+		if (headers && headers.toString() === '[object Object]') {
+			for (let key in headers) xhr.setRequestHeader(key, headers[key])
 		}
 		xhr.send(params)
 		//监听响应

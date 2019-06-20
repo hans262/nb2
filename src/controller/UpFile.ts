@@ -36,9 +36,7 @@ export default new class UpFile implements Controller {
 			console.log(buffers.slice(rems[1] + 2, rems[2]).toString())
 			console.log('第四行')
 			console.log(buffers.slice(rems[2] + 2, rems[3]).toString())
-			// console.log('第五行')
-			// console.log(buffers.slice(rems[3]+2,rems[4]).toString())
-
+			
 			//文件名
 			const fileName: string = buffers.slice(rems[0] + 2, rems[1]).toString().match(/(?<=filename=")[^"]+(?=")/)[0]
 			console.log('文件名: ' + fileName)
