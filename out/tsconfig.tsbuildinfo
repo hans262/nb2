@@ -561,17 +561,29 @@
         "version": "d5c8fc0d2bd6a58e3dce038b28cb64953ac8a8b7ed1ef261765bb7c5f14c71d8",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
       },
+      "c:/luo/develop/node-server/src/test/intersectiontypes.ts": {
+        "version": "3d2ff1f07e5202afe1a4e7ccd17bad690478e756bcd64be4f6f453dbfe53c155",
+        "signature": "6abc2a613817c17c0fa36659e02b136a9097c830537f93f918a621f23728d6d8"
+      },
       "c:/luo/develop/node-server/src/test/assertions.ts": {
         "version": "391ce78218e1c0182f7b4208e7f38a2cc96c5d4524b36496b6f19ee20071549b",
         "signature": "c288f56f4693e3be214a042590a806d9e38970e7e9fae479ba2ef44103943d95"
+      },
+      "c:/luo/develop/node-server/src/test/constas.ts": {
+        "version": "a1722b83e4426a9286dd6ea7cdf03b00b9296c97428ddb641801e6901ea14b77",
+        "signature": "34cc6cf8f5715448f305a820fa83653728fd8083ed6d78e8f2845b4f93691f45"
       },
       "c:/luo/develop/node-server/src/test/decorators.ts": {
         "version": "3fd419bbe63ce70169a3656cf5d97bf46e3fea65443ea0f9d24be729fe63bdee",
         "signature": "33f70f48c4df0801660a2bdfe287fb0bdc5930d4c920501928ae8c76c1952064"
       },
+      "c:/luo/develop/node-server/src/test/enum.ts": {
+        "version": "53d67a3a1726c59f2ac0e5138290045f0111671f78c9edc703c4fe300006a711",
+        "signature": "0775953e015f75c6539a3b7b4a925b4131696589c560409ac90f77e097a43232"
+      },
       "c:/luo/develop/node-server/src/test/index.ts": {
-        "version": "eecda0d47ecbf811e5a4487a7dde66a43d0ed78fa9d7e6c2dce16904f6e94df5",
-        "signature": "574c22420d9888ed4ca551b043d51e20dfc2b070dbf0f1dad96b3968756f8fcb"
+        "version": "90c0d2f7e04c7aa7e0f00344b05cff3c8cec2bd82a98abc9d20308ce83ef7fd3",
+        "signature": "0cd955bbfc900038466f0b5741a08d9480e3f6bedadf4668c08b36683bd0676b"
       },
       "c:/luo/develop/node-server/src/test/keyof.ts": {
         "version": "e69053dd791f27d5f4b0063671f9903c925f4dd22c701782dd482dcfce0e02ef",
@@ -581,9 +593,21 @@
         "version": "be33409826d03436ab229f7c8e0dfc636454a2453ff8a5091b7e133d4eccd016",
         "signature": "07fddb2af327f201b461dd9e36e5ccb276b96850af5e4263e720d31e7d18b734"
       },
-      "c:/luo/develop/node-server/src/test/types.ts": {
-        "version": "becb4cc5cfaed5ddbfe8519e3d92353c78dba5a7ba780200fa6bb9ec99392cfb",
-        "signature": "e13e661c1c3e58fe9879a6f1c8a9b817f5fad1e14ff26241c424ade56eb6a4fb"
+      "c:/luo/develop/node-server/src/test/new.ts": {
+        "version": "a64293041ffc9d4c552f7bae3e48fd37cbb99d0fe994f42b3308810e876f9b3c",
+        "signature": "4baa13b1d163e21e54c764b463c044f98e72ed78ecc44b06a6cc621318bfd9bc"
+      },
+      "c:/luo/develop/node-server/src/test/tuple.ts": {
+        "version": "1f2026c4b6fa2976cf572b12b586dddb74e3a6e954c471b3bec5f0d4017c929b",
+        "signature": "8ebe4695659b243e4e5431aa35297cbc6aeb906bc9840df5e1111346e6965937"
+      },
+      "c:/luo/develop/node-server/src/test/type.ts": {
+        "version": "dc694a1760d35485953026549a8dbdc29de8278ca393c0d708f0e86675ed2275",
+        "signature": "b489d55d63d5ca97a3130d745fccc9403b7b1232c0900af8dd532942d50c7c2f"
+      },
+      "c:/luo/develop/node-server/src/test/uniontypes.ts": {
+        "version": "cb0de5decebe028332890acc0e188b316d3534968b624316066e755bd213798e",
+        "signature": "c8fbba4258577439ec2c68a315dd076cae26f2846f0b4f53c2b86a85daa028f4"
       },
       "c:/luo/develop/node-server/src/test/generics/demo.ts": {
         "version": "e59d41a1e72cfd7385a6111e2056fd16c0103d14b5a4a120a2e9aa07b89de0b9",
@@ -1466,11 +1490,23 @@
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "c:/luo/develop/node-server/src/test/intersectiontypes.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "c:/luo/develop/node-server/src/test/assertions.ts": [
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "c:/luo/develop/node-server/src/test/constas.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "c:/luo/develop/node-server/src/test/decorators.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/src/test/enum.ts": [
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1486,7 +1522,19 @@
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "c:/luo/develop/node-server/src/test/types.ts": [
+      "c:/luo/develop/node-server/src/test/new.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/src/test/tuple.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/src/test/type.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/src/test/uniontypes.ts": [
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -2226,12 +2274,18 @@
       "c:/luo/develop/node-server/src/modules/sql.ts",
       "c:/luo/develop/node-server/node_modules/@types/ws/index.d.ts",
       "c:/luo/develop/node-server/src/server/socket.ts",
+      "c:/luo/develop/node-server/src/test/intersectiontypes.ts",
       "c:/luo/develop/node-server/src/test/assertions.ts",
+      "c:/luo/develop/node-server/src/test/constas.ts",
       "c:/luo/develop/node-server/src/test/decorators.ts",
+      "c:/luo/develop/node-server/src/test/enum.ts",
       "c:/luo/develop/node-server/src/test/index.ts",
       "c:/luo/develop/node-server/src/test/keyof.ts",
       "c:/luo/develop/node-server/src/test/namespace.ts",
-      "c:/luo/develop/node-server/src/test/types.ts",
+      "c:/luo/develop/node-server/src/test/new.ts",
+      "c:/luo/develop/node-server/src/test/tuple.ts",
+      "c:/luo/develop/node-server/src/test/type.ts",
+      "c:/luo/develop/node-server/src/test/uniontypes.ts",
       "c:/luo/develop/node-server/src/test/generics/demo.ts",
       "c:/luo/develop/node-server/src/test/generics/demo2.ts",
       "c:/luo/develop/node-server/src/test/generics/demo3.ts"

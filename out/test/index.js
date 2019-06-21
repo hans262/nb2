@@ -1,8 +1,7 @@
-let xx;
-initialize();
-xx.push(4);
-console.log(xx);
-function initialize() {
-    xx = [0, 1, 2, 3];
+class CC {
+    constructor() {
+        this.x = 0;
+        this.y = 0;
+    }
 }
 //# sourceMappingURL=index.js.map

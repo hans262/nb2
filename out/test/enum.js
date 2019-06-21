@@ -1,6 +1,3 @@
-const array = [125, 'hello', true];
-const object = { name: 'huahua' };
-const myArray = [123, 'hello'];
 var Status;
 (function (Status) {
     Status[Status["Ready"] = 0] = "Ready";
@@ -14,7 +11,11 @@ var Size;
     Size[Size["S"] = 100] = "S";
 })(Size || (Size = {}));
 const size = Size.M;
-const Person = ['huahua', 18];
-const testA = [1, 2, 3];
-const testB = [2, 'hello'];
-//# sourceMappingURL=types.js.map
+var Color;
+(function (Color) {
+    Color["Red"] = "255, 0, 0";
+    Color["Green"] = "0, 255, 0";
+    Color["Blue"] = "0, 0, 255";
+})(Color || (Color = {}));
+const red = Color.Red;
+//# sourceMappingURL=enum.js.map
