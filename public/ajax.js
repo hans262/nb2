@@ -3,7 +3,7 @@ function ajax(url, opt = {}) {
 	return new Promise((resolve, reject) => {
 		const xhr = new XMLHttpRequest()
 		//处理get请求
-		if (type === 'get' && params && params.toString() === '[object Object]') {
+		if (type === 'get' && params && params.constructor.name === 'Object') {
 			let arr = []
 			for (let key in opt.params) arr.push(key + '=' + opt.params[key])
 			params = arr.join('&')
@@ -19,14 +19,12 @@ function ajax(url, opt = {}) {
 		xhr.upload.onprogress = function (ev) {
 			console.log('进度：' + (100 * ev.loaded / ev.total).toFixed(2) + '%')
 		}
-		//处理post请求
-		if (type === 'post' && params) {
-			if (params.toString() !== '[object FormData]') {
-				xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-			}
+		//处理post请求 content类型
+		if (type === 'post' && params && params instanceof FormData) {
+			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
 		}
 		//设置请求头
-		if (headers && headers.toString() === '[object Object]') {
+		if (headers && headers.constructor.name === 'Object') {
 			for (let key in headers) xhr.setRequestHeader(key, headers[key])
 		}
 		xhr.send(params)

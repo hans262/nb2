@@ -30,8 +30,8 @@ export function SEND(cmd: Action): void {
 }
 
 export function WRITE_LINE(data: string): void {
-  const currentDay = new Date().toLocaleDateString()
-  const fileName = join(LOG_PATH, `/${currentDay}.log`)
+  const currentDay: string = new Date().toLocaleDateString()
+  const fileName: string = join(LOG_PATH, `/${currentDay}.log`)
   data += '\r\n'
   writeFileSync(fileName, data, {
     flag: 'a'

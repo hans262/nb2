@@ -2,8 +2,8 @@
   "program": {
     "fileInfos": {
       "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.es5.d.ts": {
-        "version": "c8665e66018917580e71792b91022bcaf53fb946fab4aaf8dfb0738ed564db88",
-        "signature": "c8665e66018917580e71792b91022bcaf53fb946fab4aaf8dfb0738ed564db88"
+        "version": "1f753cee573dea40df8a9dc873fef5566957b19ad513874f6643d8dfb14842d0",
+        "signature": "1f753cee573dea40df8a9dc873fef5566957b19ad513874f6643d8dfb14842d0"
       },
       "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.d.ts": {
         "version": "7994d44005046d1413ea31d046577cdda33b8b2470f30281fd9c8b3c99fe2d96",
@@ -22,20 +22,20 @@
         "signature": "2edd3ddf436ef8e12df876dcae4ecd6a8748577944c477bf4b20d5596e0c9843"
       },
       "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.es2019.d.ts": {
-        "version": "6549045e428b5f483bc82d6e8f6d01a72decd0cb7387f650f365f2210fe10808",
-        "signature": "6549045e428b5f483bc82d6e8f6d01a72decd0cb7387f650f365f2210fe10808"
+        "version": "0fc0f68d3f4d94aa65fab955592e4a9f2066e6f8ee2f66fcc45adf4037fc167b",
+        "signature": "0fc0f68d3f4d94aa65fab955592e4a9f2066e6f8ee2f66fcc45adf4037fc167b"
       },
       "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.esnext.d.ts": {
         "version": "1c05c805f62c1c06a60b7812cd8de2dff7a5bda2218ce5edda5d9d298b1c48e1",
         "signature": "1c05c805f62c1c06a60b7812cd8de2dff7a5bda2218ce5edda5d9d298b1c48e1"
       },
       "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.dom.d.ts": {
-        "version": "6994c583b66862deca24d7bbf77297d95b9d3da8160dbd9beef6b847cf7c1376",
-        "signature": "6994c583b66862deca24d7bbf77297d95b9d3da8160dbd9beef6b847cf7c1376"
+        "version": "973df4e41aea3780ce77073777d37dd5896f684124f4c42409f3a832133837a4",
+        "signature": "973df4e41aea3780ce77073777d37dd5896f684124f4c42409f3a832133837a4"
       },
       "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.dom.iterable.d.ts": {
-        "version": "4c892766803cef795d73d69aee436dc7a80157163e0cf35e6d0e86917cbd42f3",
-        "signature": "4c892766803cef795d73d69aee436dc7a80157163e0cf35e6d0e86917cbd42f3"
+        "version": "eb843da29336c7d5840bb439b24cf68a4a1652fd01c6e4e66ec74d8b136e944a",
+        "signature": "eb843da29336c7d5840bb439b24cf68a4a1652fd01c6e4e66ec74d8b136e944a"
       },
       "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.webworker.importscripts.d.ts": {
         "version": "fe4e59403e34c7ff747abe4ff6abbc7718229556d7c1a5b93473fb53156c913b",
@@ -46,8 +46,8 @@
         "signature": "b9faa17292f17d2ad75e34fac77dd63a6403af1dba02d39cd0cbb9ffdf3de8b9"
       },
       "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.core.d.ts": {
-        "version": "384f66a3422d80014c51de2682159bb26f1e35854029880ccd5f6d1f00e6a36d",
-        "signature": "384f66a3422d80014c51de2682159bb26f1e35854029880ccd5f6d1f00e6a36d"
+        "version": "2a0390a665763bcc90f0670e43c587928d8fefe2a94a11209c1e22cba7b09f52",
+        "signature": "2a0390a665763bcc90f0670e43c587928d8fefe2a94a11209c1e22cba7b09f52"
       },
       "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.collection.d.ts": {
         "version": "dd94d8ef48c562389eb58af8df3a3a34d11367f7c818192aa5f16470d469e3f0",
@@ -58,12 +58,12 @@
         "signature": "828413486bdcaa342558e8e4570b1b287b776cb61b4b70b0214bd10c5d9a94c3"
       },
       "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.iterable.d.ts": {
-        "version": "4d1f39313a169b8599b8817688f504b56ba8204c2ebafd03f66ff77ddb1899a4",
-        "signature": "4d1f39313a169b8599b8817688f504b56ba8204c2ebafd03f66ff77ddb1899a4"
+        "version": "6c9f73334f8bf47aea685ca5b46a8f7e992a223e96fbceb030f26a4d2324ba21",
+        "signature": "6c9f73334f8bf47aea685ca5b46a8f7e992a223e96fbceb030f26a4d2324ba21"
       },
       "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.promise.d.ts": {
-        "version": "7c07d934680d0e33275a44d22fb11a4ff31d46c8c26a8d056828a478753f1efe",
-        "signature": "7c07d934680d0e33275a44d22fb11a4ff31d46c8c26a8d056828a478753f1efe"
+        "version": "e6b8ff2798f8ebd7a1c7afd8671f2cb67ee1901c422f5964d74b0b34c6574ea2",
+        "signature": "e6b8ff2798f8ebd7a1c7afd8671f2cb67ee1901c422f5964d74b0b34c6574ea2"
       },
       "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.proxy.d.ts": {
         "version": "5e72f949a89717db444e3bd9433468890068bb21a5638d8ab15a1359e05e54fe",
@@ -125,6 +125,10 @@
         "version": "fc7c02b980e7dda0ed14d57ee71705c09efc51ec6286a10b971a25a3bb29262b",
         "signature": "fc7c02b980e7dda0ed14d57ee71705c09efc51ec6286a10b971a25a3bb29262b"
       },
+      "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.es2019.object.d.ts": {
+        "version": "989b95205f1189943fab0ce12a39c80570edf8f200aca60e0fdc500afc4d5859",
+        "signature": "989b95205f1189943fab0ce12a39c80570edf8f200aca60e0fdc500afc4d5859"
+      },
       "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.es2019.string.d.ts": {
         "version": "669427ac10ef9f52b6a7a502a66670eaabba675e0a660eb971041bd73c9894e3",
         "signature": "669427ac10ef9f52b6a7a502a66670eaabba675e0a660eb971041bd73c9894e3"
@@ -162,7 +166,7 @@
         "signature": "54bef095a0dc97bb6125db50aa4aaee26eaf5dd351d4fa41e67aae61d1fb9743"
       },
       "c:/luo/develop/node-server/src/modules/log.ts": {
-        "version": "6e822bd9a58e3b2c584e41610dfa527b194729289f1e345cf85827f28d43f3ea",
+        "version": "ee904a8081c0e33ceeb65d2624f121ea20408a07f89df02e88b47a7f9f6eb008",
         "signature": "a0b4bc1a79ff165dafe3d481d1096842024bcbfa772e1c4222c3de3883d29a57"
       },
       "c:/luo/develop/node-server/src/interface/req.ts": {
@@ -561,10 +565,6 @@
         "version": "d5c8fc0d2bd6a58e3dce038b28cb64953ac8a8b7ed1ef261765bb7c5f14c71d8",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
       },
-      "c:/luo/develop/node-server/src/test/intersectiontypes.ts": {
-        "version": "3d2ff1f07e5202afe1a4e7ccd17bad690478e756bcd64be4f6f453dbfe53c155",
-        "signature": "6abc2a613817c17c0fa36659e02b136a9097c830537f93f918a621f23728d6d8"
-      },
       "c:/luo/develop/node-server/src/test/assertions.ts": {
         "version": "391ce78218e1c0182f7b4208e7f38a2cc96c5d4524b36496b6f19ee20071549b",
         "signature": "c288f56f4693e3be214a042590a806d9e38970e7e9fae479ba2ef44103943d95"
@@ -582,8 +582,8 @@
         "signature": "0775953e015f75c6539a3b7b4a925b4131696589c560409ac90f77e097a43232"
       },
       "c:/luo/develop/node-server/src/test/index.ts": {
-        "version": "90c0d2f7e04c7aa7e0f00344b05cff3c8cec2bd82a98abc9d20308ce83ef7fd3",
-        "signature": "0cd955bbfc900038466f0b5741a08d9480e3f6bedadf4668c08b36683bd0676b"
+        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
       },
       "c:/luo/develop/node-server/src/test/keyof.ts": {
         "version": "e69053dd791f27d5f4b0063671f9903c925f4dd22c701782dd482dcfce0e02ef",
@@ -605,8 +605,12 @@
         "version": "dc694a1760d35485953026549a8dbdc29de8278ca393c0d708f0e86675ed2275",
         "signature": "b489d55d63d5ca97a3130d745fccc9403b7b1232c0900af8dd532942d50c7c2f"
       },
-      "c:/luo/develop/node-server/src/test/uniontypes.ts": {
-        "version": "cb0de5decebe028332890acc0e188b316d3534968b624316066e755bd213798e",
+      "c:/luo/develop/node-server/src/test/advancedtypes/intersectiontypes.ts": {
+        "version": "8a84bd57d6689ae4c7612e80f3fad813809659e7ac6e4bc5e1e2af1ce590d101",
+        "signature": "6abc2a613817c17c0fa36659e02b136a9097c830537f93f918a621f23728d6d8"
+      },
+      "c:/luo/develop/node-server/src/test/advancedtypes/uniontypes.ts": {
+        "version": "8bb3ec51e5756d52f0f65d1ab5646c3e86879ff13742e723ebc8a5270d6ffcbe",
         "signature": "c8fbba4258577439ec2c68a315dd076cae26f2846f0b4f53c2b86a85daa028f4"
       },
       "c:/luo/develop/node-server/src/test/generics/demo.ts": {
@@ -620,10 +624,58 @@
       "c:/luo/develop/node-server/src/test/generics/demo3.ts": {
         "version": "f9622072dbb3f65e50c09448e39d907e8bc2f068209445786082e57cb17fc745",
         "signature": "9d9342eefba73af86b048fd2042e7c703658b429725e469535f79a4e7e89bac6"
+      },
+      "c:/luo/develop/node-server/src/test/types/constructorparameters.ts": {
+        "version": "804004a3edeef0e0958d37f5173dfbb79d2a6c47827db51601943a4a0ff0663b",
+        "signature": "1d4fbc943f5dc5e79050898860aab4870f669cc1c9168e0539004e175084efec"
+      },
+      "c:/luo/develop/node-server/src/test/types/exclude.ts": {
+        "version": "45832854406dcbb4088d5b69702d297acac78f970b72a1c094ede4d9f52d8fb4",
+        "signature": "497c26dac05749c6775badcc20ad586376a8f240791cac91034e93197d4952d7"
+      },
+      "c:/luo/develop/node-server/src/test/types/extract.ts": {
+        "version": "7ac387d4d71e1753ec47e8b9dae1d6d6451b63120b225a6ea98161671c7bf922",
+        "signature": "f4cb19c42580b63879a28ea151e31890e4504e64c72f556cee795b65b0d008bb"
+      },
+      "c:/luo/develop/node-server/src/test/types/instancetype.ts": {
+        "version": "ef433f0050bc6285cde518dddd49f35bfd36c6d187ccbebd3d3b7b671b61afdb",
+        "signature": "cad57749eaaef401a71a8b6a41527d55b93b7e387b73b8e0e974fcd25b72be8e"
+      },
+      "c:/luo/develop/node-server/src/test/types/nonnullable.ts": {
+        "version": "ca9c739f950a5f7739032f922a16efc8a83861030fb37a79c4190086db4d5514",
+        "signature": "5974737e76d463fb0383aa4b8e055924349ba550613fcc0ed82bdfa2dc12cd51"
+      },
+      "c:/luo/develop/node-server/src/test/types/omit.ts": {
+        "version": "406a89a9951105fa28aaac3064872977613335a4e3ca90e9ee47bda48b2a85ee",
+        "signature": "35f7d9226bc458df6662cbd43a34a8362fe69107ef1db31879e8da14a5ad25b5"
+      },
+      "c:/luo/develop/node-server/src/test/types/parameters.ts": {
+        "version": "b02bea258ebe4df33ec90dfc95389b175faa9280b8e7c71730d9ac85f56c3610",
+        "signature": "48d47627762273ee15478822d60ce3cf6b148990ca9ef44c24c84d0489223f02"
+      },
+      "c:/luo/develop/node-server/src/test/types/partial.ts": {
+        "version": "852eb951014b11652559750eb8dc6accc151b942a8ee248ad7adaa69be770c3a",
+        "signature": "750c8f9b202d11cd718af8d725dbb3205ab4a2d5dc7f64226c95ca9617125eb9"
+      },
+      "c:/luo/develop/node-server/src/test/types/pick.ts": {
+        "version": "57c710329d2f6f9cb6e4ed6bfe5d67a467fa662e6b4e06868699a95d772bde28",
+        "signature": "b8fbd8a8d8c5e296887a54c1f8e85e63ecc391b9194db33718c676c15673036a"
+      },
+      "c:/luo/develop/node-server/src/test/types/record.ts": {
+        "version": "dc249378e7c799174a3cc0e4c83efe2b03453889a541373b42b28615bc4515ce",
+        "signature": "1d67658acaf72cea37b8f504181dfb84ff7af3a621bfe44b6423e6f2bcec576d"
+      },
+      "c:/luo/develop/node-server/src/test/types/required.ts": {
+        "version": "f2df3852c825bc40ad3a6a7afdc72a52e7e452a9579900a20fba4421d1cb9055",
+        "signature": "1a3045cf2c23b1d4335dbc8c9e133385cb699d4521a89a11804e817fe9a2ba15"
+      },
+      "c:/luo/develop/node-server/src/test/types/returntype.ts": {
+        "version": "64da38aa3e5ba5e78bf4c68000b73a975f3e530520fb8a01cafe6898c5cf47d1",
+        "signature": "e66cde4d0be2f80eb56d1b9acea3211f72c372f342148c2438e8df7437a23e79"
       }
     },
     "options": {
-      "target": 7,
+      "target": 8,
       "module": 1,
       "outDir": "C:/LUO/develop/node-server/out",
       "sourceMap": true,
@@ -754,6 +806,10 @@
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.es2019.array.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.es2019.object.d.ts": [
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1490,10 +1546,6 @@
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "c:/luo/develop/node-server/src/test/intersectiontypes.ts": [
-        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
       "c:/luo/develop/node-server/src/test/assertions.ts": [
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
@@ -1534,7 +1586,11 @@
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "c:/luo/develop/node-server/src/test/uniontypes.ts": [
+      "c:/luo/develop/node-server/src/test/advancedtypes/intersectiontypes.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/src/test/advancedtypes/uniontypes.ts": [
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1547,6 +1603,54 @@
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "c:/luo/develop/node-server/src/test/generics/demo3.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/src/test/types/constructorparameters.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/src/test/types/exclude.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/src/test/types/extract.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/src/test/types/instancetype.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/src/test/types/nonnullable.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/src/test/types/omit.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/src/test/types/parameters.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/src/test/types/partial.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/src/test/types/pick.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/src/test/types/record.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/src/test/types/required.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/node-server/src/test/types/returntype.ts": [
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ]
@@ -1673,6 +1777,10 @@
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.es2019.array.d.ts": [
+        "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.es2019.object.d.ts": [
         "c:/luo/develop/node-server/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/node-server/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -2165,6 +2273,7 @@
       "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.promise.d.ts",
       "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.regexp.d.ts",
       "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.es2019.array.d.ts",
+      "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.es2019.object.d.ts",
       "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.es2019.string.d.ts",
       "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.es2019.symbol.d.ts",
       "c:/users/cloud-5/appdata/roaming/npm/node_modules/typescript/lib/lib.esnext.intl.d.ts",
@@ -2274,7 +2383,6 @@
       "c:/luo/develop/node-server/src/modules/sql.ts",
       "c:/luo/develop/node-server/node_modules/@types/ws/index.d.ts",
       "c:/luo/develop/node-server/src/server/socket.ts",
-      "c:/luo/develop/node-server/src/test/intersectiontypes.ts",
       "c:/luo/develop/node-server/src/test/assertions.ts",
       "c:/luo/develop/node-server/src/test/constas.ts",
       "c:/luo/develop/node-server/src/test/decorators.ts",
@@ -2285,11 +2393,24 @@
       "c:/luo/develop/node-server/src/test/new.ts",
       "c:/luo/develop/node-server/src/test/tuple.ts",
       "c:/luo/develop/node-server/src/test/type.ts",
-      "c:/luo/develop/node-server/src/test/uniontypes.ts",
+      "c:/luo/develop/node-server/src/test/advancedtypes/intersectiontypes.ts",
+      "c:/luo/develop/node-server/src/test/advancedtypes/uniontypes.ts",
       "c:/luo/develop/node-server/src/test/generics/demo.ts",
       "c:/luo/develop/node-server/src/test/generics/demo2.ts",
-      "c:/luo/develop/node-server/src/test/generics/demo3.ts"
+      "c:/luo/develop/node-server/src/test/generics/demo3.ts",
+      "c:/luo/develop/node-server/src/test/types/constructorparameters.ts",
+      "c:/luo/develop/node-server/src/test/types/exclude.ts",
+      "c:/luo/develop/node-server/src/test/types/extract.ts",
+      "c:/luo/develop/node-server/src/test/types/instancetype.ts",
+      "c:/luo/develop/node-server/src/test/types/nonnullable.ts",
+      "c:/luo/develop/node-server/src/test/types/omit.ts",
+      "c:/luo/develop/node-server/src/test/types/parameters.ts",
+      "c:/luo/develop/node-server/src/test/types/partial.ts",
+      "c:/luo/develop/node-server/src/test/types/pick.ts",
+      "c:/luo/develop/node-server/src/test/types/record.ts",
+      "c:/luo/develop/node-server/src/test/types/required.ts",
+      "c:/luo/develop/node-server/src/test/types/returntype.ts"
     ]
   },
-  "version": "3.4.5"
+  "version": "3.5.2"
 }

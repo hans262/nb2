@@ -33,9 +33,9 @@
 
     const btnNode = document.getElementById('btn')
     btnNode.addEventListener('click', async () => {
-      const result = await ajax('/api/post', {
-        type: 'post',
-        params: 'dwqdwqdwqdwqdw'
+      const result = await ajax('/api/get', {
+        type: 'get',
+        params: 'dwqwq'
       })
       console.log(result)
     })
