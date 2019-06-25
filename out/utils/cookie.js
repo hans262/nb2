@@ -26,14 +26,13 @@ function setCookie(cookie) {
         pairs.push('Secure');
     const cur = pairs.join('; ');
     const pre = res.getHeader('set-cookie');
-    if (!pre) {
-        return res.setHeader('Set-Cookie', cur);
+    if (pre) {
+        typeof pre === 'string' ?
+            res.setHeader('Set-Cookie', [pre, cur]) :
+            res.setHeader('Set-Cookie', [...pre, cur]);
     }
-    if (typeof pre === 'string') {
-        return res.setHeader('Set-Cookie', [pre, cur]);
-    }
-    if (Array.isArray(pre)) {
-        return res.setHeader('Set-Cookie', [...pre, cur]);
+    else {
+        res.setHeader('Set-Cookie', [cur]);
     }
 }
 exports.setCookie = setCookie;

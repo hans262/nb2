@@ -17,8 +17,8 @@ export function generateETag(stats: Stats): string {
 export function isCache(req: Req): boolean {
   const { headers, __stats } = req
   const { mtime } = __stats
-  const noneMatch: string = headers['if-none-match']//ETag
-  const lastModified: string = headers['if-modified-since'] //最后修改时间
+  const noneMatch: string | undefined = headers['if-none-match']//ETag
+  const lastModified: string | undefined = headers['if-modified-since'] //最后修改时间
   if (!(noneMatch || lastModified)) return false
   if (noneMatch !== generateETag(__stats)) return false
   if (lastModified !== mtime.toUTCString()) return false

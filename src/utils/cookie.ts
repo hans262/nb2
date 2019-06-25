@@ -40,15 +40,13 @@ export function setCookie(cookie: Cookie): void {
   if (httpOnly) pairs.push('HttpOnly')
   if (secure) pairs.push('Secure')
   const cur: string = pairs.join('; ')
-  const pre: string | number | string[] = res.getHeader('set-cookie')
-  if (!pre) {
-    return res.setHeader('Set-Cookie', cur)
-  }
-  if (typeof pre === 'string') {
-    return res.setHeader('Set-Cookie', [pre, cur])
-  }
-  if (Array.isArray(pre)) {
-    return res.setHeader('Set-Cookie', [...pre, cur])
+  const pre: string | number | string[] | undefined = res.getHeader('set-cookie')
+  if (pre) {
+    typeof pre === 'string' ?
+      res.setHeader('Set-Cookie', [pre, cur]) :
+      res.setHeader('Set-Cookie', [...pre as string[], cur])
+  } else {
+    res.setHeader('Set-Cookie', [cur])
   }
 }
 

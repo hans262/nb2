@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>WebSocket</title>
+	<title>Socket Client</title>
 </head>
 
 <body>
@@ -12,12 +12,15 @@
 	<br>
 	<input id="text" type="text">
 	<input id="send" type="submit" value="发送">
+	<br>
+	<div id="content">
+	</div>
 	<script>
 		const connectNode = document.getElementById('connect')
 		const closeNode = document.getElementById('close')
 		const sendNode = document.getElementById('send')
 		const textNode = document.getElementById('text')
-
+		const contentNode = document.getElementById('content')
 		function createConnect(url) {
 			const ws = new WebSocket('ws://127.0.0.1:8888')
 			ws.onopen = function (event) {
@@ -27,7 +30,9 @@
 				console.log('断开连接')
 			}
 			ws.onmessage = function (event) {
-				console.log(event.data)
+				const li = document.createElement('li')
+				li.innerHTML = event.data
+				contentNode.appendChild(li)
 			}
 			return ws
 		}
