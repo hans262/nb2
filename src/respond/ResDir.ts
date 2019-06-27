@@ -11,7 +11,7 @@ export function ResDir(req: Req, res: ServerResponse): void {
   const { __absolutePath, __relativePath } = req
   let dirents: Array<Dirent>
   try {
-    dirents = readdirSync(__absolutePath, {
+    dirents = readdirSync(__absolutePath!, {
       withFileTypes: true
     })
   } catch (error) {
@@ -20,13 +20,13 @@ export function ResDir(req: Req, res: ServerResponse): void {
   }
   if (dirents.find(d => d.name === INDEX_PAGE)) {
     //index存在
-    req.__absolutePath = join(__absolutePath, INDEX_PAGE)
+    req.__absolutePath = join(__absolutePath!, INDEX_PAGE)
     return ResStatic(req, res)
   }
   let content: string = `<h1>Index of ${__relativePath}</h1>`
   dirents.forEach(file => {
     let { name } = file
-    let href: string = join(__relativePath, name)
+    let href: string = join(__relativePath!, name)
     if (file.isDirectory()) {
       href += '/'
       name += '/'
@@ -36,5 +36,5 @@ export function ResDir(req: Req, res: ServerResponse): void {
   res.setHeader('Content-Type', 'text/html; charset=utf-8')
   res.writeHead(200, 'Access Directory')
   res.end(content)
-  LOG({ type: 'RES_DIR', msg: __absolutePath })
+  LOG({ type: 'RES_DIR', msg: __absolutePath! })
 }

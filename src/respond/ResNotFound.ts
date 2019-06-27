@@ -10,5 +10,5 @@ export function ResNotFound(req: Req, res: ServerResponse): void {
   	<h1>Not Found</h1>
   	<p>The requested URL ${__relativePath} was not found on this server.</p>
   `)
-  LOG({ type: '404', msg: __absolutePath })
+  LOG({ type: '404', msg: __absolutePath! })
 }

@@ -9,9 +9,9 @@ export function ResZip(req: Req, res: ServerResponse): void {
   //所有要删除Content-Length属性
   res.setHeader('Transfer-Encoding', 'chunked')
   res.removeHeader('Content-Length')
-  const stream: ReadStream = createReadStream(__absolutePath)
+  const stream: ReadStream = createReadStream(__absolutePath!)
 
   res.writeHead(200, 'Compressed file')
-  stream.pipe(__zipstream).pipe(res)
-  LOG({ type: 'RES_ZIP', msg: __absolutePath })
+  stream.pipe(__zipstream!).pipe(res)
+  LOG({ type: 'RES_ZIP', msg: __absolutePath! })
 }

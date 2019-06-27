@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 function parseRange(range, size) {
+    if (!range)
+        return null;
     const matched = range.match(/^bytes=(\d+)-(\d+)$/);
     if (!matched)
         return null;

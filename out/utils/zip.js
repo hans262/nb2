@@ -9,7 +9,10 @@ function isZip(req, res) {
     const matched = type.match(conf_1.ZIP_MATCH);
     if (!matched)
         return false;
-    const EncodeType = req.headers['accept-encoding'].toString();
+    let acceptEncoding = req.headers['accept-encoding'];
+    if (!acceptEncoding)
+        return false;
+    const EncodeType = acceptEncoding.toString();
     if (EncodeType.match(/\bgzip\b/)) {
         res.setHeader('Content-Encoding', 'gzip');
         req.__zipstream = zlib_1.createGzip();

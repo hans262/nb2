@@ -7,7 +7,7 @@ export default new class TestJsonp implements Controller {
 	GET(req: Req, res: ServerResponse): void {
 		res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' })
 		const { __query } = req
-		const { callback, ...data } = __query
+		const { callback, ...data } = __query!
 		res.end(`${callback}(${JSON.stringify(data)})`)
 	}
 }

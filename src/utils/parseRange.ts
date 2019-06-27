@@ -12,8 +12,9 @@ export interface Range {
  * @param range 
  * @param size 
  */
-export function parseRange(range: string, size: number): Range {
-  const matched: RegExpMatchArray = range.match(/^bytes=(\d+)-(\d+)$/)
+export function parseRange(range: string | undefined, size: number): Range | null {
+  if (!range) return null
+  const matched: RegExpMatchArray | null = range.match(/^bytes=(\d+)-(\d+)$/)
   if (!matched) return null
 
   const start: number = parseInt(matched[1])

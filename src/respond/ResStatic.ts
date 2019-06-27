@@ -9,7 +9,7 @@ import { ResVerify } from './ResVerify';
 
 export function ResStatic(req: Req, res: ServerResponse): void {
   const { __absolutePath } = req
-  stat(__absolutePath, (err: NodeJS.ErrnoException, stats: Stats) => {
+  stat(__absolutePath!, (err: NodeJS.ErrnoException, stats: Stats) => {
     if (err) {
       return REACT_APP ? ResIndex(req, res) : ResNotFound(req, res)
     }

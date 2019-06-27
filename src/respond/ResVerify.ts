@@ -11,7 +11,7 @@ import { ResZip } from './ResZip';
 
 export function ResVerify(req: Req, res: ServerResponse): void {
   const { __absolutePath, __stats } = req
-  const { size, mtime } = __stats
+  const { size, mtime } = __stats!
 
   //判断缓存
   if (isCache(req)) return ResCache(req, res)
@@ -24,10 +24,10 @@ export function ResVerify(req: Req, res: ServerResponse): void {
   //实现缓存机制
   res.setHeader('Cache-Control', `public, max-age=${CACHE_MAX_AGE}`)
   //资源关联记号
-  res.setHeader('ETag', generateETag(__stats))
+  res.setHeader('ETag', generateETag(__stats!))
 
   //mime类型
-  res.setHeader('Content-Type', mime(__absolutePath) + '; charset=utf-8')
+  res.setHeader('Content-Type', mime(__absolutePath!) + '; charset=utf-8')
   //内容大小
   res.setHeader('Content-Length', size)
 

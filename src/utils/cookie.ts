@@ -18,11 +18,11 @@ export interface Cookie {
  * @param req 
  * @param key 键
  */
-export function getCookie(req: Req, key: string): string {
+export function getCookie(req: Req, key: string): string | null {
   const { cookie } = req.headers
   if (!cookie) return null
   const reg: RegExp = new RegExp("(^| )" + key + "=([^;]*)(;|$)")
-  const arr: RegExpMatchArray = cookie.match(reg)
+  const arr: RegExpMatchArray | null = cookie.match(reg)
   return arr ? unescape(arr[2]) : null
 }
 

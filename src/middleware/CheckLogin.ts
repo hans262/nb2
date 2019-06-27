@@ -15,7 +15,7 @@ export const CheckLogin: Middleware = function (req: Req, res: ServerResponse, n
 }
 
 function check(req: Req, res: ServerResponse): boolean {
-  const id: string = getCookie(req, KEY)
+  const id: string | null = getCookie(req, KEY)
   if (!id) return false //id不存在
   const ses: Session = select(id)//-查询
   if (!ses) {
