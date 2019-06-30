@@ -30,7 +30,10 @@ const second = {
   age: 18
 }
 
-const myObj = mixins(
+type T26 = typeof first & typeof second
+
+const myObj: T26 = mixins(
   first, second
 )
+
 console.log(myObj.name)

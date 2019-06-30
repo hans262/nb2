@@ -1,9 +1,10 @@
 /**
- * 命令空间 ->
- * 防止命名冲突，组织模块
+ * 命令空间 -> Namespaces
  * 
+ * 防止命名冲突，组织模块
  * 类似与js的自执行匿名函数 ;(function(){})()
  */
+
 export namespace MySpace {
   export class User { }
   export const name: string = 'huahua'
@@ -13,4 +14,3 @@ export namespace MySpace {
   }
 }
 console.log(MySpace)
-debugger
