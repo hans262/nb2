@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const crypto_1 = require("crypto");
-function MD5(data) {
+function Hash(data) {
     return crypto_1.createHash('md5').update(data).digest('hex');
 }
-exports.MD5 = MD5;
+exports.Hash = Hash;
 function Hmac(data, key) {
     return crypto_1.createHmac('md5', key).update(data).digest('hex');
 }

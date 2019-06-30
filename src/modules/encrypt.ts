@@ -8,18 +8,18 @@ import {
 } from 'crypto'
 
 /**
- * md5加密 16进制
- * 支持 md5 sha1 sha256 sha512
- * @param data 源
+ * Hash加密 ->
+ * 支持算法 md5 sha1 sha256 sha512  16进制
+ * @param data 加密源
  */
-export function MD5(data: BinaryLike): string {
+export function Hash(data: BinaryLike): string {
 	return createHash('md5').update(data).digest('hex')
 }
 
 /**
- * md5加密 16进制
- * 支持 md5 sha1 sha256 sha512
- * @param data 源
+ * Hmac加密 ->
+ * 支持算法 md5 sha1 sha256 sha512  16进制
+ * @param data 加密源
  * @param key 密钥
  */
 export function Hmac(data: BinaryLike, key: BinaryLike): string {
@@ -27,11 +27,11 @@ export function Hmac(data: BinaryLike, key: BinaryLike): string {
 }
 
 /**
- * aes加密 16进制
- * 支持算法 aes-128-cbc
- * @param data 
- * @param key 
- * @param iv 
+ * aes加密 ->
+ * 支持算法 aes-128-cbc 16进制
+ * @param data 加密源
+ * @param key 密钥
+ * @param iv 密钥向量
  */
 export function Cipheriv(data: string, key: CipherKey, iv: BinaryLike): string {
 	const cipher = createCipheriv('aes-128-cbc', key, iv)
@@ -41,11 +41,11 @@ export function Cipheriv(data: string, key: CipherKey, iv: BinaryLike): string {
 }
 
 /**
- * aes解密 16进制
- * 支持算法 aes-128-cbc
- * @param data 
- * @param key 
- * @param iv 
+ * aes解密 ->
+ * 支持算法 aes-128-cbc 16进制
+ * @param data 解密源
+ * @param key 密钥
+ * @param iv 密钥向量
  */
 export function Decipheriv(data: string, key: BinaryLike, iv: BinaryLike): string {
 	const decipher = createDecipheriv('aes-128-cbc', key, iv)
@@ -55,7 +55,7 @@ export function Decipheriv(data: string, key: BinaryLike, iv: BinaryLike): strin
 }
 
 /**
- * 用法
+ * aes demo ->
  * const key = Buffer.from('9vApxLk5G3PAsJrM', 'utf8');
  * const iv = Buffer.from('FnJL7EDzjqWjcaY9', 'utf8');
  * console.log(Cipheriv('hello', key, iv))
@@ -72,4 +72,6 @@ export function Decipheriv(data: string, key: BinaryLike, iv: BinaryLike): strin
 
 	Hmac  哈希加密 安全级别--->
 	算法 md5 sha1 sha256 sha512
+
+	hex 16进制
 */

@@ -21,13 +21,20 @@ type T27<T> = {
 }
 type TestT27 = T27<Persion>
 
-//映射只读
-type MyReadonly<T> = {
-  readonly [P in keyof T]: T[P]
-}
-
 //映射非可选
 type T28<T> = {
   [P in keyof T]-?: T[P]
 }
 type TestT28 = T28<TestT27>
+
+//映射只读
+type T29<T> = {
+  readonly [P in keyof T]: T[P]
+}
+type TestT29 = T29<Persion>
+
+//映射非只读
+type T299<T> = {
+  -readonly [P in keyof T]: T[P]
+}
+type TestT299 = T299<TestT29>
