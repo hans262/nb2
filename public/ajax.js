@@ -19,9 +19,10 @@ function ajax(url, opt = {}) {
 		xhr.upload.onprogress = function (ev) {
 			console.log('进度：' + (100 * ev.loaded / ev.total).toFixed(2) + '%')
 		}
-		//处理post请求 content类型
+
+		//处理post请求，目前阶段不需要设置，看兼容情况
 		if (type === 'post' && params && params instanceof FormData) {
-			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+			// xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
 		}
 		//设置请求头
 		if (headers && headers.constructor.name === 'Object') {
