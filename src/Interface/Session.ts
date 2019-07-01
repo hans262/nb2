@@ -1,6 +1,7 @@
 export interface SessionStore {
-  [id: string]: Session
+  [index: string]: Session
 }
+
 export interface Session {
   id: string
   expire: number

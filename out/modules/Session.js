@@ -16,12 +16,15 @@ function generate() {
 exports.generate = generate;
 function reset(id) {
     const session = exports.SESSION[id];
+    if (!session)
+        return false;
     session.expire = Date.now() + exports.EXPIRES;
     session.count++;
+    return true;
 }
 exports.reset = reset;
 function remove(id) {
-    delete exports.SESSION[id];
+    return exports.SESSION[id] ? delete exports.SESSION[id] : false;
 }
 exports.remove = remove;
 function select(id) {

@@ -15,14 +15,16 @@ export function generate(): Session {
   return session
 }
 
-export function reset(id: string): void {
+export function reset(id: string): boolean {
   const session: Session = SESSION[id]
+  if (!session) return false
   session.expire = Date.now() + EXPIRES
   session.count++
+  return true
 }
 
-export function remove(id: string): void {
-  delete SESSION[id]
+export function remove(id: string): boolean {
+  return SESSION[id] ? delete SESSION[id] : false
 }
 
 export function select(id: string): Session {
