@@ -7,7 +7,7 @@ import { Middleware } from '../Interface/Middleware';
 export const CheckController: Middleware = function (req: Req, res: ServerResponse, next: Function): void {
   const { method, __relativePath } = req
 
-  const controller: Controller | undefined = CONTROLLER.find(c => c.PATH === __relativePath)
+  const controller: Controller | undefined = CONTROLLER.find(c => c.PATH_NAME === __relativePath)
   if (!controller || !method || !controller[method]) return next()
   controller[method](req, res)
 }

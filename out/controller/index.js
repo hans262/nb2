@@ -6,7 +6,6 @@ const ShutDown_1 = require("./ShutDown");
 const TestGet_1 = require("./TestGet");
 const TestJsonp_1 = require("./TestJsonp");
 const TestPost_1 = require("./TestPost");
-const UpFile_1 = require("./UpFile");
 const UpFiles_1 = require("./UpFiles");
 const CONTROLLER = [
     DownLoad_1.default,
@@ -15,7 +14,6 @@ const CONTROLLER = [
     TestGet_1.default,
     TestJsonp_1.default,
     TestPost_1.default,
-    UpFile_1.default,
     UpFiles_1.default
 ];
 exports.default = CONTROLLER;

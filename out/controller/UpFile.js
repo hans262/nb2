@@ -5,7 +5,7 @@ const path_1 = require("path");
 const path_2 = require("../utils/path");
 exports.default = new class UpFile {
     constructor() {
-        this.PATH = '/api/upfile';
+        this.PATH_NAME = '/api/upfile';
     }
     POST(req, res) {
         const chunks = [];

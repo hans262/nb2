@@ -3,7 +3,7 @@ import { Controller } from "../Interface/Controller";
 import { Req } from "../Interface/Req";
 
 export default new class TestJsonp implements Controller {
-	PATH = '/api/jsonp'
+	PATH_NAME:string = '/api/jsonp'
 	GET(req: Req, res: ServerResponse): void {
 		res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' })
 		const { __query } = req

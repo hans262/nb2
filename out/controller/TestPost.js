@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = new class TestPost {
     constructor() {
-        this.PATH = '/api/post';
+        this.PATH_NAME = '/api/post';
     }
     POST(req, res) {
         res.setHeader('Content-Type', 'application/octet-stream; charset=utf-8');

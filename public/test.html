@@ -4,13 +4,12 @@
 <head>
   <meta charset="utf-8">
   <title>test</title>
+  <script src="ajax.js"></script>
 </head>
 
 <body>
   <input id="file" type="file" name="myfile" multiple="multiple" />
   <button id="submit">上传</button>
-  <button id="btn">test</button>
-  <script src="ajax.js"></script>
   <script>
     const submitNode = document.getElementById('submit')
     const fileNode = document.getElementById('file')
@@ -23,23 +22,21 @@
         formData.append('myfile', files[i])
         i++
       }
-      formData.append('username', 'huahua')
+      formData.append('name', 'huahua')
       const result = await ajax('/api/upfiles', {
         type: 'post',
         params: formData
       })
       console.log(result)
     })
-
-    const btnNode = document.getElementById('btn')
-    btnNode.addEventListener('click', async () => {
-      const result = await ajax('/api/get', {
-        type: 'get',
-        params: 'dwqwq'
-      })
-      console.log(result)
-    })
   </script>
+
+  <hr />
+  <form method="POST" action="/api/upfiles" enctype="multipart/form-data">
+    <input type="file" name="myfile" multiple="multiple" />
+    <input name="name" value="222"/>
+    <input type="submit" value="提交" />
+  </form>
 </body>
 
 </html>

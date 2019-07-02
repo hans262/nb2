@@ -4,7 +4,7 @@ import { Req } from '../Interface/Req';
 import { SEND } from '../modules/log';
 
 export default new class ShutDown implements Controller {
-	PATH = '/api/shutdown'
+	PATH_NAME:string = '/api/shutdown'
 	GET(req: Req, res: ServerResponse): void {
 		res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' })
 		res.end(`服务器将在10s后关闭！`)

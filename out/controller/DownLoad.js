@@ -5,7 +5,7 @@ const path_1 = require("path");
 const path_2 = require("../utils/path");
 exports.default = new class DownLoad {
     constructor() {
-        this.PATH = '/api/download';
+        this.PATH_NAME = '/api/download';
     }
     POST(req, res) {
         const file = 'ajax.js';

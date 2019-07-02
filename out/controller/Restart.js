@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const log_1 = require("../modules/log");
 exports.default = new class Restart {
     constructor() {
-        this.PATH = '/api/restart';
+        this.PATH_NAME = '/api/restart';
     }
     GET(req, res) {
         res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
