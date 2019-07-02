@@ -18,13 +18,12 @@ function attr(target) {
         }
     };
 }
-let SelectUser = class SelectUser {
+let Test = class Test {
 };
-SelectUser = __decorate([
+Test = __decorate([
     path('/api/user'),
     attr
-], SelectUser);
-console.log(SelectUser);
-console.log(new SelectUser());
-debugger;
+], Test);
+const test = new Test();
+console.log(test);
 //# sourceMappingURL=decorators.js.map

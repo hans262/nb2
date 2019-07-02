@@ -23,8 +23,6 @@ function attr<T extends { new(...args: any[]): {} }>(target: T) {
 
 @path('/api/user')
 @attr
-class SelectUser { }
-
-console.log(SelectUser)
-console.log(new SelectUser())
-debugger
+class Test { }
+const test = new Test()
+console.log(test)

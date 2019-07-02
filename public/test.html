@@ -17,13 +17,13 @@
     submitNode.addEventListener('click', async (e) => {
       const { files } = fileNode
       const { length } = files
-      if (!length) return
       const formData = new FormData()
       let i = 0
       while (i < length) {
         formData.append('myfile', files[i])
         i++
       }
+      formData.append('username', 'huahua')
       const result = await ajax('/api/upfiles', {
         type: 'post',
         params: formData

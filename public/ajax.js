@@ -20,9 +20,12 @@ function ajax(url, opt = {}) {
 			console.log('进度：' + (100 * ev.loaded / ev.total).toFixed(2) + '%')
 		}
 
-		//处理post请求，目前阶段不需要设置，看兼容情况
-		if (type === 'post' && params && params instanceof FormData) {
+		//处理post请求
+		if (type === 'post') {
+			//普通post数据，使用&分割
 			// xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+			//formdata 文件上传
+			// xhr.setRequestHeader("Content-type", "multipart/form-data; boundary=----WDQJKREGKLERKFWEKFWJKEJKFWE")
 		}
 		//设置请求头
 		if (headers && headers.constructor.name === 'Object') {
