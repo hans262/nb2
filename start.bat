@@ -1,3 +1,3 @@
 @echo off
-@echo welcome!
+@echo welcome Nicest!
 node out/cluster.js
