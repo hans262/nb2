@@ -15,9 +15,7 @@ export function bufferSplit(buffer: Buffer, spl: string): Array<Buffer> {
   return result.filter(b => b.byteLength)
 }
 
-// const buffer: Buffer = Buffer.from('\r\n大青蛙私たち\r\n一天の一夜他\r\n我看iirftgr\r\n')
-// const results: Array<Buffer> = bufferSplit(buffer, '\r\n')
-
-// for (let b of results) {
-//   console.log(b.toString())
-// }
+/**
+ * const buffer: Buffer = Buffer.from('\r\n大青蛙私たち\r\n一天の一夜他\r\n我看iirftgr\r\n')
+ * const results: Array<Buffer> = bufferSplit(buffer, '\r\n')
+ */

@@ -1,36 +1,6 @@
-[2019-7-3 09:16:41] [2540] [WORKER STARTUP] -> port: 5000
-[2019-7-3 09:16:43] [2540] [REQUEST] -> C:\
-[2019-7-3 09:16:43] [2540] [RES_DIR] -> C:\
-[2019-7-3 09:16:46] [2540] [REQUEST] -> C:\LUO\
-[2019-7-3 09:16:46] [2540] [RES_DIR] -> C:\LUO\
-[2019-7-3 09:16:48] [2540] [REQUEST] -> C:\LUO\develop\
-[2019-7-3 09:16:48] [2540] [RES_DIR] -> C:\LUO\develop\
-[2019-7-3 09:16:49] [2540] [REQUEST] -> C:\LUO\develop\node-server\
-[2019-7-3 09:16:49] [2540] [RES_DIR] -> C:\LUO\develop\node-server\
-[2019-7-3 09:16:50] [2540] [REQUEST] -> C:\LUO\develop\node-server\public\
-[2019-7-3 09:16:50] [2540] [RES_DIR] -> C:\LUO\develop\node-server\public\
-[2019-7-3 09:16:51] [2540] [REQUEST] -> C:\LUO\develop\node-server\public\test.html
-[2019-7-3 09:16:51] [2540] [RES_ZIP] -> C:\LUO\develop\node-server\public\test.html
-[2019-7-3 09:16:51] [2540] [REQUEST] -> C:\LUO\develop\node-server\public\ajax.js
-[2019-7-3 09:16:51] [2540] [RES_CACHE] -> C:\LUO\develop\node-server\public\ajax.js
-[2019-7-3 09:17:04] [2540] [REQUEST] -> C:\api\upfiles
-[2019-7-3 09:20:41] [8120] [WORKER STARTUP] -> port: 5000
-[2019-7-3 09:21:08] [8120] [REQUEST] -> C:\api\upfiles
-[2019-7-3 14:57:50] [7448] [WORKER STARTUP] -> port: 5000
-[2019-7-3 14:57:52] [7448] [REQUEST] -> C:\
-[2019-7-3 14:57:52] [7448] [RES_DIR] -> C:\
-[2019-7-3 14:57:54] [7448] [REQUEST] -> C:\LUO\
-[2019-7-3 14:57:54] [7448] [RES_DIR] -> C:\LUO\
-[2019-7-3 14:57:59] [7448] [REQUEST] -> C:\LUO\
-[2019-7-3 14:57:59] [7448] [RES_DIR] -> C:\LUO\
-[2019-7-3 14:58:00] [7448] [REQUEST] -> C:\LUO\develop\
-[2019-7-3 14:58:00] [7448] [RES_DIR] -> C:\LUO\develop\
-[2019-7-3 14:58:01] [7448] [REQUEST] -> C:\LUO\develop\node-server\
-[2019-7-3 14:58:01] [7448] [RES_DIR] -> C:\LUO\develop\node-server\
-[2019-7-3 14:58:02] [7448] [REQUEST] -> C:\LUO\develop\node-server\public\
-[2019-7-3 14:58:02] [7448] [RES_DIR] -> C:\LUO\develop\node-server\public\
-[2019-7-3 14:58:03] [7448] [REQUEST] -> C:\LUO\develop\node-server\public\test.html
-[2019-7-3 14:58:03] [7448] [RES_CACHE] -> C:\LUO\develop\node-server\public\test.html
-[2019-7-3 14:58:03] [7448] [REQUEST] -> C:\LUO\develop\node-server\public\ajax.js
-[2019-7-3 14:58:03] [7448] [RES_ZIP] -> C:\LUO\develop\node-server\public\ajax.js
-[2019-7-3 14:58:16] [7448] [REQUEST] -> C:\api\upfiles
+[2019-7-3 17:52:37] [7548] [WORKER STARTUP] -> port: 5000
+[2019-7-3 17:54:28] [8800] [WORKER STARTUP] -> port: 5000
+[2019-7-3 17:54:36] [8800] [REQUEST] -> C:\LUO\develop\nicest\public\test.html
+[2019-7-3 17:54:36] [8800] [RES_CACHE] -> C:\LUO\develop\nicest\public\test.html
+[2019-7-3 17:54:36] [8800] [REQUEST] -> C:\favicon.ico
+[2019-7-3 17:54:36] [8800] [RES_FILE] -> c:\LUO\develop\nicest\public\favicon.ico

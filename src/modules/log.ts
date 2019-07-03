@@ -1,20 +1,6 @@
-import { writeFileSync } from 'fs';
+import { createWriteStream, WriteStream } from 'fs';
 import { join } from 'path';
 import { LOG_PATH } from '../utils/path';
-
-export interface Message {
-  type: string
-  msg: string
-  pid?: number
-}
-
-export function LOG(massage: Message): void {
-  const { type, msg, pid = process.pid } = massage
-  const date: string = new Date().toLocaleString()
-  const str: string = `[${date}] [${pid}] [${type}] -> ${msg}`
-  console.info(str)
-  WRITE_LINE(str)
-}
 
 export interface Action {
   type: string
@@ -29,11 +15,39 @@ export function SEND(cmd: Action): void {
   }
 }
 
+let STREAM: WriteStream | null = null;
+let CURRENT_DAY: string;
+
+function createStream(): WriteStream {
+  CURRENT_DAY = new Date().toLocaleDateString()
+  const fileName: string = join(LOG_PATH, `/${CURRENT_DAY}.log`)
+  return createWriteStream(fileName, { flags: 'a' })
+}
+
 export function WRITE_LINE(data: string): void {
-  const currentDay: string = new Date().toLocaleDateString()
-  const fileName: string = join(LOG_PATH, `/${currentDay}.log`)
-  data += '\r\n'
-  writeFileSync(fileName, data, {
-    flag: 'a'
-  })
+  //检查流是否存在
+  if (!STREAM) {
+    STREAM = createStream()
+  }
+  //检查当前时间是否过期
+  const newDay: string = new Date().toLocaleDateString()
+  if (newDay !== CURRENT_DAY) {
+    STREAM.close()
+    STREAM = createStream()
+  }
+  STREAM.write(data + '\r\n')
+}
+
+export interface Message {
+  type: string
+  msg: string
+  pid?: number
+}
+
+export function LOG(massage: Message): void {
+  const { type, msg, pid = process.pid } = massage
+  const date: string = new Date().toLocaleString()
+  const str: string = `[${date}] [${pid}] [${type}] -> ${msg}`
+  console.info(str)
+  WRITE_LINE(str)
 }
