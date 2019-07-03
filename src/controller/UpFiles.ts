@@ -18,12 +18,16 @@ export default new class UpFile implements Controller {
     res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' })
     res.end(JSON.stringify({ sucess: false, result: msg }))
   }
+  resOk(res: ServerResponse, msg: string) {
+    res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' })
+    res.end(JSON.stringify({ sucess: true, result: msg }))
+  }
   POST(req: Req, res: ServerResponse): void {
     //拿到content-length，非空检查
     const contentLength: string | undefined = req.headers['content-length']
     if (!contentLength) return this.resError(res, 'content-length 不存在')
     const contentLength2: number = parseInt(contentLength)
-    //？做大小限制
+    //做大小限制
     if (contentLength2 > this.MAX_SIZE) return this.resError(res, '超出尺寸，最大上传尺寸10M')
 
     //拿到文件分隔符，非空检查
@@ -78,8 +82,7 @@ export default new class UpFile implements Controller {
         result.push({ oneLine, type, twoLine, formData, byteLength: formData.byteLength })
       }
       console.log(result)
-      res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' })
-      res.end(JSON.stringify({ sucess: true, result: '上传成功' }))
+      this.resOk(res, '上传成功')
     })
   }
 }

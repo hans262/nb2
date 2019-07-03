@@ -4,3 +4,64 @@
 [2019-7-3 17:54:36] [8800] [RES_CACHE] -> C:\LUO\develop\nicest\public\test.html
 [2019-7-3 17:54:36] [8800] [REQUEST] -> C:\favicon.ico
 [2019-7-3 17:54:36] [8800] [RES_FILE] -> c:\LUO\develop\nicest\public\favicon.ico
+[2019-7-3 22:24:36] [8644] [WORKER STARTUP] -> port: 5000
+[2019-7-3 22:24:39] [8644] [REQUEST] -> D:\develop\reactlearn\build\
+[2019-7-3 22:24:39] [8644] [RES_ZIP] -> D:\develop\reactlearn\build\index.html
+[2019-7-3 22:24:39] [8644] [REQUEST] -> D:\develop\reactlearn\build\static\css\6.7e43122a.chunk.css
+[2019-7-3 22:24:39] [8644] [REQUEST] -> D:\develop\reactlearn\build\static\css\main.e753572a.chunk.css
+[2019-7-3 22:24:39] [8644] [RES_ZIP] -> D:\develop\reactlearn\build\static\css\6.7e43122a.chunk.css
+[2019-7-3 22:24:39] [8644] [RES_ZIP] -> D:\develop\reactlearn\build\static\css\main.e753572a.chunk.css
+[2019-7-3 22:24:39] [8644] [REQUEST] -> D:\develop\reactlearn\build\static\js\6.acf64e7d.chunk.js
+[2019-7-3 22:24:39] [8644] [REQUEST] -> D:\develop\reactlearn\build\static\js\main.cd843bd3.chunk.js
+[2019-7-3 22:24:39] [8644] [RES_ZIP] -> D:\develop\reactlearn\build\static\js\6.acf64e7d.chunk.js
+[2019-7-3 22:24:39] [8644] [RES_ZIP] -> D:\develop\reactlearn\build\static\js\main.cd843bd3.chunk.js
+[2019-7-3 22:24:40] [8644] [REQUEST] -> D:\develop\reactlearn\build\static\js\1.7af29ba3.chunk.js
+[2019-7-3 22:24:40] [8644] [RES_ZIP] -> D:\develop\reactlearn\build\static\js\1.7af29ba3.chunk.js
+[2019-7-3 22:24:40] [8644] [REQUEST] -> D:\develop\reactlearn\build\static\js\2.45edf342.chunk.js
+[2019-7-3 22:24:40] [8644] [RES_ZIP] -> D:\develop\reactlearn\build\static\js\2.45edf342.chunk.js
+[2019-7-3 22:24:40] [8644] [REQUEST] -> D:\develop\reactlearn\build\static\js\7.bcf31392.chunk.js
+[2019-7-3 22:24:40] [8644] [RES_ZIP] -> D:\develop\reactlearn\build\static\js\7.bcf31392.chunk.js
+[2019-7-3 22:24:40] [8644] [REQUEST] -> D:\develop\reactlearn\build\static\css\12.e8a990e8.chunk.css
+[2019-7-3 22:24:40] [8644] [RES_ZIP] -> D:\develop\reactlearn\build\static\css\12.e8a990e8.chunk.css
+[2019-7-3 22:24:40] [8644] [REQUEST] -> D:\develop\reactlearn\build\static\js\12.a6adf019.chunk.js
+[2019-7-3 22:24:40] [8644] [RES_ZIP] -> D:\develop\reactlearn\build\static\js\12.a6adf019.chunk.js
+[2019-7-3 22:24:41] [8644] [REQUEST] -> D:\develop\reactlearn\build\static\media\logo.ee7cd8ed.svg
+[2019-7-3 22:24:41] [8644] [RES_FILE] -> D:\develop\reactlearn\build\static\media\logo.ee7cd8ed.svg
+[2019-7-3 22:24:41] [8644] [REQUEST] -> D:\develop\reactlearn\build\manifest.json
+[2019-7-3 22:24:41] [8644] [RES_FILE] -> D:\develop\reactlearn\build\manifest.json
+[2019-7-3 22:24:44] [8644] [REQUEST] -> D:\develop\reactlearn\build\static\js\8.6a96b0d0.chunk.js
+[2019-7-3 22:24:44] [8644] [RES_ZIP] -> D:\develop\reactlearn\build\static\js\8.6a96b0d0.chunk.js
+[2019-7-3 22:24:44] [8644] [REQUEST] -> D:\develop\reactlearn\build\static\js\13.e0e07c60.chunk.js
+[2019-7-3 22:24:44] [8644] [RES_ZIP] -> D:\develop\reactlearn\build\static\js\13.e0e07c60.chunk.js
+[2019-7-3 22:24:44] [8644] [REQUEST] -> D:\develop\reactlearn\build\static\js\19.b1d09949.chunk.js
+[2019-7-3 22:24:44] [8644] [RES_ZIP] -> D:\develop\reactlearn\build\static\js\19.b1d09949.chunk.js
+[2019-7-3 22:25:10] [8644] [REQUEST] -> D:\develop\reactlearn\build\static\js\39.c1d289cb.chunk.js
+[2019-7-3 22:25:10] [8644] [RES_ZIP] -> D:\develop\reactlearn\build\static\js\39.c1d289cb.chunk.js
+[2019-7-3 22:25:10] [8644] [REQUEST] -> D:\develop\reactlearn\build\static\js\18.f89b691a.chunk.js
+[2019-7-3 22:25:10] [8644] [RES_ZIP] -> D:\develop\reactlearn\build\static\js\18.f89b691a.chunk.js
+[2019-7-3 22:25:17] [8644] [REQUEST] -> D:\develop\reactlearn\build\static\js\0.ca7d91f1.chunk.js
+[2019-7-3 22:25:17] [8644] [RES_ZIP] -> D:\develop\reactlearn\build\static\js\0.ca7d91f1.chunk.js
+[2019-7-3 22:25:17] [8644] [REQUEST] -> D:\develop\reactlearn\build\static\js\23.89c7c3dd.chunk.js
+[2019-7-3 22:25:17] [8644] [RES_ZIP] -> D:\develop\reactlearn\build\static\js\23.89c7c3dd.chunk.js
+[2019-7-3 22:25:26] [8644] [REQUEST] -> D:\develop\reactlearn\build\static\js\22.db8bce70.chunk.js
+[2019-7-3 22:25:26] [8644] [RES_ZIP] -> D:\develop\reactlearn\build\static\js\22.db8bce70.chunk.js
+[2019-7-3 22:25:30] [8644] [REQUEST] -> D:\develop\reactlearn\build\static\js\20.e5dc2325.chunk.js
+[2019-7-3 22:25:30] [8644] [RES_ZIP] -> D:\develop\reactlearn\build\static\js\20.e5dc2325.chunk.js
+[2019-7-3 22:25:37] [8644] [REQUEST] -> D:\develop\reactlearn\build\545
+[2019-7-3 22:25:37] [8644] [RES_ZIP] -> D:\develop\reactlearn\build\index.html
+[2019-7-3 22:25:37] [8644] [REQUEST] -> D:\develop\reactlearn\build\static\js\17.453c08d2.chunk.js
+[2019-7-3 22:25:37] [8644] [RES_ZIP] -> D:\develop\reactlearn\build\static\js\17.453c08d2.chunk.js
+[2019-7-3 22:26:51] [6868] [MASTER STARTUP] -> NodeServer version: 3.5.5
+[2019-7-3 22:26:52] [12796] [WORKER STARTUP] -> port: 5000
+[2019-7-3 22:27:14] [12796] [REQUEST] -> C:\545
+[2019-7-3 22:27:14] [12796] [404] -> C:\545
+[2019-7-3 22:27:14] [12796] [REQUEST] -> C:\favicon.ico
+[2019-7-3 22:27:14] [12796] [RES_FILE] -> D:\develop\nicest\public\favicon.ico
+[2019-7-3 22:27:24] [12796] [REQUEST] -> C:\
+[2019-7-3 22:27:24] [12796] [RES_DIR] -> C:\
+[2019-7-3 22:27:24] [12796] [REQUEST] -> C:\favicon.ico
+[2019-7-3 22:27:24] [12796] [RES_FILE] -> D:\develop\nicest\public\favicon.ico
+[2019-7-3 22:27:27] [12796] [REQUEST] -> C:\BOOTNXT
+[2019-7-3 22:27:27] [12796] [RES_FILE] -> C:\BOOTNXT
+[2019-7-3 22:27:41] [12796] [REQUEST] -> C:\Program Files\
+[2019-7-3 22:27:41] [12796] [RES_DIR] -> C:\Program Files\

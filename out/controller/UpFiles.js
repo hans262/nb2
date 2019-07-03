@@ -10,6 +10,10 @@ exports.default = new class UpFile {
         res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
         res.end(JSON.stringify({ sucess: false, result: msg }));
     }
+    resOk(res, msg) {
+        res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify({ sucess: true, result: msg }));
+    }
     POST(req, res) {
         const contentLength = req.headers['content-length'];
         if (!contentLength)
@@ -55,8 +59,7 @@ exports.default = new class UpFile {
                 result.push({ oneLine, type, twoLine, formData, byteLength: formData.byteLength });
             }
             console.log(result);
-            res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
-            res.end(JSON.stringify({ sucess: true, result: '上传成功' }));
+            this.resOk(res, '上传成功');
         });
     }
 };

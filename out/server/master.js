@@ -6,7 +6,7 @@ const conf_1 = require("../conf");
 const packageConf_1 = require("../conf/packageConf");
 const log_1 = require("../modules/log");
 function master() {
-    log_1.LOG({ type: 'MASTER STARTUP', msg: `NodeServer version: ${packageConf_1.default.version}` });
+    log_1.LOG({ type: 'MASTER STARTUP', msg: `Nicest version: ${packageConf_1.default.version}` });
     conf_1.CLUSTER ? os_1.cpus().forEach(() => cluster_1.fork()) : cluster_1.fork();
     cluster_1.on('message', (worker, action) => {
         const { type } = action;

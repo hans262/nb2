@@ -18,5 +18,5 @@ export const USER: User = {
 //unit minute
 export const SESSION_EXPIRES: number = 20
 //is react app
-export const REACT_APP: boolean = true
+export const REACT_APP: boolean = false
 export const SOCKET_PORT: number = 8888

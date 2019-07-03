@@ -15,6 +15,6 @@ exports.USER = {
     password: "123456"
 };
 exports.SESSION_EXPIRES = 20;
-exports.REACT_APP = true;
+exports.REACT_APP = false;
 exports.SOCKET_PORT = 8888;
 //# sourceMappingURL=index.js.map

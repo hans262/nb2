@@ -5,7 +5,7 @@ import packageConf from '../conf/packageConf';
 import { Action, LOG } from '../modules/log';
 
 function master(): void {
-  LOG({ type: 'MASTER STARTUP', msg: `NodeServer version: ${packageConf.version}` })
+  LOG({ type: 'MASTER STARTUP', msg: `Nicest version: ${packageConf.version}` })
   CLUSTER ? cpus().forEach(() => fork()) : fork()
 
   on('message', (worker: Worker, action: Action) => {
