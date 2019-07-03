@@ -22,9 +22,9 @@ function ajax(url, opt = {}) {
 
 		//处理post请求
 		if (type === 'post') {
-			//普通post数据，使用&分割
+			//用&分割 格式
 			// xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-			//formdata 文件上传
+			//FormData 格式
 			// xhr.setRequestHeader("Content-type", "multipart/form-data; boundary=----WDQJKREGKLERKFWEKFWJKEJKFWE")
 		}
 		//设置请求头
@@ -33,7 +33,7 @@ function ajax(url, opt = {}) {
 		}
 		xhr.send(params)
 		//监听响应
-		xhr.onreadystatechange = function () {
+		xhr.onreadystatechange = () => {
 			if (xhr.readyState === 4) {
 				const { responseURL, status, statusText, response } = xhr
 				switch (status) {

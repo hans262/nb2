@@ -8,7 +8,7 @@ exports.default = new class UpFile {
     }
     resError(res, msg) {
         res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
-        res.end(JSON.stringify({ sucess: true, result: msg }));
+        res.end(JSON.stringify({ sucess: false, result: msg }));
     }
     POST(req, res) {
         const contentLength = req.headers['content-length'];
@@ -16,7 +16,7 @@ exports.default = new class UpFile {
             return this.resError(res, 'content-length 不存在');
         const contentLength2 = parseInt(contentLength);
         if (contentLength2 > this.MAX_SIZE)
-            return this.resError(res, '超出尺寸');
+            return this.resError(res, '超出尺寸，最大上传尺寸10M');
         const contentType = req.headers['content-type'];
         if (!contentType)
             return this.resError(res, 'content-type 不存在');
@@ -37,7 +37,7 @@ exports.default = new class UpFile {
             if (contentLength2 <= endBoundary2.byteLength) {
                 return this.resError(res, '类容为空');
             }
-            const temp = buffers.slice(startBoundary.byteLength, buffers.byteLength - endBoundary.byteLength);
+            const temp = buffers.slice(startBoundary.byteLength, -endBoundary.byteLength);
             const temp2 = bufferSplit_1.bufferSplit(temp, boundary2);
             const result = [];
             for (const buf of temp2) {

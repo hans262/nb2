@@ -4,7 +4,11 @@ import { Req } from '../Interface/Req';
 import { bufferSplit } from '../modules/bufferSplit';
 
 /**
- * 文件上传 只支持formdata
+ * 文件上传 ->
+ * FormData格式
+ * 所需请求头 ->
+ * Content-Type:"multipart/form-data; boundary=----WebKitFormBoundaryTK4tKRxDd34z0iSh"
+ * Content-Length:"1024"
  */
 export default new class UpFile implements Controller {
   PATH_NAME: string = '/api/upfiles'
@@ -12,7 +16,7 @@ export default new class UpFile implements Controller {
   MAX_SIZE: number = 1024 * 1024 * 10
   resError(res: ServerResponse, msg: string) {
     res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' })
-    res.end(JSON.stringify({ sucess: true, result: msg }))
+    res.end(JSON.stringify({ sucess: false, result: msg }))
   }
   POST(req: Req, res: ServerResponse): void {
     //拿到content-length，非空检查
@@ -20,7 +24,7 @@ export default new class UpFile implements Controller {
     if (!contentLength) return this.resError(res, 'content-length 不存在')
     const contentLength2: number = parseInt(contentLength)
     //？做大小限制
-    if (contentLength2 > this.MAX_SIZE) return this.resError(res, '超出尺寸')
+    if (contentLength2 > this.MAX_SIZE) return this.resError(res, '超出尺寸，最大上传尺寸10M')
 
     //拿到文件分隔符，非空检查
     const contentType: string | undefined = req.headers['content-type']
@@ -49,9 +53,9 @@ export default new class UpFile implements Controller {
       //去掉首尾
       const temp: Buffer = buffers.slice(
         startBoundary.byteLength,
-        buffers.byteLength - endBoundary.byteLength
+        - endBoundary.byteLength
       )
-      //多文件分割
+      //文件分割
       const temp2: Buffer[] = bufferSplit(temp, boundary2)
 
       //解析
