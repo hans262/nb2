@@ -1,7 +1,7 @@
 {
   "name": "nicest",
   "version": "3.5.5",
-  "description": "Node Server Fast and Minimum",
+  "description": "Configurable engineering container service is implemented by Node V8.",
   "scripts": {
     "start": "node out/worker.js",
     "cluster": "node out/cluster.js",
