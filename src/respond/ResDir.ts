@@ -24,10 +24,10 @@ export function ResDir(req: Req, res: ServerResponse): void {
     return ResStatic(req, res)
   }
   let content: string = `<h1>Index of ${__relativePath}</h1>`
-  dirents.forEach(file => {
-    let { name } = file
+  dirents.forEach(dirent => {
+    let { name } = dirent
     let href: string = join(__relativePath!, name)
-    if (file.isDirectory()) {
+    if (dirent.isDirectory()) {
       href += '/'
       name += '/'
     }

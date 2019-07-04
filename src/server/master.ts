@@ -13,7 +13,8 @@ function master(): void {
     switch (type) {
       case 'RE_START':
         //重启
-        Object.values(workers).forEach((w: Worker, i: number) => {
+        Object.values(workers).forEach((w: Worker | undefined, i: number) => {
+          if (!w) return
           setTimeout(() => {
             w.send({ type: 'CLOSE_SERVER', code: 1 })
           }, 2000 * i)
@@ -21,7 +22,8 @@ function master(): void {
         break
       case 'SHUT_DOWN':
         //关机
-        Object.values(workers).forEach((w: Worker) => {
+        Object.values(workers).forEach((w: Worker | undefined) => {
+          if (!w) return
           w.send({ type: 'CLOSE_SERVER', code: 0 })
         })
         break

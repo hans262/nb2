@@ -12,7 +12,7 @@ import { bufferSplit } from '../modules/bufferSplit';
  */
 export default new class UpFile implements Controller {
   PATH_NAME: string = '/api/upfiles'
-  //10M
+  //max size 10M
   MAX_SIZE: number = 1024 * 1024 * 10
   resError(res: ServerResponse, msg: string) {
     res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' })

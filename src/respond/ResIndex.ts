@@ -8,7 +8,7 @@ import { ResNotFound } from "./ResNotFound";
 
 export function ResIndex(req: Req, res: ServerResponse): void {
   const INDEX_PATH: string = join(ROOT, INDEX_PAGE)
-  stat(INDEX_PATH, (err: NodeJS.ErrnoException, stats) => {
+  stat(INDEX_PATH, (err: NodeJS.ErrnoException | null, stats) => {
     if (stats && stats.isFile()) {
       req.__stats = statSync(INDEX_PATH)
       req.__absolutePath = INDEX_PATH

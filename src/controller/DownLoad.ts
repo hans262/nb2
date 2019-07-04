@@ -6,7 +6,7 @@ import { Req } from '../Interface/Req';
 import { PUBLIC_PATH } from '../utils/path';
 
 export default new class DownLoad implements Controller {
-  PATH_NAME:string = '/api/download'
+  PATH_NAME: string = '/api/download'
   POST(req: Req, res: ServerResponse): void {
     const file: string = 'ajax.js'
     const filename: string = join(PUBLIC_PATH, file)
@@ -23,16 +23,14 @@ export default new class DownLoad implements Controller {
     type: 'post',
     responseType: 'arraybuffer'
   })
-  console.log(res)
+  // 创建blob对象
   const blob = new Blob([res], { type: 'application/octet-stream', endings: 'native' })
-  // 兼容不同浏览器的URL对象
-  const url = window.URL || window.webkitURL || window.moxURL
   // 创建下载链接
-  const downloadHref = url.createObjectURL(blob)
+  const href = window.URL.createObjectURL(blob)
   // 创建a标签并为其添加属性
-  let downloadLink = document.createElement('a')
-  downloadLink.href = downloadHref
-  downloadLink.download = 'ajax.js'
-  // 触发点击事件执行下载
-  downloadLink.click()
+  const link = document.createElement('a')
+  link.href = href
+  link.download = 'ajax.js'
+  // 触发事件
+  link.click()
 */

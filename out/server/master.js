@@ -13,6 +13,8 @@ function master() {
         switch (type) {
             case 'RE_START':
                 Object.values(cluster_1.workers).forEach((w, i) => {
+                    if (!w)
+                        return;
                     setTimeout(() => {
                         w.send({ type: 'CLOSE_SERVER', code: 1 });
                     }, 2000 * i);
@@ -20,6 +22,8 @@ function master() {
                 break;
             case 'SHUT_DOWN':
                 Object.values(cluster_1.workers).forEach((w) => {
+                    if (!w)
+                        return;
                     w.send({ type: 'CLOSE_SERVER', code: 0 });
                 });
                 break;

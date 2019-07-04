@@ -4,11 +4,8 @@ import { exec, ExecException, execSync } from 'child_process'
  */
 
 //异步
-exec('node -v', (err: ExecException, stdout: string, stderr: string) => {
-  if (err) {
-    console.log(err)
-    return
-  }
+exec('node -v', (err: ExecException | null, stdout: string, stderr: string) => {
+  if (err) return console.log(err)
   console.log(stdout)
   console.log(stderr)
 })

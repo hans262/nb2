@@ -11,9 +11,7 @@
     "experimentalDecorators": true,
     //增量编译，提升编译效率
     "incremental": true,
-    //非空检查，提示代码健壮性
-    "strictNullChecks": true,
-    //隐式any类型检查，提升代码健壮性
-    "noImplicitAny": true
+    //提升代码健壮性
+    "strict":true
   }
 }
