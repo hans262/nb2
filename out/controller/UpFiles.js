@@ -24,10 +24,10 @@ exports.default = new class UpFile {
         const contentType = req.headers['content-type'];
         if (!contentType)
             return this.resError(res, 'content-type 不存在');
-        const matched = contentType.match(/(^| )boundary=([^;]*)(;|$)/);
+        const matched = contentType.match(/\s+boundary=([^;]+)/);
         if (!matched)
             return this.resError(res, 'boundary 不存在');
-        const boundary = '--' + matched[2];
+        const boundary = '--' + matched[1];
         const boundary2 = '\r\n' + boundary + '\r\n';
         const startBoundary = Buffer.from(boundary + '\r\n');
         const endBoundary = Buffer.from('\r\n' + boundary + '--\r\n');
@@ -46,8 +46,7 @@ exports.default = new class UpFile {
             const result = [];
             for (const buf of temp2) {
                 let type;
-                let offset = 0;
-                let index = 0;
+                let offset = 0, index = 0;
                 index = buf.indexOf('\r\n', offset);
                 const oneLine = buf.slice(offset, index).toString();
                 offset = index + 2;

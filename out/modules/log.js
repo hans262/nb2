@@ -15,19 +15,19 @@ function SEND(cmd) {
 exports.SEND = SEND;
 let STREAM = null;
 let CURRENT_DAY;
-function createStream() {
+function getStream() {
     CURRENT_DAY = new Date().toLocaleDateString();
     const fileName = path_1.join(path_2.LOG_PATH, `/${CURRENT_DAY}.log`);
     return fs_1.createWriteStream(fileName, { flags: 'a' });
 }
 function WRITE_LINE(data) {
     if (!STREAM) {
-        STREAM = createStream();
+        STREAM = getStream();
     }
     const newDay = new Date().toLocaleDateString();
     if (newDay !== CURRENT_DAY) {
         STREAM.close();
-        STREAM = createStream();
+        STREAM = getStream();
     }
     STREAM.write(data + '\r\n');
 }

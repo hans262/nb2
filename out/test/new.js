@@ -1,12 +1,14 @@
 function create(c) {
     return new c();
 }
-class AA {
+class HuaHua {
     constructor() {
         this.name = 'huahua';
+        this.age = 18;
     }
+    study() { }
 }
-const BB = create(AA);
-console.log(BB);
+const huahua = create(HuaHua);
+console.log(huahua);
 debugger;
 //# sourceMappingURL=new.js.map

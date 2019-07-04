@@ -1,7 +1,7 @@
 /**
- * buffer切割 ->
- * @param buffer 切割源
- * @param spl 
+ * buffer分割 ->
+ * @param buffer 分割源
+ * @param spl 分割符
  */
 export function bufferSplit(buffer: Buffer, spl: string): Array<Buffer> {
   const result: Array<Buffer> = []

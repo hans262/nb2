@@ -1,15 +1,15 @@
 /**
  * 类类型 -> new
- * 
  */
 
 function create<T>(c: { new(): T; }): T {
   return new c()
 }
-
-class AA {
+class HuaHua {
   name: string = 'huahua'
+  age: number = 18
+  study(): void { }
 }
-const BB = create(AA)
-console.log(BB)
+const huahua: HuaHua = create<HuaHua>(HuaHua)
+console.log(huahua)
 debugger

@@ -2,10 +2,6 @@ import { createWriteStream, WriteStream } from 'fs';
 import { join } from 'path';
 import { LOG_PATH } from '../utils/path';
 
-export interface Action {
-  type: string
-}
-
 export function SEND(cmd: Action): void {
   const { type } = cmd
   if (process.send) {
@@ -14,11 +10,14 @@ export function SEND(cmd: Action): void {
     console.log('worker进程无法处理命令')
   }
 }
+export interface Action {
+  type: string
+}
 
 let STREAM: WriteStream | null = null;
 let CURRENT_DAY: string;
 
-function createStream(): WriteStream {
+function getStream(): WriteStream {
   CURRENT_DAY = new Date().toLocaleDateString()
   const fileName: string = join(LOG_PATH, `/${CURRENT_DAY}.log`)
   return createWriteStream(fileName, { flags: 'a' })
@@ -27,13 +26,13 @@ function createStream(): WriteStream {
 export function WRITE_LINE(data: string): void {
   //检查流是否存在
   if (!STREAM) {
-    STREAM = createStream()
+    STREAM = getStream()
   }
   //检查当前时间是否过期
   const newDay: string = new Date().toLocaleDateString()
   if (newDay !== CURRENT_DAY) {
     STREAM.close()
-    STREAM = createStream()
+    STREAM = getStream()
   }
   STREAM.write(data + '\r\n')
 }

@@ -33,9 +33,9 @@ export default new class UpFile implements Controller {
     //拿到文件分隔符，非空检查
     const contentType: string | undefined = req.headers['content-type']
     if (!contentType) return this.resError(res, 'content-type 不存在')
-    const matched: RegExpMatchArray | null = contentType.match(/(^| )boundary=([^;]*)(;|$)/)
+    const matched: RegExpMatchArray | null = contentType.match(/\s+boundary=([^;]+)/)
     if (!matched) return this.resError(res, 'boundary 不存在')
-    const boundary: string = '--' + matched[2]
+    const boundary: string = '--' + matched[1]
     const boundary2: string = '\r\n' + boundary + '\r\n'
     const startBoundary: Buffer = Buffer.from(boundary + '\r\n')
     const endBoundary: Buffer = Buffer.from('\r\n' + boundary + '--\r\n')
@@ -48,8 +48,6 @@ export default new class UpFile implements Controller {
     })
     req.on('end', () => {
       const buffers: Buffer = Buffer.concat(chunks)
-      // console.log(buffers.toString())
-
       //空类容检查，检查字节是否大于分隔符
       if (contentLength2 <= endBoundary2.byteLength) {
         return this.resError(res, '类容为空')
@@ -61,13 +59,11 @@ export default new class UpFile implements Controller {
       )
       //文件分割
       const temp2: Buffer[] = bufferSplit(temp, boundary2)
-
       //解析
       const result: Array<FormData> = []
       for (const buf of temp2) {
         let type: 'file' | 'data'
-        let offset: number = 0
-        let index: number = 0
+        let offset: number = 0, index: number = 0
         index = buf.indexOf('\r\n', offset)
         const oneLine: string = buf.slice(offset, index).toString()
         offset = index + 2
