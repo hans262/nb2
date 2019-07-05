@@ -9,7 +9,7 @@ function ResNotFound(req, res) {
   	<h1>Not Found</h1>
   	<p>The requested URL ${__relativePath} was not found on this server.</p>
   `);
-    log_1.LOG({ type: '404', msg: __absolutePath });
+    log_1.LOG({ type: 'RES_404', msg: __absolutePath });
 }
 exports.ResNotFound = ResNotFound;
 //# sourceMappingURL=ResNotFound.js.map

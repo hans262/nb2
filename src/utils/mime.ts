@@ -11,7 +11,7 @@ export function mime(path: string): string {
 }
 
 interface Mime {
-  [name: string]: string
+  readonly [name: string]: string
 }
 const MIME_TYPES: Mime = {
   "css": "text/css",

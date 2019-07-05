@@ -5,7 +5,7 @@ import { generateETag, isCache } from '../utils/cache';
 import { mime } from '../utils/mime';
 import { isZip } from '../utils/zip';
 import { ResCache } from './ResCache';
-import ResFile from './ResFile';
+import { ResFile } from './ResFile';
 import { ResRange } from './ResRange';
 import { ResZip } from './ResZip';
 

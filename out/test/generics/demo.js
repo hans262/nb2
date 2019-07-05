@@ -1,3 +1,4 @@
+"use strict";
 let createArray;
 createArray = function (length, value) {
     const result = [];

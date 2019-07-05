@@ -1,3 +1,4 @@
+"use strict";
 class CC {
     constructor() {
         this.x = 0;

@@ -5,7 +5,7 @@ import packageConf from '../conf/packageConf';
 import { Action, LOG } from '../modules/log';
 
 function master(): void {
-  LOG({ type: 'MASTER STARTUP', msg: `Nicest version: ${packageConf.version}` })
+  LOG({ type: 'MASTER_STARTUP', msg: `Nicest version: ${packageConf.version}` })
   CLUSTER ? cpus().forEach(() => fork()) : fork()
 
   on('message', (worker: Worker, action: Action) => {
@@ -36,11 +36,11 @@ function master(): void {
     switch (code) {
       case 1:
         //重启
-        LOG({ type: 'WORKET EXIT', pid: worker.process.pid, msg: 'restart' })
+        LOG({ type: 'WORKET_EXIT', pid: worker.process.pid, msg: 'restart' })
         return fork()
       case 0:
         //关机
-        return LOG({ type: 'WORKET EXIT', pid: worker.process.pid, msg: 'shutdown' })
+        return LOG({ type: 'WORKET_EXIT', pid: worker.process.pid, msg: 'shutdown' })
       default:
         throw new Error('process exception')
     }

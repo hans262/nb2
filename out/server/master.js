@@ -6,7 +6,7 @@ const conf_1 = require("../conf");
 const packageConf_1 = require("../conf/packageConf");
 const log_1 = require("../modules/log");
 function master() {
-    log_1.LOG({ type: 'MASTER STARTUP', msg: `Nicest version: ${packageConf_1.default.version}` });
+    log_1.LOG({ type: 'MASTER_STARTUP', msg: `Nicest version: ${packageConf_1.default.version}` });
     conf_1.CLUSTER ? os_1.cpus().forEach(() => cluster_1.fork()) : cluster_1.fork();
     cluster_1.on('message', (worker, action) => {
         const { type } = action;
@@ -34,10 +34,10 @@ function master() {
     cluster_1.on('exit', (worker, code) => {
         switch (code) {
             case 1:
-                log_1.LOG({ type: 'WORKET EXIT', pid: worker.process.pid, msg: 'restart' });
+                log_1.LOG({ type: 'WORKET_EXIT', pid: worker.process.pid, msg: 'restart' });
                 return cluster_1.fork();
             case 0:
-                return log_1.LOG({ type: 'WORKET EXIT', pid: worker.process.pid, msg: 'shutdown' });
+                return log_1.LOG({ type: 'WORKET_EXIT', pid: worker.process.pid, msg: 'shutdown' });
             default:
                 throw new Error('process exception');
         }

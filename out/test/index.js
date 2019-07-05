@@ -1,11 +1,11 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const dns_1 = require("dns");
-dns_1.lookup('www.baidu.com', (err, address, family) => {
-    console.log(err);
-    console.log(address);
-    console.log(family);
-});
-console.log(dns_1.getServers());
+const X1 = 1;
+const W1 = 8;
+const X2 = 0;
+const W2 = 4;
+const X3 = 1;
+const W3 = 4;
+const B = 8;
+const output = (X1 * W1 + X2 * W2 + X3 * W3) > B ? 1 : 0;
 debugger;
 //# sourceMappingURL=index.js.map

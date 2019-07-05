@@ -6,7 +6,7 @@ import { HANDLER } from './Main';
 export async function RUN(): Promise<void> {
   const server: Server = createServer(HANDLER)
   server.listen(PORT, HOST, () => {
-    LOG({ type: 'WORKER STARTUP', msg: `port: ${PORT}` })
+    LOG({ type: 'WORKER_STARTUP', msg: `port: ${PORT}` })
   })
 
   process.on('message', action => {

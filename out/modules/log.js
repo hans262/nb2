@@ -3,16 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
 const path_1 = require("path");
 const path_2 = require("../utils/path");
-function SEND(cmd) {
-    const { type } = cmd;
-    if (process.send) {
-        process.send({ type });
-    }
-    else {
-        console.log('worker进程无法处理命令');
-    }
-}
-exports.SEND = SEND;
 let STREAM = null;
 let CURRENT_DAY;
 function getStream() {
@@ -40,4 +30,14 @@ function LOG(massage) {
     WRITE_LINE(str);
 }
 exports.LOG = LOG;
+function SEND(cmd) {
+    const { type } = cmd;
+    if (process.send) {
+        process.send({ type });
+    }
+    else {
+        console.log('worker进程无法处理命令');
+    }
+}
+exports.SEND = SEND;
 //# sourceMappingURL=log.js.map

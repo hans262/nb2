@@ -23,7 +23,7 @@ function ResVerify(req, res) {
     if (req.headers['range'])
         return ResRange_1.ResRange(req, res);
     if (!zip_1.isZip(req, res)) {
-        return ResFile_1.default(req, res);
+        return ResFile_1.ResFile(req, res);
     }
     ResZip_1.ResZip(req, res);
 }

@@ -13,5 +13,5 @@ function setHeader(res) {
         res.setHeader('Access-Control-Allow-Origin', '*');
     }
 }
-exports.default = setHeader;
+exports.setHeader = setHeader;
 //# sourceMappingURL=setHeader.js.map

@@ -1,3 +1,4 @@
+"use strict";
 function mixins(first, second) {
     let result = {};
     for (let key in first) {

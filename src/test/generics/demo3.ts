@@ -30,7 +30,7 @@ function copyFields<T extends U, U>(target: T, source: U): T {
   }
   return result
 }
-const A = { name: '花花', age: 18, like: '种菜' }
-const B = { age: 20, like: '打篮球' }
-const C = copyFields(A, B)
+const a = { name: '花花', age: 18, like: '种菜' }
+const b = { age: 20, like: '打篮球' }
+const c = copyFields(a, b)
 debugger

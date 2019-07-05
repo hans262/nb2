@@ -1,3 +1,4 @@
+"use strict";
 function create(c) {
     return new c();
 }

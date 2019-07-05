@@ -5,9 +5,11 @@ import { ROOT } from '../conf';
 import { Middleware } from '../Interface/Middleware';
 import { Req } from '../Interface/Req';
 import { LOG } from '../modules/log';
-import setHeader from '../utils/setHeader';
+import { setHeader } from '../utils/setHeader';
 
-export const Mount: Middleware = function (req: Req, res: ServerResponse, next: Function): void {
+export const Mount: Middleware = function (
+  req: Req, res: ServerResponse, next: Function
+): void {
   const { pathname, query } = parse(req.url!, true)
   //相对路径
   req.__relativePath = pathname ? decodeURI(pathname) : '/'

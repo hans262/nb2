@@ -10,7 +10,7 @@ exports.Mount = function (req, res, next) {
     req.__relativePath = pathname ? decodeURI(pathname) : '/';
     req.__absolutePath = decodeURI(path_1.join(conf_1.ROOT, req.__relativePath));
     req.__query = query;
-    setHeader_1.default(res);
+    setHeader_1.setHeader(res);
     log_1.LOG({ type: 'REQUEST', msg: req.__absolutePath });
     next();
 };

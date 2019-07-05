@@ -8,7 +8,9 @@ import { ResRedirect } from '../respond/ResRedirect';
 import { generate, KEY } from '../modules/Session';
 import { setCookie } from '../utils/cookie';
 
-export const GetToken: Middleware = function (req: Req, res: ServerResponse, next: Function): void {
+export const GetToken: Middleware = function (
+  req: Req, res: ServerResponse, next: Function
+): void {
   const { method, __relativePath } = req
   if (method === 'POST' && __relativePath === '/getToken') {
     const chunks: Array<Buffer> = []

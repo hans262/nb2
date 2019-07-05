@@ -6,7 +6,9 @@ import { ResRedirect } from '../respond/ResRedirect';
 import { KEY, remove, reset, select } from '../modules/Session';
 import { getCookie, setCookie } from '../utils/cookie';
 
-export const CheckLogin: Middleware = function (req: Req, res: ServerResponse, next: Function): void {
+export const CheckLogin: Middleware = function (
+  req: Req, res: ServerResponse, next: Function
+): void {
   if (check(req, res)) {
     next()
   } else {

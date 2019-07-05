@@ -2,18 +2,6 @@ import { createWriteStream, WriteStream } from 'fs';
 import { join } from 'path';
 import { LOG_PATH } from '../utils/path';
 
-export function SEND(cmd: Action): void {
-  const { type } = cmd
-  if (process.send) {
-    process.send({ type })
-  } else {
-    console.log('worker进程无法处理命令')
-  }
-}
-export interface Action {
-  type: string
-}
-
 let STREAM: WriteStream | null = null;
 let CURRENT_DAY: string;
 
@@ -38,9 +26,24 @@ export function WRITE_LINE(data: string): void {
 }
 
 export interface Message {
-  type: string
+  type: keyof MESSAGE_TYPE
   msg: string
   pid?: number
+}
+type MESSAGE_TYPE = {
+  WORKER_STARTUP: string
+  WORKET_EXIT: string
+  MASTER_STARTUP: string
+  ERROR: string
+  REQUEST: string
+  REDIRECT: string
+  RES_CACHE: string
+  RES_ZIP: string
+  RES_416: string
+  RES_RANGE: string
+  RES_404: string
+  RES_FILE: string
+  RES_DIR: string
 }
 
 export function LOG(massage: Message): void {
@@ -49,4 +52,17 @@ export function LOG(massage: Message): void {
   const str: string = `[${date}] [${pid}] [${type}] -> ${msg}`
   console.info(str)
   WRITE_LINE(str)
+}
+
+//向主进程发消息
+export interface Action {
+  type: string
+}
+export function SEND(cmd: Action): void {
+  const { type } = cmd
+  if (process.send) {
+    process.send({ type })
+  } else {
+    console.log('worker进程无法处理命令')
+  }
 }

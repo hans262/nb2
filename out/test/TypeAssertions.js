@@ -1,3 +1,4 @@
+"use strict";
 function getLength(something) {
     if (something.length) {
         return something.length;

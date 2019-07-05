@@ -21,7 +21,7 @@ function ResRange(req, res) {
         res.setHeader('Content-Range', `bytes=*/${size}`);
         res.writeHead(416, 'Out of range');
         res.end();
-        log_1.LOG({ type: '416', msg: __absolutePath });
+        log_1.LOG({ type: 'RES_416', msg: __absolutePath });
     }
 }
 exports.ResRange = ResRange;

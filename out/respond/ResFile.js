@@ -9,5 +9,5 @@ function ResFile(req, res) {
     stream.pipe(res);
     log_1.LOG({ type: 'RES_FILE', msg: __absolutePath });
 }
-exports.default = ResFile;
+exports.ResFile = ResFile;
 //# sourceMappingURL=ResFile.js.map

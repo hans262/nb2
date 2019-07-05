@@ -7,7 +7,7 @@ const Main_1 = require("./Main");
 async function RUN() {
     const server = http_1.createServer(Main_1.HANDLER);
     server.listen(conf_1.PORT, conf_1.HOST, () => {
-        log_1.LOG({ type: 'WORKER STARTUP', msg: `port: ${conf_1.PORT}` });
+        log_1.LOG({ type: 'WORKER_STARTUP', msg: `port: ${conf_1.PORT}` });
     });
     process.on('message', action => {
         switch (action.type) {

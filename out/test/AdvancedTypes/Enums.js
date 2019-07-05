@@ -1,3 +1,4 @@
+"use strict";
 var Status;
 (function (Status) {
     Status[Status["Ready"] = 0] = "Ready";
