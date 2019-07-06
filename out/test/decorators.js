@@ -27,4 +27,4 @@ Test = __decorate([
 ], Test);
 const test = new Test();
 console.log(test);
-//# sourceMappingURL=Decorators.js.map
+//# sourceMappingURL=decorators.js.map
