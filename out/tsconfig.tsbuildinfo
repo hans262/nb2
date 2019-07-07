@@ -178,15 +178,15 @@
         "signature": "d9de411c42bfca8f5e86e56926d65fefbcf4b26e9a751b7991ca426d8a17c269"
       },
       "d:/develop/nicest/src/interface/controller.ts": {
-        "version": "24d123420d2127d724244fb26f5bdf9749a54dc0e01bef98fc0f187e775eff30",
-        "signature": "e73fcae31cc5a6cb468cf78f4d6322bfd57d436f5435ba69ef84b2bf22bcabb6"
+        "version": "e7eee125f37bb9d9f8214d202abe90ce32b97be141047480c2868ad4ae905ae3",
+        "signature": "699cb49272e13464f2da0a9c16a5a706c2e707cb380f1b51f49eff215106256b"
       },
       "d:/develop/nicest/src/controller/download.ts": {
         "version": "dab64255f9313ea5bea279752d2983ebb3df323b483061972eace1e9f9b0a210",
         "signature": "1e750731260184acc777a636c964fccf86ec423418e06caeeae32d6932cd816e"
       },
       "d:/develop/nicest/src/controller/restart.ts": {
-        "version": "a82e4582925bd13ed135daa0ab173bb2645ed9d7d2682a8a211b72c9fbc26433",
+        "version": "3402e18de8a923979e5848f3ca748ca48d39388dfabddbe5cbd731a606cd46a1",
         "signature": "dbd6a6fc9cfb50062d012ecc943e03264fc5a61c07477e3f124d21d561da0495"
       },
       "d:/develop/nicest/src/controller/shutdown.ts": {
@@ -218,7 +218,7 @@
         "signature": "dbb6f99e1977fe425977e4cb8ce0cc3a4406e422f7fec1189a8ab0ce51be54e8"
       },
       "d:/develop/nicest/src/middleware/checkcontroller.ts": {
-        "version": "ad4f2fa36bd13c0b86618987afbff798f2a06352337a941d5382e26263cb5e77",
+        "version": "66fa254ac1b5c86a5648586fb6d6d91ff4438c0d19de084b4c8a0a2d9899b87a",
         "signature": "842d254e7a95be07888759cc7c26163010e6bbea6dc66acc1666ae5c5e79ac86"
       },
       "d:/develop/nicest/src/interface/session.ts": {
@@ -2287,7 +2287,6 @@
       "d:/develop/nicest/src/modules/buffersplit.ts",
       "d:/develop/nicest/src/controller/upfiles.ts",
       "d:/develop/nicest/src/controller/index.ts",
-      "d:/develop/nicest/src/middleware/checkcontroller.ts",
       "d:/develop/nicest/src/interface/session.ts",
       "d:/develop/nicest/src/respond/resredirect.ts",
       "d:/develop/nicest/src/modules/session.ts",
@@ -2401,7 +2400,8 @@
       "d:/develop/nicest/src/test/generics/demo.ts",
       "d:/develop/nicest/src/test/generics/demo2.ts",
       "d:/develop/nicest/src/test/generics/demo3.ts",
-      "d:/develop/nicest/src/test/other/test.ts"
+      "d:/develop/nicest/src/test/other/test.ts",
+      "d:/develop/nicest/src/middleware/checkcontroller.ts"
     ]
   },
   "version": "3.5.1"

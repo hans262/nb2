@@ -9,3 +9,5 @@ export interface Controller {
   DELETE?(req: Req, res: ServerResponse): void
   [index: string]: any
 }
+
+export type Method = 'GET' | 'POST' | 'PUT' | 'DELETE'

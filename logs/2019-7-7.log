@@ -1,0 +1,31 @@
+[2019-7-7 20:36:03] [6480] [WORKER_STARTUP] -> port: 5000
+[2019-7-7 20:36:04] [6480] [REQUEST] -> C:\
+[2019-7-7 20:36:04] [6480] [RES_DIR] -> C:\
+[2019-7-7 20:36:14] [6480] [REQUEST] -> C:\api\get
+[2019-7-7 20:36:32] [11376] [WORKER_STARTUP] -> port: 5000
+[2019-7-7 20:36:33] [11376] [REQUEST] -> C:\api\get
+[2019-7-7 20:42:10] [3736] [WORKER_STARTUP] -> port: 5000
+[2019-7-7 20:42:12] [3736] [REQUEST] -> C:\api\get
+[2019-7-7 20:42:13] [3736] [REQUEST] -> C:\favicon.ico
+[2019-7-7 20:42:13] [3736] [RES_FILE] -> d:\develop\nicest\public\favicon.ico
+[2019-7-7 20:42:23] [8268] [WORKER_STARTUP] -> port: 5000
+[2019-7-7 20:42:24] [8268] [REQUEST] -> C:\api\get
+[2019-7-7 20:42:24] [8268] [REQUEST] -> C:\favicon.ico
+[2019-7-7 20:42:24] [8268] [RES_FILE] -> d:\develop\nicest\public\favicon.ico
+[2019-7-7 20:43:36] [10468] [WORKER_STARTUP] -> port: 5000
+[2019-7-7 20:43:44] [6924] [WORKER_STARTUP] -> port: 5000
+[2019-7-7 20:43:46] [6924] [REQUEST] -> C:\api\get
+[2019-7-7 20:43:46] [6924] [REQUEST] -> C:\favicon.ico
+[2019-7-7 20:43:46] [6924] [RES_FILE] -> d:\develop\nicest\public\favicon.ico
+[2019-7-7 20:44:00] [5496] [WORKER_STARTUP] -> port: 5000
+[2019-7-7 20:44:02] [5496] [REQUEST] -> C:\api\get
+[2019-7-7 20:44:02] [5496] [REQUEST] -> C:\favicon.ico
+[2019-7-7 20:44:02] [5496] [RES_FILE] -> d:\develop\nicest\public\favicon.ico
+[2019-7-7 20:44:21] [4940] [WORKER_STARTUP] -> port: 5000
+[2019-7-7 20:44:24] [4940] [REQUEST] -> C:\api\get
+[2019-7-7 20:44:24] [4940] [REQUEST] -> C:\favicon.ico
+[2019-7-7 20:44:24] [4940] [RES_FILE] -> d:\develop\nicest\public\favicon.ico
+[2019-7-7 20:48:28] [11516] [WORKER_STARTUP] -> port: 5000
+[2019-7-7 20:48:30] [11516] [REQUEST] -> C:\api\get
+[2019-7-7 20:48:30] [11516] [REQUEST] -> C:\favicon.ico
+[2019-7-7 20:48:30] [11516] [RES_FILE] -> d:\develop\nicest\public\favicon.ico
