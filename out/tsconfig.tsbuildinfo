@@ -549,6 +549,10 @@
         "version": "8e3fa04e66a6730f1f0159d7fe16ff472bfe3bddef47cb7c1e3521e5b9f1ba79",
         "signature": "29528ae9d108977900ea5babe9d6c1270ea0a31c156d85eca5241be5539e9cda"
       },
+      "d:/develop/nicest/src/modules/zipfile.ts": {
+        "version": "c483a9e92901e6ca66396ff0e5f66e7eb9ec3dc0bf0f30902849dbb91ac8d575",
+        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
+      },
       "d:/develop/nicest/node_modules/@types/ws/index.d.ts": {
         "version": "72b8e5974345f122fb42452ab341cbcbe9835e973db4979862e973ab7d6091aa",
         "signature": "72b8e5974345f122fb42452ab341cbcbe9835e973db4979862e973ab7d6091aa"
@@ -578,8 +582,8 @@
         "signature": "cde07341631afa0963d654b6f3602c3cd8494770cee0a5266f93ab71bd263b52"
       },
       "d:/develop/nicest/src/test/index.ts": {
-        "version": "c483a9e92901e6ca66396ff0e5f66e7eb9ec3dc0bf0f30902849dbb91ac8d575",
-        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
+        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
       },
       "d:/develop/nicest/src/test/keyof.ts": {
         "version": "8d8d5ed3647e0917b42698d76a06a5ba0f282e68ce2728bcc0b0693b623d40cd",
@@ -672,10 +676,6 @@
       "d:/develop/nicest/src/test/generics/demo3.ts": {
         "version": "5e76a280cc2c5f4eaf24f2fd3ad4cab737e43d9d982f57e4a67f5d33c05d2662",
         "signature": "36d934303d774e21c249525b79da898814e54744c40a00c5cf3ef62f953f31d2"
-      },
-      "d:/develop/nicest/src/test/other/test.ts": {
-        "version": "6e16b30991d920e2a40888686e2d0746262eeaf9bcf0c95010645034945a7bf3",
-        "signature": "2f3864827a7e8670f9024174fff3d4dc05aa142493991c098cf4c2c1a3e75c69"
       }
     },
     "options": {
@@ -1518,6 +1518,14 @@
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "d:/develop/nicest/src/modules/zipfile.ts": [
+        "d:/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/path.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/zlib.d.ts",
+        "d:/develop/nicest/src/utils/path.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "d:/develop/nicest/node_modules/@types/ws/index.d.ts": [
         "d:/develop/nicest/node_modules/@types/node/events.d.ts",
         "d:/develop/nicest/node_modules/@types/node/http.d.ts",
@@ -1554,10 +1562,6 @@
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "d:/develop/nicest/src/test/index.ts": [
-        "d:/develop/nicest/node_modules/@types/node/fs.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/path.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/zlib.d.ts",
-        "d:/develop/nicest/src/utils/path.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1650,10 +1654,6 @@
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "d:/develop/nicest/src/test/generics/demo3.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/test/other/test.ts": [
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ]
@@ -2287,6 +2287,7 @@
       "d:/develop/nicest/src/modules/buffersplit.ts",
       "d:/develop/nicest/src/controller/upfiles.ts",
       "d:/develop/nicest/src/controller/index.ts",
+      "d:/develop/nicest/src/middleware/checkcontroller.ts",
       "d:/develop/nicest/src/interface/session.ts",
       "d:/develop/nicest/src/respond/resredirect.ts",
       "d:/develop/nicest/src/modules/session.ts",
@@ -2369,6 +2370,7 @@
       "d:/develop/nicest/node_modules/@types/node/ts3.2/index.d.ts",
       "d:/develop/nicest/node_modules/@types/mysql/index.d.ts",
       "d:/develop/nicest/src/modules/sql.ts",
+      "d:/develop/nicest/src/modules/zipfile.ts",
       "d:/develop/nicest/node_modules/@types/ws/index.d.ts",
       "d:/develop/nicest/src/server/socket.ts",
       "d:/develop/nicest/src/test/namespaces.ts",
@@ -2399,9 +2401,7 @@
       "d:/develop/nicest/src/test/utilitytypes/returntype.ts",
       "d:/develop/nicest/src/test/generics/demo.ts",
       "d:/develop/nicest/src/test/generics/demo2.ts",
-      "d:/develop/nicest/src/test/generics/demo3.ts",
-      "d:/develop/nicest/src/test/other/test.ts",
-      "d:/develop/nicest/src/middleware/checkcontroller.ts"
+      "d:/develop/nicest/src/test/generics/demo3.ts"
     ]
   },
   "version": "3.5.1"
