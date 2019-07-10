@@ -10,9 +10,10 @@ import { setHeader } from '../utils/setHeader';
 export const Mount: Middleware = function (
   req: Req, res: ServerResponse, next: Function
 ): void {
-  const { pathname, query } = parse(req.url!, true)
+  const { url = '/' } = req
+  const { pathname = '/', query } = parse(url, true)
   //相对路径
-  req.__relativePath = pathname ? decodeURI(pathname) : '/'
+  req.__relativePath = decodeURI(pathname)
   //绝对路径
   req.__absolutePath = decodeURI(join(ROOT, req.__relativePath))
   //查询字符串
