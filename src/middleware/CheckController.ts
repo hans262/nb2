@@ -9,9 +9,15 @@ export const CheckController: Middleware = function (
 ): void {
   const { method, __relativePath } = req
 
-  if (!method) return next()
+  if (!method || !__relativePath) return next()
   const controller: Controller | undefined = CONTROLLER.find(
-    c => c.PATH_NAME === __relativePath
+    c => {
+      const def: boolean = c.PATH_NAME === __relativePath
+      const m0: RegExpMatchArray | null = c.PATH_NAME.match(/^([^\*]+)\/\*$/)
+      if (!m0) return def
+      const m1: RegExpMatchArray | null = __relativePath.match(new RegExp("^" + m0[1] + ".+$"))
+      return m1 ? true : def
+    }
   )
 
   if (

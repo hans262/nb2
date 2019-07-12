@@ -6,6 +6,7 @@ import TestGet from './TestGet';
 import TestJsonp from './TestJsonp';
 import TestPost from './TestPost';
 import UpFiles from './UpFiles';
+import TestRand from './TestRand';
 
 const CONTROLLER: Array<Controller> = [
   DownLoad,
@@ -14,7 +15,8 @@ const CONTROLLER: Array<Controller> = [
   TestGet,
   TestJsonp,
   TestPost,
-  UpFiles
+  UpFiles,
+  TestRand
 ]
 
 export default CONTROLLER

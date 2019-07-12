@@ -6,8 +6,9 @@ const conf_1 = require("../conf");
 const log_1 = require("../modules/log");
 const setHeader_1 = require("../utils/setHeader");
 exports.Mount = function (req, res, next) {
-    const { pathname, query } = url_1.parse(req.url, true);
-    req.__relativePath = pathname ? decodeURI(pathname) : '/';
+    const { url = '/' } = req;
+    const { pathname = '/', query } = url_1.parse(url, true);
+    req.__relativePath = decodeURI(pathname);
     req.__absolutePath = decodeURI(path_1.join(conf_1.ROOT, req.__relativePath));
     req.__query = query;
     setHeader_1.setHeader(res);

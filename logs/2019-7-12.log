@@ -1,0 +1,17 @@
+[2019-7-12 17:46:18] [10820] [WORKER_STARTUP] -> port: 5000
+[2019-7-12 17:46:21] [10820] [REQUEST] -> C:\
+[2019-7-12 17:46:21] [10820] [RES_DIR] -> C:\
+[2019-7-12 17:46:23] [10820] [REQUEST] -> C:\favicon.ico
+[2019-7-12 17:46:23] [10820] [RES_FILE] -> c:\LUO\develop\nicest\public\favicon.ico
+[2019-7-12 17:46:30] [10820] [REQUEST] -> C:\api\rand\dwqdwq
+[2019-7-12 17:46:30] [10820] [RES_404] -> C:\api\rand\dwqdwq
+[2019-7-12 17:47:24] [9200] [WORKER_STARTUP] -> port: 5000
+[2019-7-12 17:47:27] [9200] [REQUEST] -> C:\api\rand\dwqdwq
+[2019-7-12 17:50:03] [9540] [WORKER_STARTUP] -> port: 5000
+[2019-7-12 17:50:06] [9540] [REQUEST] -> C:\api\rand\dwqdwq
+[2019-7-12 17:50:17] [1760] [WORKER_STARTUP] -> port: 5000
+[2019-7-12 17:50:18] [1760] [REQUEST] -> C:\api\rand\dwqdwq
+[2019-7-12 17:50:18] [1760] [REQUEST] -> C:\favicon.ico
+[2019-7-12 17:50:18] [1760] [RES_FILE] -> c:\LUO\develop\nicest\public\favicon.ico
+[2019-7-12 17:50:24] [1760] [REQUEST] -> C:\api\rand\dwqdwq
+[2019-7-12 17:50:29] [1760] [REQUEST] -> C:\api\rand\dwqd2132
