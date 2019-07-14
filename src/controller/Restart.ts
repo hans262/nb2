@@ -1,5 +1,5 @@
 import { ServerResponse } from 'http';
-import { Controller, Method } from '../Interface/Controller';
+import { Controller } from '../Interface/Controller';
 import { Req } from '../Interface/Req';
 import { SEND } from '../modules/log';
 
