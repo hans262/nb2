@@ -186,7 +186,7 @@
         "signature": "1e750731260184acc777a636c964fccf86ec423418e06caeeae32d6932cd816e"
       },
       "d:/develop/nicest/src/controller/restart.ts": {
-        "version": "3402e18de8a923979e5848f3ca748ca48d39388dfabddbe5cbd731a606cd46a1",
+        "version": "ec39d7cbc819b83da8dcaf3a7d3f9c4112aaace690244a2e7cbcf49287e856fe",
         "signature": "dbd6a6fc9cfb50062d012ecc943e03264fc5a61c07477e3f124d21d561da0495"
       },
       "d:/develop/nicest/src/controller/shutdown.ts": {
@@ -358,8 +358,8 @@
         "signature": "52fdaec15df7da148f30a407210e8b48df8fcb452bec126fe30dc150dcf7dd54"
       },
       "d:/develop/nicest/src/modules/request.ts": {
-        "version": "ce3cd8ee0e279a5b78e1779e05155cf254e9fc23cbcead3d0f7443e792f71a58",
-        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
+        "version": "aa16508cf691d2fe1ab69ae96e51b09df8c0535f221a5571d23df70f4d9ecc55",
+        "signature": "afb90243a70b50c67f7a241351a11f2fd97992c77b1a7940efc4caac72cc9be6"
       },
       "d:/develop/nicest/src/modules/shell.ts": {
         "version": "de0dff6fb4f40d070e7afa6c2b93569726027651af2d79cc009c11777da53bdb",
@@ -1958,6 +1958,9 @@
       "d:/develop/nicest/src/modules/encrypt.ts": [
         "d:/develop/nicest/node_modules/@types/node/crypto.d.ts"
       ],
+      "d:/develop/nicest/src/modules/request.ts": [
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
       "d:/develop/nicest/node_modules/@types/node/globals.d.ts": [
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
@@ -2395,6 +2398,7 @@
       "d:/develop/nicest/src/test/typeguards.ts",
       "d:/develop/nicest/src/test/decorators.ts",
       "d:/develop/nicest/src/test/extends.ts",
+      "d:/develop/nicest/src/test/index.ts",
       "d:/develop/nicest/src/test/keyof.ts",
       "d:/develop/nicest/src/test/new.ts",
       "d:/develop/nicest/src/test/type.ts",
@@ -2417,8 +2421,7 @@
       "d:/develop/nicest/src/test/utilitytypes/returntype.ts",
       "d:/develop/nicest/src/test/generics/demo.ts",
       "d:/develop/nicest/src/test/generics/demo2.ts",
-      "d:/develop/nicest/src/test/generics/demo3.ts",
-      "d:/develop/nicest/src/test/index.ts"
+      "d:/develop/nicest/src/test/generics/demo3.ts"
     ]
   },
   "version": "3.5.1"
