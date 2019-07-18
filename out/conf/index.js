@@ -17,4 +17,5 @@ exports.USER = {
 exports.SESSION_EXPIRES = 20;
 exports.REACT_APP = false;
 exports.SOCKET_PORT = 8888;
+exports.API_PREFIX = '/api';
 //# sourceMappingURL=index.js.map

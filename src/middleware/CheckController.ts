@@ -3,6 +3,7 @@ import CONTROLLER from '../controller';
 import { Controller } from '../Interface/Controller';
 import { Req } from '../Interface/Req';
 import { Middleware } from '../Interface/Middleware';
+import { API_PREFIX } from '../conf';
 
 export const CheckController: Middleware = function (
   req: Req, res: ServerResponse, next: Function
@@ -10,12 +11,16 @@ export const CheckController: Middleware = function (
   const { method, __relativePath } = req
 
   if (!method || !__relativePath) return next()
+
+  const prefix: RegExpMatchArray | null = __relativePath.match(new RegExp('^' + API_PREFIX + '/'))
+  if (!prefix) return next()
+
   const controller: Controller | undefined = CONTROLLER.find(
     c => {
       const def: boolean = c.PATH_NAME === __relativePath
       const m0: RegExpMatchArray | null = c.PATH_NAME.match(/^([^\*]+)\/\*$/)
       if (!m0) return def
-      const m1: RegExpMatchArray | null = __relativePath.match(new RegExp("^" + m0[1] + ".+$"))
+      const m1: RegExpMatchArray | null = __relativePath.match(new RegExp('^' + m0[1] + '.+$'))
       return m1 ? true : def
     }
   )

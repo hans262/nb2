@@ -154,8 +154,8 @@
         "signature": "77da03b9bd7c032b8d79bfa058688fa0aaf9c4c1bd1f9158352bb594283bf75c"
       },
       "d:/develop/nicest/src/conf/index.ts": {
-        "version": "828bfc6c745783ad3861750021f2e490ffdc17b31654dfa4b310d97893ce9547",
-        "signature": "b3fb874dabf5cc7d50a27082543c11373e24290e9752ad8bad7c01fa33fe36d7"
+        "version": "1f25e56d7fdaab36b238fecdd87ff785ea1732d71b48bb1752a1988c1928bc38",
+        "signature": "c639f7c2648ca9cc6c3cc14757954ee2767af0a9366df8a58f116f99bba8866b"
       },
       "d:/develop/nicest/src/conf/packageconf.ts": {
         "version": "3db197a7a454097db18b4f057ff16b248c78feb2038b138b33549d0db078dc75",
@@ -222,7 +222,7 @@
         "signature": "dbb6f99e1977fe425977e4cb8ce0cc3a4406e422f7fec1189a8ab0ce51be54e8"
       },
       "d:/develop/nicest/src/middleware/checkcontroller.ts": {
-        "version": "3bb447a9214385d401a268499f5709a4f59fabb493d68765e5f7fda5cd60ff10",
+        "version": "432fcc09560943022568774011fbfa41e2999b4b7d5f49a147fcc0aa88664070",
         "signature": "842d254e7a95be07888759cc7c26163010e6bbea6dc66acc1666ae5c5e79ac86"
       },
       "d:/develop/nicest/src/interface/session.ts": {
@@ -973,6 +973,7 @@
         "d:/develop/nicest/src/interface/controller.ts",
         "d:/develop/nicest/src/interface/req.ts",
         "d:/develop/nicest/src/interface/middleware.ts",
+        "d:/develop/nicest/src/conf/index.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
