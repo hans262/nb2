@@ -21,4 +21,4 @@ export const SESSION_EXPIRES: number = 20
 export const REACT_APP: boolean = false
 export const SOCKET_PORT: number = 8888
 //api prefix
-export const API_PREFIX = '/api'
+export const API_PREFIX: string = '/api'

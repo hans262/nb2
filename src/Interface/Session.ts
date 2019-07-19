@@ -1,6 +1,4 @@
-export interface SessionStore {
-  [index: string]: Session
-}
+export type SessionStore = Map<string, Session>
 
 export interface Session {
   id: string

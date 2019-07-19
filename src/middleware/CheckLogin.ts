@@ -19,7 +19,7 @@ export const CheckLogin: Middleware = function (
 function check(req: Req, res: ServerResponse): boolean {
   const id: string | null = getCookie(req, KEY)
   if (!id) return false //id不存在
-  const ses: Session = select(id)//-查询
+  const ses: Session | undefined = select(id)//-查询
   if (!ses) {
     //session不存在
     setCookie({

@@ -1,7 +1,7 @@
 import { SESSION_EXPIRES } from '../conf';
 import { Session, SessionStore } from '../Interface/Session';
 
-export const SESSION: SessionStore = {}
+const SESSION: SessionStore = new Map()
 export const KEY: string = 'SESSION_ID'
 export const EXPIRES: number = SESSION_EXPIRES * 60 * 1000//20分钟
 
@@ -11,22 +11,25 @@ export function generate(): Session {
     expire: Date.now() + EXPIRES,
     count: 0
   }
-  SESSION[session.id] = session
+  SESSION.set(session.id, session)
   return session
 }
 
 export function reset(id: string): boolean {
-  const session: Session = SESSION[id]
+  const session: Session | undefined = SESSION.get(id)
   if (!session) return false
-  session.expire = Date.now() + EXPIRES
-  session.count++
+  SESSION.set(id, {
+    ...session,
+    expire: Date.now() + EXPIRES,
+    count: session.count + 1
+  })
   return true
 }
 
 export function remove(id: string): boolean {
-  return SESSION[id] ? delete SESSION[id] : false
+  return SESSION.delete(id)
 }
 
-export function select(id: string): Session {
-  return SESSION[id]
+export function select(id: string): Session | undefined {
+  return SESSION.get(id)
 }
