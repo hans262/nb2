@@ -1,57 +1,50 @@
 import { ClientRequest, IncomingMessage, request, RequestOptions } from 'http';
 
-export interface MyRequestOptions extends RequestOptions {
+export interface Request extends RequestOptions {
   body?: any
+  hostname: string
+  method: 'GET' | 'POST'
+  path: string
+  port: number
 }
+
+export interface Response {
+  statusCode: number
+  response: Buffer
+  url: string
+  method: string
+}
+
 /**
  * 请求器
- * @param config MyRequestOptions
+ * @param config Request
  */
-export function it(config: MyRequestOptions): Promise<Buffer> {
-  const { body, method } = config
-  return new Promise<Buffer>((
-    resolve: (value?: Buffer) => void,
-    reject: (reason?: Error | string) => void
+export function it(config: Request): Promise<Response> {
+  const { body, method, path } = config
+  if (!path.startsWith('/')) {
+    config.path = '/' + path
+  }
+  return new Promise<Response>((
+    resolve: (value: Response) => void,
+    reject: (reason: Error) => void
   ) => {
     const req: ClientRequest = request(config, (res: IncomingMessage) => {
-      const { statusCode } = res
-      if (!statusCode) {
-        return reject('statusCode no exist!')
-      }
-      if (statusCode < 200 || statusCode >= 400) {
-        return reject('statusCode = ' + statusCode)
-      }
+      const { statusCode = 400 } = res
       const chunks: Array<Buffer> = []
       res.on('data', (chunk: Buffer) => {
         chunks.push(chunk)
       })
       res.on('end', () => {
         const buffer: Buffer = Buffer.concat(chunks)
-        resolve(buffer)
+        resolve({ statusCode, response: buffer, url: path, method })
       })
     })
     req.on('error', (err: Error) => {
       reject(err)
     })
-    if (method && method === 'POST' && body) {
+    if (method === 'POST' && body) {
       req.write(body)
     }
     req.end()
   })
 }
-
-; (async () => {
-  try {
-    const ret = await it({
-      hostname: '127.0.0.1',
-      port: 5000,
-      path: '/api/post',
-      method: 'POST',
-      timeout: 1500,
-      body: 'hello world'
-    })
-    console.log(ret.toString())
-  } catch (err) {
-    console.log(err)
-  }
-})()

@@ -1,11 +1,10 @@
 import { fork, isMaster, on, Worker, workers } from 'cluster';
 import { cpus } from 'os';
 import { CLUSTER } from '../conf';
-import packageConf from '../conf/packageConf';
 import { Action, LOG } from '../modules/log';
 
 function master(): void {
-  LOG({ type: 'MASTER_STARTUP', msg: `Nicest version: ${packageConf.version}` })
+  LOG({ type: 'MASTER_STARTUP', msg: `Nicest version: 3.5.5` })
   CLUSTER ? cpus().forEach(() => fork()) : fork()
 
   on('message', (worker: Worker, action: Action) => {

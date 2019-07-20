@@ -10,7 +10,7 @@ exports.POOL = mysql_1.createPool({
     password: mysql_2.PASSWORD,
     database: mysql_2.DATABASE,
 });
-function QUERY(sql) {
+function Query(sql) {
     return new Promise((resolve, reject) => {
         exports.POOL.getConnection((err, connection) => {
             if (err)
@@ -22,10 +22,10 @@ function QUERY(sql) {
         });
     });
 }
-exports.QUERY = QUERY;
+exports.Query = Query;
 ;
 (async () => {
-    const users = await QUERY(`SELECT * FROM user ORDER BY password DESC`);
+    const users = await Query(`SELECT * FROM user ORDER BY password DESC`);
     console.log(users);
 })();
 //# sourceMappingURL=sql.js.map

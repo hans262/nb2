@@ -26,27 +26,26 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Test",
-      "program": "${workspaceFolder}/src/test/index.ts",
-      "outFiles": [
-        "${workspaceFolder}/out/**/*.js"
-      ]
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Test2",
-      "program": "${workspaceFolder}/src/test/index.ts",
-      "preLaunchTask": "out",
-      "outFiles": [
-        "${workspaceFolder}/out/**/*.js"
-      ]
-    },
-    {
-      "type": "node",
-      "request": "launch",
       "name": "Socket",
       "program": "${workspaceFolder}/src/server/socket.ts",
+      "outFiles": [
+        "${workspaceFolder}/out/**/*.js"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Test",
+      "program": "${workspaceFolder}/src/test.ts",
+      "outFiles": [
+        "${workspaceFolder}/out/**/*.js"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Doc",
+      "program": "${workspaceFolder}/src/doc/index.ts",
       "outFiles": [
         "${workspaceFolder}/out/**/*.js"
       ]

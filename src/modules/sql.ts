@@ -10,10 +10,10 @@ export const POOL: Pool = createPool({
 	database: DATABASE,
 })
 
-export function QUERY<T>(sql: string): Promise<T> {
+export function Query<T>(sql: string): Promise<T> {
 	return new Promise<T>((
-		resolve: (value?: T | PromiseLike<T>) => void,
-		reject: (reason?: MysqlError) => void
+		resolve: (value: T | PromiseLike<T>) => void,
+		reject: (reason: MysqlError) => void
 	) => {
 		POOL.getConnection((err: MysqlError, connection: PoolConnection) => {
 			if (err) return reject(err)
@@ -31,6 +31,6 @@ export function QUERY<T>(sql: string): Promise<T> {
 		username: string
 		passwrod: string
 	};
-	const users: User[] = await QUERY<User[]>(`SELECT * FROM user ORDER BY password DESC`)
+	const users: User[] = await Query<User[]>(`SELECT * FROM user ORDER BY password DESC`)
 	console.log(users)
 })()
