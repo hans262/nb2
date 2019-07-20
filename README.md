@@ -13,6 +13,8 @@ Configurable engineering container service is implemented by Node V8.
   npm start
   or
   npm run cluster
+  or
+  npm run test
 ```
 
 ## compile
