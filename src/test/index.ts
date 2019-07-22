@@ -1,4 +1,4 @@
-import { it } from "./modules/request";
+import { it } from "../modules/request";
 
 ; (async () => {
   try {

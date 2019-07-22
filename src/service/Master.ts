@@ -4,7 +4,7 @@ import { CLUSTER } from '../conf';
 import { Action, DEBUG } from '../modules/logger';
 
 function master(): void {
-  DEBUG({ type: 'MASTER_STARTUP', msg: `Nicest version: 3.5.5` })
+  DEBUG({ type: 'MASTER_STARTUP', msg: `Nicest version: 4.0.0` })
   CLUSTER ? cpus().forEach(() => fork()) : fork()
 
   on('message', (worker: Worker, action: Action) => {
@@ -50,7 +50,7 @@ export async function RUN(): Promise<void> {
   if (isMaster) {
     master()
   } else {
-    const { RUN } = await import('./worker')
+    const { RUN } = await import('./Worker')
     RUN()
   }
 }

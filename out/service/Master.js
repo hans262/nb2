@@ -5,7 +5,7 @@ const os_1 = require("os");
 const conf_1 = require("../conf");
 const logger_1 = require("../modules/logger");
 function master() {
-    logger_1.DEBUG({ type: 'MASTER_STARTUP', msg: `Nicest version: 3.5.5` });
+    logger_1.DEBUG({ type: 'MASTER_STARTUP', msg: `Nicest version: 4.0.0` });
     conf_1.CLUSTER ? os_1.cpus().forEach(() => cluster_1.fork()) : cluster_1.fork();
     cluster_1.on('message', (worker, action) => {
         const { type } = action;
@@ -47,9 +47,9 @@ async function RUN() {
         master();
     }
     else {
-        const { RUN } = await Promise.resolve().then(() => require('./worker'));
+        const { RUN } = await Promise.resolve().then(() => require('./Worker'));
         RUN();
     }
 }
 exports.RUN = RUN;
-//# sourceMappingURL=master.js.map
+//# sourceMappingURL=Master.js.map

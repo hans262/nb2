@@ -2,10 +2,20 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const http_1 = require("http");
 const conf_1 = require("../conf");
+const middleware_1 = require("../middleware");
 const logger_1 = require("../modules/logger");
-const Main_1 = require("./Main");
+function HANDLER(req, res) {
+    let i = 0;
+    function next() {
+        const middleware = middleware_1.default[i++];
+        if (!middleware)
+            return;
+        middleware(req, res, next);
+    }
+    next();
+}
 async function RUN() {
-    const server = http_1.createServer(Main_1.HANDLER);
+    const server = http_1.createServer(HANDLER);
     server.listen(conf_1.PORT, conf_1.HOST, () => {
         logger_1.DEBUG({ type: 'WORKER_STARTUP', msg: `port: ${conf_1.PORT}` });
     });
@@ -24,4 +34,4 @@ async function RUN() {
     });
 }
 exports.RUN = RUN;
-//# sourceMappingURL=worker.js.map
+//# sourceMappingURL=Worker.js.map

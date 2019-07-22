@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const request_1 = require("./modules/request");
+const request_1 = require("../modules/request");
 ;
 (async () => {
     try {
@@ -19,4 +19,4 @@ const request_1 = require("./modules/request");
         console.log(err);
     }
 })();
-//# sourceMappingURL=test.js.map
+//# sourceMappingURL=index.js.map

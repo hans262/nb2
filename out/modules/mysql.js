@@ -28,4 +28,4 @@ exports.Query = Query;
     const users = await Query(`SELECT * FROM user ORDER BY password DESC`);
     console.log(users);
 })();
-//# sourceMappingURL=sql.js.map
+//# sourceMappingURL=mysql.js.map

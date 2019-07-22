@@ -19,6 +19,8 @@ export const USER: User = {
 export const SESSION_EXPIRES: number = 20
 //is react app
 export const REACT_APP: boolean = false
-export const SOCKET_PORT: number = 8888
 //api prefix
 export const API_PREFIX: string = '/api'
+//port
+export const WEB_SOCKET_PORT: number = 8888
+export const SOCKET_SERVER_PORT: number = 9999

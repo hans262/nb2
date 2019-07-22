@@ -1,7 +1,18 @@
-import { createServer, Server } from 'http';
+import { createServer, IncomingMessage, Server, ServerResponse } from 'http';
 import { HOST, PORT } from '../conf';
+import { Middleware } from '../Interface/Middleware';
+import MIDDLEWARE from '../middleware';
 import { DEBUG } from '../modules/logger';
-import { HANDLER } from './Main';
+
+function HANDLER(req: IncomingMessage, res: ServerResponse): void {
+  let i = 0
+  function next(): void {
+    const middleware: Middleware = MIDDLEWARE[i++]
+    if (!middleware) return
+    middleware(req, res, next)
+  }
+  next()
+}
 
 export async function RUN(): Promise<void> {
   const server: Server = createServer(HANDLER)

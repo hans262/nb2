@@ -1,2 +1,2 @@
-import { RUN } from './server/worker';
+import { RUN } from './service/Worker';
 RUN()

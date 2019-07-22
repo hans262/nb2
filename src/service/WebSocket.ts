@@ -1,7 +1,7 @@
 import { Server } from 'ws';
-import { SOCKET_PORT } from '../conf';
+import { WEB_SOCKET_PORT } from '../conf';
 
-const wss: Server = new Server({ port: SOCKET_PORT })
+const wss: Server = new Server({ port: WEB_SOCKET_PORT })
 
 wss.on('connection', ws => {
   const userId = wss.clients.size

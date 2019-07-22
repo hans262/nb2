@@ -26,8 +26,17 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Socket",
-      "program": "${workspaceFolder}/src/server/socket.ts",
+      "name": "WebSocket",
+      "program": "${workspaceFolder}/src/service/WebSocket.ts",
+      "outFiles": [
+        "${workspaceFolder}/out/**/*.js"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "SocketServer",
+      "program": "${workspaceFolder}/src/service/SocketServer.ts",
       "outFiles": [
         "${workspaceFolder}/out/**/*.js"
       ]
@@ -36,7 +45,7 @@
       "type": "node",
       "request": "launch",
       "name": "Test",
-      "program": "${workspaceFolder}/src/test.ts",
+      "program": "${workspaceFolder}/src/test/index.ts",
       "outFiles": [
         "${workspaceFolder}/out/**/*.js"
       ]

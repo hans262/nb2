@@ -1,11 +1,12 @@
 {
   "name": "nicest",
-  "version": "3.5.5",
+  "version": "4.0.0",
   "description": "Configurable engineering container service is implemented by Node V8.",
   "scripts": {
-    "start": "node out/worker.js",
-    "cluster": "node out/cluster.js",
-    "socket": "node out/server/socket.js",
+    "start": "node out/Worker.js",
+    "cluster": "node out/Cluster.js",
+    "websocket": "node out/service/WebSocket.js",
+    "socketserver": "node out/service/SocketServer.js",
     "out": "tsc",
     "out:w": "tsc -watch"
   },
@@ -16,7 +17,6 @@
     "@types/node": "^12.0.8",
     "@types/ws": "^6.0.1",
     "mysql": "^2.16.0",
-    "socket-client-pool": "0.0.5",
     "ws": "^7.0.0"
   }
 }
