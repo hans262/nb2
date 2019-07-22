@@ -1,7 +1,7 @@
 import { createReadStream, ReadStream } from 'fs';
 import { ServerResponse } from 'http';
 import { Req } from '../Interface/Req';
-import { LOG } from '../modules/log';
+import { DEBUG } from '../modules/logger';
 
 export function ResZip(req: Req, res: ServerResponse): void {
   const { __absolutePath, __zipstream } = req
@@ -13,5 +13,5 @@ export function ResZip(req: Req, res: ServerResponse): void {
 
   res.writeHead(200, 'Compressed file')
   stream.pipe(__zipstream!).pipe(res)
-  LOG({ type: 'RES_ZIP', msg: __absolutePath! })
+  DEBUG({ type: 'RES_ZIP', msg: __absolutePath! })
 }

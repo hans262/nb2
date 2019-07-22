@@ -11,7 +11,7 @@ function getStream(): WriteStream {
   return createWriteStream(fileName, { flags: 'a' })
 }
 
-export function WRITE_LINE(data: string): void {
+function WRITE_LINE(data: string): void {
   //检查流是否存在
   if (!STREAM) {
     STREAM = getStream()
@@ -46,7 +46,7 @@ type MESSAGE_TYPE = {
   RES_DIR: string
 }
 
-export function LOG(massage: Message): void {
+export function DEBUG(massage: Message): void {
   const { type, msg, pid = process.pid } = massage
   const date: string = new Date().toLocaleString()
   const str: string = `[${date}] [${pid}] [${type}] -> ${msg}`

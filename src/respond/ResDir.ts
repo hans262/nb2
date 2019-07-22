@@ -3,7 +3,7 @@ import { ServerResponse } from 'http';
 import { join } from 'path';
 import { INDEX_PAGE } from '../conf';
 import { Req } from '../Interface/Req';
-import { LOG } from '../modules/log';
+import { DEBUG } from '../modules/logger';
 import { ResStatic } from './ResStatic';
 import { ResNotFound } from './ResNotFound';
 
@@ -15,7 +15,7 @@ export function ResDir(req: Req, res: ServerResponse): void {
       withFileTypes: true
     })
   } catch (error) {
-    LOG({ type: 'ERROR', msg: error.message })
+    DEBUG({ type: 'ERROR', msg: error.message })
     return ResNotFound(req, res)
   }
   if (dirents.find(d => d.name === INDEX_PAGE)) {
@@ -36,5 +36,5 @@ export function ResDir(req: Req, res: ServerResponse): void {
   res.setHeader('Content-Type', 'text/html; charset=utf-8')
   res.writeHead(200, 'Access Directory')
   res.end(content)
-  LOG({ type: 'RES_DIR', msg: __absolutePath! })
+  DEBUG({ type: 'RES_DIR', msg: __absolutePath! })
 }

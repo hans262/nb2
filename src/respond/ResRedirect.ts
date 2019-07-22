@@ -1,5 +1,5 @@
 import { ServerResponse } from 'http';
-import { LOG } from '../modules/log';
+import { DEBUG } from '../modules/logger';
 
 /**
  * 重定向 301永久/302临时
@@ -10,7 +10,7 @@ export function ResRedirect(redirect: Redirect): void {
   res.setHeader('Location', location)
   res.writeHead(code, reasonPhrase)
   res.end()
-  LOG({ type: 'REDIRECT', msg: location })
+  DEBUG({ type: 'REDIRECT', msg: location })
 }
 
 interface Redirect {

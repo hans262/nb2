@@ -3,9 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const cluster_1 = require("cluster");
 const os_1 = require("os");
 const conf_1 = require("../conf");
-const log_1 = require("../modules/log");
+const logger_1 = require("../modules/logger");
 function master() {
-    log_1.LOG({ type: 'MASTER_STARTUP', msg: `Nicest version: 3.5.5` });
+    logger_1.DEBUG({ type: 'MASTER_STARTUP', msg: `Nicest version: 3.5.5` });
     conf_1.CLUSTER ? os_1.cpus().forEach(() => cluster_1.fork()) : cluster_1.fork();
     cluster_1.on('message', (worker, action) => {
         const { type } = action;
@@ -33,10 +33,10 @@ function master() {
     cluster_1.on('exit', (worker, code) => {
         switch (code) {
             case 1:
-                log_1.LOG({ type: 'WORKET_EXIT', pid: worker.process.pid, msg: 'restart' });
+                logger_1.DEBUG({ type: 'WORKET_EXIT', pid: worker.process.pid, msg: 'restart' });
                 return cluster_1.fork();
             case 0:
-                return log_1.LOG({ type: 'WORKET_EXIT', pid: worker.process.pid, msg: 'shutdown' });
+                return logger_1.DEBUG({ type: 'WORKET_EXIT', pid: worker.process.pid, msg: 'shutdown' });
             default:
                 throw new Error('process exception');
         }

@@ -1,12 +1,12 @@
 import { createServer, Server } from 'http';
 import { HOST, PORT } from '../conf';
-import { LOG } from '../modules/log';
+import { DEBUG } from '../modules/logger';
 import { HANDLER } from './Main';
 
 export async function RUN(): Promise<void> {
   const server: Server = createServer(HANDLER)
   server.listen(PORT, HOST, () => {
-    LOG({ type: 'WORKER_STARTUP', msg: `port: ${PORT}` })
+    DEBUG({ type: 'WORKER_STARTUP', msg: `port: ${PORT}` })
   })
 
   process.on('message', action => {

@@ -12,7 +12,7 @@ export const POOL: Pool = createPool({
 
 export function Query<T>(sql: string): Promise<T> {
 	return new Promise<T>((
-		resolve: (value: T | PromiseLike<T>) => void,
+		resolve: (value: T) => void,
 		reject: (reason: MysqlError) => void
 	) => {
 		POOL.getConnection((err: MysqlError, connection: PoolConnection) => {

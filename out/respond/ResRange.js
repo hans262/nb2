@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
-const log_1 = require("../modules/log");
+const logger_1 = require("../modules/logger");
 const parseRange_1 = require("../utils/parseRange");
 function ResRange(req, res) {
     const { __absolutePath, __stats } = req;
@@ -14,14 +14,14 @@ function ResRange(req, res) {
         const stream = fs_1.createReadStream(__absolutePath, { start, end });
         res.writeHead(206, 'Partial content');
         stream.pipe(res);
-        log_1.LOG({ type: 'RES_RANGE', msg: __absolutePath });
+        logger_1.DEBUG({ type: 'RES_RANGE', msg: __absolutePath });
     }
     else {
         res.removeHeader('Content-Length');
         res.setHeader('Content-Range', `bytes=*/${size}`);
         res.writeHead(416, 'Out of range');
         res.end();
-        log_1.LOG({ type: 'RES_416', msg: __absolutePath });
+        logger_1.DEBUG({ type: 'RES_416', msg: __absolutePath });
     }
 }
 exports.ResRange = ResRange;

@@ -1,6 +1,6 @@
 import { ServerResponse } from 'http';
 import { Req } from '../Interface/Req';
-import { LOG } from '../modules/log';
+import { DEBUG } from '../modules/logger';
 
 export function ResNotFound(req: Req, res: ServerResponse): void {
   const { __absolutePath, __relativePath } = req
@@ -10,5 +10,5 @@ export function ResNotFound(req: Req, res: ServerResponse): void {
   	<h1>Not Found</h1>
   	<p>The requested URL ${__relativePath} was not found on this server.</p>
   `)
-  LOG({ type: 'RES_404', msg: __absolutePath! })
+  DEBUG({ type: 'RES_404', msg: __absolutePath! })
 }

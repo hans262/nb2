@@ -1,7 +1,7 @@
 import { createReadStream, ReadStream } from 'fs';
 import { ServerResponse } from 'http';
 import { Req } from '../Interface/Req';
-import { LOG } from '../modules/log';
+import { DEBUG } from '../modules/logger';
 import { parseRange, Range } from '../utils/parseRange';
 
 export function ResRange(req: Req, res: ServerResponse): void {
@@ -19,12 +19,12 @@ export function ResRange(req: Req, res: ServerResponse): void {
 
     res.writeHead(206, 'Partial content')
     stream.pipe(res)
-    LOG({ type: 'RES_RANGE', msg: __absolutePath! })
+    DEBUG({ type: 'RES_RANGE', msg: __absolutePath! })
   } else {
     res.removeHeader('Content-Length')
     res.setHeader('Content-Range', `bytes=*/${size}`)
     res.writeHead(416, 'Out of range')
     res.end()
-    LOG({ type: 'RES_416', msg: __absolutePath! })
+    DEBUG({ type: 'RES_416', msg: __absolutePath! })
   }
 }

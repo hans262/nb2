@@ -1,7 +1,7 @@
 import { ServerResponse } from 'http';
 import { Controller } from '../Interface/Controller';
 import { Req } from '../Interface/Req';
-import { SEND } from '../modules/log';
+import { SEND } from '../modules/logger';
 
 export default new class Restart implements Controller {
 	PATH_NAME: string = '/api/restart'

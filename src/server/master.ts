@@ -1,10 +1,10 @@
 import { fork, isMaster, on, Worker, workers } from 'cluster';
 import { cpus } from 'os';
 import { CLUSTER } from '../conf';
-import { Action, LOG } from '../modules/log';
+import { Action, DEBUG } from '../modules/logger';
 
 function master(): void {
-  LOG({ type: 'MASTER_STARTUP', msg: `Nicest version: 3.5.5` })
+  DEBUG({ type: 'MASTER_STARTUP', msg: `Nicest version: 3.5.5` })
   CLUSTER ? cpus().forEach(() => fork()) : fork()
 
   on('message', (worker: Worker, action: Action) => {
@@ -35,11 +35,11 @@ function master(): void {
     switch (code) {
       case 1:
         //重启
-        LOG({ type: 'WORKET_EXIT', pid: worker.process.pid, msg: 'restart' })
+        DEBUG({ type: 'WORKET_EXIT', pid: worker.process.pid, msg: 'restart' })
         return fork()
       case 0:
         //关机
-        return LOG({ type: 'WORKET_EXIT', pid: worker.process.pid, msg: 'shutdown' })
+        return DEBUG({ type: 'WORKET_EXIT', pid: worker.process.pid, msg: 'shutdown' })
       default:
         throw new Error('process exception')
     }

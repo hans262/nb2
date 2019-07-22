@@ -4,7 +4,7 @@ import { parse } from 'url';
 import { ROOT } from '../conf';
 import { Middleware } from '../Interface/Middleware';
 import { Req } from '../Interface/Req';
-import { LOG } from '../modules/log';
+import { DEBUG } from '../modules/logger';
 import { setHeader } from '../utils/setHeader';
 
 export const Mount: Middleware = function (
@@ -21,7 +21,7 @@ export const Mount: Middleware = function (
   //常用header
   setHeader(res)
 
-  LOG({ type: 'REQUEST', msg: req.__absolutePath })
+  DEBUG({ type: 'REQUEST', msg: req.__absolutePath })
 
   next()
 }
