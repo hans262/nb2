@@ -458,8 +458,8 @@
         "signature": "36d934303d774e21c249525b79da898814e54744c40a00c5cf3ef62f953f31d2"
       },
       "d:/develop/nicest/src/modules/socketpool.ts": {
-        "version": "f8a8b6990dfb16f3fa729dcdc2550a10f59d9445725084c31516439fb0501af9",
-        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
+        "version": "faf709fa2bd99e11e2a7d2ae95135eed2d1ddf8afef5328ada9d02452a0ce75b",
+        "signature": "1f13f8cb1d5c6b5d4a2b8cd80f02920087babb34507b4c169c6f978d67687c6b"
       },
       "d:/develop/nicest/src/modules/base64.ts": {
         "version": "64535939d77f90fec19ac5be32f6a24282e445513748a9c300e3a4ff449a1ce2",
@@ -1964,6 +1964,9 @@
       ],
       "d:/develop/nicest/src/modules/mysql.ts": [
         "d:/develop/nicest/node_modules/@types/mysql/index.d.ts"
+      ],
+      "d:/develop/nicest/src/modules/socketpool.ts": [
+        "d:/develop/nicest/node_modules/@types/node/net.d.ts"
       ],
       "d:/develop/nicest/src/modules/encrypt.ts": [
         "d:/develop/nicest/node_modules/@types/node/crypto.d.ts"

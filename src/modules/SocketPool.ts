@@ -1,81 +1,91 @@
 import { Socket, createConnection } from "net";
 
-interface SocketOptions {
-  max?: number
-  min?: number
+export interface SocketOptions {
   port: number
+  limit?: number
   host?: string
   timeout?: number
 }
-
-class SocketPool {
-  MAX_LIMIT: number = 10
-  MIN_LIMIT: number = 2
-  PORT: number = 9999
+/**
+ * 默认连接数为空，动态创建，随使用增加
+ */
+export class SocketPool {
+  PORT: number
+  LIMIT: number = 20
   HOST: string = '0.0.0.0'
+  TIMEOUT: number = 2000
   CONNECTIONS: Array<Socket> = []
-  current: number = 0
+  CURRENT: number = 0
   constructor(options: SocketOptions) {
-    const { max, min, port, host } = options
-    this.MAX_LIMIT = max ? max : this.MAX_LIMIT
-    this.MIN_LIMIT = min ? min : this.MIN_LIMIT
-    this.PORT = port ? port : this.PORT
+    const { port, limit, host, timeout } = options
+    this.PORT = port
+    this.LIMIT = limit ? limit : this.LIMIT
     this.HOST = host ? host : this.HOST
+    this.TIMEOUT = timeout ? timeout : this.TIMEOUT
+  }
 
-    this.initConnections()
-  }
-  initConnections(): void {
-    for (let i = 0; i < this.MIN_LIMIT; i++) {
-      this.createSocket(socket => {
-        this.current = this.CONNECTIONS.push(socket)
-      })
-    }
-  }
-  createSocket(fn: (socket: Socket) => void): void {
+  createSocket(fn: (err: Error | null, socket?: Socket) => void): void {
+    //创建
     const socket = createConnection({ port: this.PORT, host: this.HOST })
-    socket.on('connect', () => {
-      fn(socket)
-    })
-    socket.on('close', (err: boolean) => {
-      console.log(err)
+    //处理超时
+    const id = setTimeout(() => {
       socket.destroy()
+      fn(new Error('创建连接时连接超时，请稍后再试'))
+    }, this.TIMEOUT)
+    socket.on('connect', () => {
+      clearTimeout(id)
+      this.CURRENT++
+      fn(null, socket)
     })
     socket.on('error', (err: Error) => {
+      clearTimeout(id)
       console.log(err)
       socket.destroy()
+      fn(err)
     })
   }
 
   getConnection(fn: (err: Error | null, socket?: Socket) => void): void {
-    const socket = this.CONNECTIONS.shift()
+    const socket: Socket | undefined = this.CONNECTIONS.shift()
     if (!socket) {
-      if (this.current >= this.MAX_LIMIT) {
-        return fn(new Error('超出最大连接数'))
+      //判断当前socket是否溢出，然后抛出错误
+      if (this.CURRENT >= this.LIMIT) {
+        return fn(new Error('超出了最大连接数，无法创建新的连接，请等待再继续获取连接。。'))
       }
-      this.createSocket(socket => {
+      //没有溢出，创建一个新的
+      return this.createSocket((err: Error | null, socket: Socket | undefined) => {
+        if (err) return fn(err)
         fn(null, socket)
       })
-    } else {
-      this.current -= 1
-      fn(null, socket)
     }
+    //判断是否有效，然后创建一个新的
+    if (!socket.readable || !socket.writable) {
+      socket.destroy()
+      this.CURRENT--
+      return this.createSocket((err: Error | null, socket: Socket | undefined) => {
+        if (err) return fn(err)
+        fn(null, socket)
+      })
+    }
+    //成功拿到socket
+    fn(null, socket)
   }
 
+  //必须释放连接
   release(socket: Socket): void {
-    this.current = this.CONNECTIONS.push(socket)
+    this.CONNECTIONS.push(socket)
   }
 }
 
-//初始化创建过程为异步
-const sp = new SocketPool({ port: 9999 })
-
-setTimeout(() => {
-  sp.getConnection((err: Error | null, socket: Socket | undefined) => {
-    if (err || !socket) return
-    socket.write('hello')
-    socket.on('data', data => {
-      console.log(data.toString())
-      sp.release(socket)
-    })
+/**
+ * 测试
+ */
+const POOL: SocketPool = new SocketPool({ port: 9999 })
+POOL.getConnection((err: Error | null, socket: Socket | undefined) => {
+  if (err || !socket) return
+  socket.write('hello')
+  socket.on('data', data => {
+    console.log(data.toString())
+    POOL.release(socket)
   })
-}, 1000)
+})

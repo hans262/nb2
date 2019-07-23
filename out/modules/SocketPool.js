@@ -3,69 +3,71 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const net_1 = require("net");
 class SocketPool {
     constructor(options) {
-        this.MAX_LIMIT = 10;
-        this.MIN_LIMIT = 2;
-        this.PORT = 9999;
+        this.LIMIT = 20;
         this.HOST = '0.0.0.0';
+        this.TIMEOUT = 2000;
         this.CONNECTIONS = [];
-        this.current = 0;
-        const { max, min, port, host } = options;
-        this.MAX_LIMIT = max ? max : this.MAX_LIMIT;
-        this.MIN_LIMIT = min ? min : this.MIN_LIMIT;
-        this.PORT = port ? port : this.PORT;
+        this.CURRENT = 0;
+        const { port, limit, host, timeout } = options;
+        this.PORT = port;
+        this.LIMIT = limit ? limit : this.LIMIT;
         this.HOST = host ? host : this.HOST;
-        this.initConnections();
-    }
-    initConnections() {
-        for (let i = 0; i < this.MIN_LIMIT; i++) {
-            this.createSocket(socket => {
-                this.current = this.CONNECTIONS.push(socket);
-            });
-        }
+        this.TIMEOUT = timeout ? timeout : this.TIMEOUT;
     }
     createSocket(fn) {
         const socket = net_1.createConnection({ port: this.PORT, host: this.HOST });
-        socket.on('connect', () => {
-            fn(socket);
-        });
-        socket.on('close', (err) => {
-            console.log(err);
+        const id = setTimeout(() => {
             socket.destroy();
+            fn(new Error('创建连接时连接超时，请稍后再试'));
+        }, this.TIMEOUT);
+        socket.on('connect', () => {
+            clearTimeout(id);
+            this.CURRENT++;
+            fn(null, socket);
         });
         socket.on('error', (err) => {
+            clearTimeout(id);
             console.log(err);
             socket.destroy();
+            fn(err);
         });
     }
     getConnection(fn) {
         const socket = this.CONNECTIONS.shift();
         if (!socket) {
-            if (this.current >= this.MAX_LIMIT) {
-                return fn(new Error('超出最大连接数'));
+            if (this.CURRENT >= this.LIMIT) {
+                return fn(new Error('超出了最大连接数，无法创建新的连接，请等待再继续获取连接。。'));
             }
-            this.createSocket(socket => {
+            return this.createSocket((err, socket) => {
+                if (err)
+                    return fn(err);
                 fn(null, socket);
             });
         }
-        else {
-            this.current -= 1;
-            fn(null, socket);
+        if (!socket.readable || !socket.writable) {
+            socket.destroy();
+            this.CURRENT--;
+            return this.createSocket((err, socket) => {
+                if (err)
+                    return fn(err);
+                fn(null, socket);
+            });
         }
+        fn(null, socket);
     }
     release(socket) {
-        this.current = this.CONNECTIONS.push(socket);
+        this.CONNECTIONS.push(socket);
     }
 }
-const sp = new SocketPool({ port: 9999 });
-setTimeout(() => {
-    sp.getConnection((err, socket) => {
-        if (err || !socket)
-            return;
-        socket.write('hello');
-        socket.on('data', data => {
-            console.log(data.toString());
-            sp.release(socket);
-        });
+exports.SocketPool = SocketPool;
+const POOL = new SocketPool({ port: 9999 });
+POOL.getConnection((err, socket) => {
+    if (err || !socket)
+        return;
+    socket.write('hello');
+    socket.on('data', data => {
+        console.log(data.toString());
+        POOL.release(socket);
     });
-}, 1000);
+});
 //# sourceMappingURL=SocketPool.js.map
