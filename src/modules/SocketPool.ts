@@ -27,21 +27,20 @@ export class SocketPool {
   createSocket(fn: (err: Error | null, socket?: Socket) => void): void {
     //创建
     const socket = createConnection({ port: this.PORT, host: this.HOST })
-    //处理超时
-    const id = setTimeout(() => {
-      socket.destroy()
-      fn(new Error('创建连接时连接超时，请稍后再试'))
-    }, this.TIMEOUT)
+    socket.setTimeout(this.TIMEOUT)
+
     socket.on('connect', () => {
-      clearTimeout(id)
       this.CURRENT++
       fn(null, socket)
     })
     socket.on('error', (err: Error) => {
-      clearTimeout(id)
-      console.log(err)
       socket.destroy()
       fn(err)
+    })
+    //处理超时
+    socket.on('timeout', () => {
+      socket.destroy()
+      fn(new Error('创建连接时连接超时，请稍后再试'))
     })
   }
 
