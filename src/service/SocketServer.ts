@@ -16,3 +16,7 @@ server.on('error', (err: Error) => {
 server.listen(SOCKET_SERVER_PORT, () => {
   console.log('socket server is listening on port -> ' + SOCKET_SERVER_PORT)
 })
+
+process.on('uncaughtException', err =>{
+  console.log(err)
+})
