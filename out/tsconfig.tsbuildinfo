@@ -458,7 +458,7 @@
         "signature": "36d934303d774e21c249525b79da898814e54744c40a00c5cf3ef62f953f31d2"
       },
       "d:/develop/nicest/src/modules/socketpool.ts": {
-        "version": "faf709fa2bd99e11e2a7d2ae95135eed2d1ddf8afef5328ada9d02452a0ce75b",
+        "version": "f7c626d8146749abd3a56c79212ecacc60b364d77295f7677528dfa354980d28",
         "signature": "1f13f8cb1d5c6b5d4a2b8cd80f02920087babb34507b4c169c6f978d67687c6b"
       },
       "d:/develop/nicest/src/modules/base64.ts": {
@@ -670,7 +670,7 @@
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
       },
       "d:/develop/nicest/src/service/socketserver.ts": {
-        "version": "717c7d6c13f711f7ee82db547699825252ccc4022b548a4987765c2abdc8f711",
+        "version": "54e0493185def0c1d7a155bced1c9a2947bb550baea9538082f5bfe79d036451",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
       },
       "d:/develop/nicest/node_modules/@types/ws/index.d.ts": {
@@ -1832,125 +1832,13 @@
       "d:/develop/nicest/src/conf/index.ts": [
         "d:/develop/nicest/src/interface/user.ts"
       ],
-      "d:/develop/nicest/src/middleware/index.ts": [
-        "d:/develop/nicest/src/interface/middleware.ts"
-      ],
-      "d:/develop/nicest/src/middleware/mount.ts": [
-        "d:/develop/nicest/src/interface/middleware.ts"
-      ],
-      "d:/develop/nicest/src/utils/setheader.ts": [
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "d:/develop/nicest/src/respond/resstatic.ts": [
-        "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "d:/develop/nicest/src/middleware/resfavicon.ts": [
-        "d:/develop/nicest/src/interface/middleware.ts"
-      ],
-      "d:/develop/nicest/src/middleware/later.ts": [
-        "d:/develop/nicest/src/interface/middleware.ts"
-      ],
-      "d:/develop/nicest/src/respond/resdir.ts": [
-        "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "d:/develop/nicest/src/respond/resindex.ts": [
-        "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "d:/develop/nicest/src/respond/resverify.ts": [
-        "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "d:/develop/nicest/src/utils/zip.ts": [
-        "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "d:/develop/nicest/src/middleware/gettoken.ts": [
-        "d:/develop/nicest/src/interface/middleware.ts"
-      ],
-      "d:/develop/nicest/src/modules/session.ts": [
-        "d:/develop/nicest/src/interface/session.ts"
-      ],
-      "d:/develop/nicest/src/middleware/checklogin.ts": [
-        "d:/develop/nicest/src/interface/middleware.ts"
-      ],
-      "d:/develop/nicest/src/middleware/checkcontroller.ts": [
-        "d:/develop/nicest/src/interface/middleware.ts"
-      ],
-      "d:/develop/nicest/src/controller/download.ts": [
-        "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "d:/develop/nicest/src/controller/index.ts": [
-        "d:/develop/nicest/src/interface/controller.ts"
-      ],
-      "d:/develop/nicest/src/respond/reszip.ts": [
-        "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "d:/develop/nicest/src/respond/resrange.ts": [
-        "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "d:/develop/nicest/src/respond/resfile.ts": [
-        "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "d:/develop/nicest/src/respond/rescache.ts": [
-        "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "d:/develop/nicest/src/respond/resnotfound.ts": [
-        "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "d:/develop/nicest/src/respond/resredirect.ts": [
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "d:/develop/nicest/src/controller/shutdown.ts": [
-        "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "d:/develop/nicest/src/controller/restart.ts": [
-        "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
       "d:/develop/nicest/src/interface/req.ts": [
         "d:/develop/nicest/node_modules/@types/node/http.d.ts",
         "d:/develop/nicest/node_modules/@types/node/fs.d.ts",
         "d:/develop/nicest/node_modules/@types/node/querystring.d.ts",
         "d:/develop/nicest/node_modules/@types/node/zlib.d.ts"
       ],
-      "d:/develop/nicest/src/middleware/loginpage.ts": [
-        "d:/develop/nicest/src/interface/middleware.ts"
-      ],
-      "d:/develop/nicest/src/utils/cache.ts": [
-        "d:/develop/nicest/node_modules/@types/node/fs.d.ts",
-        "d:/develop/nicest/src/interface/req.ts"
-      ],
-      "d:/develop/nicest/src/utils/cookie.ts": [
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts",
-        "d:/develop/nicest/src/interface/req.ts"
-      ],
-      "d:/develop/nicest/src/controller/testrand.ts": [
-        "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "d:/develop/nicest/src/controller/upfiles.ts": [
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts",
-        "d:/develop/nicest/src/interface/req.ts"
-      ],
-      "d:/develop/nicest/src/controller/testpost.ts": [
-        "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "d:/develop/nicest/src/controller/testjsonp.ts": [
-        "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "d:/develop/nicest/src/controller/testget.ts": [
+      "d:/develop/nicest/src/interface/middleware.ts": [
         "d:/develop/nicest/src/interface/req.ts",
         "d:/develop/nicest/node_modules/@types/node/http.d.ts"
       ],
@@ -1958,12 +1846,121 @@
         "d:/develop/nicest/src/interface/req.ts",
         "d:/develop/nicest/node_modules/@types/node/http.d.ts"
       ],
-      "d:/develop/nicest/src/interface/middleware.ts": [
+      "d:/develop/nicest/src/controller/download.ts": [
         "d:/develop/nicest/src/interface/req.ts",
         "d:/develop/nicest/node_modules/@types/node/http.d.ts"
       ],
-      "d:/develop/nicest/src/modules/mysql.ts": [
-        "d:/develop/nicest/node_modules/@types/mysql/index.d.ts"
+      "d:/develop/nicest/src/controller/restart.ts": [
+        "d:/develop/nicest/src/interface/req.ts",
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "d:/develop/nicest/src/controller/shutdown.ts": [
+        "d:/develop/nicest/src/interface/req.ts",
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "d:/develop/nicest/src/controller/testget.ts": [
+        "d:/develop/nicest/src/interface/req.ts",
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "d:/develop/nicest/src/controller/testjsonp.ts": [
+        "d:/develop/nicest/src/interface/req.ts",
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "d:/develop/nicest/src/controller/testpost.ts": [
+        "d:/develop/nicest/src/interface/req.ts",
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "d:/develop/nicest/src/controller/upfiles.ts": [
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts",
+        "d:/develop/nicest/src/interface/req.ts"
+      ],
+      "d:/develop/nicest/src/controller/testrand.ts": [
+        "d:/develop/nicest/src/interface/req.ts",
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "d:/develop/nicest/src/controller/index.ts": [
+        "d:/develop/nicest/src/interface/controller.ts"
+      ],
+      "d:/develop/nicest/src/middleware/checkcontroller.ts": [
+        "d:/develop/nicest/src/interface/middleware.ts"
+      ],
+      "d:/develop/nicest/src/respond/resredirect.ts": [
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "d:/develop/nicest/src/modules/session.ts": [
+        "d:/develop/nicest/src/interface/session.ts"
+      ],
+      "d:/develop/nicest/src/utils/cookie.ts": [
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts",
+        "d:/develop/nicest/src/interface/req.ts"
+      ],
+      "d:/develop/nicest/src/middleware/checklogin.ts": [
+        "d:/develop/nicest/src/interface/middleware.ts"
+      ],
+      "d:/develop/nicest/src/middleware/gettoken.ts": [
+        "d:/develop/nicest/src/interface/middleware.ts"
+      ],
+      "d:/develop/nicest/src/respond/resnotfound.ts": [
+        "d:/develop/nicest/src/interface/req.ts",
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "d:/develop/nicest/src/respond/resdir.ts": [
+        "d:/develop/nicest/src/interface/req.ts",
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "d:/develop/nicest/src/utils/cache.ts": [
+        "d:/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "d:/develop/nicest/src/interface/req.ts"
+      ],
+      "d:/develop/nicest/src/utils/zip.ts": [
+        "d:/develop/nicest/src/interface/req.ts",
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "d:/develop/nicest/src/respond/rescache.ts": [
+        "d:/develop/nicest/src/interface/req.ts",
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "d:/develop/nicest/src/respond/resfile.ts": [
+        "d:/develop/nicest/src/interface/req.ts",
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "d:/develop/nicest/src/respond/resrange.ts": [
+        "d:/develop/nicest/src/interface/req.ts",
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "d:/develop/nicest/src/respond/reszip.ts": [
+        "d:/develop/nicest/src/interface/req.ts",
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "d:/develop/nicest/src/respond/resverify.ts": [
+        "d:/develop/nicest/src/interface/req.ts",
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "d:/develop/nicest/src/respond/resindex.ts": [
+        "d:/develop/nicest/src/interface/req.ts",
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "d:/develop/nicest/src/respond/resstatic.ts": [
+        "d:/develop/nicest/src/interface/req.ts",
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "d:/develop/nicest/src/middleware/later.ts": [
+        "d:/develop/nicest/src/interface/middleware.ts"
+      ],
+      "d:/develop/nicest/src/middleware/loginpage.ts": [
+        "d:/develop/nicest/src/interface/middleware.ts"
+      ],
+      "d:/develop/nicest/src/utils/setheader.ts": [
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "d:/develop/nicest/src/middleware/mount.ts": [
+        "d:/develop/nicest/src/interface/middleware.ts"
+      ],
+      "d:/develop/nicest/src/middleware/resfavicon.ts": [
+        "d:/develop/nicest/src/interface/middleware.ts"
+      ],
+      "d:/develop/nicest/src/middleware/index.ts": [
+        "d:/develop/nicest/src/interface/middleware.ts"
       ],
       "d:/develop/nicest/src/modules/socketpool.ts": [
         "d:/develop/nicest/node_modules/@types/node/net.d.ts"
@@ -1976,6 +1973,211 @@
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "d:/develop/nicest/node_modules/@types/node/assert.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/async_hooks.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/buffer.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/events/index.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/child_process.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/events.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/net.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/stream.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/cluster.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/child_process.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/events.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/net.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/console.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/constants.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/crypto.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/stream.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/dgram.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/net.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/dns.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/events.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/dns.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/domain.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/events.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/events.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/fs.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/stream.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/events.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/url.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/http.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/events.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/stream.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/url.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/net.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/http2.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/events.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/net.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/stream.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/tls.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/url.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/https.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/tls.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/events.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/url.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/inspector.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/events.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/module.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/net.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/stream.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/events.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/dns.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/os.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/path.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/perf_hooks.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/async_hooks.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/process.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/punycode.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/querystring.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/readline.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/events.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/stream.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/repl.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/readline.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/vm.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/stream.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/events.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/string_decoder.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/timers.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/tls.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/crypto.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/dns.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/net.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/stream.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/trace_events.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/tty.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/net.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/url.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/querystring.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/util.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/v8.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/stream.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/vm.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/worker_threads.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/vm.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/events.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/stream.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/zlib.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/stream.d.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -2022,20 +2224,19 @@
         "d:/develop/nicest/node_modules/@types/node/zlib.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/node/ts3.2/globals.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/globals.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "d:/develop/nicest/node_modules/@types/node/ts3.2/index.d.ts": [
         "d:/develop/nicest/node_modules/@types/node/base.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/globals.d.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/ws/index.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/events.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/https.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/net.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/index.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "d:/develop/nicest/node_modules/@types/mysql/index.d.ts": [
         "d:/develop/nicest/node_modules/@types/node/stream.d.ts",
@@ -2044,219 +2245,18 @@
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/develop/nicest/node_modules/@types/node/async_hooks.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/perf_hooks.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/async_hooks.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/buffer.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/events/index.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/child_process.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/events.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/net.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/stream.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/cluster.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/child_process.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/events.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/net.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/console.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/constants.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/crypto.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/stream.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/tls.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/crypto.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/dns.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/net.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/stream.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/https.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/tls.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/events.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/url.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/http2.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/events.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/fs.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/net.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/stream.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/tls.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/url.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/dgram.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/net.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/dns.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/events.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/dns.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/net.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/stream.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/events.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/dns.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/tty.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/net.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/http.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/events.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/stream.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/url.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/net.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      "d:/develop/nicest/src/modules/mysql.ts": [
+        "d:/develop/nicest/node_modules/@types/mysql/index.d.ts"
       ],
       "d:/develop/nicest/src/modules/request.ts": [
         "d:/develop/nicest/node_modules/@types/node/http.d.ts"
       ],
-      "d:/develop/nicest/node_modules/@types/node/domain.d.ts": [
+      "d:/develop/nicest/node_modules/@types/ws/index.d.ts": [
         "d:/develop/nicest/node_modules/@types/node/events.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/events.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/worker_threads.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/vm.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/events.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/stream.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/stream.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/events.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/zlib.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/stream.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/v8.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/stream.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/readline.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/events.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/stream.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/repl.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/readline.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/vm.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/fs.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/stream.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/events.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/url.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/inspector.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/events.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/module.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/os.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/path.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/process.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/punycode.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/querystring.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/url.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/querystring.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/string_decoder.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/timers.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/trace_events.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/util.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/ts3.2/globals.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/globals.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts"
-      ],
-      "d:/develop/nicest/node_modules/@types/node/vm.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/https.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/net.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/index.d.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ]
@@ -2429,10 +2429,10 @@
       "d:/develop/nicest/src/modules/request.ts",
       "d:/develop/nicest/src/modules/shell.ts",
       "d:/develop/nicest/src/modules/zipfile.ts",
-      "d:/develop/nicest/src/service/socketserver.ts",
       "d:/develop/nicest/node_modules/@types/ws/index.d.ts",
       "d:/develop/nicest/src/service/websocket.ts",
-      "d:/develop/nicest/src/test/index.ts"
+      "d:/develop/nicest/src/test/index.ts",
+      "d:/develop/nicest/src/service/socketserver.ts"
     ]
   },
   "version": "3.5.1"

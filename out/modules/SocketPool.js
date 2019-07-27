@@ -26,8 +26,6 @@ class SocketPool {
             fn(null, socket);
         });
         socket.on('error', (err) => {
-            clearTimeout(id);
-            console.log(err);
             socket.destroy();
             fn(err);
         });
