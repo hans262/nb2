@@ -13,7 +13,7 @@ export function ResRedirect(redirect: Redirect): void {
   DEBUG({ type: 'REDIRECT', msg: location })
 }
 
-interface Redirect {
+export interface Redirect {
   res: ServerResponse
   location: string
   code: number

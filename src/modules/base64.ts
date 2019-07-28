@@ -2,13 +2,13 @@
  * base64编码
  * @param arg 
  */
-export function toBase64(arg: string): string {
+export function encodeBase64(arg: string): string {
   return Buffer.from(arg).toString('base64')
 }
 /**
  * base64解码
  * @param arg 
  */
-export function base64ToString(arg: string): string {
+export function decodeBase64(arg: string): string {
   return Buffer.from(arg, 'base64').toString()
 }

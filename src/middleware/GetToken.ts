@@ -4,8 +4,8 @@ import { USER } from '../conf';
 import { Middleware } from '../Interface/Middleware';
 import { Req } from '../Interface/Req';
 import { Session } from '../Interface/Session';
-import { ResRedirect } from '../respond/ResRedirect';
 import { generate, KEY } from '../modules/Session';
+import { ResRedirect } from '../respond/ResRedirect';
 import { setCookie } from '../utils/cookie';
 
 export const GetToken: Middleware = function (

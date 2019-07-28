@@ -14,4 +14,4 @@ function publicHeader(res) {
     }
 }
 exports.publicHeader = publicHeader;
-//# sourceMappingURL=setHeader.js.map
+//# sourceMappingURL=publicHeader.js.map

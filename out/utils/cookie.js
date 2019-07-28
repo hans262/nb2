@@ -27,9 +27,9 @@ function setCookie(cookie) {
     const cur = pairs.join('; ');
     const pre = res.getHeader('set-cookie');
     if (pre) {
-        typeof pre === 'string' ?
-            res.setHeader('Set-Cookie', [pre, cur]) :
-            res.setHeader('Set-Cookie', [...pre, cur]);
+        Array.isArray(pre) ?
+            res.setHeader('Set-Cookie', [...pre, cur]) :
+            res.setHeader('Set-Cookie', [pre, cur]);
     }
     else {
         res.setHeader('Set-Cookie', [cur]);

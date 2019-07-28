@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-function toBase64(arg) {
+function encodeBase64(arg) {
     return Buffer.from(arg).toString('base64');
 }
-exports.toBase64 = toBase64;
-function base64ToString(arg) {
+exports.encodeBase64 = encodeBase64;
+function decodeBase64(arg) {
     return Buffer.from(arg, 'base64').toString();
 }
-exports.base64ToString = base64ToString;
+exports.decodeBase64 = decodeBase64;
 //# sourceMappingURL=base64.js.map

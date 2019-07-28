@@ -7,7 +7,7 @@ let STREAM = null;
 let CURRENT_DAY;
 function getStream() {
     CURRENT_DAY = new Date().toLocaleDateString();
-    const fileName = path_1.join(path_2.LOG_PATH, `/${CURRENT_DAY}.log`);
+    const fileName = path_1.join(path_2.LOGS_PATH, `/${CURRENT_DAY}.log`);
     return fs_1.createWriteStream(fileName, { flags: 'a' });
 }
 function WRITE_LINE(data) {

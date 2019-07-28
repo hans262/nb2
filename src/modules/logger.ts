@@ -1,13 +1,13 @@
 import { createWriteStream, WriteStream } from 'fs';
 import { join } from 'path';
-import { LOG_PATH } from '../utils/path';
+import { LOGS_PATH } from '../utils/path';
 
 let STREAM: WriteStream | null = null;
 let CURRENT_DAY: string;
 
 function getStream(): WriteStream {
   CURRENT_DAY = new Date().toLocaleDateString()
-  const fileName: string = join(LOG_PATH, `/${CURRENT_DAY}.log`)
+  const fileName: string = join(LOGS_PATH, `/${CURRENT_DAY}.log`)
   return createWriteStream(fileName, { flags: 'a' })
 }
 

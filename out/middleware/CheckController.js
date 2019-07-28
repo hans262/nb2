@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const controller_1 = require("../controller");
 const conf_1 = require("../conf");
+const controller_1 = require("../controller");
 exports.CheckController = function (req, res, next) {
     const { method, __relativePath } = req;
     if (!method || !__relativePath)

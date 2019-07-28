@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const querystring_1 = require("querystring");
 const conf_1 = require("../conf");
-const ResRedirect_1 = require("../respond/ResRedirect");
 const Session_1 = require("../modules/Session");
+const ResRedirect_1 = require("../respond/ResRedirect");
 const cookie_1 = require("../utils/cookie");
 exports.GetToken = function (req, res, next) {
     const { method, __relativePath } = req;

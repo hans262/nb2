@@ -158,11 +158,11 @@
         "signature": "68eb143f7bc12887603b41066c1e73f1701463e3b21bf8394dcb967ee829eff1"
       },
       "d:/develop/nicest/src/utils/path.ts": {
-        "version": "d38acbc742df5e63ba42c44a2b2e99907ca5895791a9faf9ac4d4ba89495ad86",
-        "signature": "54bef095a0dc97bb6125db50aa4aaee26eaf5dd351d4fa41e67aae61d1fb9743"
+        "version": "276a949adba96655034bfb169ed360b4223fd9cc1fc30d8c089de48a126b2576",
+        "signature": "0fab0190dd04d590ecddcd6c323f707ee97c2808badf8122220c36b241d2075e"
       },
       "d:/develop/nicest/src/modules/logger.ts": {
-        "version": "81c357d523a9326b6c1ea37de76c60cd372134406ad2c828d02b5ff4a6a62fb9",
+        "version": "7263705d7ee9c3fb62274fd81da1b2cd691c5333640ad7a444f5d91f56ce5c3e",
         "signature": "8dbbcc1c4e5b52338196d2da01a836b1b7113dbb9f8918d0dd335db32e78b5e5"
       },
       "d:/develop/nicest/src/interface/req.ts": {
@@ -218,31 +218,31 @@
         "signature": "dbb6f99e1977fe425977e4cb8ce0cc3a4406e422f7fec1189a8ab0ce51be54e8"
       },
       "d:/develop/nicest/src/middleware/checkcontroller.ts": {
-        "version": "432fcc09560943022568774011fbfa41e2999b4b7d5f49a147fcc0aa88664070",
+        "version": "ff0808d726a7d674744c2e4cce0613f9f5a15cb58d789dcf714f09e477997e4c",
         "signature": "842d254e7a95be07888759cc7c26163010e6bbea6dc66acc1666ae5c5e79ac86"
       },
       "d:/develop/nicest/src/interface/session.ts": {
         "version": "4d6df59a93c02f4228b9130f530561957338b1d85f4560c0c5f8f9f9aea6f413",
         "signature": "f3d6ca01394b464ee49f182e57b8abbecd0ceaa4829a404fc2e952609f097256"
       },
-      "d:/develop/nicest/src/respond/resredirect.ts": {
-        "version": "91210471b1da1eda3a45dae12485d7dc4dc80b42ab8fee1ddf0b86606e1575f6",
-        "signature": "3655d2608b640c156db880745585165c5880158959fd409508105198c258e89c"
-      },
       "d:/develop/nicest/src/modules/session.ts": {
         "version": "b9e7de449fc2d8bb62075dbf5a3b547ff317a96ee644c0d9c4e5e994412924bd",
         "signature": "bda74088d4d32c453e492b26be774e66d7c54761bae9308a6d284227f7ce04fe"
       },
+      "d:/develop/nicest/src/respond/resredirect.ts": {
+        "version": "30f12f01e230a07397bd0db0861157ce748763400241a5ceb890a8b3fd2d3a05",
+        "signature": "80d01af5c3f0a74f958a696211cc193145b1b358d3e9f35688dc18f21c3583fc"
+      },
       "d:/develop/nicest/src/utils/cookie.ts": {
-        "version": "c822f28596508ebe992cff7b07af482ff9b6cc7e4b886b86bfc6952ff48843ca",
+        "version": "6a3e752a9dd4ffbf3958ec6ea051ad94cc4629d0a11f3284306a8e692f00421e",
         "signature": "06b8b47b4b6bc69ecffe7c9469bbf9715472cf2d4abf011953bda87eee2e82f1"
       },
       "d:/develop/nicest/src/middleware/checklogin.ts": {
-        "version": "5e5e678ec99f2a4a3ada60a9bc89ee0faf3e9405e4b4090b88796b1ba79e37fb",
+        "version": "acfd63933c4f6b3713242eb6587ab9f3fa712f56bb99297443d4f18286865c2d",
         "signature": "b2440a620aab5aaedadc98adfde0c48d8096fb1b2ec21b4715e4ef6c69f2cae9"
       },
       "d:/develop/nicest/src/middleware/gettoken.ts": {
-        "version": "6426a4de44fdf699922804af7371437c656a8213a30149488743d6d7fa837183",
+        "version": "d504d73b78851632a1893095addf71cccebd5de0a47ee0b18415e890bb8ba9d5",
         "signature": "02834e7b33e39d8a30e9e1ca6f3122d10b3bd3289af9f7d667b09657bc865bde"
       },
       "d:/develop/nicest/src/respond/resnotfound.ts": {
@@ -274,7 +274,7 @@
         "signature": "0b250188d5661a346ffc979edd9ed982d392426bd22ec3a99e701d2050667e8b"
       },
       "d:/develop/nicest/src/utils/parserange.ts": {
-        "version": "1c528cbbbda28683294bab8b9592b55281321c66b3926113cd41563cfbb3955c",
+        "version": "0fa2d72d94975c283a2bbf019d9280cfce74a29521620faba29d90d94db47386",
         "signature": "52899e53ea95dcf430db5ddad9bd091ef5bbb629c18e722183ff91507aeba81f"
       },
       "d:/develop/nicest/src/respond/resrange.ts": {
@@ -305,12 +305,12 @@
         "version": "6e983f74dd7377af880ab6a2148f2391a502681bb8d6f0e8058cce7b164c41b9",
         "signature": "23b7fe0b6d21c1c05ac077643de20ab2b0629699b47d8ed27a94e2d89ae1386d"
       },
-      "d:/develop/nicest/src/utils/setheader.ts": {
-        "version": "39fd36ad8eb2a31dd101ed882efd10aa6ad51e21a3a3af80210998c4406498bc",
-        "signature": "5a6ac72088817dfc40e00716355d6faac521fbfe7dd18a6019bc12c959967990"
+      "d:/develop/nicest/src/utils/publicheader.ts": {
+        "version": "10d5a0b51f61815bbde256caabc30d22c84b578101736361a894f502e0051fc1",
+        "signature": "b654c9f23b7a40102c59395045ee89d0a9d482b4ea36370b2a2cf989c2a0cd73"
       },
       "d:/develop/nicest/src/middleware/mount.ts": {
-        "version": "8f88cfa87eb87e11b86277c4b6e64fe4cccdc659208232bc8e43bf87f5b29a9a",
+        "version": "ac82f3ed9a9b4061a4c1ae86966070e9081cfa305f4a0b80ef9529bb2d22d048",
         "signature": "7abd0e7b0bd5d2d8c10e65bd68f5b1be986d33ed5b9a23a4756db1f540d7f96b"
       },
       "d:/develop/nicest/src/middleware/resfavicon.ts": {
@@ -462,8 +462,8 @@
         "signature": "1f13f8cb1d5c6b5d4a2b8cd80f02920087babb34507b4c169c6f978d67687c6b"
       },
       "d:/develop/nicest/src/modules/base64.ts": {
-        "version": "64535939d77f90fec19ac5be32f6a24282e445513748a9c300e3a4ff449a1ce2",
-        "signature": "e78a4048fefef3c107a4d5221f4c96048699007df8e0c45ffc09b7a5c229da1f"
+        "version": "5eda2bd1747beb01a598118f5d5d8d88777168d65fc07d56bf682df8af2c15ab",
+        "signature": "2a6160ce4f9f78d6cdf483b0e9477cf2aa465833912e6525c3625dad6f4bc0dc"
       },
       "d:/develop/nicest/src/modules/encrypt.ts": {
         "version": "da473635cf4dfea9a57fdcfd4fc23b03a41281d381d360a7a18a1276bcf73c03",
@@ -969,11 +969,11 @@
       ],
       "d:/develop/nicest/src/middleware/checkcontroller.ts": [
         "d:/develop/nicest/node_modules/@types/node/http.d.ts",
+        "d:/develop/nicest/src/conf/index.ts",
         "d:/develop/nicest/src/controller/index.ts",
         "d:/develop/nicest/src/interface/controller.ts",
-        "d:/develop/nicest/src/interface/req.ts",
         "d:/develop/nicest/src/interface/middleware.ts",
-        "d:/develop/nicest/src/conf/index.ts",
+        "d:/develop/nicest/src/interface/req.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -981,15 +981,15 @@
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/develop/nicest/src/respond/resredirect.ts": [
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts",
-        "d:/develop/nicest/src/modules/logger.ts",
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
       "d:/develop/nicest/src/modules/session.ts": [
         "d:/develop/nicest/src/conf/index.ts",
         "d:/develop/nicest/src/interface/session.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/respond/resredirect.ts": [
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts",
+        "d:/develop/nicest/src/modules/logger.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1004,8 +1004,8 @@
         "d:/develop/nicest/src/interface/middleware.ts",
         "d:/develop/nicest/src/interface/req.ts",
         "d:/develop/nicest/src/interface/session.ts",
-        "d:/develop/nicest/src/respond/resredirect.ts",
         "d:/develop/nicest/src/modules/session.ts",
+        "d:/develop/nicest/src/respond/resredirect.ts",
         "d:/develop/nicest/src/utils/cookie.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
@@ -1017,8 +1017,8 @@
         "d:/develop/nicest/src/interface/middleware.ts",
         "d:/develop/nicest/src/interface/req.ts",
         "d:/develop/nicest/src/interface/session.ts",
-        "d:/develop/nicest/src/respond/resredirect.ts",
         "d:/develop/nicest/src/modules/session.ts",
+        "d:/develop/nicest/src/respond/resredirect.ts",
         "d:/develop/nicest/src/utils/cookie.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
@@ -1150,7 +1150,7 @@
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/develop/nicest/src/utils/setheader.ts": [
+      "d:/develop/nicest/src/utils/publicheader.ts": [
         "d:/develop/nicest/node_modules/@types/node/http.d.ts",
         "d:/develop/nicest/src/conf/index.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
@@ -1164,7 +1164,7 @@
         "d:/develop/nicest/src/interface/middleware.ts",
         "d:/develop/nicest/src/interface/req.ts",
         "d:/develop/nicest/src/modules/logger.ts",
-        "d:/develop/nicest/src/utils/setheader.ts",
+        "d:/develop/nicest/src/utils/publicheader.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1884,11 +1884,11 @@
       "d:/develop/nicest/src/middleware/checkcontroller.ts": [
         "d:/develop/nicest/src/interface/middleware.ts"
       ],
-      "d:/develop/nicest/src/respond/resredirect.ts": [
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
       "d:/develop/nicest/src/modules/session.ts": [
         "d:/develop/nicest/src/interface/session.ts"
+      ],
+      "d:/develop/nicest/src/respond/resredirect.ts": [
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
       ],
       "d:/develop/nicest/src/utils/cookie.ts": [
         "d:/develop/nicest/node_modules/@types/node/http.d.ts",
@@ -1950,7 +1950,7 @@
       "d:/develop/nicest/src/middleware/loginpage.ts": [
         "d:/develop/nicest/src/interface/middleware.ts"
       ],
-      "d:/develop/nicest/src/utils/setheader.ts": [
+      "d:/develop/nicest/src/utils/publicheader.ts": [
         "d:/develop/nicest/node_modules/@types/node/http.d.ts"
       ],
       "d:/develop/nicest/src/middleware/mount.ts": [
@@ -2318,8 +2318,8 @@
       "d:/develop/nicest/src/controller/index.ts",
       "d:/develop/nicest/src/middleware/checkcontroller.ts",
       "d:/develop/nicest/src/interface/session.ts",
-      "d:/develop/nicest/src/respond/resredirect.ts",
       "d:/develop/nicest/src/modules/session.ts",
+      "d:/develop/nicest/src/respond/resredirect.ts",
       "d:/develop/nicest/src/utils/cookie.ts",
       "d:/develop/nicest/src/middleware/checklogin.ts",
       "d:/develop/nicest/src/middleware/gettoken.ts",
@@ -2338,7 +2338,7 @@
       "d:/develop/nicest/src/respond/resstatic.ts",
       "d:/develop/nicest/src/middleware/later.ts",
       "d:/develop/nicest/src/middleware/loginpage.ts",
-      "d:/develop/nicest/src/utils/setheader.ts",
+      "d:/develop/nicest/src/utils/publicheader.ts",
       "d:/develop/nicest/src/middleware/mount.ts",
       "d:/develop/nicest/src/middleware/resfavicon.ts",
       "d:/develop/nicest/src/middleware/index.ts",
@@ -2429,10 +2429,10 @@
       "d:/develop/nicest/src/modules/request.ts",
       "d:/develop/nicest/src/modules/shell.ts",
       "d:/develop/nicest/src/modules/zipfile.ts",
+      "d:/develop/nicest/src/service/socketserver.ts",
       "d:/develop/nicest/node_modules/@types/ws/index.d.ts",
       "d:/develop/nicest/src/service/websocket.ts",
-      "d:/develop/nicest/src/test/index.ts",
-      "d:/develop/nicest/src/service/socketserver.ts"
+      "d:/develop/nicest/src/test/index.ts"
     ]
   },
   "version": "3.5.1"

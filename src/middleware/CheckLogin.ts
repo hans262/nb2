@@ -2,47 +2,38 @@ import { ServerResponse } from 'http';
 import { Middleware } from '../Interface/Middleware';
 import { Req } from '../Interface/Req';
 import { Session } from '../Interface/Session';
-import { ResRedirect } from '../respond/ResRedirect';
 import { KEY, remove, reset, select } from '../modules/Session';
+import { ResRedirect } from '../respond/ResRedirect';
 import { getCookie, setCookie } from '../utils/cookie';
 
 export const CheckLogin: Middleware = function (
   req: Req, res: ServerResponse, next: Function
 ): void {
-  if (check(req, res)) {
-    next()
-  } else {
+  if (!isLogin(req, res)) {
     ResRedirect({ res, location: '/login', code: 302, reasonPhrase: 'temporarily moved' })
+  } else {
+    next()
   }
 }
 
-function check(req: Req, res: ServerResponse): boolean {
+function isLogin(req: Req, res: ServerResponse): boolean {
   const id: string | null = getCookie(req, KEY)
-  if (!id) return false //id不存在
-  const ses: Session | undefined = select(id)//-查询
+  //检查id
+  if (!id) return false
+  //查询
+  const ses: Session | undefined = select(id)
+  //不存在
   if (!ses) {
-    //session不存在
-    setCookie({
-      res,
-      key: KEY,
-      value: 'delete',
-      expires: new Date(),
-      httpOnly: true
-    })
+    setCookie({ res, key: KEY, value: 'delete', expires: new Date(), httpOnly: true })
     return false
   }
+  //超时
   if (ses.expire < Date.now()) {
-    //超时
-    remove(id)//-删除
-    setCookie({
-      res,
-      key: KEY,
-      value: 'delete',
-      expires: new Date(),
-      httpOnly: true
-    })
-    return false //转到登陆
+    remove(id)
+    setCookie({ res, key: KEY, value: 'delete', expires: new Date(), httpOnly: true })
+    return false
   }
-  reset(id)//-重置
+  //存在 & 重置
+  reset(id)
   return true
 }

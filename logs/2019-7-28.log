@@ -1,0 +1,7 @@
+[2019-7-28 18:54:11] [2300] [WORKER_STARTUP] -> port: 5000
+[2019-7-28 18:54:29] [2300] [REQUEST] -> C:\
+[2019-7-28 18:54:29] [2300] [RES_DIR] -> C:\
+[2019-7-28 18:54:31] [2300] [REQUEST] -> C:\Program Files\
+[2019-7-28 18:54:31] [2300] [RES_DIR] -> C:\Program Files\
+[2019-7-28 18:54:38] [2300] [REQUEST] -> C:\Program Files\7-Zip\
+[2019-7-28 18:54:38] [2300] [RES_DIR] -> C:\Program Files\7-Zip\

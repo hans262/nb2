@@ -42,11 +42,10 @@ export function setCookie(cookie: Cookie): void {
   const cur: string = pairs.join('; ')
   const pre: string | number | string[] | undefined = res.getHeader('set-cookie')
   if (pre) {
-    typeof pre === 'string' ?
-      res.setHeader('Set-Cookie', [pre, cur]) :
-      res.setHeader('Set-Cookie', [...pre as string[], cur])
+    Array.isArray(pre) ?
+      res.setHeader('Set-Cookie', [...pre, cur]) :
+      res.setHeader('Set-Cookie', [pre as string, cur])
   } else {
     res.setHeader('Set-Cookie', [cur])
   }
 }
-

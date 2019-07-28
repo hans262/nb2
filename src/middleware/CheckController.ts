@@ -1,9 +1,9 @@
 import { ServerResponse } from 'http';
+import { API_PREFIX } from '../conf';
 import CONTROLLER from '../controller';
 import { Controller } from '../Interface/Controller';
-import { Req } from '../Interface/Req';
 import { Middleware } from '../Interface/Middleware';
-import { API_PREFIX } from '../conf';
+import { Req } from '../Interface/Req';
 
 export const CheckController: Middleware = function (
   req: Req, res: ServerResponse, next: Function
