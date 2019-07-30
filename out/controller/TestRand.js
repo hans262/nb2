@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = new class TestGet {
+class TestRand {
     constructor() {
         this.PATH_NAME = '/api/rand/*';
     }
@@ -9,5 +9,6 @@ exports.default = new class TestGet {
         const { __query } = req;
         res.end(JSON.stringify(__query));
     }
-};
+}
+exports.TestRand = TestRand;
 //# sourceMappingURL=TestRand.js.map

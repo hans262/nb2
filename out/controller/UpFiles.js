@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const bufferSplit_1 = require("../modules/bufferSplit");
-exports.default = new class UpFile {
+class UpFiles {
     constructor() {
         this.PATH_NAME = '/api/upfiles';
         this.MAX_SIZE = 1024 * 1024 * 10;
@@ -61,5 +61,6 @@ exports.default = new class UpFile {
             this.resOk(res, '上传成功');
         });
     }
-};
+}
+exports.UpFiles = UpFiles;
 //# sourceMappingURL=UpFiles.js.map

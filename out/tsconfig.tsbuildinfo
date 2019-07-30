@@ -178,43 +178,43 @@
         "signature": "699cb49272e13464f2da0a9c16a5a706c2e707cb380f1b51f49eff215106256b"
       },
       "d:/develop/nicest/src/controller/download.ts": {
-        "version": "dab64255f9313ea5bea279752d2983ebb3df323b483061972eace1e9f9b0a210",
-        "signature": "1e750731260184acc777a636c964fccf86ec423418e06caeeae32d6932cd816e"
+        "version": "6bb2d03a40a9637ebb44237497a3646988b02bb3256e8a0486fe752a20dfd789",
+        "signature": "d44fa41bb11c896bed3d6423c69ad0d8936a7e8526b31cefcfad1525989ff280"
       },
       "d:/develop/nicest/src/controller/restart.ts": {
-        "version": "8d0cdb37423c07d5927511a0c9ca8aee1cbe0f38199b5ccdce7b654581e88475",
-        "signature": "dbd6a6fc9cfb50062d012ecc943e03264fc5a61c07477e3f124d21d561da0495"
+        "version": "abde08c37687bc2829f06bdad3dff6ae3a089ad048a3dc50fee02814a39e9296",
+        "signature": "037e96f88455e9152aad24e9fd6a7a43fe01ba233ae7aacb6014eb674edfcd36"
       },
       "d:/develop/nicest/src/controller/shutdown.ts": {
-        "version": "beb02c83cc0086fee26e79cf21a8e6d11ab6bb5a69418b94249c382c3c1c5beb",
-        "signature": "dbd6a6fc9cfb50062d012ecc943e03264fc5a61c07477e3f124d21d561da0495"
+        "version": "0654ec6d6ffbea0687cbdc8c599313a8f6694332ff4e6dd57d66b05d60f25c12",
+        "signature": "204eb270f23ee34a785878e330dabe15423165d9c86fa714a7a49e97dad38c2e"
       },
       "d:/develop/nicest/src/controller/testget.ts": {
-        "version": "49f1176a209cc0e00fdef3cb33a42e2f202f842435f3d064012d1f1ca3b80276",
-        "signature": "38e34302b29e5d188d8734ad95422a6ea18c51f054b313f518f0a9f1fb32153c"
+        "version": "0aabad997f01e78086c1a6edfcd23b98db9469666f12db14f29143eadff5b2a7",
+        "signature": "17290d18e0d6924aa7dd1efabd6ca06e6f95d1659a1abb950f49151f95ebcc50"
       },
       "d:/develop/nicest/src/controller/testjsonp.ts": {
-        "version": "c4c4af630c2dffed948fd24a56184f4efab5dd5ff5878ab52bf114c91b1d91b7",
-        "signature": "38e34302b29e5d188d8734ad95422a6ea18c51f054b313f518f0a9f1fb32153c"
+        "version": "0be988526ea68b89e52c35440db3d298e7554455dc8b00c3c6a9abaa03050014",
+        "signature": "b2b4348ba3e1a3161f32f83441cd4ecdd9b38c95ff6352468a9b3ac2b57baa21"
       },
       "d:/develop/nicest/src/controller/testpost.ts": {
-        "version": "e8da957f26b906e4cb112dcf8c27cd4f8baa67dc8ab73e2adce0a07f88e489e7",
-        "signature": "9fc1a1184ad7edf3d2b564b85aafaaa8823007266afbe51357fc2419777d3616"
+        "version": "26c5d576e7a55508fae49d27fe5e186dbaef64b45c03189cdf84bcf0b2c01637",
+        "signature": "ed7ccd3855475074acce4bc259d2ec9d44f5b387dfc0ee83b2f77905939ca65d"
+      },
+      "d:/develop/nicest/src/controller/testrand.ts": {
+        "version": "aafdf80d51dcb619a16651eb610eea95cd551ef1553104938fd7bb5d2bb6796e",
+        "signature": "9a57d6957913fb82467b0d5f5c06cebae3ef8751b90fa777ad3ac7d20093fd0c"
       },
       "d:/develop/nicest/src/modules/buffersplit.ts": {
         "version": "9e6d105ebd9ad716ba807b5b7d9002efaf88218ca1adcdd0dca1c9da144eabec",
         "signature": "8b6e15012ce682b606865f93b97f35e80c85a47afa210089834a3ef7c4336b9b"
       },
       "d:/develop/nicest/src/controller/upfiles.ts": {
-        "version": "4e9b6cb021df7d727f20d36d68e420d227284f035ae980ebca0c18b9eb27745e",
-        "signature": "78dbde4039e9f804ef8cfaf733812bf93acf48bbfe37b4970940e0287d9d14b5"
-      },
-      "d:/develop/nicest/src/controller/testrand.ts": {
-        "version": "d99d7735bef8c1036c5e6f0a74877669766172b54aea832ae32ac217e4174957",
-        "signature": "38e34302b29e5d188d8734ad95422a6ea18c51f054b313f518f0a9f1fb32153c"
+        "version": "8e4a2e28191562697af0667d3ac10bfb066a23a42d31ace37834b9c9bd811eba",
+        "signature": "99cb9b14b40894c1a88aad1488db1960089452b59469d0ff0af093c5a205c51f"
       },
       "d:/develop/nicest/src/controller/index.ts": {
-        "version": "03cc8802f66d80b9dd558fbc5fb7d25cc8b6ac4612bd2edd1aeb6d1f48a70dbd",
+        "version": "1135f7d245c1a3d4d30ecec188bd167fac082bf7a31925c4a1c1a19455d2ef62",
         "signature": "dbb6f99e1977fe425977e4cb8ce0cc3a4406e422f7fec1189a8ab0ce51be54e8"
       },
       "d:/develop/nicest/src/middleware/checkcontroller.ts": {
@@ -684,6 +684,10 @@
       "d:/develop/nicest/src/test/index.ts": {
         "version": "7a3b4d8679bc19a2a3e08d64bfe1db96bdbeb3f88460e223ff201255ad7a4ebe",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
+      },
+      "d:/develop/nicest/node_modules/@types/minimatch/index.d.ts": {
+        "version": "1d1e6bd176eee5970968423d7e215bfd66828b6db8d54d17afec05a831322633",
+        "signature": "1d1e6bd176eee5970968423d7e215bfd66828b6db8d54d17afec05a831322633"
       }
     },
     "options": {
@@ -694,6 +698,7 @@
       "removeComments": true,
       "experimentalDecorators": true,
       "incremental": true,
+      "tsBuildInfoFile": "D:/develop/nicest/out/tsconfig.tsbuildinfo",
       "strict": true,
       "watch": true,
       "configFilePath": "D:/develop/nicest/tsconfig.json"
@@ -935,6 +940,13 @@
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "d:/develop/nicest/src/controller/testrand.ts": [
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts",
+        "d:/develop/nicest/src/interface/controller.ts",
+        "d:/develop/nicest/src/interface/req.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "d:/develop/nicest/src/modules/buffersplit.ts": [
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
@@ -947,13 +959,6 @@
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/develop/nicest/src/controller/testrand.ts": [
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts",
-        "d:/develop/nicest/src/interface/controller.ts",
-        "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
       "d:/develop/nicest/src/controller/index.ts": [
         "d:/develop/nicest/src/interface/controller.ts",
         "d:/develop/nicest/src/controller/download.ts",
@@ -962,8 +967,8 @@
         "d:/develop/nicest/src/controller/testget.ts",
         "d:/develop/nicest/src/controller/testjsonp.ts",
         "d:/develop/nicest/src/controller/testpost.ts",
-        "d:/develop/nicest/src/controller/upfiles.ts",
         "d:/develop/nicest/src/controller/testrand.ts",
+        "d:/develop/nicest/src/controller/upfiles.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1678,6 +1683,10 @@
         "d:/develop/nicest/src/modules/request.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/minimatch/index.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ]
     },
     "exportedModulesMap": {
@@ -1848,35 +1857,43 @@
       ],
       "d:/develop/nicest/src/controller/download.ts": [
         "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts",
+        "d:/develop/nicest/src/interface/controller.ts"
       ],
       "d:/develop/nicest/src/controller/restart.ts": [
         "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts",
+        "d:/develop/nicest/src/interface/controller.ts"
       ],
       "d:/develop/nicest/src/controller/shutdown.ts": [
         "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts",
+        "d:/develop/nicest/src/interface/controller.ts"
       ],
       "d:/develop/nicest/src/controller/testget.ts": [
         "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts",
+        "d:/develop/nicest/src/interface/controller.ts"
       ],
       "d:/develop/nicest/src/controller/testjsonp.ts": [
         "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts",
+        "d:/develop/nicest/src/interface/controller.ts"
       ],
       "d:/develop/nicest/src/controller/testpost.ts": [
         "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "d:/develop/nicest/src/controller/upfiles.ts": [
         "d:/develop/nicest/node_modules/@types/node/http.d.ts",
-        "d:/develop/nicest/src/interface/req.ts"
+        "d:/develop/nicest/src/interface/controller.ts"
       ],
       "d:/develop/nicest/src/controller/testrand.ts": [
         "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts"
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts",
+        "d:/develop/nicest/src/interface/controller.ts"
+      ],
+      "d:/develop/nicest/src/controller/upfiles.ts": [
+        "d:/develop/nicest/node_modules/@types/node/http.d.ts",
+        "d:/develop/nicest/src/interface/req.ts",
+        "d:/develop/nicest/src/interface/controller.ts"
       ],
       "d:/develop/nicest/src/controller/index.ts": [
         "d:/develop/nicest/src/interface/controller.ts"
@@ -2259,6 +2276,10 @@
         "d:/develop/nicest/node_modules/@types/node/ts3.2/index.d.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/node_modules/@types/minimatch/index.d.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
@@ -2312,9 +2333,9 @@
       "d:/develop/nicest/src/controller/testget.ts",
       "d:/develop/nicest/src/controller/testjsonp.ts",
       "d:/develop/nicest/src/controller/testpost.ts",
+      "d:/develop/nicest/src/controller/testrand.ts",
       "d:/develop/nicest/src/modules/buffersplit.ts",
       "d:/develop/nicest/src/controller/upfiles.ts",
-      "d:/develop/nicest/src/controller/testrand.ts",
       "d:/develop/nicest/src/controller/index.ts",
       "d:/develop/nicest/src/middleware/checkcontroller.ts",
       "d:/develop/nicest/src/interface/session.ts",
@@ -2432,7 +2453,8 @@
       "d:/develop/nicest/src/service/socketserver.ts",
       "d:/develop/nicest/node_modules/@types/ws/index.d.ts",
       "d:/develop/nicest/src/service/websocket.ts",
-      "d:/develop/nicest/src/test/index.ts"
+      "d:/develop/nicest/src/test/index.ts",
+      "d:/develop/nicest/node_modules/@types/minimatch/index.d.ts"
     ]
   },
   "version": "3.5.1"

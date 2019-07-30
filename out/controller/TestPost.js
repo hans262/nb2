@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = new class TestPost {
+class TestPost {
     constructor() {
         this.PATH_NAME = '/api/post';
     }
@@ -16,5 +16,6 @@ exports.default = new class TestPost {
             res.end(buffer);
         });
     }
-};
+}
+exports.TestPost = TestPost;
 //# sourceMappingURL=TestPost.js.map

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = new class TestJsonp {
+class TestJsonp {
     constructor() {
         this.PATH_NAME = '/api/jsonp';
     }
@@ -10,5 +10,6 @@ exports.default = new class TestJsonp {
         const { callback, ...data } = __query;
         res.end(`${callback}(${JSON.stringify(data)})`);
     }
-};
+}
+exports.TestJsonp = TestJsonp;
 //# sourceMappingURL=TestJsonp.js.map

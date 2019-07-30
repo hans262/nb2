@@ -1,4 +1,9 @@
 {
   "mode": "file",
-  "out": "docs"
+  "out": "docs",
+  "exclude": [
+    "./src/doc/**/*"
+  ],
+  "excludeNotExported": false,
+  "theme": "default"
 }

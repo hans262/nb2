@@ -10,7 +10,7 @@ import { bufferSplit } from '../modules/bufferSplit';
  * Content-Type:"multipart/form-data; boundary=----WebKitFormBoundaryTK4tKRxDd34z0iSh"
  * Content-Length:"1024"
  */
-export default new class UpFile implements Controller {
+export class UpFiles implements Controller {
   PATH_NAME: string = '/api/upfiles'
   //max size 10M
   MAX_SIZE: number = 1024 * 1024 * 10

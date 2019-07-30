@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
-    "outDir": "out",
+    "outDir": "./out",
     //保留map用于调试
     "sourceMap": true,
     //删除注释
@@ -10,8 +10,13 @@
     //装饰器
     "experimentalDecorators": true,
     //增量编译，提升编译效率
-    // "incremental": true,
+    "incremental": true,
+    //存储增量编译信息的文件
+    "tsBuildInfoFile": "./out/tsconfig.tsbuildinfo",
     //提升代码健壮性
-    "strict":true
-  }
+    "strict": true
+  },
+  "include": [
+    "./src"
+  ]
 }

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const logger_1 = require("../modules/logger");
-exports.default = new class ShutDown {
+class ShutDown {
     constructor() {
         this.PATH_NAME = '/api/shutdown';
     }
@@ -10,5 +10,6 @@ exports.default = new class ShutDown {
         res.end(`服务器将在10s后关闭！`);
         logger_1.SEND({ type: 'SHUT_DOWN' });
     }
-};
+}
+exports.ShutDown = ShutDown;
 //# sourceMappingURL=ShutDown.js.map

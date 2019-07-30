@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>MySpace | nicest</title>
+	<title>UpFiles | nicest</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="myspace.html">MySpace</a>
+					<a href="upfiles.html">UpFiles</a>
 				</li>
 			</ul>
-			<h1>Module MySpace</h1>
+			<h1>Class UpFiles</h1>
 		</div>
 	</div>
 </header>
@@ -69,77 +69,152 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>命令空间 -&gt; Namespaces</p>
+						<p>文件上传 -&gt;
+							FormData格式
+							所需请求头 -&gt;
+							Content-Type:&quot;multipart/form-data; boundary=----WebKitFormBoundaryTK4tKRxDd34z0iSh&quot;
+						Content-Length:&quot;1024&quot;</p>
 					</div>
-					<p>防止命名冲突，组织模块
-					类似与js的自执行匿名函数 ;(function(){})()</p>
 				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">UpFiles</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../interfaces/controller.html" class="tsd-signature-type">Controller</a></li>
+				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Classes</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-class tsd-parent-kind-module"><a href="../classes/myspace.user.html" class="tsd-kind-icon">User</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="upfiles.html#max_size" class="tsd-kind-icon">MAX_<wbr>SIZE</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="upfiles.html#path_name" class="tsd-kind-icon">PATH_<wbr>NAME</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
-							<h3>Variables</h3>
+							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported"><a href="myspace.html#age" class="tsd-kind-icon">age</a></li>
-								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="myspace.html#name" class="tsd-kind-icon">name</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Functions</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="myspace.html#getage" class="tsd-kind-icon">get<wbr>Age</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="upfiles.html#post" class="tsd-kind-icon">POST</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="upfiles.html#reserror" class="tsd-kind-icon">res<wbr>Error</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="upfiles.html#resok" class="tsd-kind-icon">res<wbr>Ok</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Variables</h2>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-					<a name="age" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> age</h3>
-					<div class="tsd-signature tsd-kind-icon">age<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;25</span></div>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="max_size" class="tsd-anchor"></a>
+					<h3>MAX_<wbr>SIZE</h3>
+					<div class="tsd-signature tsd-kind-icon">MAX_<wbr>SIZE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;1024 * 1024 * 10</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ounana/nicest/blob/5ec2f59/src/doc/Namespaces.ts#L11">doc/Namespaces.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/ounana/nicest/blob/ad8ae56/src/controller/UpFiles.ts#L16">controller/UpFiles.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
-					<a name="name" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> name</h3>
-					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;huahua&quot;</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="path_name" class="tsd-anchor"></a>
+					<h3>PATH_<wbr>NAME</h3>
+					<div class="tsd-signature tsd-kind-icon">PATH_<wbr>NAME<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;/api/upfiles&quot;</span></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/controller.html">Controller</a>.<a href="../interfaces/controller.html#path_name">PATH_NAME</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/ounana/nicest/blob/5ec2f59/src/doc/Namespaces.ts#L10">doc/Namespaces.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/ounana/nicest/blob/ad8ae56/src/controller/UpFiles.ts#L14">controller/UpFiles.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="getage" class="tsd-anchor"></a>
-					<h3>get<wbr>Age</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Age<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="post" class="tsd-anchor"></a>
+					<h3>POST</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">POST<span class="tsd-signature-symbol">(</span>req<span class="tsd-signature-symbol">: </span><a href="../interfaces/req.html" class="tsd-signature-type">Req</a>, res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServerResponse</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/controller.html">Controller</a>.<a href="../interfaces/controller.html#post">POST</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/ounana/nicest/blob/ad8ae56/src/controller/UpFiles.ts#L25">controller/UpFiles.ts:25</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>req: <a href="../interfaces/req.html" class="tsd-signature-type">Req</a></h5>
+								</li>
+								<li>
+									<h5>res: <span class="tsd-signature-type">ServerResponse</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="reserror" class="tsd-anchor"></a>
+					<h3>res<wbr>Error</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">res<wbr>Error<span class="tsd-signature-symbol">(</span>res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServerResponse</span>, msg<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ounana/nicest/blob/5ec2f59/src/doc/Namespaces.ts#L12">doc/Namespaces.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/ounana/nicest/blob/ad8ae56/src/controller/UpFiles.ts#L17">controller/UpFiles.ts:17</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>res: <span class="tsd-signature-type">ServerResponse</span></h5>
+								</li>
+								<li>
+									<h5>msg: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="resok" class="tsd-anchor"></a>
+					<h3>res<wbr>Ok</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">res<wbr>Ok<span class="tsd-signature-symbol">(</span>res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ServerResponse</span>, msg<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ounana/nicest/blob/ad8ae56/src/controller/UpFiles.ts#L21">controller/UpFiles.ts:21</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>res: <span class="tsd-signature-type">ServerResponse</span></h5>
+								</li>
+								<li>
+									<h5>msg: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -151,25 +226,34 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class="current tsd-kind-module">
-						<a href="myspace.html">My<wbr>Space</a>
-					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/myspace.user.html" class="tsd-kind-icon">User</a>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
+						<a href="upfiles.html" class="tsd-kind-icon">Up<wbr>Files</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="upfiles.html#max_size" class="tsd-kind-icon">MAX_<wbr>SIZE</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="upfiles.html#path_name" class="tsd-kind-icon">PATH_<wbr>NAME</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="upfiles.html#post" class="tsd-kind-icon">POST</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="upfiles.html#reserror" class="tsd-kind-icon">res<wbr>Error</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="upfiles.html#resok" class="tsd-kind-icon">res<wbr>Ok</a>
+							</li>
+						</ul>
 					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="myspace.html#age" class="tsd-kind-icon">age</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module">
-						<a href="myspace.html#name" class="tsd-kind-icon">name</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="myspace.html#getage" class="tsd-kind-icon">get<wbr>Age</a>
-					</li>
+				</ul>
+				<ul class="after-current">
 				</ul>
 			</nav>
 		</div>
