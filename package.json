@@ -8,7 +8,8 @@
     "websocket": "node out/service/WebSocket.js",
     "socketserver": "node out/service/SocketServer.js",
     "out": "tsc",
-    "out:w": "tsc -watch"
+    "out:w": "tsc -watch",
+    "doc": "typedoc --out docs ./src"
   },
   "author": "ounana",
   "license": "MIT",
@@ -18,5 +19,8 @@
     "@types/ws": "^6.0.1",
     "mysql": "^2.16.0",
     "ws": "^7.0.0"
+  },
+  "devDependencies": {
+    "typedoc": "^0.15.0"
   }
 }
