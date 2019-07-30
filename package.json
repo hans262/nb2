@@ -9,7 +9,7 @@
     "socketserver": "node out/service/SocketServer.js",
     "out": "tsc",
     "out:w": "tsc -watch",
-    "doc": "typedoc --out docs ./src"
+    "doc": "typedoc --options ./typedoc.json"
   },
   "author": "ounana",
   "license": "MIT",
