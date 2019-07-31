@@ -7,6 +7,7 @@ export interface SocketOptions {
   timeout?: number
 }
 /**
+ * socket connection pool
  * 默认连接数为空，动态创建，随使用增加
  */
 export class SocketPool {

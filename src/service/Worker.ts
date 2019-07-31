@@ -14,12 +14,11 @@ function HANDLER(req: IncomingMessage, res: ServerResponse): void {
   next()
 }
 
-export async function RUN(): Promise<void> {
+export function RUN() {
   const server: Server = createServer(HANDLER)
   server.listen(PORT, HOST, () => {
     DEBUG({ type: 'WORKER_STARTUP', msg: `port: ${PORT}` })
   })
-
   process.on('message', action => {
     switch (action.type) {
       case 'CLOSE_SERVER':
@@ -34,5 +33,4 @@ export async function RUN(): Promise<void> {
         throw new Error('No MsgType!')
     }
   })
-
 }

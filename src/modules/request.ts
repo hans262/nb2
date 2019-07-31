@@ -17,7 +17,7 @@ export interface Response {
 
 /**
  * http test
- * @param config Request
+ * @param config
  */
 export function it(config: Request): Promise<Response> {
   const { body, method, path } = config

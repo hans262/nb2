@@ -11,7 +11,7 @@ function getStream(): WriteStream {
   return createWriteStream(fileName, { flags: 'a' })
 }
 
-function WRITE_LINE(data: string): void {
+function writeLine(data: string): void {
   //检查流是否存在
   if (!STREAM) {
     STREAM = getStream()
@@ -30,7 +30,7 @@ export interface Message {
   msg: string
   pid?: number
 }
-type MESSAGE_TYPE = {
+export type MESSAGE_TYPE = {
   WORKER_STARTUP: string
   WORKET_EXIT: string
   MASTER_STARTUP: string
@@ -56,14 +56,19 @@ function DEBUG_TASK(massage: Message): void {
   const date: string = new Date().toLocaleString()
   const mq: string = `[${date}] [${pid}] [${type}] -> ${msg}`
   console.log(mq)
-  WRITE_LINE(mq)
+  writeLine(mq)
 }
 
-//向主进程发消息
+/**
+ * master action
+ */
 export interface Action {
-  type: string
+  type: keyof ACTION_TYPE
 }
-
+export type ACTION_TYPE = {
+  RE_START: string
+  SHUT_DOWN: string
+}
 export function SEND(cmd: Action): void {
   const { type } = cmd
   if (process.send) {

@@ -10,7 +10,7 @@ function getStream() {
     const fileName = path_1.join(path_2.LOGS_PATH, `/${CURRENT_DAY}.log`);
     return fs_1.createWriteStream(fileName, { flags: 'a' });
 }
-function WRITE_LINE(data) {
+function writeLine(data) {
     if (!STREAM) {
         STREAM = getStream();
     }
@@ -30,7 +30,7 @@ function DEBUG_TASK(massage) {
     const date = new Date().toLocaleString();
     const mq = `[${date}] [${pid}] [${type}] -> ${msg}`;
     console.log(mq);
-    WRITE_LINE(mq);
+    writeLine(mq);
 }
 function SEND(cmd) {
     const { type } = cmd;
