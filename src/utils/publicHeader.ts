@@ -2,7 +2,7 @@ import { ServerResponse } from 'http';
 import { CROSS } from '../conf';
 
 /**
- * 公共header
+ * public headers
  * @param res 
  */
 export function publicHeader(res: ServerResponse): void {

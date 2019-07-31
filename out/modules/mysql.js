@@ -23,9 +23,4 @@ function Query(sql) {
     });
 }
 exports.Query = Query;
-;
-(async () => {
-    const users = await Query(`SELECT * FROM user ORDER BY password DESC`);
-    console.log(users);
-})();
 //# sourceMappingURL=mysql.js.map

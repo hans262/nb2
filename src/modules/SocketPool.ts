@@ -75,15 +75,15 @@ export class SocketPool {
   }
 }
 
-/**
- * 测试
- */
-const POOL: SocketPool = new SocketPool({ port: 9999 })
-POOL.getConnection((err: Error | null, socket: Socket | undefined) => {
-  if (err || !socket) return
-  socket.write('hello')
-  socket.on('data', data => {
-    console.log(data.toString())
-    POOL.release(socket)
+/*
+  测试
+  const POOL: SocketPool = new SocketPool({ port: 9999 })
+  POOL.getConnection((err: Error | null, socket: Socket | undefined) => {
+    if (err || !socket) return
+    socket.write('hello')
+    socket.on('data', data => {
+      console.log(data.toString())
+      POOL.release(socket)
+    })
   })
-})
+*/

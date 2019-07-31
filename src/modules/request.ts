@@ -16,7 +16,7 @@ export interface Response {
 }
 
 /**
- * 请求器
+ * http test
  * @param config Request
  */
 export function it(config: Request): Promise<Response> {

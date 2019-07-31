@@ -47,17 +47,23 @@ type MESSAGE_TYPE = {
 }
 
 export function DEBUG(massage: Message): void {
+  //做异步处理，提升性能
+  process.nextTick(DEBUG_TASK, massage)
+}
+
+function DEBUG_TASK(massage: Message): void {
   const { type, msg, pid = process.pid } = massage
   const date: string = new Date().toLocaleString()
-  const str: string = `[${date}] [${pid}] [${type}] -> ${msg}`
-  console.info(str)
-  WRITE_LINE(str)
+  const mq: string = `[${date}] [${pid}] [${type}] -> ${msg}`
+  console.log(mq)
+  WRITE_LINE(mq)
 }
 
 //向主进程发消息
 export interface Action {
   type: string
 }
+
 export function SEND(cmd: Action): void {
   const { type } = cmd
   if (process.send) {

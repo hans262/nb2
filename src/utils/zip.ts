@@ -5,7 +5,7 @@ import { ZIP_MATCH } from '../conf';
 import { Req } from "../Interface/Req";
 
 /**
- * 检查压缩
+ * check zip
  * @param req 
  * @param res 
  */

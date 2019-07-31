@@ -2,7 +2,7 @@ import { Stats } from 'fs';
 import { Req } from '../Interface/Req';
 
 /**
- * 生成ETag
+ * generate ETag
  * @param stats
  */
 export function generateETag(stats: Stats): string {
@@ -11,7 +11,7 @@ export function generateETag(stats: Stats): string {
   return `W/"${mtime}-${size}"`
 }
 /**
- * 检查缓存
+ * check cache
  * @param req 
  */
 export function isCache(req: Req): boolean {

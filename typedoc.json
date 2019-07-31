@@ -2,8 +2,9 @@
   "mode": "file",
   "out": "docs",
   "exclude": [
-    "./src/doc/**/*"
+    "./src/doc/**/*",
+    "./src/test/**/*"
   ],
-  "excludeNotExported": false,
+  "excludeNotExported": true,
   "theme": "default"
 }

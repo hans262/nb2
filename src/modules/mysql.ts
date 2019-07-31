@@ -26,11 +26,11 @@ export function Query<T>(sql: string): Promise<T> {
 	})
 }
 
-; (async () => {
+/*
 	type User = {
 		username: string
 		passwrod: string
 	};
 	const users: User[] = await Query<User[]>(`SELECT * FROM user ORDER BY password DESC`)
 	console.log(users)
-})()
+ */

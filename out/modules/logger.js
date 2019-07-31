@@ -22,13 +22,16 @@ function WRITE_LINE(data) {
     STREAM.write(data + '\r\n');
 }
 function DEBUG(massage) {
-    const { type, msg, pid = process.pid } = massage;
-    const date = new Date().toLocaleString();
-    const str = `[${date}] [${pid}] [${type}] -> ${msg}`;
-    console.info(str);
-    WRITE_LINE(str);
+    process.nextTick(DEBUG_TASK, massage);
 }
 exports.DEBUG = DEBUG;
+function DEBUG_TASK(massage) {
+    const { type, msg, pid = process.pid } = massage;
+    const date = new Date().toLocaleString();
+    const mq = `[${date}] [${pid}] [${type}] -> ${msg}`;
+    console.log(mq);
+    WRITE_LINE(mq);
+}
 function SEND(cmd) {
     const { type } = cmd;
     if (process.send) {

@@ -4,7 +4,7 @@ import { Req } from '../Interface/Req';
 import { bufferSplit } from '../modules/bufferSplit';
 
 /**
- * 文件上传 ->
+ * file uoload
  * FormData格式
  * 所需请求头 ->
  * Content-Type:"multipart/form-data; boundary=----WebKitFormBoundaryTK4tKRxDd34z0iSh"

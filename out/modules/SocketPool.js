@@ -58,14 +58,4 @@ class SocketPool {
     }
 }
 exports.SocketPool = SocketPool;
-const POOL = new SocketPool({ port: 9999 });
-POOL.getConnection((err, socket) => {
-    if (err || !socket)
-        return;
-    socket.write('hello');
-    socket.on('data', data => {
-        console.log(data.toString());
-        POOL.release(socket);
-    });
-});
 //# sourceMappingURL=SocketPool.js.map

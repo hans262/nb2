@@ -1,7 +1,7 @@
 import { extname } from 'path'
 
 /**
- * 获取mime类型
+ * fetch mime type
  * @param path 
  */
 export function mime(path: string): string {

@@ -1,5 +1,5 @@
 /**
- * buffer分割 ->
+ * buffer split
  * @param buffer 分割源
  * @param spl 分割符
  */
