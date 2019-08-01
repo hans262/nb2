@@ -10,7 +10,6 @@ function RUN() {
         socket.on('data', (data) => {
             socket.write(data);
         });
-        console.log(sockets);
     });
     server.on('error', (err) => {
         console.log(err);

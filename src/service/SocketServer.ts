@@ -11,7 +11,6 @@ function RUN(): void {
     socket.on('data', (data: Buffer) => {
       socket.write(data)
     })
-    console.log(sockets)
   })
 
   server.on('error', (err: Error) => {
