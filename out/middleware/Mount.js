@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const path_1 = require("path");
 const url_1 = require("url");
 const conf_1 = require("../conf");
-const logger_1 = require("../modules/logger");
 const publicHeader_1 = require("../utils/publicHeader");
 exports.Mount = function (req, res, next) {
     const { url = '/' } = req;
@@ -12,7 +11,6 @@ exports.Mount = function (req, res, next) {
     req.__absolutePath = decodeURI(path_1.join(conf_1.ROOT, req.__relativePath));
     req.__query = query;
     publicHeader_1.publicHeader(res);
-    logger_1.DEBUG({ type: 'REQUEST', msg: req.__absolutePath });
     next();
 };
 //# sourceMappingURL=Mount.js.map

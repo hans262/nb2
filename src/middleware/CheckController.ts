@@ -4,11 +4,12 @@ import CONTROLLER from '../controller';
 import { Controller } from '../Interface/Controller';
 import { Middleware } from '../Interface/Middleware';
 import { Req } from '../Interface/Req';
+import { DEBUG } from '../modules/logger';
 
 export const CheckController: Middleware = function (
   req: Req, res: ServerResponse, next: Function
 ): void {
-  const { method, __relativePath } = req
+  const { method, __relativePath, __absolutePath } = req
 
   if (!method || !__relativePath) return next()
 
@@ -29,4 +30,5 @@ export const CheckController: Middleware = function (
     !controller || !controller[method]
   ) return next()
   controller[method](req, res)
+  DEBUG({ type: 'CONTROLLER', msg: __absolutePath! })
 }

@@ -10,7 +10,7 @@ export const CheckLogin: Middleware = function (
   req: Req, res: ServerResponse, next: Function
 ): void {
   if (!isLogin(req, res)) {
-    ResRedirect({ res, location: '/login', code: 302, reasonPhrase: 'temporarily moved' })
+    ResRedirect({ req, res, location: '/login', code: 302, reasonPhrase: 'temporarily moved' })
   } else {
     next()
   }

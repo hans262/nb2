@@ -1,0 +1,54 @@
+[2019-8-1 19:28:23] [8216] [WORKER_STARTUP] -> port: 5000
+[2019-8-1 19:28:25] [8216] [REQUEST] -> C:\
+[2019-8-1 19:28:25] [8216] [RES_DIR] -> C:\
+[2019-8-1 19:29:30] [3500] [WORKER_STARTUP] -> port: 5000
+[2019-8-1 19:29:35] [3500] [REQUEST] -> C:\
+[2019-8-1 19:29:35] [3500] [RES_DIR] -> C:\
+[2019-8-1 19:29:35] [3500] [REQUEST] -> C:\favicon.ico
+[2019-8-1 19:29:35] [3500] [RES_FILE] -> d:\develop\nicest\public\favicon.ico
+[2019-8-1 19:30:13] [524] [WORKER_STARTUP] -> port: 5000
+[2019-8-1 19:30:18] [524] [RES_DIR] -> C:\
+[2019-8-1 19:30:18] [524] [RES_FILE] -> d:\develop\nicest\public\favicon.ico
+[2019-8-1 19:43:01] [972] [WORKER_STARTUP] -> port: 5000
+[2019-8-1 19:43:07] [972] [RES_DIR] -> C:\
+[2019-8-1 19:43:07] [972] [RES_FILE] -> d:\develop\nicest\public\favicon.ico
+[2019-8-1 19:43:19] [972] [CONTROLLER] -> C:\api\get
+[2019-8-1 19:44:51] [972] [RES_DIR] -> C:\
+[2019-8-1 19:45:18] [2204] [WORKER_STARTUP] -> port: 5000
+[2019-8-1 19:45:20] [2204] [RES_DIR] -> D:\
+[2019-8-1 19:45:20] [2204] [RES_FILE] -> d:\develop\nicest\public\favicon.ico
+[2019-8-1 19:45:21] [2204] [RES_DIR] -> D:\develop\
+[2019-8-1 19:45:33] [2204] [RES_DIR] -> D:\develop\nicest\
+[2019-8-1 19:45:45] [2204] [RES_DIR] -> D:\develop\nicest\public\
+[2019-8-1 19:46:03] [2204] [RES_ZIP] -> D:\develop\nicest\docs\index.html
+[2019-8-1 19:46:03] [2204] [RES_ZIP] -> D:\develop\nicest\docs\assets\css\main.css
+[2019-8-1 19:46:03] [2204] [RES_ZIP] -> D:\develop\nicest\docs\assets\js\main.js
+[2019-8-1 19:46:03] [2204] [RES_FILE] -> D:\develop\nicest\docs\assets\images\widgets@2x.png
+[2019-8-1 19:46:03] [2204] [RES_FILE] -> D:\develop\nicest\docs\assets\images\icons@2x.png
+[2019-8-1 19:46:41] [2828] [WORKER_STARTUP] -> port: 5000
+[2019-8-1 19:46:43] [2828] [REDIRECT] -> /login
+[2019-8-1 19:55:27] [4044] [WORKER_STARTUP] -> port: 5000
+[2019-8-1 19:55:32] [4044] [REDIRECT] -> D:\to/login
+[2019-8-1 19:56:00] [436] [WORKER_STARTUP] -> port: 5000
+[2019-8-1 19:56:04] [436] [REDIRECT] -> D:\dwqdwqdqw to /login
+[2019-8-1 19:56:31] [7452] [WORKER_STARTUP] -> port: 5000
+[2019-8-1 19:56:34] [7452] [REDIRECT] -> D:\lodwqdwq TO /login
+[2019-8-1 19:56:51] [7452] [REDIRECT] -> D:\getToken TO /
+[2019-8-1 19:56:51] [7452] [RES_DIR] -> D:\
+[2019-8-1 19:57:13] [7452] [RES_DIR] -> D:\java教程\
+[2019-8-1 19:57:17] [7452] [RES_DIR] -> D:\java教程\oldpro\
+[2019-8-1 19:57:21] [7452] [RES_DIR] -> D:\develop\
+[2019-8-1 19:57:27] [7452] [RES_ZIP] -> D:\develop\ounana.github.io\index.html
+[2019-8-1 19:57:27] [7452] [RES_ZIP] -> D:\develop\ounana.github.io\assets\css\main.css
+[2019-8-1 19:57:27] [7452] [RES_ZIP] -> D:\develop\ounana.github.io\assets\js\main.js
+[2019-8-1 19:57:27] [7452] [RES_FILE] -> D:\develop\ounana.github.io\assets\images\widgets@2x.png
+[2019-8-1 19:57:27] [7452] [RES_FILE] -> D:\develop\ounana.github.io\assets\images\icons@2x.png
+[2019-8-1 20:02:00] [4164] [WORKER_STARTUP] -> port: 5000
+[2019-8-1 20:02:02] [4164] [REDIRECT] -> D:\develop\ounana.github.io\ -> /login
+[2019-8-1 20:11:17] [5232] [WORKER_STARTUP] -> port: 5000
+[2019-8-1 20:11:19] [5232] [RES_404] -> D:\login
+[2019-8-1 20:11:19] [5232] [RES_FILE] -> d:\develop\nicest\public\favicon.ico
+[2019-8-1 20:11:28] [5232] [RES_DIR] -> D:\
+[2019-8-1 20:11:36] [5232] [RES_DIR] -> D:\develop\
+[2019-8-1 20:11:41] [5232] [RES_DIR] -> D:\develop\WebBench\
+[2019-8-1 20:11:42] [5232] [RES_FILE] -> D:\develop\WebBench\socket.c

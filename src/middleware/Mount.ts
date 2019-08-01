@@ -4,7 +4,6 @@ import { parse } from 'url';
 import { ROOT } from '../conf';
 import { Middleware } from '../Interface/Middleware';
 import { Req } from '../Interface/Req';
-import { DEBUG } from '../modules/logger';
 import { publicHeader } from '../utils/publicHeader';
 
 export const Mount: Middleware = function (
@@ -20,8 +19,6 @@ export const Mount: Middleware = function (
   req.__query = query
   //公共header
   publicHeader(res)
-
-  DEBUG({ type: 'REQUEST', msg: req.__absolutePath })
 
   next()
 }

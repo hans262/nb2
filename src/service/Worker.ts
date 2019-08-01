@@ -14,7 +14,7 @@ function HANDLER(req: IncomingMessage, res: ServerResponse): void {
   next()
 }
 
-export function RUN() {
+export function RUN_WORKER() {
   const server: Server = createServer(HANDLER)
   server.listen(PORT, HOST, () => {
     DEBUG({ type: 'WORKER_STARTUP', msg: `port: ${PORT}` })

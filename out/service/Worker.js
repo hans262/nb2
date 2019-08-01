@@ -14,7 +14,7 @@ function HANDLER(req, res) {
     }
     next();
 }
-function RUN() {
+function RUN_WORKER() {
     const server = http_1.createServer(HANDLER);
     server.listen(conf_1.PORT, conf_1.HOST, () => {
         logger_1.DEBUG({ type: 'WORKER_STARTUP', msg: `port: ${conf_1.PORT}` });
@@ -33,5 +33,5 @@ function RUN() {
         }
     });
 }
-exports.RUN = RUN;
+exports.RUN_WORKER = RUN_WORKER;
 //# sourceMappingURL=Worker.js.map

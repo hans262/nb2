@@ -4,7 +4,7 @@ const cluster_1 = require("cluster");
 const os_1 = require("os");
 const conf_1 = require("../conf");
 const logger_1 = require("../modules/logger");
-function master() {
+function MASTER() {
     logger_1.DEBUG({ type: 'MASTER_STARTUP', msg: `Nicest version: 4.0.0` });
     conf_1.CLUSTER ? os_1.cpus().forEach(() => cluster_1.fork()) : cluster_1.fork();
     cluster_1.on('message', (worker, action) => {
@@ -42,14 +42,14 @@ function master() {
         }
     });
 }
-async function RUN_MASTER() {
+async function RUN_CLUSTER() {
     if (cluster_1.isMaster) {
-        master();
+        MASTER();
     }
     else {
         const { RUN_WORKER } = await Promise.resolve().then(() => require('./Worker'));
         RUN_WORKER();
     }
 }
-exports.RUN_MASTER = RUN_MASTER;
-//# sourceMappingURL=Master.js.map
+exports.RUN_CLUSTER = RUN_CLUSTER;
+//# sourceMappingURL=Cluster.js.map

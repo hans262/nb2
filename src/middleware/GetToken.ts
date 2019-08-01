@@ -24,17 +24,10 @@ export const GetToken: Middleware = function (
       const { username, password } = toObj
       if (username === USER.username && password === USER.password) {
         const ses: Session = generate()
-        setCookie({
-          res,
-          key: KEY,
-          value: ses.id,
-          path: '/',
-          expires: new Date(ses.expire),
-          httpOnly: true
-        })
-        ResRedirect({ res, location: '/', code: 302, reasonPhrase: 'login success' })
+        setCookie({ res, key: KEY, value: ses.id, path: '/', expires: new Date(ses.expire), httpOnly: true })
+        ResRedirect({ req, res, location: '/', code: 302, reasonPhrase: 'login success' })
       } else {
-        ResRedirect({ res, location: '/login', code: 302, reasonPhrase: 'login failed' })
+        ResRedirect({ req, res, location: '/login', code: 302, reasonPhrase: 'login failed' })
       }
     })
   } else {

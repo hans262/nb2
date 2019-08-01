@@ -1,2 +1,2 @@
-import { RUN } from './service/Worker';
-RUN()
+import { RUN_WORKER } from './service/Worker';
+RUN_WORKER()

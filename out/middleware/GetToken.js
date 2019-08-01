@@ -19,18 +19,11 @@ exports.GetToken = function (req, res, next) {
             const { username, password } = toObj;
             if (username === conf_1.USER.username && password === conf_1.USER.password) {
                 const ses = Session_1.generate();
-                cookie_1.setCookie({
-                    res,
-                    key: Session_1.KEY,
-                    value: ses.id,
-                    path: '/',
-                    expires: new Date(ses.expire),
-                    httpOnly: true
-                });
-                ResRedirect_1.ResRedirect({ res, location: '/', code: 302, reasonPhrase: 'login success' });
+                cookie_1.setCookie({ res, key: Session_1.KEY, value: ses.id, path: '/', expires: new Date(ses.expire), httpOnly: true });
+                ResRedirect_1.ResRedirect({ req, res, location: '/', code: 302, reasonPhrase: 'login success' });
             }
             else {
-                ResRedirect_1.ResRedirect({ res, location: '/login', code: 302, reasonPhrase: 'login failed' });
+                ResRedirect_1.ResRedirect({ req, res, location: '/login', code: 302, reasonPhrase: 'login failed' });
             }
         });
     }

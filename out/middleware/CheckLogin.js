@@ -5,7 +5,7 @@ const ResRedirect_1 = require("../respond/ResRedirect");
 const cookie_1 = require("../utils/cookie");
 exports.CheckLogin = function (req, res, next) {
     if (!isLogin(req, res)) {
-        ResRedirect_1.ResRedirect({ res, location: '/login', code: 302, reasonPhrase: 'temporarily moved' });
+        ResRedirect_1.ResRedirect({ req, res, location: '/login', code: 302, reasonPhrase: 'temporarily moved' });
     }
     else {
         next();

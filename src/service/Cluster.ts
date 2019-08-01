@@ -1,13 +1,14 @@
 import { fork, isMaster, on, Worker, workers } from 'cluster';
 import { cpus } from 'os';
 import { CLUSTER } from '../conf';
-import { Action, DEBUG } from '../modules/logger';
+import { DEBUG } from '../modules/logger';
+import { ACTION } from '../Interface/Message';
 
-function master(): void {
+function MASTER(): void {
   DEBUG({ type: 'MASTER_STARTUP', msg: `Nicest version: 4.0.0` })
   CLUSTER ? cpus().forEach(() => fork()) : fork()
 
-  on('message', (worker: Worker, action: Action) => {
+  on('message', (worker: Worker, action: ACTION) => {
     const { type } = action
     switch (type) {
       case 'RE_START':
@@ -46,11 +47,11 @@ function master(): void {
   })
 }
 
-export async function RUN(): Promise<void> {
+export async function RUN_CLUSTER(): Promise<void> {
   if (isMaster) {
-    master()
+    MASTER()
   } else {
-    const { RUN } = await import('./Worker')
-    RUN()
+    const { RUN_WORKER } = await import('./Worker')
+    RUN_WORKER()
   }
 }

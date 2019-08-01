@@ -21,10 +21,6 @@ function writeLine(data) {
     }
     STREAM.write(data + '\r\n');
 }
-function DEBUG(massage) {
-    process.nextTick(DEBUG_TASK, massage);
-}
-exports.DEBUG = DEBUG;
 function DEBUG_TASK(massage) {
     const { type, msg, pid = process.pid } = massage;
     const date = new Date().toLocaleString();
@@ -32,6 +28,10 @@ function DEBUG_TASK(massage) {
     console.log(mq);
     writeLine(mq);
 }
+function DEBUG(massage) {
+    process.nextTick(DEBUG_TASK, massage);
+}
+exports.DEBUG = DEBUG;
 function SEND(cmd) {
     const { type } = cmd;
     if (process.send) {
