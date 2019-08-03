@@ -366,7 +366,7 @@
         "signature": "cde07341631afa0963d654b6f3602c3cd8494770cee0a5266f93ab71bd263b52"
       },
       "d:/develop/nicest/src/doc/index.ts": {
-        "version": "c42fd517156d785e660db6a9db73633bee492f50ea1f60abbd93cfcf5fc501b5",
+        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
       },
       "d:/develop/nicest/src/doc/keyof.ts": {
@@ -2336,6 +2336,7 @@
       "c:/users/administrator/appdata/roaming/npm/node_modules/typescript/lib/lib.esnext.bigint.d.ts",
       "c:/users/administrator/appdata/roaming/npm/node_modules/typescript/lib/lib.esnext.full.d.ts",
       "d:/develop/nicest/src/interface/user.ts",
+      "d:/develop/nicest/src/conf/index.ts",
       "d:/develop/nicest/src/utils/path.ts",
       "d:/develop/nicest/src/interface/message.ts",
       "d:/develop/nicest/src/modules/logger.ts",
@@ -2375,7 +2376,6 @@
       "d:/develop/nicest/src/middleware/later.ts",
       "d:/develop/nicest/src/middleware/loginpage.ts",
       "d:/develop/nicest/src/utils/publicheader.ts",
-      "d:/develop/nicest/src/middleware/mount.ts",
       "d:/develop/nicest/src/middleware/resfavicon.ts",
       "d:/develop/nicest/src/middleware/index.ts",
       "d:/develop/nicest/src/service/worker.ts",
@@ -2470,7 +2470,7 @@
       "d:/develop/nicest/src/service/websocket.ts",
       "d:/develop/nicest/src/test/index.ts",
       "d:/develop/nicest/node_modules/@types/minimatch/index.d.ts",
-      "d:/develop/nicest/src/conf/index.ts"
+      "d:/develop/nicest/src/middleware/mount.ts"
     ]
   },
   "version": "3.5.1"
