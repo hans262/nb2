@@ -606,8 +606,8 @@
         "signature": "cde07341631afa0963d654b6f3602c3cd8494770cee0a5266f93ab71bd263b52"
       },
       "d:/develop/nicest/src/tsdoc/index.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        "version": "8e6312ae5a328f9ef071b234d42c0424e205f5a51cb13b0b2459c94561301800",
+        "signature": "fcf182084dffbfbded5f8832ca29b8d02a2777a175f47f135a1a7d92b0ca7750"
       },
       "d:/develop/nicest/src/tsdoc/keyof.ts": {
         "version": "8d8d5ed3647e0917b42698d76a06a5ba0f282e68ce2728bcc0b0693b623d40cd",
@@ -2415,6 +2415,7 @@
       "d:/develop/nicest/src/middleware/resfavicon.ts",
       "d:/develop/nicest/src/middleware/index.ts",
       "d:/develop/nicest/src/service/worker.ts",
+      "d:/develop/nicest/src/service/cluster.ts",
       "d:/develop/nicest/src/cluster.ts",
       "d:/develop/nicest/src/worker.ts",
       "d:/develop/nicest/src/configure/mysql.ts",
@@ -2506,8 +2507,7 @@
       "d:/develop/nicest/src/tsdoc/generics/demo.ts",
       "d:/develop/nicest/src/tsdoc/generics/demo2.ts",
       "d:/develop/nicest/src/tsdoc/generics/demo3.ts",
-      "d:/develop/nicest/node_modules/@types/minimatch/index.d.ts",
-      "d:/develop/nicest/src/service/cluster.ts"
+      "d:/develop/nicest/node_modules/@types/minimatch/index.d.ts"
     ]
   },
   "version": "3.5.1"
