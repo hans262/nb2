@@ -2,11 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
 const path_1 = require("path");
-const conf_1 = require("../conf");
+const configure_1 = require("../configure");
 const ResVerify_1 = require("./ResVerify");
 const ResNotFound_1 = require("./ResNotFound");
 function ResIndex(req, res) {
-    const INDEX_PATH = path_1.join(conf_1.ROOT, conf_1.INDEX_PAGE);
+    const INDEX_PATH = path_1.join(configure_1.ROOT, configure_1.INDEX_PAGE);
     fs_1.stat(INDEX_PATH, (err, stats) => {
         if (stats && stats.isFile()) {
             req.__stats = fs_1.statSync(INDEX_PATH);

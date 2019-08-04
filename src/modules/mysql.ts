@@ -1,5 +1,5 @@
 import { createPool, MysqlError, Pool, PoolConnection } from 'mysql';
-import { CONNECTION_LIMIT, DATABASE, HOST, PASSWORD, PORT, USER } from '../conf/mysql';
+import { CONNECTION_LIMIT, DATABASE, HOST, PASSWORD, PORT, USER } from '../configure/mysql';
 
 export const POOL: Pool = createPool({
 	connectionLimit: CONNECTION_LIMIT,

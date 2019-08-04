@@ -1,6 +1,6 @@
 {
   "name": "nicest",
-  "version": "4.0.0",
+  "version": "4.1.2",
   "description": "Configurable engineering container service is implemented by Node V8.",
   "scripts": {
     "start": "node out/Worker.js",

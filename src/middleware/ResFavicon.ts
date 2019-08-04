@@ -2,7 +2,7 @@ import { Middleware } from "../Interface/Middleware";
 import { Req } from "../Interface/Req";
 import { ServerResponse } from "http";
 import { ResStatic } from "../respond/ResStatic";
-import { FAVION_PATH } from "../utils/path";
+import { FAVION_PATH } from "../common/path";
 
 export const ResFavicon: Middleware = function (
   req: Req, res: ServerResponse, next: Function

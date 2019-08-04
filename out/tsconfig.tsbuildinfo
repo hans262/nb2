@@ -153,11 +153,11 @@
         "version": "0b996da261f29f408a3018dcf1b9e255b339c8abf9d463d0602cf69c0e988cab",
         "signature": "77da03b9bd7c032b8d79bfa058688fa0aaf9c4c1bd1f9158352bb594283bf75c"
       },
-      "d:/develop/nicest/src/conf/index.ts": {
-        "version": "d945b1256739ac468cff38f22c787632fe9b98ce0545092b98365570ed02fa98",
+      "d:/develop/nicest/src/configure/index.ts": {
+        "version": "805811e28493b1e7516c0ec41d45fae88b9e32081a2271740838426f41fe067e",
         "signature": "68eb143f7bc12887603b41066c1e73f1701463e3b21bf8394dcb967ee829eff1"
       },
-      "d:/develop/nicest/src/utils/path.ts": {
+      "d:/develop/nicest/src/common/path.ts": {
         "version": "276a949adba96655034bfb169ed360b4223fd9cc1fc30d8c089de48a126b2576",
         "signature": "0fab0190dd04d590ecddcd6c323f707ee97c2808badf8122220c36b241d2075e"
       },
@@ -165,8 +165,12 @@
         "version": "3c66ae7c2b6ac9f8b2bea378f0b29bdbbd398dfca8a7cdac5ab5fe5d87381e87",
         "signature": "7ac29a13ba7a7b22881f66154a36618c03c6c591cbf6b52f628ee123497d20b9"
       },
+      "d:/develop/nicest/src/common/stdout.ts": {
+        "version": "5feda831f4add36397f750c5f986ecd2f02d59181f7091e63bcc4260d2b4c20f",
+        "signature": "074f77e4cd7f0a988bb45169b67859a41b115e1002a608c4fd9306a26dc8ee4f"
+      },
       "d:/develop/nicest/src/modules/logger.ts": {
-        "version": "d6f73dd577507eb3d4a88d1fc039f63f13ab92771d72945d47d721d5dd27b204",
+        "version": "f87c9ac81fdd66d0b6f67bfa4203cc91bcbdf472bd5daf4396b23f8b24812f65",
         "signature": "6fe7b1f0fa96f59a647bd7df355d09a6ad9dbfbbb3900835f1253c86e3c9dff4"
       },
       "d:/develop/nicest/src/interface/req.ts": {
@@ -182,7 +186,7 @@
         "signature": "699cb49272e13464f2da0a9c16a5a706c2e707cb380f1b51f49eff215106256b"
       },
       "d:/develop/nicest/src/controller/download.ts": {
-        "version": "6bb2d03a40a9637ebb44237497a3646988b02bb3256e8a0486fe752a20dfd789",
+        "version": "56f587e4005e9ce6490f2ec81113e2179b90f69fb94517fa12f9127f64ee6309",
         "signature": "d44fa41bb11c896bed3d6423c69ad0d8936a7e8526b31cefcfad1525989ff280"
       },
       "d:/develop/nicest/src/controller/restart.ts": {
@@ -222,7 +226,7 @@
         "signature": "dbb6f99e1977fe425977e4cb8ce0cc3a4406e422f7fec1189a8ab0ce51be54e8"
       },
       "d:/develop/nicest/src/middleware/checkcontroller.ts": {
-        "version": "843e865e6d3b3390092e1d2ac8c31cd237a7f00ecefba3b237e8e619bbe929b8",
+        "version": "fcea8e088e6fe20a2c967e86765578fa3d8ac9f1059c56a24af610a20fdb660d",
         "signature": "842d254e7a95be07888759cc7c26163010e6bbea6dc66acc1666ae5c5e79ac86"
       },
       "d:/develop/nicest/src/interface/session.ts": {
@@ -230,23 +234,23 @@
         "signature": "f3d6ca01394b464ee49f182e57b8abbecd0ceaa4829a404fc2e952609f097256"
       },
       "d:/develop/nicest/src/modules/session.ts": {
-        "version": "b9e7de449fc2d8bb62075dbf5a3b547ff317a96ee644c0d9c4e5e994412924bd",
+        "version": "978a559ed0fc3dea4797319e4b6ca5ffb91b76dd527f8ca867362795aa7b16d4",
         "signature": "bda74088d4d32c453e492b26be774e66d7c54761bae9308a6d284227f7ce04fe"
       },
       "d:/develop/nicest/src/respond/resredirect.ts": {
         "version": "961f88aa0f5aff4a3b41adf6667a58455e7fe37adea688f90e04ec40b1f89dda",
         "signature": "bee0dce2187e3425db0fc79257ba10248049b290b2bb2679dd5f90038bbb2a36"
       },
-      "d:/develop/nicest/src/utils/cookie.ts": {
+      "d:/develop/nicest/src/common/cookie.ts": {
         "version": "761aa94811d8ae234283ac7097ffad560065dfecc7d1eb26c359fbededf7764e",
         "signature": "06b8b47b4b6bc69ecffe7c9469bbf9715472cf2d4abf011953bda87eee2e82f1"
       },
       "d:/develop/nicest/src/middleware/checklogin.ts": {
-        "version": "39ce5ec236eacfab172c29d9b11178c1872f94f789e15db12f70998a5bc65d4b",
+        "version": "0da6963d916b9b18ec5677f6e8e2113d9e02f7489f4abdb291f80040f7ab393c",
         "signature": "b2440a620aab5aaedadc98adfde0c48d8096fb1b2ec21b4715e4ef6c69f2cae9"
       },
       "d:/develop/nicest/src/middleware/gettoken.ts": {
-        "version": "005ffdfef89cf0e3782cc34efc580d6cf6a015e6b7d261dce666b2ae817926cd",
+        "version": "eab53de9aad0e5175a3909aab117b7626425cb5052cbfc4aa8d2a63e281404aa",
         "signature": "02834e7b33e39d8a30e9e1ca6f3122d10b3bd3289af9f7d667b09657bc865bde"
       },
       "d:/develop/nicest/src/respond/resnotfound.ts": {
@@ -254,19 +258,19 @@
         "signature": "d49531dc238e8eff5eea821bfc9348e9b3ffdb423bffa5373d7273353d044d4f"
       },
       "d:/develop/nicest/src/respond/resdir.ts": {
-        "version": "2cb79181079d0f30ab68667b2c678171bbcf1dec5b0dacfcd0154feaa072991a",
+        "version": "cad67b661afb9022a640a3eafbb951180a6b4fbf5b7bab92bafa0e922c514ad1",
         "signature": "1e9d90607994ef6b9df023f1fd35db2232a344a77c67fe7a80499f5a40491c59"
       },
-      "d:/develop/nicest/src/utils/cache.ts": {
+      "d:/develop/nicest/src/common/cache.ts": {
         "version": "d95de6ce61f2491920bdb45c4afd51e9a488dcd8a7f36da798afe570afb30a77",
         "signature": "d731505490a1d09e428457164326126606e042d04e4574c82e027bab7815e2c7"
       },
-      "d:/develop/nicest/src/utils/mime.ts": {
-        "version": "e723820cd10618ce4c616f323b8b2d5b3e2b37f17590fb9735a05c4ec282de0d",
+      "d:/develop/nicest/src/common/mime.ts": {
+        "version": "b4e4043becac5242f25e4d7f901e09f992eb6796e48ca2018edf08e75783b763",
         "signature": "eb94e87c95a9d34fb458684f6849d465cd0e4b6944bd4e4f59ec5d8492ee0051"
       },
-      "d:/develop/nicest/src/utils/zip.ts": {
-        "version": "b570510a7c4d2198f027b929bf7213fd3f4d9d97aec7fee329373bc06691ee95",
+      "d:/develop/nicest/src/common/zip.ts": {
+        "version": "7011b448567292674b793b57a9fc75349373597483fd9817004c49ade44629bb",
         "signature": "ed0cf5add3e2e66c435b0eb1cbd826cfd2065aa2146a7a5eaa66d4f8a69c3972"
       },
       "d:/develop/nicest/src/respond/rescache.ts": {
@@ -277,12 +281,12 @@
         "version": "60bfbab67a6b0becc7f8920bf3e899d907e6be8c9c1c5118916a8144302d2bc4",
         "signature": "0b250188d5661a346ffc979edd9ed982d392426bd22ec3a99e701d2050667e8b"
       },
-      "d:/develop/nicest/src/utils/parserange.ts": {
+      "d:/develop/nicest/src/common/parserange.ts": {
         "version": "0fa2d72d94975c283a2bbf019d9280cfce74a29521620faba29d90d94db47386",
         "signature": "52899e53ea95dcf430db5ddad9bd091ef5bbb629c18e722183ff91507aeba81f"
       },
       "d:/develop/nicest/src/respond/resrange.ts": {
-        "version": "75df0db7f5a94e72bd0f577c0053fef0d342ea3245c6f6336fab5fe07795bcc8",
+        "version": "df5c854ae5ee221863382f629d73cf701a3b56301700ec026968f50914a931e1",
         "signature": "2e27fb0210fc5333ccf03864e318fc94b00d0b4afb054c5c0f364813380cb0b6"
       },
       "d:/develop/nicest/src/respond/reszip.ts": {
@@ -290,15 +294,15 @@
         "signature": "72eeb51cfa661d16ea42701ae4a50803cf3ab9bfb44ea6fc7acf136abe2e3195"
       },
       "d:/develop/nicest/src/respond/resverify.ts": {
-        "version": "0972198f82b63542ee69814990085fd83975540e0e0c8c66d95860fe02fc381e",
+        "version": "060dbaba13d183f91bc288a7c9505b9de34acbe7c0bc84c14978ba99c49e8db3",
         "signature": "39c8c8cc4f6dbb7ea2bb88c438384899e5909bc73c0b31f104ec71cbcb51f117"
       },
       "d:/develop/nicest/src/respond/resindex.ts": {
-        "version": "78829cbce8fa8621c387196c6465af5f48f4a52b16eed9db0c56d8345919e7a7",
+        "version": "480a9e82c2ab0940281d69246cf9701d13541a4144df034fe8610d03c3bbf0fb",
         "signature": "9dcb21c6da312d5b89a52b817adb986f749b634efe24639b18c4c8647054f8af"
       },
       "d:/develop/nicest/src/respond/resstatic.ts": {
-        "version": "876fdb91e8a81e96fd4ded940b0179b5956b1908932f184d2b5b167940d21be4",
+        "version": "8fa6aec1e556b0bbfdc94e949a50f0b898f6a126edbd5d6757b57572dbe70230",
         "signature": "2d078bab7c81dff3c2c0fd3547f222707c873f6e72dc8b0be5c47fabecef6242"
       },
       "d:/develop/nicest/src/middleware/later.ts": {
@@ -309,28 +313,28 @@
         "version": "6e983f74dd7377af880ab6a2148f2391a502681bb8d6f0e8058cce7b164c41b9",
         "signature": "23b7fe0b6d21c1c05ac077643de20ab2b0629699b47d8ed27a94e2d89ae1386d"
       },
-      "d:/develop/nicest/src/utils/publicheader.ts": {
-        "version": "25d76a2922ff3e214526732cf7dc359c227298d64cb82e7f53e06b33990d1284",
+      "d:/develop/nicest/src/common/publicheader.ts": {
+        "version": "81130ec9de882fd0da8b3387d9cfa574aa5d4e3d788c93aed100dbfefa4249eb",
         "signature": "b654c9f23b7a40102c59395045ee89d0a9d482b4ea36370b2a2cf989c2a0cd73"
       },
       "d:/develop/nicest/src/middleware/mount.ts": {
-        "version": "0bfbdc9463ae99a55a0c3abe6759f6baf647172e504e13af666ce93ef84f53bc",
+        "version": "88025ca91ac6d3ce6e2d277be4c1334c58d01cf75cebee27841e96c52c4d9674",
         "signature": "7abd0e7b0bd5d2d8c10e65bd68f5b1be986d33ed5b9a23a4756db1f540d7f96b"
       },
       "d:/develop/nicest/src/middleware/resfavicon.ts": {
-        "version": "5be985e1acc126e93ee87c8693dc567b2c06676a7af711a304d78725f013cad3",
+        "version": "03299171d1192164bedca132e99f572b511dfebc23e54efc1d82a1d5403e4a25",
         "signature": "2f3cd82f1712e1609b128d14c3016e41cc1da45a1d013aa81a2c48c9fa0bef42"
       },
       "d:/develop/nicest/src/middleware/index.ts": {
-        "version": "2a598e06c2b1ff23a2c3f38c021da1634aa0880385a32c11d2dae06db362b342",
+        "version": "5be27f68b8ce5c32a2dbcddea630eb536814e66bd5fbd68743c09445bc30411f",
         "signature": "9eaff94ff8fc484786931a8faecc2a89ec24695e081fb045cc169d3129607dd9"
       },
       "d:/develop/nicest/src/service/worker.ts": {
-        "version": "617e42f8660464f74ecb5875695fdd44562099a2c5af1b8b6ad4ac3d6ac4891f",
+        "version": "5bab1c8ace34b9882ad4ee615cd5223188c0253406cf3745f97d1670162112b3",
         "signature": "04b922734008bb01f7626eadcaf9ad33f238dd7b90e8341107fb836ec40f8e64"
       },
       "d:/develop/nicest/src/service/cluster.ts": {
-        "version": "7d51dcb3dbf02644a2579d6fa9012cf90042bfdeefd8f0172dbb8d7bcc63aa84",
+        "version": "fa225871c9346ded3f19e26e540d3630d6a91f764ae188827efbf5248f9ca13a",
         "signature": "6ce5fcc6958323b8287b4e803cab23ac102ac58fd45fecbdb2841bf6ad830e8e"
       },
       "d:/develop/nicest/src/cluster.ts": {
@@ -341,125 +345,9 @@
         "version": "98d87fe6f0a9434cc3ab509414073673aeac6072545e0ef037841975fbb5490a",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
       },
-      "d:/develop/nicest/src/conf/mysql.ts": {
+      "d:/develop/nicest/src/configure/mysql.ts": {
         "version": "42924edd847d9dd1829b77df1d270225531c7d0d871bd49d1cc477f88475e2e0",
         "signature": "6d298c4131993aabbef0821f0e819d7d3de0d1a85e1b8770675efa1cdbf767b4"
-      },
-      "d:/develop/nicest/src/doc/namespaces.ts": {
-        "version": "08f235bce9d6ac72c1bfbe102913f64cfd47dfe9150bc9799d582e535c162e32",
-        "signature": "07fddb2af327f201b461dd9e36e5ccb276b96850af5e4263e720d31e7d18b734"
-      },
-      "d:/develop/nicest/src/doc/typeassertions.ts": {
-        "version": "278f9c8a1bed5cf686159aa41ea310a1cb75cbe49f3b150fe6606cbf79c275a5",
-        "signature": "c02b6162475dd088f904cdb273208989aaa3f0396e955d04cd58a27e52eabf6f"
-      },
-      "d:/develop/nicest/src/doc/typeguards.ts": {
-        "version": "ad104d945ba42f0523b3d4beda4d751e9a2b3542e6a72b5c507d9eb7dbb4180b",
-        "signature": "c1eff0643c31a347524153aec7fce16458147cf7ffd7fcdcc5c9b919aa380c16"
-      },
-      "d:/develop/nicest/src/doc/decorators.ts": {
-        "version": "3a607cbdc23627623b2608b70d77551a52b934f7b67b889f12abde88c9e0fecf",
-        "signature": "fba5ffbc7925f70c3ae0e16f99da10cb8e51607e217899beb2234016c3fbb077"
-      },
-      "d:/develop/nicest/src/doc/extends.ts": {
-        "version": "e0aedadc71c923018d9a9f9eaf599291e86bffbbb336188a337aee9f516e9dad",
-        "signature": "cde07341631afa0963d654b6f3602c3cd8494770cee0a5266f93ab71bd263b52"
-      },
-      "d:/develop/nicest/src/doc/index.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-      },
-      "d:/develop/nicest/src/doc/keyof.ts": {
-        "version": "8d8d5ed3647e0917b42698d76a06a5ba0f282e68ce2728bcc0b0693b623d40cd",
-        "signature": "06ee9f8db7f377c811fa5626e48cf2fb7c9ba78d88f3ad93d9fe8f77122f2662"
-      },
-      "d:/develop/nicest/src/doc/new.ts": {
-        "version": "44f7acfc94aec7c745d677c110947aa7c31e76357277cd491f215c29aa6a02c7",
-        "signature": "eacceda4575411a1b0d2a34407d62f66a855be9f0e24c2b5140858a9af3b050f"
-      },
-      "d:/develop/nicest/src/doc/type.ts": {
-        "version": "35085e6c8e2d03025f934ed13ef025575c90ca6899a93f6d13c8b1e18aba5ff1",
-        "signature": "d6f3719b555e51262558d78dd3478356f1786c8e4b26984a38ae85ca1f8680c5"
-      },
-      "d:/develop/nicest/src/doc/advancedtypes/enums.ts": {
-        "version": "9a0a635403bd6a7d7f986e09132fb137db2612bdadcb7c40388e6c1d7ede992a",
-        "signature": "0775953e015f75c6539a3b7b4a925b4131696589c560409ac90f77e097a43232"
-      },
-      "d:/develop/nicest/src/doc/advancedtypes/intersectiontypes.ts": {
-        "version": "e0636fc9fa384f755bdad2d4ba01183e647a7cafd3fa9ac8252903108e4121b2",
-        "signature": "7eb9e56ac4917d45dc11b133e96d70052e9559b62dd22d654337b450a67fe6cf"
-      },
-      "d:/develop/nicest/src/doc/advancedtypes/tuple.ts": {
-        "version": "80a48433d9d90c3a6a936324786fe45fd7967938b0241194864246cede7a6592",
-        "signature": "8ebe4695659b243e4e5431aa35297cbc6aeb906bc9840df5e1111346e6965937"
-      },
-      "d:/develop/nicest/src/doc/advancedtypes/uniontypes.ts": {
-        "version": "8bb3ec51e5756d52f0f65d1ab5646c3e86879ff13742e723ebc8a5270d6ffcbe",
-        "signature": "c8fbba4258577439ec2c68a315dd076cae26f2846f0b4f53c2b86a85daa028f4"
-      },
-      "d:/develop/nicest/src/doc/utilitytypes/constructorparameters.ts": {
-        "version": "4db3270d089649fd4518ea325e4e2df62c1cad4b57405dc62c29fdab104446c0",
-        "signature": "1d4fbc943f5dc5e79050898860aab4870f669cc1c9168e0539004e175084efec"
-      },
-      "d:/develop/nicest/src/doc/utilitytypes/exclude.ts": {
-        "version": "45832854406dcbb4088d5b69702d297acac78f970b72a1c094ede4d9f52d8fb4",
-        "signature": "497c26dac05749c6775badcc20ad586376a8f240791cac91034e93197d4952d7"
-      },
-      "d:/develop/nicest/src/doc/utilitytypes/extract.ts": {
-        "version": "7ac387d4d71e1753ec47e8b9dae1d6d6451b63120b225a6ea98161671c7bf922",
-        "signature": "f4cb19c42580b63879a28ea151e31890e4504e64c72f556cee795b65b0d008bb"
-      },
-      "d:/develop/nicest/src/doc/utilitytypes/instancetype.ts": {
-        "version": "ef433f0050bc6285cde518dddd49f35bfd36c6d187ccbebd3d3b7b671b61afdb",
-        "signature": "cad57749eaaef401a71a8b6a41527d55b93b7e387b73b8e0e974fcd25b72be8e"
-      },
-      "d:/develop/nicest/src/doc/utilitytypes/nonnullable.ts": {
-        "version": "ca9c739f950a5f7739032f922a16efc8a83861030fb37a79c4190086db4d5514",
-        "signature": "5974737e76d463fb0383aa4b8e055924349ba550613fcc0ed82bdfa2dc12cd51"
-      },
-      "d:/develop/nicest/src/doc/utilitytypes/omit.ts": {
-        "version": "406a89a9951105fa28aaac3064872977613335a4e3ca90e9ee47bda48b2a85ee",
-        "signature": "35f7d9226bc458df6662cbd43a34a8362fe69107ef1db31879e8da14a5ad25b5"
-      },
-      "d:/develop/nicest/src/doc/utilitytypes/parameters.ts": {
-        "version": "b02bea258ebe4df33ec90dfc95389b175faa9280b8e7c71730d9ac85f56c3610",
-        "signature": "48d47627762273ee15478822d60ce3cf6b148990ca9ef44c24c84d0489223f02"
-      },
-      "d:/develop/nicest/src/doc/utilitytypes/partial.ts": {
-        "version": "852eb951014b11652559750eb8dc6accc151b942a8ee248ad7adaa69be770c3a",
-        "signature": "750c8f9b202d11cd718af8d725dbb3205ab4a2d5dc7f64226c95ca9617125eb9"
-      },
-      "d:/develop/nicest/src/doc/utilitytypes/pick.ts": {
-        "version": "57c710329d2f6f9cb6e4ed6bfe5d67a467fa662e6b4e06868699a95d772bde28",
-        "signature": "b8fbd8a8d8c5e296887a54c1f8e85e63ecc391b9194db33718c676c15673036a"
-      },
-      "d:/develop/nicest/src/doc/utilitytypes/readonly.ts": {
-        "version": "1fceb923a47000991674e3533575f8553cc84a4307d8d5fd8d10a7c7ebb05cb4",
-        "signature": "75913c6653f5d4259269e99281e44866a6bf5a830f2639becd3187b072103693"
-      },
-      "d:/develop/nicest/src/doc/utilitytypes/record.ts": {
-        "version": "8773a4f22049357d32e6a21e956db97188875bfb1d0bb675a9dac96e5b77b514",
-        "signature": "ff6b37d1b724ddad0416d15fe631f754b0d16d211ab3f17187b5e28306f325df"
-      },
-      "d:/develop/nicest/src/doc/utilitytypes/required.ts": {
-        "version": "f2df3852c825bc40ad3a6a7afdc72a52e7e452a9579900a20fba4421d1cb9055",
-        "signature": "1a3045cf2c23b1d4335dbc8c9e133385cb699d4521a89a11804e817fe9a2ba15"
-      },
-      "d:/develop/nicest/src/doc/utilitytypes/returntype.ts": {
-        "version": "64da38aa3e5ba5e78bf4c68000b73a975f3e530520fb8a01cafe6898c5cf47d1",
-        "signature": "e66cde4d0be2f80eb56d1b9acea3211f72c372f342148c2438e8df7437a23e79"
-      },
-      "d:/develop/nicest/src/doc/generics/demo.ts": {
-        "version": "e59d41a1e72cfd7385a6111e2056fd16c0103d14b5a4a120a2e9aa07b89de0b9",
-        "signature": "7aad0000b1729429028b83ad460382a820b6f8a96a9de8be7c62a02b4560d9e0"
-      },
-      "d:/develop/nicest/src/doc/generics/demo2.ts": {
-        "version": "b92d15cec68efebe60d9d208feaf03e7d52ff1aea20c81ec47a38db6365a492e",
-        "signature": "57771ff65f80733b7540bf8f943213dffc86cf39aaeaacb5f292b6b3647682c8"
-      },
-      "d:/develop/nicest/src/doc/generics/demo3.ts": {
-        "version": "5e76a280cc2c5f4eaf24f2fd3ad4cab737e43d9d982f57e4a67f5d33c05d2662",
-        "signature": "36d934303d774e21c249525b79da898814e54744c40a00c5cf3ef62f953f31d2"
       },
       "d:/develop/nicest/src/modules/socketpool.ts": {
         "version": "1bfe631c66166d23c0ce3f4199475813b376371b40413bd7a4d69acc291db8c6",
@@ -658,8 +546,16 @@
         "signature": "a114702e7d4c1e5164f978c5b0e426d1cf6e09222b09e7a93679c5eef2f20351"
       },
       "d:/develop/nicest/src/modules/mysql.ts": {
-        "version": "1357cc84b5bcf17cc8f23358b2eb64d99605cfb30bb5ef3309e67323bb9c2ee6",
+        "version": "a88235959c486a778c91cb3c8467d13791ba4a36c1b048899171cf36380d2dec",
         "signature": "eac9fa42ecae7ef6bd6922fe389893edf0f6f72fcd0138e04aeef14973821dcd"
+      },
+      "d:/develop/nicest/src/modules/readline.ts": {
+        "version": "c3607a7be7066d2f5ea16f8b668bbddb12dd512a764959dc237b17dd4bc3a334",
+        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
+      },
+      "d:/develop/nicest/src/modules/repl.ts": {
+        "version": "21a86daa4280af97f46316a154331dad4c8ad0d4dedb72dcf9d04a454734239d",
+        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
       },
       "d:/develop/nicest/src/modules/request.ts": {
         "version": "a219fb73432b7033d3507de9597366c300190f1cfbd6e63c69b656d776350c7f",
@@ -670,11 +566,11 @@
         "signature": "79e4bcc0b6c194d34574c38222d7ed41b547de738bd78d8015ce58d64f87aa48"
       },
       "d:/develop/nicest/src/modules/zipfile.ts": {
-        "version": "ee2f4458cf16896f4434c24873396d2d5c18d54d4ed8160d09ad72028110cc6d",
+        "version": "e963119dacebf5c16b4769070a3f1f7bd92008eb71aa17b5259e3bb928a233b9",
         "signature": "b0e7507fcc8c900918b512843258f84b799afdf6519f27f7ec52fc4a3b8332f1"
       },
       "d:/develop/nicest/src/service/socketserver.ts": {
-        "version": "eecb140b8021fd921bf11106fc7229843514b72407582a182b0446cde22f692a",
+        "version": "d9ba3651a7edfb3ef1edf6ab156dafc2dfe4f4c18720568023f2d93b9e1c9ef5",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
       },
       "d:/develop/nicest/node_modules/@types/ws/index.d.ts": {
@@ -682,12 +578,128 @@
         "signature": "72b8e5974345f122fb42452ab341cbcbe9835e973db4979862e973ab7d6091aa"
       },
       "d:/develop/nicest/src/service/websocket.ts": {
-        "version": "4fdacc4b1effcb3575cdf577c28de7f396e36967bb0f9ff0e5a7bf40cca3c99f",
+        "version": "2a7979710809564ea47cea606bd567abdafc13dc1e601262404583212019cd25",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
       },
       "d:/develop/nicest/src/test/index.ts": {
         "version": "7a3b4d8679bc19a2a3e08d64bfe1db96bdbeb3f88460e223ff201255ad7a4ebe",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
+      },
+      "d:/develop/nicest/src/tsdoc/namespaces.ts": {
+        "version": "08f235bce9d6ac72c1bfbe102913f64cfd47dfe9150bc9799d582e535c162e32",
+        "signature": "07fddb2af327f201b461dd9e36e5ccb276b96850af5e4263e720d31e7d18b734"
+      },
+      "d:/develop/nicest/src/tsdoc/typeassertions.ts": {
+        "version": "278f9c8a1bed5cf686159aa41ea310a1cb75cbe49f3b150fe6606cbf79c275a5",
+        "signature": "c02b6162475dd088f904cdb273208989aaa3f0396e955d04cd58a27e52eabf6f"
+      },
+      "d:/develop/nicest/src/tsdoc/typeguards.ts": {
+        "version": "ad104d945ba42f0523b3d4beda4d751e9a2b3542e6a72b5c507d9eb7dbb4180b",
+        "signature": "c1eff0643c31a347524153aec7fce16458147cf7ffd7fcdcc5c9b919aa380c16"
+      },
+      "d:/develop/nicest/src/tsdoc/decorators.ts": {
+        "version": "3a607cbdc23627623b2608b70d77551a52b934f7b67b889f12abde88c9e0fecf",
+        "signature": "fba5ffbc7925f70c3ae0e16f99da10cb8e51607e217899beb2234016c3fbb077"
+      },
+      "d:/develop/nicest/src/tsdoc/extends.ts": {
+        "version": "e0aedadc71c923018d9a9f9eaf599291e86bffbbb336188a337aee9f516e9dad",
+        "signature": "cde07341631afa0963d654b6f3602c3cd8494770cee0a5266f93ab71bd263b52"
+      },
+      "d:/develop/nicest/src/tsdoc/index.ts": {
+        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "d:/develop/nicest/src/tsdoc/keyof.ts": {
+        "version": "8d8d5ed3647e0917b42698d76a06a5ba0f282e68ce2728bcc0b0693b623d40cd",
+        "signature": "06ee9f8db7f377c811fa5626e48cf2fb7c9ba78d88f3ad93d9fe8f77122f2662"
+      },
+      "d:/develop/nicest/src/tsdoc/new.ts": {
+        "version": "44f7acfc94aec7c745d677c110947aa7c31e76357277cd491f215c29aa6a02c7",
+        "signature": "eacceda4575411a1b0d2a34407d62f66a855be9f0e24c2b5140858a9af3b050f"
+      },
+      "d:/develop/nicest/src/tsdoc/type.ts": {
+        "version": "35085e6c8e2d03025f934ed13ef025575c90ca6899a93f6d13c8b1e18aba5ff1",
+        "signature": "d6f3719b555e51262558d78dd3478356f1786c8e4b26984a38ae85ca1f8680c5"
+      },
+      "d:/develop/nicest/src/tsdoc/advancedtypes/enums.ts": {
+        "version": "9a0a635403bd6a7d7f986e09132fb137db2612bdadcb7c40388e6c1d7ede992a",
+        "signature": "0775953e015f75c6539a3b7b4a925b4131696589c560409ac90f77e097a43232"
+      },
+      "d:/develop/nicest/src/tsdoc/advancedtypes/intersectiontypes.ts": {
+        "version": "e0636fc9fa384f755bdad2d4ba01183e647a7cafd3fa9ac8252903108e4121b2",
+        "signature": "7eb9e56ac4917d45dc11b133e96d70052e9559b62dd22d654337b450a67fe6cf"
+      },
+      "d:/develop/nicest/src/tsdoc/advancedtypes/tuple.ts": {
+        "version": "80a48433d9d90c3a6a936324786fe45fd7967938b0241194864246cede7a6592",
+        "signature": "8ebe4695659b243e4e5431aa35297cbc6aeb906bc9840df5e1111346e6965937"
+      },
+      "d:/develop/nicest/src/tsdoc/advancedtypes/uniontypes.ts": {
+        "version": "8bb3ec51e5756d52f0f65d1ab5646c3e86879ff13742e723ebc8a5270d6ffcbe",
+        "signature": "c8fbba4258577439ec2c68a315dd076cae26f2846f0b4f53c2b86a85daa028f4"
+      },
+      "d:/develop/nicest/src/tsdoc/utilitytypes/constructorparameters.ts": {
+        "version": "4db3270d089649fd4518ea325e4e2df62c1cad4b57405dc62c29fdab104446c0",
+        "signature": "1d4fbc943f5dc5e79050898860aab4870f669cc1c9168e0539004e175084efec"
+      },
+      "d:/develop/nicest/src/tsdoc/utilitytypes/exclude.ts": {
+        "version": "45832854406dcbb4088d5b69702d297acac78f970b72a1c094ede4d9f52d8fb4",
+        "signature": "497c26dac05749c6775badcc20ad586376a8f240791cac91034e93197d4952d7"
+      },
+      "d:/develop/nicest/src/tsdoc/utilitytypes/extract.ts": {
+        "version": "7ac387d4d71e1753ec47e8b9dae1d6d6451b63120b225a6ea98161671c7bf922",
+        "signature": "f4cb19c42580b63879a28ea151e31890e4504e64c72f556cee795b65b0d008bb"
+      },
+      "d:/develop/nicest/src/tsdoc/utilitytypes/instancetype.ts": {
+        "version": "ef433f0050bc6285cde518dddd49f35bfd36c6d187ccbebd3d3b7b671b61afdb",
+        "signature": "cad57749eaaef401a71a8b6a41527d55b93b7e387b73b8e0e974fcd25b72be8e"
+      },
+      "d:/develop/nicest/src/tsdoc/utilitytypes/nonnullable.ts": {
+        "version": "ca9c739f950a5f7739032f922a16efc8a83861030fb37a79c4190086db4d5514",
+        "signature": "5974737e76d463fb0383aa4b8e055924349ba550613fcc0ed82bdfa2dc12cd51"
+      },
+      "d:/develop/nicest/src/tsdoc/utilitytypes/omit.ts": {
+        "version": "406a89a9951105fa28aaac3064872977613335a4e3ca90e9ee47bda48b2a85ee",
+        "signature": "35f7d9226bc458df6662cbd43a34a8362fe69107ef1db31879e8da14a5ad25b5"
+      },
+      "d:/develop/nicest/src/tsdoc/utilitytypes/parameters.ts": {
+        "version": "b02bea258ebe4df33ec90dfc95389b175faa9280b8e7c71730d9ac85f56c3610",
+        "signature": "48d47627762273ee15478822d60ce3cf6b148990ca9ef44c24c84d0489223f02"
+      },
+      "d:/develop/nicest/src/tsdoc/utilitytypes/partial.ts": {
+        "version": "852eb951014b11652559750eb8dc6accc151b942a8ee248ad7adaa69be770c3a",
+        "signature": "750c8f9b202d11cd718af8d725dbb3205ab4a2d5dc7f64226c95ca9617125eb9"
+      },
+      "d:/develop/nicest/src/tsdoc/utilitytypes/pick.ts": {
+        "version": "57c710329d2f6f9cb6e4ed6bfe5d67a467fa662e6b4e06868699a95d772bde28",
+        "signature": "b8fbd8a8d8c5e296887a54c1f8e85e63ecc391b9194db33718c676c15673036a"
+      },
+      "d:/develop/nicest/src/tsdoc/utilitytypes/readonly.ts": {
+        "version": "1fceb923a47000991674e3533575f8553cc84a4307d8d5fd8d10a7c7ebb05cb4",
+        "signature": "75913c6653f5d4259269e99281e44866a6bf5a830f2639becd3187b072103693"
+      },
+      "d:/develop/nicest/src/tsdoc/utilitytypes/record.ts": {
+        "version": "8773a4f22049357d32e6a21e956db97188875bfb1d0bb675a9dac96e5b77b514",
+        "signature": "ff6b37d1b724ddad0416d15fe631f754b0d16d211ab3f17187b5e28306f325df"
+      },
+      "d:/develop/nicest/src/tsdoc/utilitytypes/required.ts": {
+        "version": "f2df3852c825bc40ad3a6a7afdc72a52e7e452a9579900a20fba4421d1cb9055",
+        "signature": "1a3045cf2c23b1d4335dbc8c9e133385cb699d4521a89a11804e817fe9a2ba15"
+      },
+      "d:/develop/nicest/src/tsdoc/utilitytypes/returntype.ts": {
+        "version": "64da38aa3e5ba5e78bf4c68000b73a975f3e530520fb8a01cafe6898c5cf47d1",
+        "signature": "e66cde4d0be2f80eb56d1b9acea3211f72c372f342148c2438e8df7437a23e79"
+      },
+      "d:/develop/nicest/src/tsdoc/generics/demo.ts": {
+        "version": "e59d41a1e72cfd7385a6111e2056fd16c0103d14b5a4a120a2e9aa07b89de0b9",
+        "signature": "7aad0000b1729429028b83ad460382a820b6f8a96a9de8be7c62a02b4560d9e0"
+      },
+      "d:/develop/nicest/src/tsdoc/generics/demo2.ts": {
+        "version": "b92d15cec68efebe60d9d208feaf03e7d52ff1aea20c81ec47a38db6365a492e",
+        "signature": "57771ff65f80733b7540bf8f943213dffc86cf39aaeaacb5f292b6b3647682c8"
+      },
+      "d:/develop/nicest/src/tsdoc/generics/demo3.ts": {
+        "version": "5e76a280cc2c5f4eaf24f2fd3ad4cab737e43d9d982f57e4a67f5d33c05d2662",
+        "signature": "36d934303d774e21c249525b79da898814e54744c40a00c5cf3ef62f953f31d2"
       },
       "d:/develop/nicest/node_modules/@types/minimatch/index.d.ts": {
         "version": "1d1e6bd176eee5970968423d7e215bfd66828b6db8d54d17afec05a831322633",
@@ -860,12 +872,12 @@
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/develop/nicest/src/conf/index.ts": [
+      "d:/develop/nicest/src/configure/index.ts": [
         "d:/develop/nicest/src/interface/user.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/develop/nicest/src/utils/path.ts": [
+      "d:/develop/nicest/src/common/path.ts": [
         "d:/develop/nicest/node_modules/@types/node/path.d.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
@@ -874,11 +886,17 @@
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "d:/develop/nicest/src/common/stdout.ts": [
+        "d:/develop/nicest/src/interface/message.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "d:/develop/nicest/src/modules/logger.ts": [
         "d:/develop/nicest/node_modules/@types/node/fs.d.ts",
         "d:/develop/nicest/node_modules/@types/node/path.d.ts",
-        "d:/develop/nicest/src/utils/path.ts",
+        "d:/develop/nicest/src/common/path.ts",
         "d:/develop/nicest/src/interface/message.ts",
+        "d:/develop/nicest/src/common/stdout.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -908,7 +926,7 @@
         "d:/develop/nicest/node_modules/@types/node/path.d.ts",
         "d:/develop/nicest/src/interface/controller.ts",
         "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/src/utils/path.ts",
+        "d:/develop/nicest/src/common/path.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -983,7 +1001,7 @@
       ],
       "d:/develop/nicest/src/middleware/checkcontroller.ts": [
         "d:/develop/nicest/node_modules/@types/node/http.d.ts",
-        "d:/develop/nicest/src/conf/index.ts",
+        "d:/develop/nicest/src/configure/index.ts",
         "d:/develop/nicest/src/controller/index.ts",
         "d:/develop/nicest/src/interface/controller.ts",
         "d:/develop/nicest/src/interface/middleware.ts",
@@ -997,7 +1015,7 @@
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "d:/develop/nicest/src/modules/session.ts": [
-        "d:/develop/nicest/src/conf/index.ts",
+        "d:/develop/nicest/src/configure/index.ts",
         "d:/develop/nicest/src/interface/session.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
@@ -1009,7 +1027,7 @@
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/develop/nicest/src/utils/cookie.ts": [
+      "d:/develop/nicest/src/common/cookie.ts": [
         "d:/develop/nicest/node_modules/@types/node/http.d.ts",
         "d:/develop/nicest/src/interface/req.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
@@ -1022,20 +1040,20 @@
         "d:/develop/nicest/src/interface/session.ts",
         "d:/develop/nicest/src/modules/session.ts",
         "d:/develop/nicest/src/respond/resredirect.ts",
-        "d:/develop/nicest/src/utils/cookie.ts",
+        "d:/develop/nicest/src/common/cookie.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "d:/develop/nicest/src/middleware/gettoken.ts": [
         "d:/develop/nicest/node_modules/@types/node/http.d.ts",
         "d:/develop/nicest/node_modules/@types/node/querystring.d.ts",
-        "d:/develop/nicest/src/conf/index.ts",
+        "d:/develop/nicest/src/configure/index.ts",
         "d:/develop/nicest/src/interface/middleware.ts",
         "d:/develop/nicest/src/interface/req.ts",
         "d:/develop/nicest/src/interface/session.ts",
         "d:/develop/nicest/src/modules/session.ts",
         "d:/develop/nicest/src/respond/resredirect.ts",
-        "d:/develop/nicest/src/utils/cookie.ts",
+        "d:/develop/nicest/src/common/cookie.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1050,7 +1068,7 @@
         "d:/develop/nicest/node_modules/@types/node/fs.d.ts",
         "d:/develop/nicest/node_modules/@types/node/http.d.ts",
         "d:/develop/nicest/node_modules/@types/node/path.d.ts",
-        "d:/develop/nicest/src/conf/index.ts",
+        "d:/develop/nicest/src/configure/index.ts",
         "d:/develop/nicest/src/interface/req.ts",
         "d:/develop/nicest/src/modules/logger.ts",
         "d:/develop/nicest/src/respond/resstatic.ts",
@@ -1058,22 +1076,22 @@
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/develop/nicest/src/utils/cache.ts": [
+      "d:/develop/nicest/src/common/cache.ts": [
         "d:/develop/nicest/node_modules/@types/node/fs.d.ts",
         "d:/develop/nicest/src/interface/req.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/develop/nicest/src/utils/mime.ts": [
+      "d:/develop/nicest/src/common/mime.ts": [
         "d:/develop/nicest/node_modules/@types/node/path.d.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/develop/nicest/src/utils/zip.ts": [
+      "d:/develop/nicest/src/common/zip.ts": [
         "d:/develop/nicest/node_modules/@types/node/http.d.ts",
         "d:/develop/nicest/node_modules/@types/node/path.d.ts",
         "d:/develop/nicest/node_modules/@types/node/zlib.d.ts",
-        "d:/develop/nicest/src/conf/index.ts",
+        "d:/develop/nicest/src/configure/index.ts",
         "d:/develop/nicest/src/interface/req.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
@@ -1093,7 +1111,7 @@
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/develop/nicest/src/utils/parserange.ts": [
+      "d:/develop/nicest/src/common/parserange.ts": [
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1102,7 +1120,7 @@
         "d:/develop/nicest/node_modules/@types/node/http.d.ts",
         "d:/develop/nicest/src/interface/req.ts",
         "d:/develop/nicest/src/modules/logger.ts",
-        "d:/develop/nicest/src/utils/parserange.ts",
+        "d:/develop/nicest/src/common/parserange.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1116,11 +1134,11 @@
       ],
       "d:/develop/nicest/src/respond/resverify.ts": [
         "d:/develop/nicest/node_modules/@types/node/http.d.ts",
-        "d:/develop/nicest/src/conf/index.ts",
+        "d:/develop/nicest/src/configure/index.ts",
         "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/src/utils/cache.ts",
-        "d:/develop/nicest/src/utils/mime.ts",
-        "d:/develop/nicest/src/utils/zip.ts",
+        "d:/develop/nicest/src/common/cache.ts",
+        "d:/develop/nicest/src/common/mime.ts",
+        "d:/develop/nicest/src/common/zip.ts",
         "d:/develop/nicest/src/respond/rescache.ts",
         "d:/develop/nicest/src/respond/resfile.ts",
         "d:/develop/nicest/src/respond/resrange.ts",
@@ -1132,7 +1150,7 @@
         "d:/develop/nicest/node_modules/@types/node/fs.d.ts",
         "d:/develop/nicest/node_modules/@types/node/http.d.ts",
         "d:/develop/nicest/node_modules/@types/node/path.d.ts",
-        "d:/develop/nicest/src/conf/index.ts",
+        "d:/develop/nicest/src/configure/index.ts",
         "d:/develop/nicest/src/interface/req.ts",
         "d:/develop/nicest/src/respond/resverify.ts",
         "d:/develop/nicest/src/respond/resnotfound.ts",
@@ -1142,7 +1160,7 @@
       "d:/develop/nicest/src/respond/resstatic.ts": [
         "d:/develop/nicest/node_modules/@types/node/fs.d.ts",
         "d:/develop/nicest/node_modules/@types/node/http.d.ts",
-        "d:/develop/nicest/src/conf/index.ts",
+        "d:/develop/nicest/src/configure/index.ts",
         "d:/develop/nicest/src/interface/req.ts",
         "d:/develop/nicest/src/respond/resdir.ts",
         "d:/develop/nicest/src/respond/resindex.ts",
@@ -1166,9 +1184,9 @@
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/develop/nicest/src/utils/publicheader.ts": [
+      "d:/develop/nicest/src/common/publicheader.ts": [
         "d:/develop/nicest/node_modules/@types/node/http.d.ts",
-        "d:/develop/nicest/src/conf/index.ts",
+        "d:/develop/nicest/src/configure/index.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1176,10 +1194,10 @@
         "d:/develop/nicest/node_modules/@types/node/http.d.ts",
         "d:/develop/nicest/node_modules/@types/node/path.d.ts",
         "d:/develop/nicest/node_modules/@types/node/url.d.ts",
-        "d:/develop/nicest/src/conf/index.ts",
+        "d:/develop/nicest/src/configure/index.ts",
         "d:/develop/nicest/src/interface/middleware.ts",
         "d:/develop/nicest/src/interface/req.ts",
-        "d:/develop/nicest/src/utils/publicheader.ts",
+        "d:/develop/nicest/src/common/publicheader.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1188,12 +1206,12 @@
         "d:/develop/nicest/src/interface/req.ts",
         "d:/develop/nicest/node_modules/@types/node/http.d.ts",
         "d:/develop/nicest/src/respond/resstatic.ts",
-        "d:/develop/nicest/src/utils/path.ts",
+        "d:/develop/nicest/src/common/path.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "d:/develop/nicest/src/middleware/index.ts": [
-        "d:/develop/nicest/src/conf/index.ts",
+        "d:/develop/nicest/src/configure/index.ts",
         "d:/develop/nicest/src/interface/middleware.ts",
         "d:/develop/nicest/src/middleware/checkcontroller.ts",
         "d:/develop/nicest/src/middleware/checklogin.ts",
@@ -1207,7 +1225,7 @@
       ],
       "d:/develop/nicest/src/service/worker.ts": [
         "d:/develop/nicest/node_modules/@types/node/http.d.ts",
-        "d:/develop/nicest/src/conf/index.ts",
+        "d:/develop/nicest/src/configure/index.ts",
         "d:/develop/nicest/src/interface/middleware.ts",
         "d:/develop/nicest/src/middleware/index.ts",
         "d:/develop/nicest/src/modules/logger.ts",
@@ -1217,7 +1235,7 @@
       "d:/develop/nicest/src/service/cluster.ts": [
         "d:/develop/nicest/node_modules/@types/node/cluster.d.ts",
         "d:/develop/nicest/node_modules/@types/node/os.d.ts",
-        "d:/develop/nicest/src/conf/index.ts",
+        "d:/develop/nicest/src/configure/index.ts",
         "d:/develop/nicest/src/modules/logger.ts",
         "d:/develop/nicest/src/interface/message.ts",
         "d:/develop/nicest/src/service/worker.ts",
@@ -1234,123 +1252,7 @@
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/develop/nicest/src/conf/mysql.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/namespaces.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/typeassertions.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/typeguards.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/decorators.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/extends.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/index.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/keyof.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/new.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/type.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/advancedtypes/enums.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/advancedtypes/intersectiontypes.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/advancedtypes/tuple.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/advancedtypes/uniontypes.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/utilitytypes/constructorparameters.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/utilitytypes/exclude.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/utilitytypes/extract.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/utilitytypes/instancetype.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/utilitytypes/nonnullable.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/utilitytypes/omit.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/utilitytypes/parameters.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/utilitytypes/partial.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/utilitytypes/pick.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/utilitytypes/readonly.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/utilitytypes/record.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/utilitytypes/required.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/utilitytypes/returntype.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/generics/demo.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/generics/demo2.ts": [
-        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
-        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "d:/develop/nicest/src/doc/generics/demo3.ts": [
+      "d:/develop/nicest/src/configure/mysql.ts": [
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1647,7 +1549,20 @@
       ],
       "d:/develop/nicest/src/modules/mysql.ts": [
         "d:/develop/nicest/node_modules/@types/mysql/index.d.ts",
-        "d:/develop/nicest/src/conf/mysql.ts",
+        "d:/develop/nicest/src/configure/mysql.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/modules/readline.ts": [
+        "d:/develop/nicest/node_modules/@types/node/readline.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/path.d.ts",
+        "d:/develop/nicest/src/common/path.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/modules/repl.ts": [
+        "d:/develop/nicest/node_modules/@types/node/repl.d.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1665,13 +1580,13 @@
         "d:/develop/nicest/node_modules/@types/node/fs.d.ts",
         "d:/develop/nicest/node_modules/@types/node/path.d.ts",
         "d:/develop/nicest/node_modules/@types/node/zlib.d.ts",
-        "d:/develop/nicest/src/utils/path.ts",
+        "d:/develop/nicest/src/common/path.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "d:/develop/nicest/src/service/socketserver.ts": [
         "d:/develop/nicest/node_modules/@types/node/net.d.ts",
-        "d:/develop/nicest/src/conf/index.ts",
+        "d:/develop/nicest/src/configure/index.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1686,12 +1601,128 @@
       ],
       "d:/develop/nicest/src/service/websocket.ts": [
         "d:/develop/nicest/node_modules/@types/ws/index.d.ts",
-        "d:/develop/nicest/src/conf/index.ts",
+        "d:/develop/nicest/src/configure/index.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "d:/develop/nicest/src/test/index.ts": [
         "d:/develop/nicest/src/modules/request.ts",
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/namespaces.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/typeassertions.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/typeguards.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/decorators.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/extends.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/index.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/keyof.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/new.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/type.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/advancedtypes/enums.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/advancedtypes/intersectiontypes.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/advancedtypes/tuple.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/advancedtypes/uniontypes.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/utilitytypes/constructorparameters.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/utilitytypes/exclude.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/utilitytypes/extract.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/utilitytypes/instancetype.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/utilitytypes/nonnullable.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/utilitytypes/omit.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/utilitytypes/parameters.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/utilitytypes/partial.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/utilitytypes/pick.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/utilitytypes/readonly.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/utilitytypes/record.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/utilitytypes/required.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/utilitytypes/returntype.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/generics/demo.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/generics/demo2.ts": [
+        "d:/develop/nicest/node_modules/@types/node/util.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "d:/develop/nicest/src/tsdoc/generics/demo3.ts": [
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1849,8 +1880,11 @@
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "d:/develop/nicest/src/conf/index.ts": [
+      "d:/develop/nicest/src/configure/index.ts": [
         "d:/develop/nicest/src/interface/user.ts"
+      ],
+      "d:/develop/nicest/src/common/stdout.ts": [
+        "d:/develop/nicest/src/interface/message.ts"
       ],
       "d:/develop/nicest/src/modules/logger.ts": [
         "d:/develop/nicest/src/interface/message.ts"
@@ -1922,7 +1956,7 @@
         "d:/develop/nicest/src/interface/req.ts",
         "d:/develop/nicest/node_modules/@types/node/http.d.ts"
       ],
-      "d:/develop/nicest/src/utils/cookie.ts": [
+      "d:/develop/nicest/src/common/cookie.ts": [
         "d:/develop/nicest/node_modules/@types/node/http.d.ts",
         "d:/develop/nicest/src/interface/req.ts"
       ],
@@ -1940,11 +1974,11 @@
         "d:/develop/nicest/src/interface/req.ts",
         "d:/develop/nicest/node_modules/@types/node/http.d.ts"
       ],
-      "d:/develop/nicest/src/utils/cache.ts": [
+      "d:/develop/nicest/src/common/cache.ts": [
         "d:/develop/nicest/node_modules/@types/node/fs.d.ts",
         "d:/develop/nicest/src/interface/req.ts"
       ],
-      "d:/develop/nicest/src/utils/zip.ts": [
+      "d:/develop/nicest/src/common/zip.ts": [
         "d:/develop/nicest/src/interface/req.ts",
         "d:/develop/nicest/node_modules/@types/node/http.d.ts"
       ],
@@ -1982,7 +2016,7 @@
       "d:/develop/nicest/src/middleware/loginpage.ts": [
         "d:/develop/nicest/src/interface/middleware.ts"
       ],
-      "d:/develop/nicest/src/utils/publicheader.ts": [
+      "d:/develop/nicest/src/common/publicheader.ts": [
         "d:/develop/nicest/node_modules/@types/node/http.d.ts"
       ],
       "d:/develop/nicest/src/middleware/mount.ts": [
@@ -2336,9 +2370,10 @@
       "c:/users/administrator/appdata/roaming/npm/node_modules/typescript/lib/lib.esnext.bigint.d.ts",
       "c:/users/administrator/appdata/roaming/npm/node_modules/typescript/lib/lib.esnext.full.d.ts",
       "d:/develop/nicest/src/interface/user.ts",
-      "d:/develop/nicest/src/conf/index.ts",
-      "d:/develop/nicest/src/utils/path.ts",
+      "d:/develop/nicest/src/configure/index.ts",
+      "d:/develop/nicest/src/common/path.ts",
       "d:/develop/nicest/src/interface/message.ts",
+      "d:/develop/nicest/src/common/stdout.ts",
       "d:/develop/nicest/src/modules/logger.ts",
       "d:/develop/nicest/src/interface/req.ts",
       "d:/develop/nicest/src/interface/middleware.ts",
@@ -2357,17 +2392,17 @@
       "d:/develop/nicest/src/interface/session.ts",
       "d:/develop/nicest/src/modules/session.ts",
       "d:/develop/nicest/src/respond/resredirect.ts",
-      "d:/develop/nicest/src/utils/cookie.ts",
+      "d:/develop/nicest/src/common/cookie.ts",
       "d:/develop/nicest/src/middleware/checklogin.ts",
       "d:/develop/nicest/src/middleware/gettoken.ts",
       "d:/develop/nicest/src/respond/resnotfound.ts",
       "d:/develop/nicest/src/respond/resdir.ts",
-      "d:/develop/nicest/src/utils/cache.ts",
-      "d:/develop/nicest/src/utils/mime.ts",
-      "d:/develop/nicest/src/utils/zip.ts",
+      "d:/develop/nicest/src/common/cache.ts",
+      "d:/develop/nicest/src/common/mime.ts",
+      "d:/develop/nicest/src/common/zip.ts",
       "d:/develop/nicest/src/respond/rescache.ts",
       "d:/develop/nicest/src/respond/resfile.ts",
-      "d:/develop/nicest/src/utils/parserange.ts",
+      "d:/develop/nicest/src/common/parserange.ts",
       "d:/develop/nicest/src/respond/resrange.ts",
       "d:/develop/nicest/src/respond/reszip.ts",
       "d:/develop/nicest/src/respond/resverify.ts",
@@ -2375,43 +2410,14 @@
       "d:/develop/nicest/src/respond/resstatic.ts",
       "d:/develop/nicest/src/middleware/later.ts",
       "d:/develop/nicest/src/middleware/loginpage.ts",
-      "d:/develop/nicest/src/utils/publicheader.ts",
+      "d:/develop/nicest/src/common/publicheader.ts",
+      "d:/develop/nicest/src/middleware/mount.ts",
       "d:/develop/nicest/src/middleware/resfavicon.ts",
       "d:/develop/nicest/src/middleware/index.ts",
       "d:/develop/nicest/src/service/worker.ts",
-      "d:/develop/nicest/src/service/cluster.ts",
       "d:/develop/nicest/src/cluster.ts",
       "d:/develop/nicest/src/worker.ts",
-      "d:/develop/nicest/src/conf/mysql.ts",
-      "d:/develop/nicest/src/doc/namespaces.ts",
-      "d:/develop/nicest/src/doc/typeassertions.ts",
-      "d:/develop/nicest/src/doc/typeguards.ts",
-      "d:/develop/nicest/src/doc/decorators.ts",
-      "d:/develop/nicest/src/doc/extends.ts",
-      "d:/develop/nicest/src/doc/index.ts",
-      "d:/develop/nicest/src/doc/keyof.ts",
-      "d:/develop/nicest/src/doc/new.ts",
-      "d:/develop/nicest/src/doc/type.ts",
-      "d:/develop/nicest/src/doc/advancedtypes/enums.ts",
-      "d:/develop/nicest/src/doc/advancedtypes/intersectiontypes.ts",
-      "d:/develop/nicest/src/doc/advancedtypes/tuple.ts",
-      "d:/develop/nicest/src/doc/advancedtypes/uniontypes.ts",
-      "d:/develop/nicest/src/doc/utilitytypes/constructorparameters.ts",
-      "d:/develop/nicest/src/doc/utilitytypes/exclude.ts",
-      "d:/develop/nicest/src/doc/utilitytypes/extract.ts",
-      "d:/develop/nicest/src/doc/utilitytypes/instancetype.ts",
-      "d:/develop/nicest/src/doc/utilitytypes/nonnullable.ts",
-      "d:/develop/nicest/src/doc/utilitytypes/omit.ts",
-      "d:/develop/nicest/src/doc/utilitytypes/parameters.ts",
-      "d:/develop/nicest/src/doc/utilitytypes/partial.ts",
-      "d:/develop/nicest/src/doc/utilitytypes/pick.ts",
-      "d:/develop/nicest/src/doc/utilitytypes/readonly.ts",
-      "d:/develop/nicest/src/doc/utilitytypes/record.ts",
-      "d:/develop/nicest/src/doc/utilitytypes/required.ts",
-      "d:/develop/nicest/src/doc/utilitytypes/returntype.ts",
-      "d:/develop/nicest/src/doc/generics/demo.ts",
-      "d:/develop/nicest/src/doc/generics/demo2.ts",
-      "d:/develop/nicest/src/doc/generics/demo3.ts",
+      "d:/develop/nicest/src/configure/mysql.ts",
       "d:/develop/nicest/src/modules/socketpool.ts",
       "d:/develop/nicest/src/modules/base64.ts",
       "d:/develop/nicest/src/modules/encrypt.ts",
@@ -2462,6 +2468,8 @@
       "d:/develop/nicest/node_modules/@types/node/ts3.2/index.d.ts",
       "d:/develop/nicest/node_modules/@types/mysql/index.d.ts",
       "d:/develop/nicest/src/modules/mysql.ts",
+      "d:/develop/nicest/src/modules/readline.ts",
+      "d:/develop/nicest/src/modules/repl.ts",
       "d:/develop/nicest/src/modules/request.ts",
       "d:/develop/nicest/src/modules/shell.ts",
       "d:/develop/nicest/src/modules/zipfile.ts",
@@ -2469,8 +2477,37 @@
       "d:/develop/nicest/node_modules/@types/ws/index.d.ts",
       "d:/develop/nicest/src/service/websocket.ts",
       "d:/develop/nicest/src/test/index.ts",
+      "d:/develop/nicest/src/tsdoc/namespaces.ts",
+      "d:/develop/nicest/src/tsdoc/typeassertions.ts",
+      "d:/develop/nicest/src/tsdoc/typeguards.ts",
+      "d:/develop/nicest/src/tsdoc/decorators.ts",
+      "d:/develop/nicest/src/tsdoc/extends.ts",
+      "d:/develop/nicest/src/tsdoc/index.ts",
+      "d:/develop/nicest/src/tsdoc/keyof.ts",
+      "d:/develop/nicest/src/tsdoc/new.ts",
+      "d:/develop/nicest/src/tsdoc/type.ts",
+      "d:/develop/nicest/src/tsdoc/advancedtypes/enums.ts",
+      "d:/develop/nicest/src/tsdoc/advancedtypes/intersectiontypes.ts",
+      "d:/develop/nicest/src/tsdoc/advancedtypes/tuple.ts",
+      "d:/develop/nicest/src/tsdoc/advancedtypes/uniontypes.ts",
+      "d:/develop/nicest/src/tsdoc/utilitytypes/constructorparameters.ts",
+      "d:/develop/nicest/src/tsdoc/utilitytypes/exclude.ts",
+      "d:/develop/nicest/src/tsdoc/utilitytypes/extract.ts",
+      "d:/develop/nicest/src/tsdoc/utilitytypes/instancetype.ts",
+      "d:/develop/nicest/src/tsdoc/utilitytypes/nonnullable.ts",
+      "d:/develop/nicest/src/tsdoc/utilitytypes/omit.ts",
+      "d:/develop/nicest/src/tsdoc/utilitytypes/parameters.ts",
+      "d:/develop/nicest/src/tsdoc/utilitytypes/partial.ts",
+      "d:/develop/nicest/src/tsdoc/utilitytypes/pick.ts",
+      "d:/develop/nicest/src/tsdoc/utilitytypes/readonly.ts",
+      "d:/develop/nicest/src/tsdoc/utilitytypes/record.ts",
+      "d:/develop/nicest/src/tsdoc/utilitytypes/required.ts",
+      "d:/develop/nicest/src/tsdoc/utilitytypes/returntype.ts",
+      "d:/develop/nicest/src/tsdoc/generics/demo.ts",
+      "d:/develop/nicest/src/tsdoc/generics/demo2.ts",
+      "d:/develop/nicest/src/tsdoc/generics/demo3.ts",
       "d:/develop/nicest/node_modules/@types/minimatch/index.d.ts",
-      "d:/develop/nicest/src/middleware/mount.ts"
+      "d:/develop/nicest/src/service/cluster.ts"
     ]
   },
   "version": "3.5.1"

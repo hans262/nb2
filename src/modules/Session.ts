@@ -1,4 +1,4 @@
-import { SESSION_EXPIRES } from '../conf';
+import { SESSION_EXPIRES } from '../configure';
 import { Session, SessionStore } from '../Interface/Session';
 
 const SESSION: SessionStore = new Map()

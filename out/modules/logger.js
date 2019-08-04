@@ -2,7 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
 const path_1 = require("path");
-const path_2 = require("../utils/path");
+const path_2 = require("../common/path");
+const stdout_1 = require("../common/stdout");
 let STREAM = null;
 let CURRENT_DAY;
 function getStream() {
@@ -25,7 +26,7 @@ function DEBUG_TASK(massage) {
     const { type, msg, pid = process.pid } = massage;
     const date = new Date().toLocaleString();
     const mq = `[${date}] [${pid}] [${type}] -> ${msg}`;
-    console.log(mq);
+    stdout_1.Stdout.debug(type, mq);
     writeLine(mq);
 }
 function DEBUG(massage) {

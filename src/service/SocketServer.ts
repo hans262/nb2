@@ -1,5 +1,5 @@
 import { createServer, Socket } from 'net'
-import { SOCKET_SERVER_PORT } from '../conf';
+import { SOCKET_SERVER_PORT } from '../configure';
 
 function RUN(): void {
   //当前已连接的

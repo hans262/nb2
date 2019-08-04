@@ -1,9 +1,9 @@
 import { ServerResponse } from 'http';
-import { CACHE_MAX_AGE } from '../conf';
+import { CACHE_MAX_AGE } from '../configure';
 import { Req } from '../Interface/Req';
-import { generateETag, isCache } from '../utils/cache';
-import { mime } from '../utils/mime';
-import { isZip } from '../utils/zip';
+import { generateETag, isCache } from '../common/cache';
+import { mime } from '../common/mime';
+import { isZip } from '../common/zip';
 import { ResCache } from './ResCache';
 import { ResFile } from './ResFile';
 import { ResRange } from './ResRange';

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
 const path_1 = require("path");
-const conf_1 = require("../conf");
+const configure_1 = require("../configure");
 const logger_1 = require("../modules/logger");
 const ResStatic_1 = require("./ResStatic");
 const ResNotFound_1 = require("./ResNotFound");
@@ -18,8 +18,8 @@ function ResDir(req, res) {
         logger_1.DEBUG({ type: 'ERROR', msg: error.message });
         return ResNotFound_1.ResNotFound(req, res);
     }
-    if (dirents.find(d => d.name === conf_1.INDEX_PAGE)) {
-        req.__absolutePath = path_1.join(__absolutePath, conf_1.INDEX_PAGE);
+    if (dirents.find(d => d.name === configure_1.INDEX_PAGE)) {
+        req.__absolutePath = path_1.join(__absolutePath, configure_1.INDEX_PAGE);
         return ResStatic_1.ResStatic(req, res);
     }
     let content = `<h1>Index of ${__relativePath}</h1>`;

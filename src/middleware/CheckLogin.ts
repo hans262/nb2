@@ -4,7 +4,7 @@ import { Req } from '../Interface/Req';
 import { Session } from '../Interface/Session';
 import { KEY, remove, reset, select } from '../modules/Session';
 import { ResRedirect } from '../respond/ResRedirect';
-import { getCookie, setCookie } from '../utils/cookie';
+import { getCookie, setCookie } from '../common/cookie';
 
 export const CheckLogin: Middleware = function (
   req: Req, res: ServerResponse, next: Function

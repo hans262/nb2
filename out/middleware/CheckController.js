@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const conf_1 = require("../conf");
+const configure_1 = require("../configure");
 const controller_1 = require("../controller");
 const logger_1 = require("../modules/logger");
 exports.CheckController = function (req, res, next) {
     const { method, __relativePath, __absolutePath } = req;
     if (!method || !__relativePath)
         return next();
-    const prefix = __relativePath.match(new RegExp('^' + conf_1.API_PREFIX + '/'));
+    const prefix = __relativePath.match(new RegExp('^' + configure_1.API_PREFIX + '/'));
     if (!prefix)
         return next();
     const controller = controller_1.default.find(c => {

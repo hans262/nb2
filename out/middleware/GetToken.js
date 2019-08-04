@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const querystring_1 = require("querystring");
-const conf_1 = require("../conf");
+const configure_1 = require("../configure");
 const Session_1 = require("../modules/Session");
 const ResRedirect_1 = require("../respond/ResRedirect");
-const cookie_1 = require("../utils/cookie");
+const cookie_1 = require("../common/cookie");
 exports.GetToken = function (req, res, next) {
     const { method, __relativePath } = req;
     if (method === 'POST' && __relativePath === '/getToken') {
@@ -17,7 +17,7 @@ exports.GetToken = function (req, res, next) {
             const toQueryString = buffer.toString();
             const toObj = querystring_1.parse(toQueryString);
             const { username, password } = toObj;
-            if (username === conf_1.USER.username && password === conf_1.USER.password) {
+            if (username === configure_1.USER.username && password === configure_1.USER.password) {
                 const ses = Session_1.generate();
                 cookie_1.setCookie({ res, key: Session_1.KEY, value: ses.id, path: '/', expires: new Date(ses.expire), httpOnly: true });
                 ResRedirect_1.ResRedirect({ req, res, location: '/', code: 302, reasonPhrase: 'login success' });

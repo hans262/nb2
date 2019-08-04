@@ -3,7 +3,7 @@ import { ServerResponse } from 'http';
 import { join } from 'path';
 import { Controller } from '../Interface/Controller';
 import { Req } from '../Interface/Req';
-import { PUBLIC_PATH } from '../utils/path';
+import { PUBLIC_PATH } from '../common/path';
 
 export class DownLoad implements Controller {
   PATH_NAME: string = '/api/download'

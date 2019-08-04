@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const conf_1 = require("../conf");
+const configure_1 = require("../configure");
 const SESSION = new Map();
 exports.KEY = 'SESSION_ID';
-exports.EXPIRES = conf_1.SESSION_EXPIRES * 60 * 1000;
+exports.EXPIRES = configure_1.SESSION_EXPIRES * 60 * 1000;
 function generate() {
     const session = {
         id: (Date.now() + Math.random()).toString(),

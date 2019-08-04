@@ -1,10 +1,10 @@
 import { ServerResponse } from 'http';
 import { join } from 'path';
 import { parse } from 'url';
-import { ROOT } from '../conf';
+import { ROOT } from '../configure';
 import { Middleware } from '../Interface/Middleware';
 import { Req } from '../Interface/Req';
-import { publicHeader } from '../utils/publicHeader';
+import { publicHeader } from '../common/publicHeader';
 
 export const Mount: Middleware = function (
   req: Req, res: ServerResponse, next: Function

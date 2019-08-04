@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
 const path_1 = require("path");
-const path_2 = require("../utils/path");
+const path_2 = require("../common/path");
 class DownLoad {
     constructor() {
         this.PATH_NAME = '/api/download';

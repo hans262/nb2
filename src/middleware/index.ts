@@ -1,4 +1,4 @@
-import { LOGIN } from '../conf';
+import { LOGIN } from '../configure';
 import { Middleware } from '../Interface/Middleware';
 import { CheckController } from './CheckController';
 import { CheckLogin } from './CheckLogin';

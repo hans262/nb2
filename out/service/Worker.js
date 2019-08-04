@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const http_1 = require("http");
-const conf_1 = require("../conf");
+const configure_1 = require("../configure");
 const middleware_1 = require("../middleware");
 const logger_1 = require("../modules/logger");
 function HANDLER(req, res) {
@@ -16,8 +16,8 @@ function HANDLER(req, res) {
 }
 function RUN_WORKER() {
     const server = http_1.createServer(HANDLER);
-    server.listen(conf_1.PORT, conf_1.HOST, () => {
-        logger_1.DEBUG({ type: 'WORKER_STARTUP', msg: `port: ${conf_1.PORT}` });
+    server.listen(configure_1.PORT, configure_1.HOST, () => {
+        logger_1.DEBUG({ type: 'WORKER_STARTUP', msg: `port: ${configure_1.PORT}` });
     });
     process.on('message', action => {
         switch (action.type) {

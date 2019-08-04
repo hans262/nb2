@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const mysql_1 = require("mysql");
-const mysql_2 = require("../conf/mysql");
+const mysql_2 = require("../configure/mysql");
 exports.POOL = mysql_1.createPool({
     connectionLimit: mysql_2.CONNECTION_LIMIT,
     host: mysql_2.HOST,

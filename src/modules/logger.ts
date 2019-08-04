@@ -1,7 +1,8 @@
 import { createWriteStream, WriteStream } from 'fs';
 import { join } from 'path';
-import { LOGS_PATH } from '../utils/path';
+import { LOGS_PATH } from '../common/path';
 import { MESSAGE, ACTION } from '../Interface/Message';
+import { Stdout } from '../common/stdout';
 
 let STREAM: WriteStream | null = null;
 let CURRENT_DAY: string;
@@ -30,7 +31,7 @@ function DEBUG_TASK(massage: MESSAGE): void {
   const { type, msg, pid = process.pid } = massage
   const date: string = new Date().toLocaleString()
   const mq: string = `[${date}] [${pid}] [${type}] -> ${msg}`
-  console.log(mq)
+  Stdout.debug(type, mq)
   writeLine(mq)
 }
 /**

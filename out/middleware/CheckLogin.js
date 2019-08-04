@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const Session_1 = require("../modules/Session");
 const ResRedirect_1 = require("../respond/ResRedirect");
-const cookie_1 = require("../utils/cookie");
+const cookie_1 = require("../common/cookie");
 exports.CheckLogin = function (req, res, next) {
     if (!isLogin(req, res)) {
         ResRedirect_1.ResRedirect({ req, res, location: '/login', code: 302, reasonPhrase: 'temporarily moved' });

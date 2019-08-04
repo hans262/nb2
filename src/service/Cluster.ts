@@ -1,11 +1,11 @@
 import { fork, isMaster, on, Worker, workers } from 'cluster';
 import { cpus } from 'os';
-import { CLUSTER } from '../conf';
+import { CLUSTER } from '../configure';
 import { DEBUG } from '../modules/logger';
 import { ACTION } from '../Interface/Message';
 
 function MASTER(): void {
-  DEBUG({ type: 'MASTER_STARTUP', msg: `Nicest version: 4.0.0` })
+  DEBUG({ type: 'MASTER_STARTUP', msg: `Nicest version: 4.1.2` })
   CLUSTER ? cpus().forEach(() => fork()) : fork()
 
   on('message', (worker: Worker, action: ACTION) => {

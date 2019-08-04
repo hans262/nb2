@@ -2,7 +2,7 @@ import { createReadStream, ReadStream } from 'fs';
 import { ServerResponse } from 'http';
 import { Req } from '../Interface/Req';
 import { DEBUG } from '../modules/logger';
-import { parseRange, Range } from '../utils/parseRange';
+import { parseRange, Range } from '../common/parseRange';
 
 export function ResRange(req: Req, res: ServerResponse): void {
   const { __absolutePath, __stats } = req

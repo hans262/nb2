@@ -1,7 +1,7 @@
 import { createReadStream, createWriteStream, ReadStream, WriteStream } from 'fs';
 import { join } from 'path';
 import { createGzip, Gzip } from 'zlib';
-import { PUBLIC_PATH } from '../utils/path';
+import { PUBLIC_PATH } from '../common/path';
 
 export function testGzip() {
   const gzip: Gzip = createGzip()

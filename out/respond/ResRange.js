@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
 const logger_1 = require("../modules/logger");
-const parseRange_1 = require("../utils/parseRange");
+const parseRange_1 = require("../common/parseRange");
 function ResRange(req, res) {
     const { __absolutePath, __stats } = req;
     const { size } = __stats;

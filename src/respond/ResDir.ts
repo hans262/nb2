@@ -1,7 +1,7 @@
 import { Dirent, readdirSync } from 'fs';
 import { ServerResponse } from 'http';
 import { join } from 'path';
-import { INDEX_PAGE } from '../conf';
+import { INDEX_PAGE } from '../configure';
 import { Req } from '../Interface/Req';
 import { DEBUG } from '../modules/logger';
 import { ResStatic } from './ResStatic';

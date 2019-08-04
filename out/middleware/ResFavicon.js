@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const ResStatic_1 = require("../respond/ResStatic");
-const path_1 = require("../utils/path");
+const path_1 = require("../common/path");
 exports.ResFavicon = function (req, res, next) {
     const { __relativePath, method } = req;
     if (method === 'GET' && __relativePath === '/favicon.ico') {

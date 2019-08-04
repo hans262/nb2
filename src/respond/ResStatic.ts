@@ -1,6 +1,6 @@
 import { stat, Stats } from 'fs';
 import { ServerResponse } from 'http';
-import { REACT_APP } from '../conf';
+import { REACT_APP } from '../configure';
 import { Req } from '../Interface/Req';
 import { ResDir } from './ResDir';
 import { ResIndex } from './ResIndex';

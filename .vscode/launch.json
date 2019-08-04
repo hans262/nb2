@@ -7,7 +7,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Cluster",
+      "name": "CLUSTER",
       "program": "${workspaceFolder}/src/cluster.ts",
       "autoAttachChildProcesses": true,
       "outFiles": [
@@ -17,7 +17,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Worker",
+      "name": "WORKER",
       "program": "${workspaceFolder}/src/worker.ts",
       "outFiles": [
         "${workspaceFolder}/out/**/*.js"
@@ -26,7 +26,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "WebSocket",
+      "name": "WEB_SOCKET",
       "program": "${workspaceFolder}/src/service/WebSocket.ts",
       "outFiles": [
         "${workspaceFolder}/out/**/*.js"
@@ -35,7 +35,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "SocketServer",
+      "name": "SOCKET_SERVER",
       "program": "${workspaceFolder}/src/service/SocketServer.ts",
       "outFiles": [
         "${workspaceFolder}/out/**/*.js"
@@ -44,7 +44,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Test",
+      "name": "TEST",
       "program": "${workspaceFolder}/src/test/index.ts",
       "outFiles": [
         "${workspaceFolder}/out/**/*.js"
@@ -53,7 +53,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Doc",
+      "name": "TS_DOC",
       "program": "${workspaceFolder}/src/doc/index.ts",
       "outFiles": [
         "${workspaceFolder}/out/**/*.js"

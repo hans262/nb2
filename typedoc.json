@@ -2,7 +2,7 @@
   "mode": "file",
   "out": "docs",
   "exclude": [
-    "./src/doc/**/*",
+    "./src/tsdoc/**/*",
     "./src/test/**/*"
   ],
   "excludeNotExported": true,

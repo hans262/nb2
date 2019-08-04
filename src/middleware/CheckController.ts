@@ -1,5 +1,5 @@
 import { ServerResponse } from 'http';
-import { API_PREFIX } from '../conf';
+import { API_PREFIX } from '../configure';
 import CONTROLLER from '../controller';
 import { Controller } from '../Interface/Controller';
 import { Middleware } from '../Interface/Middleware';

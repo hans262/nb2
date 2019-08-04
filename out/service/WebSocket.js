@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const ws_1 = require("ws");
-const conf_1 = require("../conf");
+const configure_1 = require("../configure");
 function RUN() {
-    const wss = new ws_1.Server({ port: conf_1.WEB_SOCKET_PORT });
+    const wss = new ws_1.Server({ port: configure_1.WEB_SOCKET_PORT });
     wss.on('connection', ws => {
         const userId = wss.clients.size;
         console.log(`用户 ${userId} 进来了`);

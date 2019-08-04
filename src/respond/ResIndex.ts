@@ -1,7 +1,7 @@
 import { statSync, stat } from "fs";
 import { ServerResponse } from "http";
 import { join } from 'path';
-import { INDEX_PAGE, ROOT } from "../conf";
+import { INDEX_PAGE, ROOT } from "../configure";
 import { Req } from "../Interface/Req";
 import { ResVerify } from "./ResVerify";
 import { ResNotFound } from "./ResNotFound";

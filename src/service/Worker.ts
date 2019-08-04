@@ -1,5 +1,5 @@
 import { createServer, IncomingMessage, Server, ServerResponse } from 'http';
-import { HOST, PORT } from '../conf';
+import { HOST, PORT } from '../configure';
 import { Middleware } from '../Interface/Middleware';
 import MIDDLEWARE from '../middleware';
 import { DEBUG } from '../modules/logger';
