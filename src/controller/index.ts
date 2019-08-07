@@ -8,15 +8,17 @@ import { TestPost } from './TestPost';
 import { TestRand } from './TestRand';
 import { UpFiles } from './UpFiles';
 
-const CONTROLLER: Array<Controller> = [
-  new DownLoad,
-  new Restart,
-  new ShutDown,
-  new TestGet,
-  new TestJsonp,
-  new TestPost,
-  new UpFiles,
-  new TestRand
-]
+const combineController = <T>(...clazz: { new(): T }[]): T[] => clazz.map<T>(c => new c())
+
+const CONTROLLER: Controller[] = combineController<Controller>(
+  DownLoad,
+  Restart,
+  ShutDown,
+  TestGet,
+  TestJsonp,
+  TestPost,
+  UpFiles,
+  TestRand
+)
 
 export default CONTROLLER

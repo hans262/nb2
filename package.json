@@ -9,7 +9,8 @@
     "socketserver": "node out/service/SocketServer.js",
     "out": "tsc",
     "out:w": "tsc -watch",
-    "doc": "typedoc --options ./typedoc.json"
+    "doc": "typedoc --options ./typedoc.json",
+    "pkg": "pkg ./out/cluster.js -t node12-win-x64"
   },
   "author": "ounana",
   "license": "MIT",

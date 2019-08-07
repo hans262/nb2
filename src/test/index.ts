@@ -1,18 +1,30 @@
-import { it } from "../modules/request";
+interface MokF {
+  PATH: string
+  GET?(): void
+  POST?(): void
+}
 
-; (async () => {
-  try {
-    const ret = await it({
-      hostname: '127.0.0.1',
-      port: 5000,
-      path: '/api/post',
-      method: 'POST',
-      body: 'hello world'
-    })
-    console.log(ret)
-    const { response } = ret
-    console.log(response.toString())
-  } catch (err) {
-    console.log(err)
-  }
-})()
+class Mok implements MokF {
+  PATH: string = '/apc'
+  GET(): void { }
+}
+
+class Cok implements MokF {
+  PATH: string = '/abc'
+  POST(): void { }
+}
+
+function gen<T>(...clazz: { new(): T }[]): T[] {
+  return clazz.map<T>(c => {
+    //我要拿到c上的方法名
+    return new c()
+  })
+}
+
+const list = gen<MokF>(
+  Mok,
+  Cok
+)
+
+console.log(list)
+debugger

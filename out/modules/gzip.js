@@ -18,4 +18,4 @@ function toGunzip() {
     inp.pipe(gzip).pipe(out);
 }
 exports.toGunzip = toGunzip;
-//# sourceMappingURL=zipFile.js.map
+//# sourceMappingURL=gzip.js.map

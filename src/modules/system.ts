@@ -1,8 +1,9 @@
 import { exec, ExecException, execSync } from 'child_process'
+
 /**
- * shell
+ * run shell
  */
-export function runShell() {
+export function shell() {
   //异步
   exec('node -v', (err: ExecException | null, stdout: string, stderr: string) => {
     if (err) return console.log(err)
