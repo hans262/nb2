@@ -19,4 +19,4 @@ async function post() {
     }
 }
 exports.post = post;
-//# sourceMappingURL=Tapi.js.map
+//# sourceMappingURL=tapi.js.map

@@ -9,7 +9,6 @@ import { TestRand } from './TestRand';
 import { UpFiles } from './UpFiles';
 
 const combineController = <T>(...clazz: { new(): T }[]): T[] => clazz.map<T>(c => new c())
-
 const CONTROLLER: Controller[] = combineController<Controller>(
   DownLoad,
   Restart,
