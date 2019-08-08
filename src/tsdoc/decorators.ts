@@ -8,13 +8,13 @@
  */
 
 //扩展静态成员
-function path(path: String) {
+function path(path: string) {
   return function (target: any) {
     target.PATH = path
   }
 }
 //扩展成员
-function attr<T extends { new(...args: any[]): {} }>(target: T) {
+function attr<T extends new (...args: any[]) => {}>(target: T): T {
   return class extends target {
     name = "huahua"
     age = 18
@@ -23,6 +23,7 @@ function attr<T extends { new(...args: any[]): {} }>(target: T) {
 
 @path('/api/user')
 @attr
-class Test { }
-const test = new Test()
-console.log(test)
+class C3 { }
+const c3 = new C3()
+console.log(c3)
+debugger

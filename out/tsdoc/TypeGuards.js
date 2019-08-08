@@ -1,10 +1,24 @@
 "use strict";
-function isNumber(x) {
-    return typeof x === 'number';
+function ttt(mok) {
+    if (typeof mok === 'number') {
+        mok;
+    }
+    else if (mok instanceof Date) {
+        mok;
+    }
 }
-console.log(isNumber(123));
-function isDate(obj) {
-    return obj instanceof Date;
+function isDate(d) {
+    return d instanceof Date;
 }
-console.log(isDate(new Date()));
+function www(mok) {
+    if (isDate(mok)) {
+        mok;
+    }
+}
+function move(pet) {
+    if ('swim' in pet) {
+        return pet.swim();
+    }
+    return pet.fly();
+}
 //# sourceMappingURL=TypeGuards.js.map

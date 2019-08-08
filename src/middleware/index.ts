@@ -8,18 +8,17 @@ import { LoginPage } from './LoginPage';
 import { Mount } from './Mount';
 import { ResFavicon } from './ResFavicon';
 
-const MIDDLEWARE: Array<Middleware> = []
+const combineMiddleware = <T>(...middleware: (T | false)[]): T[] =>
+  middleware.filter((m: T | false): m is T => m !== false)
 
-function useMiddleware(middleware: Middleware): void {
-  MIDDLEWARE.push(middleware)
-}
-
-useMiddleware(Mount)
-useMiddleware(ResFavicon)
-LOGIN && useMiddleware(LoginPage)
-LOGIN && useMiddleware(GetToken)
-LOGIN && useMiddleware(CheckLogin)
-useMiddleware(CheckController)
-useMiddleware(Later)
+const MIDDLEWARE: Middleware[] = combineMiddleware<Middleware>(
+  Mount,
+  ResFavicon,
+  LOGIN && LoginPage,
+  LOGIN && GetToken,
+  LOGIN && CheckLogin,
+  CheckController,
+  Later
+)
 
 export default MIDDLEWARE

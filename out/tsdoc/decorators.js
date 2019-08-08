@@ -19,12 +19,13 @@ function attr(target) {
         }
     };
 }
-let Test = class Test {
+let C3 = class C3 {
 };
-Test = __decorate([
+C3 = __decorate([
     path('/api/user'),
     attr
-], Test);
-const test = new Test();
-console.log(test);
+], C3);
+const c3 = new C3();
+console.log(c3);
+debugger;
 //# sourceMappingURL=decorators.js.map
