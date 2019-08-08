@@ -3,7 +3,7 @@
  * 
  */
 
-type TypeName<T> =
+type T50<T> =
   T extends string ? "string" :
   T extends number ? "number" :
   T extends boolean ? "boolean" :
@@ -11,8 +11,8 @@ type TypeName<T> =
   T extends Function ? "function" :
   "object"
 
-type T51 = TypeName<string>
-type T52 = TypeName<"a">
-type T53 = TypeName<true>
-type T54 = TypeName<() => void>
-type T55 = TypeName<string[]>
+type T51 = T50<string>
+type T52 = T50<"a">
+type T53 = T50<true>
+type T54 = T50<() => void>
+type T55 = T50<string[]>

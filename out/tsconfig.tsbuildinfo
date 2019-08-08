@@ -614,8 +614,8 @@
         "signature": "300e71412f45c24eb0869513d608aa5d5b14f34a228b6b285a107709d526ecb7"
       },
       "d:/develop/nicest/src/tsdoc/extends.ts": {
-        "version": "e0aedadc71c923018d9a9f9eaf599291e86bffbbb336188a337aee9f516e9dad",
-        "signature": "cde07341631afa0963d654b6f3602c3cd8494770cee0a5266f93ab71bd263b52"
+        "version": "c7b730cfabd519b9ae01bbcf88b3c4f7a372148d06811879fb210122de591dcb",
+        "signature": "1e85f7c6645d558cd571bde71d26040665d392178fd4d38f65678944b26dd0d9"
       },
       "d:/develop/nicest/src/tsdoc/index.ts": {
         "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -690,8 +690,8 @@
         "signature": "75913c6653f5d4259269e99281e44866a6bf5a830f2639becd3187b072103693"
       },
       "d:/develop/nicest/src/tsdoc/utilitytypes/record.ts": {
-        "version": "8773a4f22049357d32e6a21e956db97188875bfb1d0bb675a9dac96e5b77b514",
-        "signature": "ff6b37d1b724ddad0416d15fe631f754b0d16d211ab3f17187b5e28306f325df"
+        "version": "784662156d18bf5de6e3384741bf5b74784c0285cf6d5abc36310ae9f28cb081",
+        "signature": "caa1488c4480f34536f7f62de7dbac8e9fa43d2d746f3cf5eb8c56cda74ae1e8"
       },
       "d:/develop/nicest/src/tsdoc/utilitytypes/required.ts": {
         "version": "f2df3852c825bc40ad3a6a7afdc72a52e7e452a9579900a20fba4421d1cb9055",
