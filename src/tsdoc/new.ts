@@ -2,14 +2,15 @@
  * 类类型 -> new
  */
 
-function create<T>(c: { new(): T; }): T {
-  return new c()
-}
-class HuaHua {
+type Clazz<P> = new () => P
+class C2 {
   name: string = 'huahua'
   age: number = 18
   study(): void { }
 }
-const huahua: HuaHua = create<HuaHua>(HuaHua)
-console.log(huahua)
+
+const create = <T>(clazz: Clazz<T>): T => new clazz()
+const c2 = create<C2>(C2)
+
+console.log(c2)
 debugger

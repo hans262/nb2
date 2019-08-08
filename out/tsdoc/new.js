@@ -1,15 +1,13 @@
 "use strict";
-function create(c) {
-    return new c();
-}
-class HuaHua {
+class C2 {
     constructor() {
         this.name = 'huahua';
         this.age = 18;
     }
     study() { }
 }
-const huahua = create(HuaHua);
-console.log(huahua);
+const create = (clazz) => new clazz();
+const c2 = create(C2);
+console.log(c2);
 debugger;
 //# sourceMappingURL=new.js.map
