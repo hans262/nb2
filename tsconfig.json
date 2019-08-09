@@ -14,7 +14,8 @@
     //存储增量编译信息的文件
     "tsBuildInfoFile": "./out/tsconfig.tsbuildinfo",
     //提升代码健壮性
-    "strict": true
+    "strict": true,
+    "emitDecoratorMetadata":true
   },
   "include": [
     "src"
