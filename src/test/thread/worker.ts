@@ -9,7 +9,7 @@ const fibonacci = (num: number): number => {
 }
 
 const number = workerData
-const ret = fibonacci(number)
+const fib = fibonacci(number)
 if (parentPort) {
-  parentPort.postMessage(ret)
+  parentPort.postMessage(fib)
 }

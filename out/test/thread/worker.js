@@ -10,8 +10,8 @@ const fibonacci = (num) => {
     }
 };
 const number = worker_threads_1.workerData;
-const ret = fibonacci(number);
+const fib = fibonacci(number);
 if (worker_threads_1.parentPort) {
-    worker_threads_1.parentPort.postMessage(ret);
+    worker_threads_1.parentPort.postMessage(fib);
 }
 //# sourceMappingURL=worker.js.map
