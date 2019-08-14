@@ -586,16 +586,12 @@
         "signature": "9cd724fecc1b79143ef673151d26d6c61c5d8bafcb265e1113ec99979d8422e3"
       },
       "c:/luo/develop/nicest/src/test/index.ts": {
-        "version": "d0f3af254bc0c4cb19bd283790054ec4c339679ca9831b30296aabda3a4a825d",
-        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
+        "version": "4370f147d88cc8ed79900003d11325583336011303ba653c6eaeb2a917e1a26d",
+        "signature": "332dac98c678ac346f1ecc899f1f2dcd3a18536abf49d3d74ab9ff7a547e7871"
       },
       "c:/luo/develop/nicest/src/test/tapi.ts": {
         "version": "2fe7d073dd90cbf8b1b52c86f33a3b0f435d5ea3dbaa76b1c0ee813e1b8dedeb",
         "signature": "85c1f62830f6ec25c213cb6ac0844e2d8b330b851da4a7e2584ef63673c03b75"
-      },
-      "c:/luo/develop/nicest/src/test/worker.ts": {
-        "version": "2759bc3901d6a6983a48bc0882a8180088eeb9b6dfc4c15cd425817e5ed5819e",
-        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
       },
       "c:/luo/develop/nicest/src/test/thread/index.ts": {
         "version": "60766920386bde174b834d911a2341a5e7e65e1ee5ad69f617041af3f2cafed0",
@@ -1639,23 +1635,11 @@
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "c:/luo/develop/nicest/src/test/index.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/worker_threads.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/path.d.ts",
-        "c:/luo/develop/nicest/src/common/path.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "c:/luo/develop/nicest/src/test/tapi.ts": [
         "c:/luo/develop/nicest/src/modules/request.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/src/test/worker.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/worker_threads.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/path.d.ts",
-        "c:/luo/develop/nicest/src/common/path.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -2542,9 +2526,7 @@
       "c:/luo/develop/nicest/node_modules/@types/ws/index.d.ts",
       "c:/luo/develop/nicest/src/service/websocket.ts",
       "c:/luo/develop/nicest/src/test/fibonacci.ts",
-      "c:/luo/develop/nicest/src/test/index.ts",
       "c:/luo/develop/nicest/src/test/tapi.ts",
-      "c:/luo/develop/nicest/src/test/worker.ts",
       "c:/luo/develop/nicest/src/test/thread/index.ts",
       "c:/luo/develop/nicest/src/test/thread/worker.ts",
       "c:/luo/develop/nicest/src/tsdoc/namespaces.ts",
@@ -2578,7 +2560,8 @@
       "c:/luo/develop/nicest/src/tsdoc/generics/demo.ts",
       "c:/luo/develop/nicest/src/tsdoc/generics/demo2.ts",
       "c:/luo/develop/nicest/src/tsdoc/generics/demo3.ts",
-      "c:/luo/develop/nicest/node_modules/@types/minimatch/index.d.ts"
+      "c:/luo/develop/nicest/node_modules/@types/minimatch/index.d.ts",
+      "c:/luo/develop/nicest/src/test/index.ts"
     ]
   },
   "version": "3.5.2"
