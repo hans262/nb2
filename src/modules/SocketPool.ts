@@ -82,7 +82,7 @@ export class SocketPool {
   POOL.getConnection((err: Error | null, socket: Socket | undefined) => {
     if (err || !socket) return
     socket.write('hello')
-    socket.on('data', data => {
+    socket.once('data', data => {
       console.log(data.toString())
       POOL.release(socket)
     })
