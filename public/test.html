@@ -37,6 +37,18 @@
     <input name="name" value="222" />
     <input type="submit" value="提交" />
   </form>
+
+  <button id="btn">请求</button>
+  <script>
+    const btnNode = document.getElementById('btn')
+    btnNode.addEventListener('click', async () => {
+      const result = await ajax('/proxy/hhh', {
+        type: 'post',
+        params: 'testdata'
+      })
+      console.log(result)
+    })
+  </script>
 </body>
 
 </html>

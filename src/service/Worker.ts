@@ -6,7 +6,7 @@ import { DEBUG } from '../modules/logger';
 
 function HANDLER(req: IncomingMessage, res: ServerResponse): void {
   let i = 0
-  function next(): void {
+  const next = (): void => {
     const middleware: Middleware = MIDDLEWARE[i++]
     if (!middleware) return
     middleware(req, res, next)

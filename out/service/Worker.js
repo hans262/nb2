@@ -6,12 +6,12 @@ const middleware_1 = require("../middleware");
 const logger_1 = require("../modules/logger");
 function HANDLER(req, res) {
     let i = 0;
-    function next() {
+    const next = () => {
         const middleware = middleware_1.default[i++];
         if (!middleware)
             return;
         middleware(req, res, next);
-    }
+    };
     next();
 }
 function RUN_WORKER() {
