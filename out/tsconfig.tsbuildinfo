@@ -590,7 +590,7 @@
         "signature": "9cd724fecc1b79143ef673151d26d6c61c5d8bafcb265e1113ec99979d8422e3"
       },
       "d:/develop/nicest/src/test/index.ts": {
-        "version": "8f980553373ada8f0e12d727e8e5a7e87e61bc1141c99f61c2cfb65887f2db09",
+        "version": "36039143f39673bd3f0d15bdb9401ee01062ccf43adc7cfaba979cab61b9a4ae",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
       },
       "d:/develop/nicest/src/test/tapi.ts": {
@@ -1652,7 +1652,9 @@
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "d:/develop/nicest/src/test/index.ts": [
-        "d:/develop/nicest/node_modules/@types/node/http.d.ts",
+        "d:/develop/nicest/node_modules/@types/node/net.d.ts",
+        "d:/develop/nicest/src/modules/buffersplit.ts",
+        "d:/develop/nicest/node_modules/@types/node/crypto.d.ts",
         "d:/develop/nicest/node_modules/@types/node/util.d.ts",
         "d:/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -2486,6 +2488,7 @@
       "d:/develop/nicest/src/common/publicheader.ts",
       "d:/develop/nicest/src/middleware/mount.ts",
       "d:/develop/nicest/src/middleware/resfavicon.ts",
+      "d:/develop/nicest/src/middleware/proxyserver.ts",
       "d:/develop/nicest/src/middleware/index.ts",
       "d:/develop/nicest/src/service/worker.ts",
       "d:/develop/nicest/src/service/cluster.ts",
@@ -2587,8 +2590,7 @@
       "d:/develop/nicest/src/tsdoc/generics/demo.ts",
       "d:/develop/nicest/src/tsdoc/generics/demo2.ts",
       "d:/develop/nicest/src/tsdoc/generics/demo3.ts",
-      "d:/develop/nicest/node_modules/@types/minimatch/index.d.ts",
-      "d:/develop/nicest/src/middleware/proxyserver.ts"
+      "d:/develop/nicest/node_modules/@types/minimatch/index.d.ts"
     ]
   },
   "version": "3.5.1"
