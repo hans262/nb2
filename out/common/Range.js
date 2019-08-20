@@ -15,4 +15,4 @@ function parseRange(range, size) {
     return { start, end };
 }
 exports.parseRange = parseRange;
-//# sourceMappingURL=parseRange.js.map
+//# sourceMappingURL=Range.js.map

@@ -14,4 +14,4 @@ function public_header(res) {
     }
 }
 exports.public_header = public_header;
-//# sourceMappingURL=publicHeader.js.map
+//# sourceMappingURL=public_header.js.map

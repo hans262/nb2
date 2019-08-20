@@ -2,11 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
 const logger_1 = require("../modules/logger");
-const parseRange_1 = require("../common/parseRange");
+const Range_1 = require("../common/Range");
 function ResRange(req, res) {
     const { __absolutePath, __stats } = req;
     const { size } = __stats;
-    const range = parseRange_1.parseRange(req.headers['range'], size);
+    const range = Range_1.parseRange(req.headers['range'], size);
     if (range) {
         const { start, end } = range;
         res.setHeader('Content-Range', `bytes ${start}-${end}/${size}`);

@@ -5,7 +5,7 @@ const os_1 = require("os");
 const configure_1 = require("../configure");
 const logger_1 = require("../modules/logger");
 function MASTER() {
-    logger_1.DEBUG({ type: 'MASTER_STARTUP', msg: `Nicest version: 4.1.2` });
+    logger_1.DEBUG({ type: 'MASTER_STARTUP', msg: `Nicest version: 4.2.0` });
     configure_1.CLUSTER ? os_1.cpus().forEach(() => cluster_1.fork()) : cluster_1.fork();
     cluster_1.on('message', (worker, action) => {
         const { type } = action;

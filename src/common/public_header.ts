@@ -5,7 +5,7 @@ import { CROSS } from '../configure';
  * public headers
  * @param res 
  */
-export function publicHeader(res: ServerResponse): void {
+export function public_header(res: ServerResponse): void {
   //服务器类型
   res.setHeader('Server', 'NodeJs Server/1.0 (Linux)')
   //语言

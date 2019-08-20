@@ -5,7 +5,7 @@ import { DEBUG } from '../modules/logger';
 import { ACTION } from '../Interface/Message';
 
 function MASTER(): void {
-  DEBUG({ type: 'MASTER_STARTUP', msg: `Nicest version: 4.1.2` })
+  DEBUG({ type: 'MASTER_STARTUP', msg: `Nicest version: 4.2.0` })
   CLUSTER ? cpus().forEach(() => fork()) : fork()
 
   on('message', (worker: Worker, action: ACTION) => {

@@ -1,4 +1,3 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-require("reflect-metadata");
-//# sourceMappingURL=test2.js.map
+//# sourceMappingURL=Headers.js.map

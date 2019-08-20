@@ -1,6 +1,6 @@
 {
   "name": "nicest",
-  "version": "4.1.2",
+  "version": "4.2.0",
   "description": "Configurable engineering container service is implemented by Node V8.",
   "scripts": {
     "start": "node out/Worker.js",
@@ -16,9 +16,7 @@
   "dependencies": {
     "@types/mysql": "^2.15.6",
     "@types/node": "^12.0.8",
-    "@types/ws": "^6.0.1",
-    "mysql": "^2.16.0",
-    "ws": "^7.0.0"
+    "mysql": "^2.16.0"
   },
   "devDependencies": {
     "typedoc": "^0.15.0"

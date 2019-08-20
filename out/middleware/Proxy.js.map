@@ -1,1 +1,0 @@
-{"version":3,"file":"Proxy.js","sourceRoot":"","sources":["../../src/middleware/Proxy.ts"],"names":[],"mappings":";;AAIa,QAAA,KAAK,GAAe,CAC/B,GAAQ,EAAE,GAAmB,EAAE,IAAc,EACvC,EAAE;IACR,MAAM,EAAE,MAAM,EAAE,cAAc,EAAE,GAAG,GAAG,CAAA;IACtC,OAAO,CAAC,GAAG,CAAC,cAAc,CAAC,CAAA;IAC3B,GAAG,CAAC,GAAG,CAAC,KAAK,CAAC,CAAA;AAChB,CAAC,CAAA"}

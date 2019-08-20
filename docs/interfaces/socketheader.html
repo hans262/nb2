@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Cookie | nicest</title>
+	<title>SocketHeader | nicest</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="cookie.html">Cookie</a>
+					<a href="socketheader.html">SocketHeader</a>
 				</li>
 			</ul>
-			<h1>Interface Cookie</h1>
+			<h1>Interface SocketHeader</h1>
 		</div>
 	</div>
 </header>
@@ -68,7 +68,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Cookie</span>
+						<span class="target">SocketHeader</span>
 					</li>
 				</ul>
 			</section>
@@ -79,15 +79,18 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="cookie.html#domain" class="tsd-kind-icon">domain</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="cookie.html#expires" class="tsd-kind-icon">expires</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="cookie.html#httponly" class="tsd-kind-icon">http<wbr>Only</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="cookie.html#key" class="tsd-kind-icon">key</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="cookie.html#maxage" class="tsd-kind-icon">max<wbr>Age</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="cookie.html#path" class="tsd-kind-icon">path</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="cookie.html#res" class="tsd-kind-icon">res</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="cookie.html#secure" class="tsd-kind-icon">secure</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="cookie.html#value" class="tsd-kind-icon">value</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="socketheader.html#accept_encoding" class="tsd-kind-icon">Accept-<wbr><wbr>Encoding</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="socketheader.html#accept_language" class="tsd-kind-icon">Accept-<wbr><wbr>Language</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="socketheader.html#cache_control" class="tsd-kind-icon">Cache-<wbr><wbr>Control</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="socketheader.html#connection" class="tsd-kind-icon">Connection</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="socketheader.html#host" class="tsd-kind-icon">Host</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="socketheader.html#origin" class="tsd-kind-icon">Origin</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="socketheader.html#pragma" class="tsd-kind-icon">Pragma</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="socketheader.html#sec_websocket_extensions" class="tsd-kind-icon">Sec-<wbr><wbr>Web<wbr>Socket-<wbr><wbr>Extensions</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="socketheader.html#sec_websocket_key" class="tsd-kind-icon">Sec-<wbr><wbr>Web<wbr>Socket-<wbr><wbr>Key</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="socketheader.html#sec_websocket_version" class="tsd-kind-icon">Sec-<wbr><wbr>Web<wbr>Socket-<wbr><wbr>Version</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="socketheader.html#upgrade" class="tsd-kind-icon">Upgrade</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="socketheader.html#user_agent" class="tsd-kind-icon">User-<wbr><wbr>Agent</a></li>
 							</ul>
 						</section>
 					</div>
@@ -96,92 +99,122 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="domain" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> domain</h3>
-					<div class="tsd-signature tsd-kind-icon">domain<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<a name="accept_encoding" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Accept-<wbr><wbr>Encoding</h3>
+					<div class="tsd-signature tsd-kind-icon">Accept-<wbr><wbr>Encoding<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ounana/nicest/blob/09eec48/src/common/cookie.ts#L9">common/cookie.ts:9</a></li>
+							<li>Defined in Interface/Headers.ts:10</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="expires" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> expires</h3>
-					<div class="tsd-signature tsd-kind-icon">expires<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
+					<a name="accept_language" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Accept-<wbr><wbr>Language</h3>
+					<div class="tsd-signature tsd-kind-icon">Accept-<wbr><wbr>Language<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ounana/nicest/blob/09eec48/src/common/cookie.ts#L11">common/cookie.ts:11</a></li>
+							<li>Defined in Interface/Headers.ts:11</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="httponly" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> http<wbr>Only</h3>
-					<div class="tsd-signature tsd-kind-icon">http<wbr>Only<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<a name="cache_control" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Cache-<wbr><wbr>Control</h3>
+					<div class="tsd-signature tsd-kind-icon">Cache-<wbr><wbr>Control<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ounana/nicest/blob/09eec48/src/common/cookie.ts#L12">common/cookie.ts:12</a></li>
+							<li>Defined in Interface/Headers.ts:5</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="key" class="tsd-anchor"></a>
-					<h3>key</h3>
-					<div class="tsd-signature tsd-kind-icon">key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="connection" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Connection</h3>
+					<div class="tsd-signature tsd-kind-icon">Connection<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ounana/nicest/blob/09eec48/src/common/cookie.ts#L6">common/cookie.ts:6</a></li>
+							<li>Defined in Interface/Headers.ts:3</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="maxage" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> max<wbr>Age</h3>
-					<div class="tsd-signature tsd-kind-icon">max<wbr>Age<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<a name="host" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Host</h3>
+					<div class="tsd-signature tsd-kind-icon">Host<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ounana/nicest/blob/09eec48/src/common/cookie.ts#L8">common/cookie.ts:8</a></li>
+							<li>Defined in Interface/Headers.ts:2</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="path" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> path</h3>
-					<div class="tsd-signature tsd-kind-icon">path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<a name="origin" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Origin</h3>
+					<div class="tsd-signature tsd-kind-icon">Origin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ounana/nicest/blob/09eec48/src/common/cookie.ts#L10">common/cookie.ts:10</a></li>
+							<li>Defined in Interface/Headers.ts:8</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="res" class="tsd-anchor"></a>
-					<h3>res</h3>
-					<div class="tsd-signature tsd-kind-icon">res<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ServerResponse</span></div>
+					<a name="pragma" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Pragma</h3>
+					<div class="tsd-signature tsd-kind-icon">Pragma<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ounana/nicest/blob/09eec48/src/common/cookie.ts#L5">common/cookie.ts:5</a></li>
+							<li>Defined in Interface/Headers.ts:4</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="secure" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> secure</h3>
-					<div class="tsd-signature tsd-kind-icon">secure<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<a name="sec_websocket_extensions" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Sec-<wbr><wbr>Web<wbr>Socket-<wbr><wbr>Extensions</h3>
+					<div class="tsd-signature tsd-kind-icon">Sec-<wbr><wbr>Web<wbr>Socket-<wbr><wbr>Extensions<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ounana/nicest/blob/09eec48/src/common/cookie.ts#L13">common/cookie.ts:13</a></li>
+							<li>Defined in Interface/Headers.ts:13</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="value" class="tsd-anchor"></a>
-					<h3>value</h3>
-					<div class="tsd-signature tsd-kind-icon">value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="sec_websocket_key" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Sec-<wbr><wbr>Web<wbr>Socket-<wbr><wbr>Key</h3>
+					<div class="tsd-signature tsd-kind-icon">Sec-<wbr><wbr>Web<wbr>Socket-<wbr><wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ounana/nicest/blob/09eec48/src/common/cookie.ts#L7">common/cookie.ts:7</a></li>
+							<li>Defined in Interface/Headers.ts:12</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="sec_websocket_version" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Sec-<wbr><wbr>Web<wbr>Socket-<wbr><wbr>Version</h3>
+					<div class="tsd-signature tsd-kind-icon">Sec-<wbr><wbr>Web<wbr>Socket-<wbr><wbr>Version<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Interface/Headers.ts:9</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="upgrade" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Upgrade</h3>
+					<div class="tsd-signature tsd-kind-icon">Upgrade<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Interface/Headers.ts:7</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="user_agent" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> User-<wbr><wbr>Agent</h3>
+					<div class="tsd-signature tsd-kind-icon">User-<wbr><wbr>Agent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Interface/Headers.ts:6</li>
 						</ul>
 					</aside>
 				</section>
@@ -200,34 +233,43 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="cookie.html" class="tsd-kind-icon">Cookie</a>
+						<a href="socketheader.html" class="tsd-kind-icon">Socket<wbr>Header</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="cookie.html#domain" class="tsd-kind-icon">domain</a>
+								<a href="socketheader.html#accept_encoding" class="tsd-kind-icon">Accept-<wbr><wbr>Encoding</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="cookie.html#expires" class="tsd-kind-icon">expires</a>
+								<a href="socketheader.html#accept_language" class="tsd-kind-icon">Accept-<wbr><wbr>Language</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="cookie.html#httponly" class="tsd-kind-icon">http<wbr>Only</a>
+								<a href="socketheader.html#cache_control" class="tsd-kind-icon">Cache-<wbr><wbr>Control</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="cookie.html#key" class="tsd-kind-icon">key</a>
+								<a href="socketheader.html#connection" class="tsd-kind-icon">Connection</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="cookie.html#maxage" class="tsd-kind-icon">max<wbr>Age</a>
+								<a href="socketheader.html#host" class="tsd-kind-icon">Host</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="cookie.html#path" class="tsd-kind-icon">path</a>
+								<a href="socketheader.html#origin" class="tsd-kind-icon">Origin</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="cookie.html#res" class="tsd-kind-icon">res</a>
+								<a href="socketheader.html#pragma" class="tsd-kind-icon">Pragma</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="cookie.html#secure" class="tsd-kind-icon">secure</a>
+								<a href="socketheader.html#sec_websocket_extensions" class="tsd-kind-icon">Sec-<wbr><wbr>Web<wbr>Socket-<wbr><wbr>Extensions</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="cookie.html#value" class="tsd-kind-icon">value</a>
+								<a href="socketheader.html#sec_websocket_key" class="tsd-kind-icon">Sec-<wbr><wbr>Web<wbr>Socket-<wbr><wbr>Key</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="socketheader.html#sec_websocket_version" class="tsd-kind-icon">Sec-<wbr><wbr>Web<wbr>Socket-<wbr><wbr>Version</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="socketheader.html#upgrade" class="tsd-kind-icon">Upgrade</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="socketheader.html#user_agent" class="tsd-kind-icon">User-<wbr><wbr>Agent</a>
 							</li>
 						</ul>
 					</li>

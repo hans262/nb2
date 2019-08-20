@@ -4,7 +4,7 @@ import { parse } from 'url';
 import { ROOT } from '../configure';
 import { Middleware } from '../Interface/Middleware';
 import { Req } from '../Interface/Req';
-import { publicHeader } from '../common/publicHeader';
+import { public_header } from '../common/public_header';
 
 export const Mount: Middleware = function (
   req: Req, res: ServerResponse, next: Function
@@ -18,7 +18,7 @@ export const Mount: Middleware = function (
   //查询字符串
   req.__query = query
   //公共header
-  publicHeader(res)
+  public_header(res)
 
   next()
 }
