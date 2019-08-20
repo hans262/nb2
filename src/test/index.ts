@@ -3,52 +3,95 @@ import { bufferSplit } from '../modules/bufferSplit';
 import { createHash } from 'crypto';
 
 const server = createServer()
-
-server.on('connection', (socket: Socket) => {
-  socket.once('data', (data: Buffer) => {
-    const ret: Buffer[] = bufferSplit(data, '\r\n')
-    const headers: any = {}
-    ret.slice(1).forEach(v => {
-      const r2 = bufferSplit(v, ': ')
-      headers[r2[0].toString()] = r2[1].toString()
-    })
-    if (headers['Upgrade'] !== 'websocket') {
-      console.log('非WebSocket连接')
-      return socket.end()
-    }
-    if (headers['Sec-WebSocket-Version'] !== '13') {
-      // 判断WebSocket版本是否为13，防止是其他版本，造成兼容错误
-      return socket.end()
-    }
-
-    const GUID = '258EAFA5-E914-47DA-95CA-C5AB0DC85B11'
-    const KEY = headers['Sec-WebSocket-Key']
-    // 创建一个签名算法为sha1的哈希对象
-    const hash = createHash('sha1')
-    hash.update(KEY + GUID)
-    const result = hash.digest('base64')
-    // 生成供前端校验用的请求头
-    const res22 = [
-      'HTTP/1.1 101 Switching Protocols',
-      'Upgrade: websocket',
-      'Connection: Upgrade',
-      'Sec-Websocket-Accept: ' + result + '\r\n\r\n',
-    ]
-    socket.write(res22.join('\r\n'))
-
-    socket.on('data', data => {
-      const ret = decodeDataFrame(data)
-      console.log(ret)
-      // opcode为8，表示客户端发起了断开连接
-      if (ret.Opcode === 8) {
-        return socket.end()
-      }
-      socket.write(encodeDataFrame(ret))
-    })
-  })
-})
-
+server.on('connection', (socket: Socket) => socket.once('data', socket_once))
 server.listen(8888)
+
+const sockets = new Map<number, Socket>()
+
+function socket_once(this: Socket, data: Buffer): void {
+  const headers: Headers = parse_headers(data)
+  if (headers.Upgrade !== 'websocket') {
+    return this.end()
+  }
+  if (headers["Sec-WebSocket-Version"] !== '13') {
+    return this.end()
+  }
+  const KEY = headers['Sec-WebSocket-Key']
+  if (!KEY) return this.end()
+  this.write(
+    accept_headers(compute_accept(KEY))
+  )
+  this.on('data', on_socket_data)
+
+  const socket_id = Date.now() + Math.random()
+  sockets.set(socket_id, this)
+  console.log(sockets)
+
+  this.on('end', () => {
+    sockets.delete(socket_id)
+    this.destroy()
+  })
+
+}
+
+function on_socket_data(this: Socket, data: Buffer) {
+  const frame = decodeDataFrame(data)
+  console.log(frame)
+  // 客户端发起了断开连接
+  if (frame.Opcode === 8) {
+    return this.end()
+  }
+  // this.write(encodeDataFrame(frame))
+  //群发
+  sockets.forEach(s => s.write(
+    encodeDataFrame(frame)
+  ))
+}
+
+interface Headers {
+  'Host'?: string
+  'Connection'?: string
+  'Pragma'?: string
+  'Cache-Control'?: string
+  'User-Agent'?: string
+  'Upgrade'?: string
+  'Origin'?: string
+  'Sec-WebSocket-Version'?: string
+  'Accept-Encoding'?: string
+  'Accept-Language'?: string
+  'Sec-WebSocket-Key'?: string
+  'Sec-WebSocket-Extensions'?: string
+}
+
+function parse_headers(data: Buffer): Headers {
+  const ret: Buffer[] = bufferSplit(data, '\r\n')
+  const headers: Headers = {}
+  ret.slice(1).forEach(v => {
+    const r2 = bufferSplit(v, ': ')
+    const [key, value] = r2
+    if (!key || !value) return
+    headers[key.toString() as keyof Headers] = value.toString()
+  })
+  return headers
+}
+
+function compute_accept(KEY: string): string {
+  const GUID = '258EAFA5-E914-47DA-95CA-C5AB0DC85B11'
+  // 创建一个签名算法为sha1的哈希对象
+  const hash = createHash('sha1')
+  hash.update(KEY + GUID)
+  return hash.digest('base64')
+}
+
+function accept_headers(accept: string): string {
+  const headers = [
+    'HTTP/1.1 101 Switching Protocols',
+    'Upgrade: websocket',
+    'Connection: Upgrade',
+    'Sec-Websocket-Accept: ' + accept + '\r\n\r\n',
+  ]
+  return headers.join('\r\n')
+}
 
 interface DataFrame {
   FIN: number
@@ -116,73 +159,16 @@ function encodeDataFrame(e: DataFrame): Buffer {
   return Buffer.concat([Buffer.from(s), o])
 }
 
-/**
- * TCP 握手
- * Client: 发送请求头，附带密钥
- * Server: 验证是否是websokcet，然后回应响应头
- * Client: 验证响应头，连接完成
- *
+/*
+  TCP 握手
+  Client: 发送请求头，附带密钥
+  Server: 验证是否是websokcet，然后回应响应头
+  Client: 验证响应头，连接完成
  */
-
-/**
- * 二进制算法：除以2取余数，然后从下向上排列
- * 11/2 1
- * 5/2  1
- * 2/2  0
- * 1/2  1
- *
- * 1 ~ 12 二进制数字
- * 0000   0
- * 0001   1
- * 0010   2
- * 0011   3
- * 0100   4
- * 0101   5
- * 0110   6
- * 0111   7
- * 1000   8
- * 1001   9
- * 1010   10
- * 1011   11
- * 1100   12
- *
- */
-
-/**
- * >> 右移运算符 ->
- * 11 >> 2 右移二位 = 2
- * 0000 0000 0000 0000 0000 0000 0000 1011
- *                \|/
- * 0000 0000 0000 0000 0000 0000 0000 0010
- *
- * << 左移运算符 ->
- * 3 << 2 左移二位 = 12
- * 0000 0000 0000 0000 0000 0000 0000 0011
- *                \|/
- * 0000 0000 0000 0000 0000 0000 0000 1100
- *
- *
- * ^  按位异或 -> 真真=假，真假=真，假假=假
- * 3 ^ 2 按位异或 = 1
- * 0000 0000 0000 0000 0000 0000 0000 0011
- * 0000 0000 0000 0000 0000 0000 0000 0010
- *                \|/
- * 0000 0000 0000 0000 0000 0000 0000 0001
- *
- *
- * &  位运算and -> 真真=真，真假=假，假假=假
- * 25 & 3 = 1
- * 0000 0000 0000 0000 0000 0000 0001 1001
- * 0000 0000 0000 0000 0000 0000 0000 0011
- *                \|/
- * 0000 0000 0000 0000 0000 0000 0000 0001
- *
- */
-
 
 /*
-  0                   1                   2                   3    
-  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1  
+  0                   1                   2                   3
+  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
   +-+-+-+-+-------+-+-------------+-------------------------------+
   |F|R|R|R| opcode|M| Payload len |    Extended payload length    |
   |I|S|S|S|  (4)  |A|     (7)     |             (16/64)           |
@@ -198,5 +184,21 @@ function encodeDataFrame(e: DataFrame): Buffer {
   :                     Payload Data continued ...                :
   + - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
   |                     Payload Data continued ...                |
-  +---------------------------------------------------------------+ 
-*/
+  +---------------------------------------------------------------+
+ */
+
+/*
+  GET / HTTP/1.1
+  Host: 127.0.0.1:8888
+  Connection: Upgrade
+  Pragma: no-cache
+  Cache-Control: no-cache
+  User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36
+  Upgrade: websocket
+  Origin: file://
+  Sec-WebSocket-Version: 13
+  Accept-Encoding: gzip, deflate, br
+  Accept-Language: zh-CN,zh;q=0.9
+  Sec-WebSocket-Key: lchQ1h5pKNSSFrwlPzLG5Q==
+  Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits
+ */
