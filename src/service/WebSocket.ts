@@ -34,7 +34,6 @@ function socket_once(this: Socket, data: Buffer): void {
     sockets.delete(socket_id)
     this.destroy()
   })
-
 }
 
 function on_socket_data(this: Socket, data: Buffer) {

@@ -12,7 +12,7 @@ export function decodeDataFrame(e: Buffer): DataFrame {
     Opcode: e[i++] & 15,
     Mask: e[i] >> 7,
     PayloadLength: e[i++] & 0x7F, //数据真实字节长度
-    PayloadData: ''
+    PayloadData: Buffer.alloc(1)
   }
 
   //因len位占一个字节，最大存储为127
@@ -39,24 +39,23 @@ export function decodeDataFrame(e: Buffer): DataFrame {
     s = e.slice(i, i + frame.PayloadLength)
   }
 
-  frame.PayloadData = s.toString()
+  frame.PayloadData = s
   //返回数据帧
   return frame
 }
 
 /**
  * 数据帧的编码
- * 当字节数超过265 248个的时候出现bug
  * @param e 源
  */
 export function encodeDataFrame(e: DataFrame): Buffer {
-  let s: number[] = [], o = Buffer.from(e.PayloadData, 'binary'), l = o.byteLength
+  let s: number[] = [], o = e.PayloadData, l = o.byteLength
   //输入第一个字节
   s.push((e.FIN << 7) + e.Opcode)
   //输入第二个字节，判断它的长度并放入相应的后续长度消息
   //永远不使用掩码
   if (l < 126) s.push(l)
-  else if (l < 0x10000) s.push(126, (l & 0xFF00) >> 2, l & 0xFF)
+  else if (l < 0x10000) s.push(126, l >> 8, l & 0xFF)
   else s.push(
     127, 0, 0, 0, 0, //8字节数据，前4字节一般没用留空
     (l & 0xFF000000) >> 6, (l & 0xFF0000) >> 4, (l & 0xFF00) >> 2, l & 0xFF

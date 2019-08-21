@@ -13,14 +13,13 @@ export interface SocketHeader {
   'Sec-WebSocket-Extensions'?: string
 }
 
-
 export interface DataFrame {
   FIN: number
   Opcode: number
   Mask: number
   PayloadLength: number
   MaskingKey?: number[]
-  PayloadData: string
+  PayloadData: Buffer
 }
 
 /*
