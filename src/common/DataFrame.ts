@@ -46,11 +46,11 @@ export function decodeDataFrame(e: Buffer): DataFrame {
 
 /**
  * 数据帧的编码
- * 当字节数超过265个的时候出现bug
+ * 当字节数超过265 248个的时候出现bug
  * @param e 源
  */
 export function encodeDataFrame(e: DataFrame): Buffer {
-  let s: number[] = [], o = Buffer.from(e.PayloadData), l = o.length
+  let s: number[] = [], o = Buffer.from(e.PayloadData, 'binary'), l = o.byteLength
   //输入第一个字节
   s.push((e.FIN << 7) + e.Opcode)
   //输入第二个字节，判断它的长度并放入相应的后续长度消息

@@ -31,7 +31,7 @@ function decodeDataFrame(e) {
 }
 exports.decodeDataFrame = decodeDataFrame;
 function encodeDataFrame(e) {
-    let s = [], o = Buffer.from(e.PayloadData), l = o.length;
+    let s = [], o = Buffer.from(e.PayloadData, 'binary'), l = o.byteLength;
     s.push((e.FIN << 7) + e.Opcode);
     if (l < 126)
         s.push(l);
