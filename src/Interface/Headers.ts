@@ -13,6 +13,7 @@ export interface SocketHeader {
   'Sec-WebSocket-Extensions'?: string
 }
 
+
 export interface DataFrame {
   FIN: number
   Opcode: number

@@ -12,7 +12,7 @@ function decodeDataFrame(e) {
     if (frame.PayloadLength == 126) {
         frame.PayloadLength = (e[i++] << 8) + e[i++];
     }
-    if (frame.PayloadLength == 127) {
+    else if (frame.PayloadLength == 127) {
         i += 4;
         frame.PayloadLength = (e[i++] << 24) + (e[i++] << 16) + (e[i++] << 8) + e[i++];
     }
@@ -24,7 +24,7 @@ function decodeDataFrame(e) {
         }
     }
     else {
-        s = e.slice(i, frame.PayloadLength);
+        s = e.slice(i, i + frame.PayloadLength);
     }
     frame.PayloadData = s.toString();
     return frame;

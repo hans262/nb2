@@ -9,7 +9,7 @@ import { public_header } from '../common/public_header';
 export const Mount: Middleware = function (
   req: Req, res: ServerResponse, next: Function
 ): void {
-  const { url = '/' } = req
+  const { url = '/', method } = req
   const { pathname = '/', query } = parse(url, true)
   //相对路径
   req.__relativePath = decodeURI(pathname)
@@ -19,6 +19,9 @@ export const Mount: Middleware = function (
   req.__query = query
   //公共header
   public_header(res)
+  
+  //解决跨域请求
+  if (method === 'OPTIONS') return res.end()
 
   next()
 }

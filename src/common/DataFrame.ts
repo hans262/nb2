@@ -15,15 +15,16 @@ export function decodeDataFrame(e: Buffer): DataFrame {
     PayloadData: ''
   }
 
+  //因len位占一个字节，最大存储为127
+  //126 后续2个字节代表一个16位的无符号整数，该无符号整数的值为数据的长度。
+  //127 后续8个字节代表一个64位的无符号整数（最高位为0），该无符号整数的值为数据的长度。
   //处理特殊长度126和127
   if (frame.PayloadLength == 126) {
     frame.PayloadLength = (e[i++] << 8) + e[i++]
-  }
-  if (frame.PayloadLength == 127) {
+  } else if (frame.PayloadLength == 127) {
     i += 4 //长度一般用四字节的整型，前四个字节通常为长整形留空的
     frame.PayloadLength = (e[i++] << 24) + (e[i++] << 16) + (e[i++] << 8) + e[i++]
   }
-
   //判断是否使用掩码
   if (frame.Mask) {
     //获取掩码实体
@@ -35,7 +36,7 @@ export function decodeDataFrame(e: Buffer): DataFrame {
     }
   } else {
     //否则直接使用数据
-    s = e.slice(i, frame.PayloadLength)
+    s = e.slice(i, i + frame.PayloadLength)
   }
 
   frame.PayloadData = s.toString()
@@ -45,6 +46,7 @@ export function decodeDataFrame(e: Buffer): DataFrame {
 
 /**
  * 数据帧的编码
+ * 当字节数超过265个的时候出现bug
  * @param e 源
  */
 export function encodeDataFrame(e: DataFrame): Buffer {

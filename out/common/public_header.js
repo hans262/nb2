@@ -10,6 +10,7 @@ function public_header(res) {
     res.setHeader('Connection', 'keep-alive');
     if (configure_1.CROSS) {
         res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+        res.setHeader("Access-Control-Allow-Headers", '*');
         res.setHeader('Access-Control-Allow-Origin', '*');
     }
 }

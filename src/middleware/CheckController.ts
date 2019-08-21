@@ -12,7 +12,7 @@ export const CheckController: Middleware = function (
   const { method, __relativePath, __absolutePath } = req
 
   if (!method || !__relativePath) return next()
-
+  
   const prefix: RegExpMatchArray | null = __relativePath.match(new RegExp('^' + API_PREFIX + '/'))
   if (!prefix) return next()
 

@@ -21,6 +21,7 @@ export function public_header(res: ServerResponse): void {
   //跨域
   if (CROSS) {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+    res.setHeader("Access-Control-Allow-Headers", '*')
     res.setHeader('Access-Control-Allow-Origin', '*')
   }
 }
