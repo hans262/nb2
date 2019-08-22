@@ -10,7 +10,7 @@ export function decodeDataFrame(e: Buffer): DataFrame {
 
   //FIN为第一个字节的首位，所以右移7位，一个字节总共8位
   const FIN = e[i] >> 7
-
+  
   //获取opcode的值，opcode为第一个字节的4-7位
   //与15位运算之后前四位即为0，得到后四位的值
   const Opcode = e[i++] & 0b00001111
@@ -19,7 +19,7 @@ export function decodeDataFrame(e: Buffer): DataFrame {
   const Mask = e[i] >> 7
 
   let PayloadLength = e[i++] & 0x7F ////数据长度
-
+  
   //len占一个字节，最大存储值为127
   if (PayloadLength == 126) {
     //真实长度大于125，读取后面2字节，后续2个字节代表一个16位的无符号整数，该无符号整数的值为数据的长度

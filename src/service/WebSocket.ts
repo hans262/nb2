@@ -39,7 +39,8 @@ function socket_once(this: Socket, data: Buffer): void {
 function on_socket_data(this: Socket, data: Buffer) {
   const frame = decodeDataFrame(data)
   console.log(frame)
-  // console.log(frame.PayloadData.toString())
+  // console.log(frame.PayloadData.slice(-10).toString())
+
   // 客户端发起了断开连接
   if (frame.Opcode === 8) {
     return this.end()
