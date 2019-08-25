@@ -36,7 +36,15 @@ function on_socket_data(data) {
     if (frame.Opcode === 8) {
         return this.end();
     }
-    sockets.forEach(s => s.write(DataFrame_1.encodeDataFrame(frame)));
+    if (frame.Opcode === 9) {
+        return this.write(Buffer.concat([
+            Buffer.from([0b10001010, frame.PayloadLength]),
+            frame.PayloadData
+        ]));
+    }
+    if (frame.Opcode === 1) {
+        sockets.forEach(s => s.write(DataFrame_1.encodeDataFrame(frame)));
+    }
 }
 function compute_accept(KEY) {
     const GUID = '258EAFA5-E914-47DA-95CA-C5AB0DC85B11';
@@ -49,7 +57,7 @@ function accept_headers(accept) {
         'HTTP/1.1 101 Switching Protocols',
         'Upgrade: websocket',
         'Connection: Upgrade',
-        'Sec-Websocket-Accept: ' + accept + '\r\n\r\n',
+        'Sec-Websocket-Accept: ' + accept + '\r\n\r\n'
     ];
     return headers.join('\r\n');
 }

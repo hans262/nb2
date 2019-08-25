@@ -45,11 +45,19 @@ function on_socket_data(this: Socket, data: Buffer) {
   if (frame.Opcode === 8) {
     return this.end()
   }
-  // this.write(encodeDataFrame(frame))
+  // ping请求
+  if (frame.Opcode === 9) {
+    return this.write(Buffer.concat([
+      Buffer.from([0b10001010, frame.PayloadLength]),
+      frame.PayloadData
+    ]))
+  }
   //群发
-  sockets.forEach(s => s.write(
-    encodeDataFrame(frame)
-  ))
+  if (frame.Opcode === 1) {
+    sockets.forEach(s => s.write(
+      encodeDataFrame(frame)
+    ))
+  }
 }
 
 function compute_accept(KEY: string): string {
@@ -65,7 +73,7 @@ function accept_headers(accept: string): string {
     'HTTP/1.1 101 Switching Protocols',
     'Upgrade: websocket',
     'Connection: Upgrade',
-    'Sec-Websocket-Accept: ' + accept + '\r\n\r\n',
+    'Sec-Websocket-Accept: ' + accept + '\r\n\r\n'
   ]
   return headers.join('\r\n')
 }
