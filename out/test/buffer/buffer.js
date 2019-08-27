@@ -9,4 +9,4 @@ let MinBigInt64 = -(2n ** 63n);
 buf.writeBigInt64BE(MinBigInt64, 16);
 console.log(buf.readBigInt64BE(16));
 console.log(buf);
-//# sourceMappingURL=buffer.js.map
+//# sourceMappingURL=Buffer.js.map

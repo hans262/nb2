@@ -4,7 +4,7 @@ const task = (num: number): Promise<number> => new Promise<number>((
   resolve: (data: number) => void,
   reject: (reason: Error) => void
 ) => {
-  const worker: Worker = new Worker(__dirname + '/worker.js', {
+  const worker: Worker = new Worker(__dirname + '/compute_fibonacci.js', {
     workerData: num
   })
   worker.on('message', resolve)

@@ -14,4 +14,4 @@ const fib = fibonacci(number);
 if (worker_threads_1.parentPort) {
     worker_threads_1.parentPort.postMessage(fib);
 }
-//# sourceMappingURL=worker.js.map
+//# sourceMappingURL=compute_fibonacci.js.map

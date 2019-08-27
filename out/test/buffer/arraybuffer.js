@@ -1,9 +1,11 @@
 "use strict";
-let F2 = new Float64Array(20);
-F2.fill(25.64455);
-let ab = new ArrayBuffer(24);
+let ab = new ArrayBuffer(16);
 let view = new DataView(ab);
 view.setBigUint64(0, 18446744073709551615n);
 console.log(ab);
+let ab2 = new ArrayBuffer(10);
+let u16a = new Uint8Array(ab2);
+u16a.fill(50);
+console.log(u16a);
 debugger;
-//# sourceMappingURL=arraybuffer.js.map
+//# sourceMappingURL=ArrayBuffer.js.map

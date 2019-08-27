@@ -8,7 +8,7 @@
  * 
  */
 
-let big1: bigint =100n
+let bi: bigint =100n
 
 //转化
-let big2: bigint = BigInt(200)
+let bi2: bigint = BigInt(200)
