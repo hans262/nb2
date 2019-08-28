@@ -7,7 +7,7 @@ import { ResRedirect } from '../respond/ResRedirect';
 import { getCookie, setCookie } from '../common/cookie';
 
 export const CheckLogin: Middleware = function (
-  req: Req, res: ServerResponse, next: Function
+  req: Req, res: ServerResponse, next: () => void
 ): void {
   if (!isLogin(req, res)) {
     ResRedirect({ req, res, location: '/login', code: 302, reasonPhrase: 'temporarily moved' })

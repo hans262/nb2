@@ -9,7 +9,7 @@ import { ResRedirect } from '../respond/ResRedirect';
 import { setCookie } from '../common/cookie';
 
 export const GetToken: Middleware = function (
-  req: Req, res: ServerResponse, next: Function
+  req: Req, res: ServerResponse, next: () => void
 ): void {
   const { method, __relativePath } = req
   if (method === 'POST' && __relativePath === '/getToken') {

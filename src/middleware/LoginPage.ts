@@ -3,7 +3,7 @@ import { Middleware } from "../Interface/Middleware";
 import { Req } from "../Interface/Req";
 
 export const LoginPage: Middleware = function (
-  req: Req, res: ServerResponse, next: Function
+  req: Req, res: ServerResponse, next: () => void
 ): void {
   const { method, __relativePath } = req
   if (method === 'GET' && __relativePath === '/login') {

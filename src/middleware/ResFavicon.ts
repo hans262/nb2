@@ -5,7 +5,7 @@ import { ResStatic } from "../respond/ResStatic";
 import { FAVION_PATH } from "../common/path";
 
 export const ResFavicon: Middleware = function (
-  req: Req, res: ServerResponse, next: Function
+  req: Req, res: ServerResponse, next: () => void
 ): void {
   const { __relativePath, method } = req
   if (method === 'GET' && __relativePath === '/favicon.ico') {

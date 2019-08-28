@@ -7,12 +7,12 @@ import { Req } from '../Interface/Req';
 import { DEBUG } from '../modules/logger';
 
 export const CheckController: Middleware = function (
-  req: Req, res: ServerResponse, next: Function
+  req: Req, res: ServerResponse, next: () => void
 ): void {
   const { method, __relativePath, __absolutePath } = req
 
   if (!method || !__relativePath) return next()
-  
+
   const prefix: RegExpMatchArray | null = __relativePath.match(new RegExp('^' + API_PREFIX + '/'))
   if (!prefix) return next()
 

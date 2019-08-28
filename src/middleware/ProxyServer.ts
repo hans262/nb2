@@ -16,7 +16,7 @@ const proxyConfig = {
  * @param next 
  */
 export const ProxyServer: Middleware = (
-  req: Req, res: ServerResponse, next: Function
+  req: Req, res: ServerResponse, next: () => void
 ): void => {
   const { method, __relativePath } = req
   const { pathname, proxyUrl } = proxyConfig

@@ -5,13 +5,18 @@ import MIDDLEWARE from '../middleware';
 import { DEBUG } from '../modules/logger';
 
 function HANDLER(req: IncomingMessage, res: ServerResponse): void {
-  let i = 0
-  const next = (): void => {
-    const middleware: Middleware = MIDDLEWARE[i++]
-    if (!middleware) return
-    middleware(req, res, next)
+  try {
+    let i = 0
+    const next = (): void => {
+      const middleware: Middleware = MIDDLEWARE[i++]
+      if (!middleware) return
+      middleware(req, res, next)
+    }
+    next()
+  } catch (err) {
+    console.log(err)
+    res.end('500 服务器错误')
   }
-  next()
 }
 
 export function RUN_WORKER() {

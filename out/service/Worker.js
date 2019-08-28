@@ -5,14 +5,20 @@ const configure_1 = require("../configure");
 const middleware_1 = require("../middleware");
 const logger_1 = require("../modules/logger");
 function HANDLER(req, res) {
-    let i = 0;
-    const next = () => {
-        const middleware = middleware_1.default[i++];
-        if (!middleware)
-            return;
-        middleware(req, res, next);
-    };
-    next();
+    try {
+        let i = 0;
+        const next = () => {
+            const middleware = middleware_1.default[i++];
+            if (!middleware)
+                return;
+            middleware(req, res, next);
+        };
+        next();
+    }
+    catch (err) {
+        console.log(err);
+        res.end('500 服务器错误');
+    }
 }
 function RUN_WORKER() {
     const server = http_1.createServer(HANDLER);

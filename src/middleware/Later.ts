@@ -4,7 +4,7 @@ import { Req } from "../Interface/Req";
 import { ResStatic } from "../respond/ResStatic";
 
 export const Later: Middleware = function (
-  req: Req, res: ServerResponse, next: Function
+  req: Req, res: ServerResponse, next: () => void
 ): void {
   ResStatic(req, res)
 }
