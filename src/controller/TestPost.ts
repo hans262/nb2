@@ -3,7 +3,7 @@ import { Controller } from "../Interface/Controller";
 import { Req } from "../Interface/Req";
 
 export class TestPost implements Controller {
-	PATH_NAME: string = '/api/post'
+	readonly PATH_NAME: string = '/api/post'
 	POST(req: Req, res: ServerResponse): void {
 		res.setHeader('Content-Type', 'application/octet-stream; charset=utf-8')
 		res.writeHead(200, 'OK')

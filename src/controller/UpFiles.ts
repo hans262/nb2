@@ -11,7 +11,7 @@ import { bufferSplit } from '../modules/bufferSplit';
  * Content-Length:"1024"
  */
 export class UpFiles implements Controller {
-  PATH_NAME: string = '/api/upfiles'
+  readonly PATH_NAME: string = '/api/upfiles'
   //max size 10M
   MAX_SIZE: number = 1024 * 1024 * 10
   resError(res: ServerResponse, msg: string) {

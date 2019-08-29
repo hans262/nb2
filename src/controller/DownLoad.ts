@@ -6,7 +6,7 @@ import { Req } from '../Interface/Req';
 import { PUBLIC_PATH } from '../common/path';
 
 export class DownLoad implements Controller {
-  PATH_NAME: string = '/api/download'
+  readonly PATH_NAME: string = '/api/download'
   POST(req: Req, res: ServerResponse): void {
     const file: string = 'ajax.js'
     const filename: string = join(PUBLIC_PATH, file)

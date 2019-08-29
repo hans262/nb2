@@ -20,6 +20,7 @@ export const ProxyServer: Middleware = (
 ): void => {
   const { method, __relativePath } = req
   const { pathname, proxyUrl } = proxyConfig
+  
   const matched: RegExpMatchArray | null = __relativePath!.match(
     new RegExp(`^(${pathname}|${pathname}\/.*)$`)
   )
@@ -30,18 +31,19 @@ export const ProxyServer: Middleware = (
     method: method,
     hostname: url.hostname,
     port: url.port,
-    path: __relativePath,
+    path: req.url,
     headers: req.headers
   }
 
-  const preq: ClientRequest = request(options, (pres: IncomingMessage) => {
-    res.writeHead(res.statusCode, pres.headers)
-    pres.pipe(res)
+  const server: ClientRequest = request(options, (response: IncomingMessage) => {
+    const { statusCode = 200 } = response
+    res.writeHead(statusCode, response.headers)
+    response.pipe(res)
   })
-  req.pipe(preq)
-  preq.on('error', err => {
+  req.pipe(server)
+  server.on('error', err => {
     res.writeHead(400, { 'Content-Type': 'application/json; charset=utf-8' })
     res.end('请求代理服务器失败，' + err.message)
-    preq.destroy()
+    server.destroy()
   })
 }

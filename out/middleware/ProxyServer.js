@@ -17,18 +17,19 @@ exports.ProxyServer = (req, res, next) => {
         method: method,
         hostname: url.hostname,
         port: url.port,
-        path: __relativePath,
+        path: req.url,
         headers: req.headers
     };
-    const preq = http_1.request(options, (pres) => {
-        res.writeHead(res.statusCode, pres.headers);
-        pres.pipe(res);
+    const server = http_1.request(options, (response) => {
+        const { statusCode = 200 } = response;
+        res.writeHead(statusCode, response.headers);
+        response.pipe(res);
     });
-    req.pipe(preq);
-    preq.on('error', err => {
+    req.pipe(server);
+    server.on('error', err => {
         res.writeHead(400, { 'Content-Type': 'application/json; charset=utf-8' });
         res.end('请求代理服务器失败，' + err.message);
-        preq.destroy();
+        server.destroy();
     });
 };
 //# sourceMappingURL=ProxyServer.js.map
