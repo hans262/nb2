@@ -1,26 +1,29 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const http_1 = require("http");
+const http = require("http");
+const https = require("https");
 const url_1 = require("url");
-const proxyConfig = {
-    pathname: '/proxy',
-    proxyUrl: 'http://127.0.0.1:7777'
-};
+const configure_1 = require("../configure");
 exports.ProxyServer = (req, res, next) => {
     const { method, __relativePath } = req;
-    const { pathname, proxyUrl } = proxyConfig;
-    const matched = __relativePath.match(new RegExp(`^(${pathname}|${pathname}\/.*)$`));
-    if (!matched)
+    const cf = Object.entries(configure_1.proxyConfig).find(v => __relativePath.match(new RegExp(`^(${v[0]}|${v[0]}\/.*)$`)));
+    if (!cf)
         return next();
+    const [, proxyUrl] = cf;
     const url = url_1.parse(proxyUrl);
+    if (!url.protocol)
+        return next();
+    const request = url.protocol === 'https:' ? https.request : http.request;
+    const headers = url.protocol === 'https:' ? undefined : req.headers;
     const options = {
+        protocol: url.protocol,
         method: method,
         hostname: url.hostname,
         port: url.port,
         path: req.url,
-        headers: req.headers
+        headers: headers
     };
-    const server = http_1.request(options, (response) => {
+    const server = request(options, response => {
         const { statusCode = 200 } = response;
         res.writeHead(statusCode, response.headers);
         response.pipe(res);

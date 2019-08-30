@@ -14,8 +14,9 @@ function HANDLER(req: IncomingMessage, res: ServerResponse): void {
     }
     next()
   } catch (err) {
-    console.log(err)
+    res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' })
     res.end('500 服务器错误')
+    DEBUG({ type: 'ERROR', msg: err.message })
   }
 }
 

@@ -154,8 +154,8 @@
         "signature": "77da03b9bd7c032b8d79bfa058688fa0aaf9c4c1bd1f9158352bb594283bf75c"
       },
       "c:/luo/develop/nicest/src/configure/index.ts": {
-        "version": "805811e28493b1e7516c0ec41d45fae88b9e32081a2271740838426f41fe067e",
-        "signature": "68eb143f7bc12887603b41066c1e73f1701463e3b21bf8394dcb967ee829eff1"
+        "version": "b05415ed391bdffa76d9c5e986a7967b89139e5e66f2df72dcc213509b6ef708",
+        "signature": "022de2de0b68d41219c8c91cfb0b2c63bd78621aa303cb4407237ead49d7e022"
       },
       "c:/luo/develop/nicest/src/common/path.ts": {
         "version": "6b6827e42a852e696d37b4588c6813d9c942036d1c489b785ae075eee30ca983",
@@ -318,7 +318,7 @@
         "signature": "a47c6c704ebedf930a0a3b0eaa1eca4dd50e222b4477cd7fdb67fc9f748c2903"
       },
       "c:/luo/develop/nicest/src/middleware/mount.ts": {
-        "version": "3d2bd6f1a2d79cab74d771f0f94463e91d883f24596a8f7c5b895092197b8340",
+        "version": "af3801d4f32f563d1674a9d6d89ac3e9360af9e81f0df6552f73dd121e6257cb",
         "signature": "7abd0e7b0bd5d2d8c10e65bd68f5b1be986d33ed5b9a23a4756db1f540d7f96b"
       },
       "c:/luo/develop/nicest/src/middleware/resfavicon.ts": {
@@ -326,7 +326,7 @@
         "signature": "2f3cd82f1712e1609b128d14c3016e41cc1da45a1d013aa81a2c48c9fa0bef42"
       },
       "c:/luo/develop/nicest/src/middleware/proxyserver.ts": {
-        "version": "9ac4be9371d25e12e7fc7acb012c20eba01f9fe55d2fbe14d4e3572a387418ec",
+        "version": "77bac4feb16a4e692e268e637ac135265f7d10bae192337e0166fca0858e9e0d",
         "signature": "bf7a92cca9474b3038f0e561feab520af553e8d096bc0024d4976d09659b0ef5"
       },
       "c:/luo/develop/nicest/src/middleware/index.ts": {
@@ -334,7 +334,7 @@
         "signature": "8419c1a12d1b036997f1174c03b5262d89d15f7369ee90c91c9a4faa8186e225"
       },
       "c:/luo/develop/nicest/src/service/worker.ts": {
-        "version": "8b2b82efd4efd7f6bd677c3847cc23308b8968739fc519a69b4a95876d03c800",
+        "version": "82d09e5c7ff94a174a838c3834d47e8e15acaba7449e3dce3b905e57c87b8706",
         "signature": "04b922734008bb01f7626eadcaf9ad33f238dd7b90e8341107fb836ec40f8e64"
       },
       "c:/luo/develop/nicest/src/service/cluster.ts": {
@@ -590,7 +590,7 @@
         "signature": "9cd724fecc1b79143ef673151d26d6c61c5d8bafcb265e1113ec99979d8422e3"
       },
       "c:/luo/develop/nicest/src/test/index.ts": {
-        "version": "377e7583fc6248ad1595640aec4178735af856b3498fc155027425d2b5289f2e",
+        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
       },
       "c:/luo/develop/nicest/src/test/tapi.ts": {
@@ -781,6 +781,7 @@
       "tsBuildInfoFile": "C:/LUO/develop/nicest/out/tsconfig.tsbuildinfo",
       "strict": true,
       "emitDecoratorMetadata": true,
+      "watch": true,
       "configFilePath": "C:/LUO/develop/nicest/tsconfig.json"
     },
     "referencedMap": {
@@ -1276,7 +1277,9 @@
       ],
       "c:/luo/develop/nicest/src/middleware/proxyserver.ts": [
         "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/https.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/url.d.ts",
+        "c:/luo/develop/nicest/src/configure/index.ts",
         "c:/luo/develop/nicest/src/interface/middleware.ts",
         "c:/luo/develop/nicest/src/interface/req.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
@@ -2022,6 +2025,9 @@
       "c:/luo/develop/nicest/src/middleware/index.ts": [
         "c:/luo/develop/nicest/src/interface/middleware.ts"
       ],
+      "c:/luo/develop/nicest/src/middleware/proxyserver.ts": [
+        "c:/luo/develop/nicest/src/interface/middleware.ts"
+      ],
       "c:/luo/develop/nicest/src/middleware/mount.ts": [
         "c:/luo/develop/nicest/src/interface/middleware.ts"
       ],
@@ -2119,9 +2125,6 @@
         "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/querystring.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/zlib.d.ts"
-      ],
-      "c:/luo/develop/nicest/src/middleware/proxyserver.ts": [
-        "c:/luo/develop/nicest/src/interface/middleware.ts"
       ],
       "c:/luo/develop/nicest/src/middleware/loginpage.ts": [
         "c:/luo/develop/nicest/src/interface/middleware.ts"

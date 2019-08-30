@@ -22,6 +22,6 @@ export const Mount: Middleware = function (
 
   //解决跨域请求
   if (method === 'OPTIONS') return res.end()
-
+  
   next()
 }

@@ -19,4 +19,8 @@ exports.REACT_APP = false;
 exports.API_PREFIX = '/api';
 exports.WEB_SOCKET_PORT = 8888;
 exports.SOCKET_SERVER_PORT = 9999;
+exports.proxyConfig = {
+    '/proxy': 'http://127.0.0.1:7777',
+    '/douban': 'https://movie.douban.com/'
+};
 //# sourceMappingURL=index.js.map

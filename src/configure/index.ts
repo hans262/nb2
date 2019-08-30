@@ -14,7 +14,7 @@ export const LOGIN: boolean = false
 export const USER: User = {
   username: "root",
   password: "123456"
-}
+} as const
 //unit minute
 export const SESSION_EXPIRES: number = 20
 //is react app
@@ -24,3 +24,8 @@ export const API_PREFIX: string = '/api'
 //port
 export const WEB_SOCKET_PORT: number = 8888
 export const SOCKET_SERVER_PORT: number = 9999
+//proxy
+export const proxyConfig = {
+  '/proxy': 'http://127.0.0.1:7777',
+  '/douban': 'https://movie.douban.com/'
+} as const
