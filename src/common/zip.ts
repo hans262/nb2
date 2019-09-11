@@ -1,6 +1,5 @@
 import { ServerResponse } from "http";
 import { extname } from 'path';
-import { createDeflate, createGzip } from 'zlib';
 import { ZIP_MATCH } from '../configure';
 import { Req } from "../Interface/Req";
 
@@ -9,29 +8,27 @@ import { Req } from "../Interface/Req";
  * @param req 
  * @param res 
  */
-export function isZip(req: Req, res: ServerResponse): boolean {
+export function getZipType(req: Req, res: ServerResponse): ZIP_TYPE | null {
   const { __absolutePath } = req
   const type: string = extname(__absolutePath!)
 
   //检查是否在压缩范围
   const matched: RegExpMatchArray | null = type.match(ZIP_MATCH)
-  if (!matched) return false
+  if (!matched) return null
 
   //检查客户端支持的压缩类型
   let acceptEncoding: string | string[] | undefined = req.headers['accept-encoding']
-  if (!acceptEncoding) return false
+  if (!acceptEncoding) return null
 
   const EncodeType: string = acceptEncoding.toString()
 
   if (EncodeType.match(/\bgzip\b/)) {
-    res.setHeader('Content-Encoding', 'gzip')
-    req.__zipstream = createGzip()
-    return true
+    return 'GZIP'
   }
   if (EncodeType.match(/\bdeflate\b/)) {
-    res.setHeader('Content-Encoding', 'deflate')
-    req.__zipstream = createDeflate()
-    return true
+    return 'DEFLATE'
   }
-  return false
+  return null
 }
+
+export type ZIP_TYPE = 'GZIP' | 'DEFLATE'

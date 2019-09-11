@@ -22,10 +22,11 @@ function ResVerify(req, res) {
     res.setHeader('Content-Length', size);
     if (req.headers['range'])
         return ResRange_1.ResRange(req, res);
-    if (!zip_1.isZip(req, res)) {
+    const zipType = zip_1.getZipType(req, res);
+    if (!zipType) {
         return ResFile_1.ResFile(req, res);
     }
-    ResZip_1.ResZip(req, res);
+    ResZip_1.ResZip(req, res, zipType);
 }
 exports.ResVerify = ResVerify;
 //# sourceMappingURL=ResVerify.js.map

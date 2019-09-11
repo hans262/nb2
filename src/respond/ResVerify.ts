@@ -3,7 +3,7 @@ import { CACHE_MAX_AGE } from '../configure';
 import { Req } from '../Interface/Req';
 import { generateETag, isCache } from '../common/cache';
 import { mime } from '../common/mime';
-import { isZip } from '../common/zip';
+import { getZipType, ZIP_TYPE } from '../common/zip';
 import { ResCache } from './ResCache';
 import { ResFile } from './ResFile';
 import { ResRange } from './ResRange';
@@ -34,10 +34,12 @@ export function ResVerify(req: Req, res: ServerResponse): void {
   //范围请求
   if (req.headers['range']) return ResRange(req, res)
 
+  const zipType: ZIP_TYPE | null = getZipType(req, res)
   //不是压缩
-  if (!isZip(req, res)) {
+  if (!zipType) {
     return ResFile(req, res)
   }
+
   //需要压缩
-  ResZip(req, res)
+  ResZip(req, res, zipType)
 }
