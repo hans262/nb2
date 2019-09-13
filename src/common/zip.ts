@@ -4,7 +4,7 @@ import { ZIP_MATCH } from '../configure';
 import { Req } from "../Interface/Req";
 
 /**
- * check zip sss
+ * check zip
  * @param req 
  * @param res 
  */
