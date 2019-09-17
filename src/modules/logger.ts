@@ -48,8 +48,9 @@ export function DEBUG(massage: MESSAGE): void {
  */
 export function SEND(cmd: ACTION): void {
   const { type } = cmd
-  if (process.send) {
-    process.send({ type })
+  //IPC 通道是否连接
+  if (process.connected) {
+    process.send!({ type })
   } else {
     console.log('worker进程无法处理命令')
   }

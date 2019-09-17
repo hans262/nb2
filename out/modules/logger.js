@@ -35,7 +35,7 @@ function DEBUG(massage) {
 exports.DEBUG = DEBUG;
 function SEND(cmd) {
     const { type } = cmd;
-    if (process.send) {
+    if (process.connected) {
         process.send({ type });
     }
     else {

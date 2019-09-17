@@ -9,6 +9,7 @@ const styles = {
   'magenta': '\x1B[35m',
   'red': '\x1B[31m',
   'yellow': '\x1B[33m',
+  'reset': '\x1B[0m'
 } as const
 type Color = keyof typeof styles
 
@@ -20,16 +21,20 @@ export class Stdout {
     console.log(mq)
   }
   static success(mq: string) {
-    console.log(styles['green'] + '%s' + '\x1B[0m', mq)
+    // console.log(styles['green'] + '%s' + '\x1B[0m', mq)
+    process.stdout.write(styles['green'] + mq + styles['reset'] + '\r\n')
   }
   static error(mq: string) {
-    console.log(styles['red'] + '%s' + '\x1B[0m', mq)
+    // console.log(styles['red'] + '%s' + '\x1B[0m', mq)
+    process.stdout.write(styles['red'] + mq + styles['reset'] + '\r\n')
   }
   static warn(mq: string) {
-    console.log(styles['yellow'] + '%s' + '\x1B[0m', mq)
-  }
+    // console.log(styles['yellow'] + '%s' + '\x1B[0m', mq)
+    process.stdout.write(styles['yellow'] + mq + styles['reset'] + '\r\n')
+  } 
   static color(color: Color, mq: string) {
-    console.log(styles[color] + '%s' + '\x1B[0m', mq)
+    // console.log(styles[color] + '%s' + '\x1B[0m', mq)
+    process.stdout.write(styles[color] + mq + styles['reset'] + '\r\n')
   }
   static debug(type: MessageType, mq: string) {
     switch (type) {

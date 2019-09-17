@@ -166,11 +166,11 @@
         "signature": "7ac29a13ba7a7b22881f66154a36618c03c6c591cbf6b52f628ee123497d20b9"
       },
       "c:/luo/develop/nicest/src/common/stdout.ts": {
-        "version": "5feda831f4add36397f750c5f986ecd2f02d59181f7091e63bcc4260d2b4c20f",
-        "signature": "074f77e4cd7f0a988bb45169b67859a41b115e1002a608c4fd9306a26dc8ee4f"
+        "version": "a1fe4cf3b9f2559678cddbc0f1d04a440f71d108db051394f8ea3c6db5ccd293",
+        "signature": "6287d338ecb70a9d721afbc82a0b7ebde6db6fda876a28ebdb13f457ee2aa783"
       },
       "c:/luo/develop/nicest/src/modules/logger.ts": {
-        "version": "f87c9ac81fdd66d0b6f67bfa4203cc91bcbdf472bd5daf4396b23f8b24812f65",
+        "version": "e60bd3ad74025757fa62a47a4781b61d87e6f25d9c9ec432f8cba07e8a1c9e02",
         "signature": "6fe7b1f0fa96f59a647bd7df355d09a6ad9dbfbbb3900835f1253c86e3c9dff4"
       },
       "c:/luo/develop/nicest/src/interface/req.ts": {
@@ -334,7 +334,7 @@
         "signature": "8419c1a12d1b036997f1174c03b5262d89d15f7369ee90c91c9a4faa8186e225"
       },
       "c:/luo/develop/nicest/src/service/worker.ts": {
-        "version": "82d09e5c7ff94a174a838c3834d47e8e15acaba7449e3dce3b905e57c87b8706",
+        "version": "7c2b6e9aeee3e110bf1f584635ee4e5dd32542c6e056973035fb4e777016d503",
         "signature": "04b922734008bb01f7626eadcaf9ad33f238dd7b90e8341107fb836ec40f8e64"
       },
       "c:/luo/develop/nicest/src/service/cluster.ts": {
@@ -2549,6 +2549,7 @@
       "c:/luo/develop/nicest/src/respond/resfile.ts",
       "c:/luo/develop/nicest/src/common/range.ts",
       "c:/luo/develop/nicest/src/respond/resrange.ts",
+      "c:/luo/develop/nicest/src/respond/reszip.ts",
       "c:/luo/develop/nicest/src/respond/resverify.ts",
       "c:/luo/develop/nicest/src/respond/resindex.ts",
       "c:/luo/develop/nicest/src/respond/resstatic.ts",
@@ -2669,8 +2670,7 @@
       "c:/luo/develop/nicest/src/tsdoc/generics/demo.ts",
       "c:/luo/develop/nicest/src/tsdoc/generics/demo2.ts",
       "c:/luo/develop/nicest/src/tsdoc/generics/demo3.ts",
-      "c:/luo/develop/nicest/node_modules/@types/minimatch/index.d.ts",
-      "c:/luo/develop/nicest/src/respond/reszip.ts"
+      "c:/luo/develop/nicest/node_modules/@types/minimatch/index.d.ts"
     ]
   },
   "version": "3.5.2"

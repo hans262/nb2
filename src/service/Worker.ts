@@ -29,8 +29,11 @@ export function RUN_WORKER() {
     switch (action.type) {
       case 'CLOSE_SERVER':
         const { code } = action
-        //平滑关闭server
+        //关闭与父进程的IPC通道
+        // process.disconnect()
+        //关闭server
         server.close()
+        //等待关闭进程
         setTimeout(() => {
           process.exit(code)
         }, 10000)

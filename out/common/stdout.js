@@ -10,22 +10,23 @@ const styles = {
     'magenta': '\x1B[35m',
     'red': '\x1B[31m',
     'yellow': '\x1B[33m',
+    'reset': '\x1B[0m'
 };
 class Stdout {
     static info(mq) {
         console.log(mq);
     }
     static success(mq) {
-        console.log(styles['green'] + '%s' + '\x1B[0m', mq);
+        process.stdout.write(styles['green'] + mq + styles['reset'] + '\r\n');
     }
     static error(mq) {
-        console.log(styles['red'] + '%s' + '\x1B[0m', mq);
+        process.stdout.write(styles['red'] + mq + styles['reset'] + '\r\n');
     }
     static warn(mq) {
-        console.log(styles['yellow'] + '%s' + '\x1B[0m', mq);
+        process.stdout.write(styles['yellow'] + mq + styles['reset'] + '\r\n');
     }
     static color(color, mq) {
-        console.log(styles[color] + '%s' + '\x1B[0m', mq);
+        process.stdout.write(styles[color] + mq + styles['reset'] + '\r\n');
     }
     static debug(type, mq) {
         switch (type) {
