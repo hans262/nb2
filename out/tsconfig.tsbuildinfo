@@ -166,8 +166,8 @@
         "signature": "7ac29a13ba7a7b22881f66154a36618c03c6c591cbf6b52f628ee123497d20b9"
       },
       "c:/luo/develop/nicest/src/common/stdout.ts": {
-        "version": "a1fe4cf3b9f2559678cddbc0f1d04a440f71d108db051394f8ea3c6db5ccd293",
-        "signature": "6287d338ecb70a9d721afbc82a0b7ebde6db6fda876a28ebdb13f457ee2aa783"
+        "version": "a5a2a439ab1c2a7eeb795fa7dd02daec9a074fa2bb834b14959c857c3f059dad",
+        "signature": "aeb73c723ecfa22fac68d3064a215d455d729f21d830111ac82471b59623021e"
       },
       "c:/luo/develop/nicest/src/modules/logger.ts": {
         "version": "e60bd3ad74025757fa62a47a4781b61d87e6f25d9c9ec432f8cba07e8a1c9e02",
@@ -558,7 +558,7 @@
         "signature": "a114702e7d4c1e5164f978c5b0e426d1cf6e09222b09e7a93679c5eef2f20351"
       },
       "c:/luo/develop/nicest/src/modules/mysql.ts": {
-        "version": "6df0dc165426d1ca45c0965890a211d4a4ede69087fdedaac49647b638ed9c4f",
+        "version": "33ed96ed530cf5d105486c6b36a9705fe1fc064d6a54d25b5f699a98e33d46a4",
         "signature": "640bcdeddfb422adc56ce559847e8d737b64c5b216b930773a0c6a47418ec998"
       },
       "c:/luo/develop/nicest/src/modules/readline.ts": {
@@ -598,8 +598,8 @@
         "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
       },
       "c:/luo/develop/nicest/src/test/buffer/arraybuffer.ts": {
-        "version": "fcf89e2caadd820e8da67be6629543be9ba32d687b03f3b971ccbf53be1d99f5",
-        "signature": "1060ff80e9de4f10ea52ebb6ba9378011c74cf409d6cacb79a438ef933ff8169"
+        "version": "619269250ce90c5f688a5dfaa1b75e62f543fda20c7c546638e381585443fa6e",
+        "signature": "06fa59b67a5e28cf032460639455ab2929c585b323cb4956673b315a1038a5ea"
       },
       "c:/luo/develop/nicest/src/test/buffer/atomics.ts": {
         "version": "50e4e9edb747546831a8ba18e25bc36ae98adcfd49c5902e08ef84ebefbaa807",
@@ -2626,7 +2626,6 @@
       "c:/luo/develop/nicest/src/test/api.test.ts",
       "c:/luo/develop/nicest/src/test/fibonacci.ts",
       "c:/luo/develop/nicest/src/test/index.ts",
-      "c:/luo/develop/nicest/src/test/buffer/arraybuffer.ts",
       "c:/luo/develop/nicest/src/test/buffer/atomics.ts",
       "c:/luo/develop/nicest/src/test/buffer/bigint.ts",
       "c:/luo/develop/nicest/src/test/buffer/buffer.ts",
@@ -2670,7 +2669,8 @@
       "c:/luo/develop/nicest/src/tsdoc/generics/demo.ts",
       "c:/luo/develop/nicest/src/tsdoc/generics/demo2.ts",
       "c:/luo/develop/nicest/src/tsdoc/generics/demo3.ts",
-      "c:/luo/develop/nicest/node_modules/@types/minimatch/index.d.ts"
+      "c:/luo/develop/nicest/node_modules/@types/minimatch/index.d.ts",
+      "c:/luo/develop/nicest/src/test/buffer/arraybuffer.ts"
     ]
   },
   "version": "3.5.2"

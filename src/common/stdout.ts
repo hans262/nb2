@@ -17,24 +17,25 @@ type Color = keyof typeof styles
  * log stdout
  */
 export class Stdout {
+  static writeLine(mq: string, color?: Color) {
+    color ?
+      process.stdout.write(styles[color] + mq + styles['reset'] + '\r\n') :
+      process.stdout.write(mq + '\r\n')
+  }
   static info(mq: string) {
-    console.log(mq)
+    this.writeLine(mq)
   }
   static success(mq: string) {
-    // console.log(styles['green'] + '%s' + '\x1B[0m', mq)
-    process.stdout.write(styles['green'] + mq + styles['reset'] + '\r\n')
+    this.writeLine(mq, 'green')
   }
   static error(mq: string) {
-    // console.log(styles['red'] + '%s' + '\x1B[0m', mq)
-    process.stdout.write(styles['red'] + mq + styles['reset'] + '\r\n')
+    this.writeLine(mq, 'red')
   }
   static warn(mq: string) {
-    // console.log(styles['yellow'] + '%s' + '\x1B[0m', mq)
-    process.stdout.write(styles['yellow'] + mq + styles['reset'] + '\r\n')
-  } 
-  static color(color: Color, mq: string) {
-    // console.log(styles[color] + '%s' + '\x1B[0m', mq)
-    process.stdout.write(styles[color] + mq + styles['reset'] + '\r\n')
+    this.writeLine(mq, 'yellow')
+  }
+  static color(mq: string, color: Color) {
+    this.writeLine(mq, color)
   }
   static debug(type: MessageType, mq: string) {
     switch (type) {

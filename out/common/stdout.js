@@ -13,20 +13,25 @@ const styles = {
     'reset': '\x1B[0m'
 };
 class Stdout {
+    static writeLine(mq, color) {
+        color ?
+            process.stdout.write(styles[color] + mq + styles['reset'] + '\r\n') :
+            process.stdout.write(mq + '\r\n');
+    }
     static info(mq) {
-        console.log(mq);
+        this.writeLine(mq);
     }
     static success(mq) {
-        process.stdout.write(styles['green'] + mq + styles['reset'] + '\r\n');
+        this.writeLine(mq, 'green');
     }
     static error(mq) {
-        process.stdout.write(styles['red'] + mq + styles['reset'] + '\r\n');
+        this.writeLine(mq, 'red');
     }
     static warn(mq) {
-        process.stdout.write(styles['yellow'] + mq + styles['reset'] + '\r\n');
+        this.writeLine(mq, 'yellow');
     }
-    static color(color, mq) {
-        process.stdout.write(styles[color] + mq + styles['reset'] + '\r\n');
+    static color(mq, color) {
+        this.writeLine(mq, color);
     }
     static debug(type, mq) {
         switch (type) {
