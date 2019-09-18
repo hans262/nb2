@@ -9,7 +9,10 @@ const POOL: Pool = createPool({
 	password: PASSWORD,
 	database: DATABASE,
 })
-
+/**
+ * query sql
+ * @param sql 
+ */
 export function Query<T>(sql: string): Promise<T> {
 	return new Promise<T>((
 		resolve: (value: T) => void,
