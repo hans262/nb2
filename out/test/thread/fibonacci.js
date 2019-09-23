@@ -5,20 +5,18 @@ const task = (num) => new Promise((resolve, reject) => {
     const worker = new worker_threads_1.Worker(__dirname + '/compute_fibonacci.js', {
         workerData: num
     });
-    worker.on('message', resolve);
+    worker.once('message', resolve);
     worker.on('error', reject);
     worker.on('exit', (code) => {
         if (code !== 0)
             reject(new Error(`Worker stopped with exit code ${code}`));
     });
 });
-function test() {
-    const nums = [40, 41];
-    const start = Date.now();
+function test(nums = [40, 41]) {
+    console.time('timer');
     Promise.all(nums.map(n => task(n))).then(ret => {
-        const timer = Date.now() - start;
         console.log(`fib ${nums} = ${ret}`);
-        console.log('timer = ' + timer + 'ms');
+        console.timeEnd('timer');
     });
 }
 exports.test = test;

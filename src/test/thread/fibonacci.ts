@@ -7,7 +7,7 @@ const task = (num: number): Promise<number> => new Promise<number>((
   const worker: Worker = new Worker(__dirname + '/compute_fibonacci.js', {
     workerData: num
   })
-  worker.on('message', resolve)
+  worker.once('message', resolve)
   worker.on('error', reject)
   worker.on('exit', (code: number) => {
     if (code !== 0)
@@ -19,12 +19,10 @@ const task = (num: number): Promise<number> => new Promise<number>((
  * 多线程测试 ->
  * 斐波那契数列 40 41 位
  */
-export function test(): void {
-  const nums: number[] = [40, 41]
-  const start: number = Date.now()
+export function test(nums: number[] = [40, 41]): void {
+  console.time('timer')
   Promise.all(nums.map(n => task(n))).then(ret => {
-    const timer: number = Date.now() - start
     console.log(`fib ${nums} = ${ret}`)
-    console.log('timer = ' + timer + 'ms')
+    console.timeEnd('timer')
   })
 }
