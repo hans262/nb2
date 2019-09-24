@@ -14,7 +14,7 @@ const styles = {
 type Color = keyof typeof styles
 
 /**
- * log stdouts
+ * log stdout
  */
 export class Stdout {
   static writeLine(mq: string, color?: Color) {
