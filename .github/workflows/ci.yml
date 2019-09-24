@@ -13,5 +13,11 @@ jobs:
     - name: Build
       run: npm install && npm run doc
 
-    - name: Submit
-      run: git status
+    - name: Submit1
+      run: git status && git branch
+    
+    - name: Submit2
+      run: git add docs && git commit -m "update docs"
+    
+    - name: Submit2
+      run: git push origin master
