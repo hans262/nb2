@@ -1,0 +1,236 @@
+[2019-7-2 19:08:28] [5084] [WORKER STARTUP] -> port: 5000
+[2019-7-2 19:08:56] [5084] [REQUEST] -> C:\
+[2019-7-2 19:08:56] [5084] [RES_DIR] -> C:\
+[2019-7-2 19:08:57] [5084] [REQUEST] -> C:\favicon.ico
+[2019-7-2 19:08:57] [5084] [RES_FILE] -> c:\LUO\develop\node-server\public\favicon.ico
+[2019-7-2 19:09:00] [5084] [REQUEST] -> C:\LUO\
+[2019-7-2 19:09:00] [5084] [RES_DIR] -> C:\LUO\
+[2019-7-2 19:09:00] [5084] [REQUEST] -> C:\LUO\develop\
+[2019-7-2 19:09:00] [5084] [RES_DIR] -> C:\LUO\develop\
+[2019-7-2 19:09:01] [5084] [REQUEST] -> C:\LUO\develop\node-server\
+[2019-7-2 19:09:01] [5084] [RES_DIR] -> C:\LUO\develop\node-server\
+[2019-7-2 19:09:04] [5084] [REQUEST] -> C:\LUO\develop\node-server\public\
+[2019-7-2 19:09:04] [5084] [RES_DIR] -> C:\LUO\develop\node-server\public\
+[2019-7-2 19:09:05] [5084] [REQUEST] -> C:\LUO\develop\node-server\public\test.html
+[2019-7-2 19:09:05] [5084] [RES_ZIP] -> C:\LUO\develop\node-server\public\test.html
+[2019-7-2 19:09:05] [5084] [REQUEST] -> C:\LUO\develop\node-server\public\ajax.js
+[2019-7-2 19:09:05] [5084] [RES_ZIP] -> C:\LUO\develop\node-server\public\ajax.js
+[2019-7-2 19:09:18] [5084] [REQUEST] -> C:\LUO\develop\node-server\public\test.html
+[2019-7-2 19:09:18] [5084] [RES_ZIP] -> C:\LUO\develop\node-server\public\test.html
+[2019-7-2 19:09:18] [5084] [REQUEST] -> C:\LUO\develop\node-server\public\ajax.js
+[2019-7-2 19:09:18] [5084] [RES_ZIP] -> C:\LUO\develop\node-server\public\ajax.js
+[2019-7-2 19:09:18] [5084] [REQUEST] -> C:\favicon.ico
+[2019-7-2 19:09:18] [5084] [RES_FILE] -> c:\LUO\develop\node-server\public\favicon.ico
+[2019-7-2 19:11:44] [5084] [REQUEST] -> C:\api\upfiles
+[2019-7-2 19:13:10] [5084] [REQUEST] -> C:\api\upfiles
+[2019-7-2 19:14:50] [6460] [WORKER STARTUP] -> port: 5000
+[2019-7-2 19:15:01] [6460] [REQUEST] -> C:\api\get
+[2019-7-2 19:15:02] [6460] [REQUEST] -> C:\api\upfiles
+[2019-7-2 19:16:09] [6460] [REQUEST] -> C:\api\upfiles
+[2019-7-2 19:16:47] [6460] [REQUEST] -> C:\api\upfiles
+[2019-7-2 19:18:28] [6460] [REQUEST] -> C:\LUO\develop\node-server\public\test.html
+[2019-7-2 19:18:28] [6460] [RES_ZIP] -> C:\LUO\develop\node-server\public\test.html
+[2019-7-2 19:18:28] [6460] [REQUEST] -> C:\LUO\develop\node-server\public\ajax.js
+[2019-7-2 19:18:28] [6460] [RES_ZIP] -> C:\LUO\develop\node-server\public\ajax.js
+[2019-7-2 19:18:28] [6460] [REQUEST] -> C:\favicon.ico
+[2019-7-2 19:18:28] [6460] [RES_FILE] -> c:\LUO\develop\node-server\public\favicon.ico
+[2019-7-2 19:18:51] [6460] [REQUEST] -> C:\LUO\develop\node-server\public\test.html
+[2019-7-2 19:18:51] [6460] [RES_ZIP] -> C:\LUO\develop\node-server\public\test.html
+[2019-7-2 19:18:51] [6460] [REQUEST] -> C:\LUO\develop\node-server\public\ajax.js
+[2019-7-2 19:18:51] [6460] [RES_ZIP] -> C:\LUO\develop\node-server\public\ajax.js
+[2019-7-2 19:18:51] [6460] [REQUEST] -> C:\favicon.ico
+[2019-7-2 19:18:51] [6460] [RES_FILE] -> c:\LUO\develop\node-server\public\favicon.ico
+[2019-7-2 19:18:58] [6460] [REQUEST] -> C:\api\upfiles
+[2019-7-2 19:19:27] [7796] [WORKER STARTUP] -> port: 5000
+[2019-7-2 19:19:31] [7796] [REQUEST] -> C:\api\upfiles
+[2019-7-2 19:19:52] [9084] [WORKER STARTUP] -> port: 5000
+[2019-7-2 19:19:53] [9084] [REQUEST] -> C:\api\upfiles
+[2019-7-2 19:26:40] [9084] [REQUEST] -> C:\api\upfiles
+[2019-7-2 19:39:20] [7728] [WORKER STARTUP] -> port: 5000
+[2019-7-2 19:39:23] [7728] [REQUEST] -> C:\api\upfiles
+[2019-7-2 19:41:56] [10140] [WORKER STARTUP] -> port: 5000
+[2019-7-2 19:41:58] [10140] [REQUEST] -> C:\api\upfiles
+[2019-7-2 19:48:20] [7896] [WORKER STARTUP] -> port: 5000
+[2019-7-2 19:48:23] [7896] [REQUEST] -> C:\api\upfiles
+[2019-7-2 19:48:41] [7896] [REQUEST] -> C:\api\upfiles
+[2019-7-2 19:52:18] [8932] [WORKER STARTUP] -> port: 5000
+[2019-7-2 19:52:21] [8932] [REQUEST] -> C:\api\upfiles
+[2019-7-2 19:52:39] [12840] [WORKER STARTUP] -> port: 5000
+[2019-7-2 19:52:40] [12840] [REQUEST] -> C:\api\upfiles
+[2019-7-2 19:55:55] [11368] [WORKER STARTUP] -> port: 5000
+[2019-7-2 19:55:58] [11368] [REQUEST] -> C:\LUO\develop\node-server\public\test.html
+[2019-7-2 19:55:58] [11368] [RES_ZIP] -> C:\LUO\develop\node-server\public\test.html
+[2019-7-2 19:55:58] [11368] [REQUEST] -> C:\LUO\develop\node-server\public\ajax.js
+[2019-7-2 19:55:58] [11368] [RES_ZIP] -> C:\LUO\develop\node-server\public\ajax.js
+[2019-7-2 19:55:58] [11368] [REQUEST] -> C:\favicon.ico
+[2019-7-2 19:55:58] [11368] [RES_FILE] -> c:\LUO\develop\node-server\public\favicon.ico
+[2019-7-2 19:56:07] [11368] [REQUEST] -> C:\api\upfiles
+[2019-7-2 20:02:02] [8636] [WORKER STARTUP] -> port: 5000
+[2019-7-2 20:02:04] [8636] [REQUEST] -> C:\api\upfiles
+[2019-7-2 20:09:54] [11704] [WORKER STARTUP] -> port: 5000
+[2019-7-2 20:10:03] [11704] [REQUEST] -> C:\api\upfiles
+[2019-7-2 22:12:51] [12472] [WORKER STARTUP] -> port: 5000
+[2019-7-2 22:12:52] [12472] [REQUEST] -> D:\
+[2019-7-2 22:12:52] [12472] [RES_DIR] -> D:\
+[2019-7-2 22:12:55] [12472] [REQUEST] -> D:\develop\
+[2019-7-2 22:12:55] [12472] [RES_DIR] -> D:\develop\
+[2019-7-2 22:12:56] [12472] [REQUEST] -> D:\develop\node-server\
+[2019-7-2 22:12:56] [12472] [RES_DIR] -> D:\develop\node-server\
+[2019-7-2 22:12:58] [12472] [REQUEST] -> D:\develop\node-server\public\
+[2019-7-2 22:12:58] [12472] [RES_DIR] -> D:\develop\node-server\public\
+[2019-7-2 22:12:59] [12472] [REQUEST] -> D:\develop\node-server\public\test.html
+[2019-7-2 22:12:59] [12472] [RES_ZIP] -> D:\develop\node-server\public\test.html
+[2019-7-2 22:12:59] [12472] [REQUEST] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 22:12:59] [12472] [RES_ZIP] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 22:13:27] [12472] [REQUEST] -> D:\api\upfiles
+[2019-7-2 22:16:18] [4940] [WORKER STARTUP] -> port: 5000
+[2019-7-2 22:16:21] [4940] [REQUEST] -> D:\api\upfiles
+[2019-7-2 22:17:22] [2316] [WORKER STARTUP] -> port: 5000
+[2019-7-2 22:17:24] [2316] [REQUEST] -> D:\api\upfiles
+[2019-7-2 22:40:47] [11080] [WORKER STARTUP] -> port: 5000
+[2019-7-2 22:40:50] [11080] [REQUEST] -> D:\api\upfiles
+[2019-7-2 22:50:10] [3960] [WORKER STARTUP] -> port: 5000
+[2019-7-2 22:50:12] [3960] [REQUEST] -> D:\api\upfiles
+[2019-7-2 22:51:23] [3668] [WORKER STARTUP] -> port: 5000
+[2019-7-2 22:51:26] [3668] [REQUEST] -> D:\develop\node-server\public\test.html
+[2019-7-2 22:51:26] [3668] [RES_ZIP] -> D:\develop\node-server\public\test.html
+[2019-7-2 22:51:26] [3668] [REQUEST] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 22:51:26] [3668] [RES_ZIP] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 22:51:26] [3668] [REQUEST] -> D:\favicon.ico
+[2019-7-2 22:51:26] [3668] [RES_FILE] -> d:\develop\node-server\public\favicon.ico
+[2019-7-2 22:51:26] [3668] [REQUEST] -> D:\develop\node-server\public\test.html
+[2019-7-2 22:51:26] [3668] [RES_ZIP] -> D:\develop\node-server\public\test.html
+[2019-7-2 22:51:26] [3668] [REQUEST] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 22:51:26] [3668] [RES_ZIP] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 22:51:26] [3668] [REQUEST] -> D:\favicon.ico
+[2019-7-2 22:51:26] [3668] [RES_FILE] -> d:\develop\node-server\public\favicon.ico
+[2019-7-2 22:51:51] [3668] [REQUEST] -> D:\develop\node-server\public\test.html
+[2019-7-2 22:51:51] [3668] [RES_ZIP] -> D:\develop\node-server\public\test.html
+[2019-7-2 22:51:51] [3668] [REQUEST] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 22:51:51] [3668] [RES_ZIP] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 22:51:51] [3668] [REQUEST] -> D:\favicon.ico
+[2019-7-2 22:51:51] [3668] [RES_FILE] -> d:\develop\node-server\public\favicon.ico
+[2019-7-2 22:52:10] [3668] [REQUEST] -> D:\develop\node-server\public\test.html
+[2019-7-2 22:52:10] [3668] [RES_ZIP] -> D:\develop\node-server\public\test.html
+[2019-7-2 22:52:10] [3668] [REQUEST] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 22:52:10] [3668] [RES_ZIP] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 22:52:10] [3668] [REQUEST] -> D:\favicon.ico
+[2019-7-2 22:52:11] [3668] [RES_FILE] -> d:\develop\node-server\public\favicon.ico
+[2019-7-2 22:55:25] [3668] [REQUEST] -> D:\develop\node-server\public\test.html
+[2019-7-2 22:55:25] [3668] [RES_ZIP] -> D:\develop\node-server\public\test.html
+[2019-7-2 22:55:25] [3668] [REQUEST] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 22:55:25] [3668] [RES_ZIP] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 22:55:25] [3668] [REQUEST] -> D:\favicon.ico
+[2019-7-2 22:55:25] [3668] [RES_FILE] -> d:\develop\node-server\public\favicon.ico
+[2019-7-2 22:55:37] [3668] [REQUEST] -> D:\api\upfiles
+[2019-7-2 22:55:51] [3668] [REQUEST] -> D:\api\upfiles
+[2019-7-2 22:55:51] [3668] [REQUEST] -> D:\favicon.ico
+[2019-7-2 22:55:51] [3668] [RES_FILE] -> d:\develop\node-server\public\favicon.ico
+[2019-7-2 22:56:46] [3524] [WORKER STARTUP] -> port: 5000
+[2019-7-2 22:56:48] [3524] [REQUEST] -> D:\develop\node-server\public\test.html
+[2019-7-2 22:56:48] [3524] [RES_ZIP] -> D:\develop\node-server\public\test.html
+[2019-7-2 22:56:48] [3524] [REQUEST] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 22:56:48] [3524] [RES_ZIP] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 22:56:49] [3524] [REQUEST] -> D:\api\upfiles
+[2019-7-2 22:57:30] [3524] [REQUEST] -> D:\develop\node-server\public\test.html
+[2019-7-2 22:57:30] [3524] [RES_ZIP] -> D:\develop\node-server\public\test.html
+[2019-7-2 22:57:30] [3524] [REQUEST] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 22:57:30] [3524] [RES_ZIP] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 22:57:34] [3524] [REQUEST] -> D:\api\upfiles
+[2019-7-2 22:58:08] [3524] [REQUEST] -> D:\develop\node-server\public\test.html
+[2019-7-2 22:58:08] [3524] [RES_ZIP] -> D:\develop\node-server\public\test.html
+[2019-7-2 22:58:08] [3524] [REQUEST] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 22:58:08] [3524] [RES_ZIP] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 22:58:13] [3524] [REQUEST] -> D:\api\upfiles
+[2019-7-2 22:59:32] [3524] [REQUEST] -> D:\develop\node-server\public\test.html
+[2019-7-2 22:59:32] [3524] [RES_ZIP] -> D:\develop\node-server\public\test.html
+[2019-7-2 22:59:32] [3524] [REQUEST] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 22:59:32] [3524] [RES_ZIP] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 22:59:49] [3524] [REQUEST] -> D:\develop\node-server\public\test.html
+[2019-7-2 22:59:49] [3524] [RES_ZIP] -> D:\develop\node-server\public\test.html
+[2019-7-2 22:59:49] [3524] [REQUEST] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 22:59:49] [3524] [RES_ZIP] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 22:59:49] [3524] [REQUEST] -> D:\favicon.ico
+[2019-7-2 22:59:49] [3524] [RES_FILE] -> d:\develop\node-server\public\favicon.ico
+[2019-7-2 22:59:54] [3524] [REQUEST] -> D:\api\upfiles
+[2019-7-2 23:01:54] [5708] [WORKER STARTUP] -> port: 5000
+[2019-7-2 23:01:57] [5708] [REQUEST] -> D:\develop\node-server\public\test.html
+[2019-7-2 23:01:57] [5708] [RES_ZIP] -> D:\develop\node-server\public\test.html
+[2019-7-2 23:01:57] [5708] [REQUEST] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 23:01:57] [5708] [RES_ZIP] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 23:01:59] [5708] [REQUEST] -> D:\develop\node-server\public\test.html
+[2019-7-2 23:01:59] [5708] [RES_ZIP] -> D:\develop\node-server\public\test.html
+[2019-7-2 23:01:59] [5708] [REQUEST] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 23:01:59] [5708] [RES_ZIP] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 23:01:59] [5708] [REQUEST] -> D:\favicon.ico
+[2019-7-2 23:01:59] [5708] [RES_FILE] -> d:\develop\node-server\public\favicon.ico
+[2019-7-2 23:02:07] [5708] [REQUEST] -> D:\api\upfiles
+[2019-7-2 23:02:39] [5708] [REQUEST] -> D:\develop\node-server\public\test.html
+[2019-7-2 23:02:39] [5708] [RES_ZIP] -> D:\develop\node-server\public\test.html
+[2019-7-2 23:02:39] [5708] [REQUEST] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 23:02:39] [5708] [RES_ZIP] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 23:02:45] [5708] [REQUEST] -> D:\api\upfiles
+[2019-7-2 23:04:07] [5708] [REQUEST] -> D:\develop\node-server\public\test.html
+[2019-7-2 23:04:07] [5708] [RES_ZIP] -> D:\develop\node-server\public\test.html
+[2019-7-2 23:04:07] [5708] [REQUEST] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 23:04:07] [5708] [RES_ZIP] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 23:04:08] [5708] [REQUEST] -> D:\develop\node-server\public\test.html
+[2019-7-2 23:04:08] [5708] [RES_ZIP] -> D:\develop\node-server\public\test.html
+[2019-7-2 23:04:08] [5708] [REQUEST] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 23:04:08] [5708] [RES_ZIP] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 23:04:08] [5708] [REQUEST] -> D:\favicon.ico
+[2019-7-2 23:04:08] [5708] [RES_FILE] -> d:\develop\node-server\public\favicon.ico
+[2019-7-2 23:04:15] [5708] [REQUEST] -> D:\api\upfiles
+[2019-7-2 23:04:20] [5708] [REQUEST] -> D:\develop\node-server\public\test.html
+[2019-7-2 23:04:20] [5708] [RES_ZIP] -> D:\develop\node-server\public\test.html
+[2019-7-2 23:04:20] [5708] [REQUEST] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 23:04:20] [5708] [RES_ZIP] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 23:04:30] [5708] [REQUEST] -> D:\api\upfiles
+[2019-7-2 23:04:37] [5708] [REQUEST] -> D:\develop\node-server\public\test.html
+[2019-7-2 23:04:37] [5708] [RES_ZIP] -> D:\develop\node-server\public\test.html
+[2019-7-2 23:04:37] [5708] [REQUEST] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 23:04:37] [5708] [RES_ZIP] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 23:08:24] [7776] [WORKER STARTUP] -> port: 5000
+[2019-7-2 23:08:28] [7776] [REQUEST] -> D:\develop\node-server\public\test.html
+[2019-7-2 23:08:28] [7776] [RES_ZIP] -> D:\develop\node-server\public\test.html
+[2019-7-2 23:08:28] [7776] [REQUEST] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 23:08:28] [7776] [RES_ZIP] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 23:08:28] [7776] [REQUEST] -> D:\favicon.ico
+[2019-7-2 23:08:28] [7776] [RES_FILE] -> d:\develop\node-server\public\favicon.ico
+[2019-7-2 23:08:38] [7776] [REQUEST] -> D:\api\upfiles
+[2019-7-2 23:09:21] [8824] [WORKER STARTUP] -> port: 5000
+[2019-7-2 23:09:23] [8824] [REQUEST] -> D:\develop\node-server\public\test.html
+[2019-7-2 23:09:23] [8824] [RES_ZIP] -> D:\develop\node-server\public\test.html
+[2019-7-2 23:09:23] [8824] [REQUEST] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 23:09:23] [8824] [RES_ZIP] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 23:09:24] [8824] [REQUEST] -> D:\develop\node-server\public\test.html
+[2019-7-2 23:09:24] [8824] [RES_ZIP] -> D:\develop\node-server\public\test.html
+[2019-7-2 23:09:24] [8824] [REQUEST] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 23:09:24] [8824] [RES_ZIP] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 23:09:24] [8824] [REQUEST] -> D:\favicon.ico
+[2019-7-2 23:09:24] [8824] [RES_FILE] -> d:\develop\node-server\public\favicon.ico
+[2019-7-2 23:09:31] [8824] [REQUEST] -> D:\api\upfiles
+[2019-7-2 23:09:51] [8824] [REQUEST] -> D:\develop\node-server\public\test.html
+[2019-7-2 23:09:51] [8824] [RES_ZIP] -> D:\develop\node-server\public\test.html
+[2019-7-2 23:09:51] [8824] [REQUEST] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 23:09:51] [8824] [RES_ZIP] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 23:10:12] [6256] [WORKER STARTUP] -> port: 5000
+[2019-7-2 23:10:14] [6256] [REQUEST] -> D:\develop\node-server\public\test.html
+[2019-7-2 23:10:14] [6256] [RES_ZIP] -> D:\develop\node-server\public\test.html
+[2019-7-2 23:10:14] [6256] [REQUEST] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 23:10:14] [6256] [RES_ZIP] -> D:\develop\node-server\public\ajax.js
+[2019-7-2 23:10:14] [6256] [REQUEST] -> D:\favicon.ico
+[2019-7-2 23:10:14] [6256] [RES_FILE] -> d:\develop\node-server\public\favicon.ico
+[2019-7-2 23:10:20] [6256] [REQUEST] -> D:\api\upfiles
+[2019-7-2 23:16:31] [3360] [WORKER STARTUP] -> port: 5000
+[2019-7-2 23:16:33] [3360] [REQUEST] -> D:\
+[2019-7-2 23:16:33] [3360] [RES_DIR] -> D:\
+[2019-7-2 23:16:36] [3360] [REQUEST] -> D:\develop\
+[2019-7-2 23:16:36] [3360] [RES_DIR] -> D:\develop\
+[2019-7-2 23:16:38] [3360] [REQUEST] -> D:\develop\node-server\
+[2019-7-2 23:16:38] [3360] [RES_DIR] -> D:\develop\node-server\
+[2019-7-2 23:16:40] [3360] [REQUEST] -> D:\develop\node-server\public\
+[2019-7-2 23:16:40] [3360] [RES_DIR] -> D:\develop\node-server\public\
+[2019-7-2 23:16:41] [3360] [REQUEST] -> D:\develop\node-server\public\test.html
+[2019-7-2 23:16:41] [3360] [RES_ZIP] -> D:\develop\node-server\public\test.html
+[2019-7-2 23:16:45] [3360] [REQUEST] -> D:\api\upfiles

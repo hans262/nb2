@@ -1,0 +1,99 @@
+[2019-9-17 12:08:31] [12896] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 12:08:41] [12896] [RES_DIR] -> C:\
+[2019-9-17 12:08:46] [12896] [RES_DIR] -> C:\Intel\
+[2019-9-17 12:08:50] [12896] [RES_DIR] -> C:\LUO\
+[2019-9-17 12:08:50] [12896] [RES_DIR] -> C:\LUO\develop\
+[2019-9-17 12:08:53] [12896] [RES_DIR] -> C:\LUO\develop\nicest\
+[2019-9-17 12:08:58] [12896] [RES_DIR] -> C:\LUO\develop\dayday\
+[2019-9-17 12:09:00] [12896] [RES_DIR] -> C:\LUO\develop\dayday\build\
+[2019-9-17 12:09:05] [12896] [RES_DIR] -> C:\LUO\develop\dayday\build\
+[2019-9-17 12:09:07] [12896] [RES_DIR] -> C:\LUO\develop\dayday\build\
+[2019-9-17 12:09:51] [12896] [RES_DIR] -> C:\LUO\develop\nicest\
+[2019-9-17 12:09:53] [12896] [RES_DIR] -> C:\LUO\develop\nicest\public\
+[2019-9-17 12:09:54] [12896] [RES_ZIP] -> C:\LUO\develop\nicest\public\test.html
+[2019-9-17 12:09:54] [12896] [RES_CACHE] -> C:\LUO\develop\nicest\public\ajax.js
+[2019-9-17 13:32:30] [12896] [RES_DIR] -> C:\LUO\develop\nicest
+[2019-9-17 13:32:34] [12896] [RES_FILE] -> C:\LUO\develop\nicest\.gitignore
+[2019-9-17 13:32:43] [12896] [RES_DIR] -> C:\
+[2019-9-17 13:32:49] [12896] [CONTROLLER] -> C:\api\get
+[2019-9-17 13:43:55] [5352] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:43:58] [5352] [RES_DIR] -> C:\
+[2019-9-17 13:44:12] [5352] [CONTROLLER] -> C:\api\restart
+[2019-9-17 13:44:38] [3376] [MASTER_STARTUP] -> Nicest version: 4.2.0
+[2019-9-17 13:44:43] [10048] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:44:43] [2264] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:44:43] [4544] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:44:43] [11452] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:44:44] [11452] [CONTROLLER] -> C:\api\restart
+[2019-9-17 13:44:44] [11452] [RES_FILE] -> C:\LUO\develop\nicest\public\favicon.ico
+[2019-9-17 13:44:54] [10048] [WORKET_EXIT] -> restart
+[2019-9-17 13:44:56] [10960] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:44:56] [2264] [WORKET_EXIT] -> restart
+[2019-9-17 13:44:57] [4960] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:44:58] [11452] [WORKET_EXIT] -> restart
+[2019-9-17 13:45:00] [12704] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:45:00] [4544] [WORKET_EXIT] -> restart
+[2019-9-17 13:45:01] [11620] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:45:30] [11620] [RES_404] -> C:\api
+[2019-9-17 13:45:50] [4348] [MASTER_STARTUP] -> Nicest version: 4.2.0
+[2019-9-17 13:45:54] [668] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:45:55] [756] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:45:55] [7224] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:45:55] [6048] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:45:59] [6048] [RES_404] -> C:\api
+[2019-9-17 13:45:59] [6048] [RES_FILE] -> C:\LUO\develop\nicest\public\favicon.ico
+[2019-9-17 13:46:17] [6048] [CONTROLLER] -> C:\api\restart
+[2019-9-17 13:46:27] [668] [WORKET_EXIT] -> restart
+[2019-9-17 13:46:28] [6088] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:46:29] [756] [WORKET_EXIT] -> restart
+[2019-9-17 13:46:31] [7224] [WORKET_EXIT] -> restart
+[2019-9-17 13:46:31] [11764] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:46:32] [1544] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:46:33] [6048] [WORKET_EXIT] -> restart
+[2019-9-17 13:46:35] [12648] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:48:22] [1368] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:48:25] [1368] [CONTROLLER] -> C:\api\restart
+[2019-9-17 13:48:25] [1368] [RES_FILE] -> c:\LUO\develop\nicest\public\favicon.ico
+[2019-9-17 13:56:40] [5456] [MASTER_STARTUP] -> Nicest version: 4.2.0
+[2019-9-17 13:56:45] [12476] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:56:46] [8468] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:56:46] [3204] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:56:46] [4956] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:56:48] [4956] [CONTROLLER] -> C:\api\restart
+[2019-9-17 13:56:48] [8468] [WORKET_EXIT] -> shutdown
+[2019-9-17 13:56:48] [4956] [RES_FILE] -> C:\LUO\develop\nicest\public\favicon.ico
+[2019-9-17 13:56:50] [12476] [WORKET_EXIT] -> shutdown
+[2019-9-17 13:56:52] [4956] [WORKET_EXIT] -> shutdown
+[2019-9-17 13:56:54] [3204] [WORKET_EXIT] -> shutdown
+[2019-9-17 13:57:31] [6464] [MASTER_STARTUP] -> Nicest version: 4.2.0
+[2019-9-17 13:57:35] [4264] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:57:36] [12152] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:57:36] [1196] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:57:36] [4172] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:57:36] [1196] [RES_DIR] -> C:\
+[2019-9-17 13:57:36] [1196] [RES_FILE] -> C:\LUO\develop\nicest\public\favicon.ico
+[2019-9-17 13:57:46] [4172] [CONTROLLER] -> C:\api\restart
+[2019-9-17 13:57:46] [4264] [WORKET_EXIT] -> shutdown
+[2019-9-17 13:57:48] [1196] [WORKET_EXIT] -> shutdown
+[2019-9-17 13:57:50] [12152] [WORKET_EXIT] -> shutdown
+[2019-9-17 13:57:52] [4172] [WORKET_EXIT] -> shutdown
+[2019-9-17 13:58:29] [7964] [MASTER_STARTUP] -> Nicest version: 4.2.0
+[2019-9-17 13:58:33] [12008] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:58:33] [2848] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:58:34] [11088] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:58:34] [7668] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:58:52] [7668] [CONTROLLER] -> C:\api\restart
+[2019-9-17 13:58:52] [7668] [RES_FILE] -> C:\LUO\develop\nicest\public\favicon.ico
+[2019-9-17 13:59:02] [2848] [WORKET_EXIT] -> restart
+[2019-9-17 13:59:04] [12008] [WORKET_EXIT] -> restart
+[2019-9-17 13:59:04] [12500] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:59:05] [9564] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:59:06] [11088] [WORKET_EXIT] -> restart
+[2019-9-17 13:59:08] [7668] [WORKET_EXIT] -> restart
+[2019-9-17 13:59:08] [5996] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 13:59:10] [13268] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 16:40:58] [7716] [MASTER_STARTUP] -> Nicest version: 4.2.0
+[2019-9-17 16:41:02] [8580] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 16:41:03] [8708] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 16:41:03] [804] [WORKER_STARTUP] -> port: 5000
+[2019-9-17 16:41:03] [860] [WORKER_STARTUP] -> port: 5000

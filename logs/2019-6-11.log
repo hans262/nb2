@@ -1,0 +1,11 @@
+[2019-6-11 16:39:12] [MASTER STARTUP] pid: 11424 -> NodeServer version: 3.2.2
+[2019-6-11 16:39:14] [WORKER STARTUP] pid: 3424 -> port: 5000
+[2019-6-11 16:39:30] [REQUEST] pid: 3424 -> C:\
+[2019-6-11 16:39:30] [ERROR] pid: 3424 -> EBUSY: resource busy or locked, stat 'C:\hiberfil.sys'
+[2019-6-11 16:39:30] [ERROR] pid: 3424 -> EBUSY: resource busy or locked, stat 'C:\pagefile.sys'
+[2019-6-11 16:39:30] [ERROR] pid: 3424 -> EPERM: operation not permitted, stat 'C:\Recovery'
+[2019-6-11 16:39:30] [ERROR] pid: 3424 -> EBUSY: resource busy or locked, stat 'C:\swapfile.sys'
+[2019-6-11 16:39:30] [ERROR] pid: 3424 -> EPERM: operation not permitted, stat 'C:\System Volume Information'
+[2019-6-11 16:39:30] [RES_DIR] pid: 3424 -> C:\
+[2019-6-11 17:16:45] [MASTER STARTUP] pid: 5488 -> NodeServer version: 3.2.2
+[2019-6-11 17:16:45] [WORKER STARTUP] pid: 7684 -> port: 5000

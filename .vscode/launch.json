@@ -1,0 +1,66 @@
+{
+  // 使用 IntelliSense 了解相关属性。 
+  // 悬停以查看现有属性的描述。
+  // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "CLUSTER",
+      "program": "${workspaceFolder}/src/cluster.ts",
+      "autoAttachChildProcesses": true,
+      "outFiles": [
+        "${workspaceFolder}/out/**/*.js"
+      ],
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "WORKER",
+      "program": "${workspaceFolder}/src/worker.ts",
+      "outFiles": [
+        "${workspaceFolder}/out/**/*.js"
+      ],
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "WEB_SOCKET",
+      "program": "${workspaceFolder}/src/service/WebSocket.ts",
+      "outFiles": [
+        "${workspaceFolder}/out/**/*.js"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "SOCKET_SERVER",
+      "program": "${workspaceFolder}/src/service/SocketServer.ts",
+      "outFiles": [
+        "${workspaceFolder}/out/**/*.js"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "TEST",
+      "program": "${workspaceFolder}/src/test/index.ts",
+      "outFiles": [
+        "${workspaceFolder}/out/**/*.js"
+      ],
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "TS_DOC",
+      "program": "${workspaceFolder}/src/tsdoc/index.ts",
+      "outFiles": [
+        "${workspaceFolder}/out/**/*.js"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+[2019-8-8 17:23:03] [11664] [WORKER_STARTUP] -> port: 5000
+[2019-8-8 17:23:09] [11664] [RES_DIR] -> C:\
+[2019-8-8 17:23:19] [11664] [CONTROLLER] -> C:\api\get
+[2019-8-8 17:23:21] [11664] [CONTROLLER] -> C:\api\get
+[2019-8-8 17:23:21] [11664] [RES_FILE] -> c:\LUO\develop\nicest\public\favicon.ico
+[2019-8-8 17:23:23] [11664] [CONTROLLER] -> C:\api\get
+[2019-8-8 17:23:23] [11664] [RES_FILE] -> c:\LUO\develop\nicest\public\favicon.ico
+[2019-8-8 19:54:08] [2268] [WORKER_STARTUP] -> port: 5000
+[2019-8-8 19:55:37] [4868] [WORKER_STARTUP] -> port: 5000
+[2019-8-8 19:55:54] [5396] [WORKER_STARTUP] -> port: 5000
+[2019-8-8 19:57:36] [1324] [WORKER_STARTUP] -> port: 5000
+[2019-8-8 19:57:41] [1324] [RES_DIR] -> C:\
+[2019-8-8 19:57:53] [1324] [RES_DIR] -> C:\Boot\
+[2019-8-8 19:58:13] [288] [WORKER_STARTUP] -> port: 5000
+[2019-8-8 19:58:15] [288] [REDIRECT] -> C:\ -> /login
+[2019-8-8 19:58:15] [288] [RES_FILE] -> d:\develop\nicest\public\favicon.ico

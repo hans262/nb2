@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>test</title>
+  <script src="ajax.js"></script>
+</head>
+
+<body>
+  <input id="file" type="file" name="myfile" multiple="multiple" />
+  <button id="submit">上传</button>
+  <script>
+    const submitNode = document.getElementById('submit')
+    const fileNode = document.getElementById('file')
+    submitNode.addEventListener('click', async (e) => {
+      const { files } = fileNode
+      const { length } = files
+      const formData = new FormData()
+      let i = 0
+      while (i < length) {
+        formData.append('myfile', files[i])
+        i++
+      }
+      formData.append('name', 'huahua')
+      const result = await ajax('/api/upfiles', {
+        type: 'post',
+        params: formData
+      })
+      console.log(result)
+    })
+  </script>
+
+  <hr />
+  <form method="POST" action="/api/upfiles" enctype="multipart/form-data">
+    <input type="file" name="myfile" multiple="multiple" />
+    <input name="name" value="222" />
+    <input type="submit" value="提交" />
+  </form>
+
+  <button id="btn">请求</button>
+  <script>
+    const btnNode = document.getElementById('btn')
+    btnNode.addEventListener('click', async () => {
+      const result = await ajax('/proxy/hhh', {
+        type: 'post',
+        params: 'testdata'
+      })
+      console.log(result)
+    })
+  </script>
+</body>
+
+</html>

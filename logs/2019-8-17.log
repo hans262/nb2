@@ -1,0 +1,36 @@
+[2019-8-17 09:45:03] [13004] [WORKER_STARTUP] -> port: 5000
+[2019-8-17 09:45:05] [13004] [RES_DIR] -> D:\
+[2019-8-17 09:45:24] [13004] [RES_FILE] -> d:\develop\nicest\public\favicon.ico
+[2019-8-17 09:46:16] [13004] [RES_FILE] -> d:\develop\nicest\public\favicon.ico
+[2019-8-17 09:46:40] [13004] [RES_FILE] -> d:\develop\nicest\public\favicon.ico
+[2019-8-17 09:47:25] [4844] [WORKER_STARTUP] -> port: 5000
+[2019-8-17 09:47:27] [4844] [RES_FILE] -> d:\develop\nicest\public\favicon.ico
+[2019-8-17 09:47:37] [4844] [RES_FILE] -> d:\develop\nicest\public\favicon.ico
+[2019-8-17 09:49:31] [4844] [RES_FILE] -> d:\develop\nicest\public\favicon.ico
+[2019-8-17 09:49:44] [4844] [RES_FILE] -> d:\develop\nicest\public\favicon.ico
+[2019-8-17 09:50:43] [14628] [WORKER_STARTUP] -> port: 5000
+[2019-8-17 09:50:47] [14628] [RES_FILE] -> d:\develop\nicest\public\favicon.ico
+[2019-8-17 09:57:01] [7712] [WORKER_STARTUP] -> port: 5000
+[2019-8-17 09:57:05] [7712] [RES_404] -> D:\proxy\s
+[2019-8-17 09:57:05] [7712] [RES_FILE] -> d:\develop\nicest\public\favicon.ico
+[2019-8-17 09:57:13] [7712] [RES_404] -> D:\proxy\sdwq
+[2019-8-17 09:57:15] [7712] [RES_404] -> D:\proxy
+[2019-8-17 09:58:55] [10148] [WORKER_STARTUP] -> port: 5000
+[2019-8-17 10:02:25] [9496] [WORKER_STARTUP] -> port: 5000
+[2019-8-17 10:02:27] [9496] [RES_FILE] -> d:\develop\nicest\public\favicon.ico
+[2019-8-17 10:08:32] [2728] [WORKER_STARTUP] -> port: 5000
+[2019-8-17 10:10:14] [4696] [WORKER_STARTUP] -> port: 5000
+[2019-8-17 10:10:16] [4696] [RES_FILE] -> d:\develop\nicest\public\favicon.ico
+[2019-8-17 10:10:20] [4696] [RES_404] -> D:\prox
+[2019-8-17 10:10:23] [4696] [RES_404] -> D:\proxyd
+[2019-8-17 10:15:54] [2052] [WORKER_STARTUP] -> port: 5000
+[2019-8-17 10:15:55] [2052] [RES_FILE] -> d:\develop\nicest\public\favicon.ico
+[2019-8-17 10:16:04] [2052] [RES_404] -> D:\proxys
+[2019-8-17 10:16:23] [11212] [WORKER_STARTUP] -> port: 5000
+[2019-8-17 10:16:24] [11212] [RES_404] -> D:\proxy\dw
+[2019-8-17 10:16:24] [11212] [RES_FILE] -> d:\develop\nicest\public\favicon.ico
+[2019-8-17 10:16:39] [14076] [WORKER_STARTUP] -> port: 5000
+[2019-8-17 10:16:40] [14076] [RES_404] -> D:\proxys\wdq
+[2019-8-17 10:16:40] [14076] [RES_FILE] -> d:\develop\nicest\public\favicon.ico
+[2019-8-17 10:18:35] [15124] [WORKER_STARTUP] -> port: 5000
+[2019-8-17 10:18:38] [15124] [RES_FILE] -> d:\develop\nicest\public\favicon.ico
