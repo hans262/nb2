@@ -13,7 +13,7 @@ jobs:
     - name: Build
       run: npm install && npm run doc
 
-    - name: Submit3
+    - name: Submit
       uses: ad-m/github-push-action@master
       with:
         repo-token: ${{secrets.ACCESS_TOKEN}}
