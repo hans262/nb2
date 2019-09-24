@@ -61,11 +61,6 @@ git checkout "${BASE_BRANCH:-master}" && \
 echo "Running build scripts... $BUILD_SCRIPT" && \
 eval "$BUILD_SCRIPT" && \
 
-if [ "$CNAME" ]; then
-  echo "Generating a CNAME file in in the $FOLDER directory..."
-  echo $CNAME > $FOLDER/CNAME
-fi
-
 # Commits the data to Github.
 echo "Deploying to GitHub..." && \
 git add -f $FOLDER && \
