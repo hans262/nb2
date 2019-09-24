@@ -18,6 +18,8 @@ jobs:
     
     - name: Submit2
       run: git add docs && git commit -m "update docs"
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
     
-    - name: Submit2
+    - name: Submit3
       run: git push origin master
