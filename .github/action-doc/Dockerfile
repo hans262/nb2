@@ -1,14 +1,13 @@
-FROM debian:9.5-slim
+FROM node:10
 
-LABEL "com.github.actions.name"="Hello World"
-LABEL "com.github.actions.description"="Write arguments to the standard output"
-LABEL "com.github.actions.icon"="mic"
-LABEL "com.github.actions.color"="purple"
+LABEL "com.github.actions.name"="Deploy to GitHub Pages"
+LABEL "com.github.actions.description"="This action will handle the building and deploying process of your project to GitHub Pages."
+LABEL "com.github.actions.icon"="git-commit"
+LABEL "com.github.actions.color"="orange"
 
-LABEL "repository"="http://github.com/octocat/hello-world"
-LABEL "homepage"="http://github.com/actions"
-LABEL "maintainer"="Octocat <octocat@github.com>"
+LABEL "repository"="http://github.com/JamesIves/gh-pages-github-action"
+LABEL "homepage"="http://github.com/JamesIves/gh-pages-gh-action"
+LABEL "maintainer"="James Ives <iam@jamesiv.es>"
 
 ADD entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
