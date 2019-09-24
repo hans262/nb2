@@ -12,4 +12,4 @@ const uint8 = enCoder.encode('hello 你好!');
 const deCoder = new TextDecoder('utf-8');
 const ret = deCoder.decode(uint8);
 console.log(ret);
-//# sourceMappingURL=ArrayBuffer.js.map
+//# sourceMappingURL=arraybuffer.js.map

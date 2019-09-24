@@ -1,1 +1,1 @@
-{"version":3,"file":"BigInt.js","sourceRoot":"","sources":["../../../src/test/buffer/BigInt.ts"],"names":[],"mappings":";AAUA,IAAI,EAAE,GAAU,IAAI,CAAA;AAGpB,IAAI,GAAG,GAAW,MAAM,CAAC,GAAG,CAAC,CAAA"}
+{"version":3,"file":"bigint.js","sourceRoot":"","sources":["../../../src/test/buffer/bigint.ts"],"names":[],"mappings":";AAUA,IAAI,EAAE,GAAU,IAAI,CAAA;AAGpB,IAAI,GAAG,GAAW,MAAM,CAAC,GAAG,CAAC,CAAA"}
