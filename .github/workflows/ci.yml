@@ -14,10 +14,6 @@ jobs:
       run: npm install && npm run doc
 
     - name: Submit3
-      uses: ludeeus/action-push@master
-      secrets: ${{ secrets.ACCESS_TOKEN }}
-      env: 
-        ACTION_MAIL: 771565119@qq.com
-        ACTION_NAME: ounana
-        ACTION_BRANCH: master
-        ACTION_MESSAGE: doc is ok
+      uses: ad-m/github-push-action@master
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
