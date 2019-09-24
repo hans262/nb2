@@ -8,21 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      run: git checkout master
+      uses: actions/checkout@master
 
     - name: Build
       run: npm install && npm run doc
 
-    - name: Submit1
-      run: git status && git branch
-    
-    - name: task1
-      run: git config --global user.name "ounana" && git config --global user.email "771565119@qq.com"
-
-    - name: Submit2
-      run: git add docs && git commit -m "update docs"
-      
     - name: Submit3
-      run: git push origin master
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      uses: ludeeus/action-push@master
+      secrets: ${{ secrets.ACCESS_TOKEN }}
+      env: 
+        ACTION_MAIL: 771565119@qq.com
+        ACTION_NAME: ounana
+        ACTION_BRANCH: master
+        ACTION_MESSAGE: doc is ok
