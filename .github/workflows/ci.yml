@@ -16,10 +16,13 @@ jobs:
     - name: Submit1
       run: git status && git branch
     
+    - name: task1
+      run: git config --global user.name "ounana" && git config --global user.email "771565119@qq.com"
+
     - name: Submit2
       run: git add docs && git commit -m "update docs"
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-    
+      
     - name: Submit3
       run: git push origin master
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
