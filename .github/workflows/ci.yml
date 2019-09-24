@@ -1,4 +1,4 @@
-name: Doc deploy
+name: Doc
 on:
   push:
     branches:
@@ -10,10 +10,5 @@ jobs:
     - name: Checkout
       uses: actions/checkout@master
 
-    - name: Build and Deploy
-      uses: JamesIves/github-pages-deploy-action@master
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BRANCH: doc
-        FOLDER: docs
-        BUILD_SCRIPT: npm install && npm run doc
+    - name: Build
+      run: npm install && npm run doc

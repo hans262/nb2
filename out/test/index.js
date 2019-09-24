@@ -1,27 +1,29 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const worker_threads_1 = require("worker_threads");
-if (worker_threads_1.isMainThread) {
-    const sab = new SharedArrayBuffer(20);
-    const iv = new Int32Array(sab);
-    iv[0] = 20;
-    for (let i = 0; i < 2; i++) {
-        let worker = new worker_threads_1.Worker(__filename);
-        worker.postMessage(sab);
-        worker.on('message', data => {
-            console.log(data);
-        });
-    }
-}
-else {
-    worker_threads_1.parentPort.once('message', (msg) => {
-        const iv = new Int32Array(msg);
-        let cur;
-        while ((cur = Atomics.load(iv, 0)) > 0 && cur <= 20) {
-            console.log(`threadId ${worker_threads_1.threadId} = ${iv[0]}`);
-            Atomics.store(iv, 0, cur - 1);
-        }
-        worker_threads_1.parentPort.postMessage(`threadId ${worker_threads_1.threadId}, done`);
+const https_1 = require("https");
+const fs_1 = require("fs");
+const path_1 = require("path");
+const path_2 = require("../common/path");
+const options = {
+    hostname: 'www.baidu.com',
+    port: 443,
+    path: '/',
+    method: 'GET'
+};
+const req = https_1.request(options, res => {
+    console.log('状态码:', res.statusCode);
+    console.log('请求头:', res.headers);
+    const chunks = [];
+    res.on('data', (d) => {
+        chunks.push(d);
     });
-}
+    res.on('end', () => {
+        const data = Buffer.concat(chunks);
+        fs_1.writeFileSync(path_1.join(path_2.PUBLIC_PATH, './baidu.html'), data);
+    });
+});
+req.on('error', (e) => {
+    console.error(e);
+});
+req.end();
 //# sourceMappingURL=index.js.map

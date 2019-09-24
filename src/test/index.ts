@@ -1,30 +1,29 @@
-import { Worker, isMainThread, parentPort, threadId } from 'worker_threads'
-/**
- * 多线程共享内存的例子
- */
+import { request } from 'https'
+import { writeFileSync } from 'fs'
+import { join } from 'path'
+import { PUBLIC_PATH } from '../common/path'
 
-if (isMainThread) {
-  const sab = new SharedArrayBuffer(20)
-  const iv = new Int32Array(sab)
-  //总共20张票
-  iv[0] = 20
-  for (let i = 0; i < 2; i++) {
-    let worker = new Worker(__filename)
-    worker.postMessage(sab)
-    worker.on('message', data => {
-      console.log(data)
-    })
-  }
-} else {
-  parentPort!.once('message', (msg) => {
-    const iv = new Int32Array(msg)
-    //卖票
-    let cur;
-    while ((cur = Atomics.load(iv, 0)) > 0 && cur <= 20) {
-      console.log(`threadId ${threadId} = ${iv[0]}`)
-      Atomics.store(iv, 0, cur - 1)
-    }
-    //结束
-    parentPort!.postMessage(`threadId ${threadId}, done`)
-  })
+const options = {
+  hostname: 'www.baidu.com',
+  port: 443,
+  path: '/',
+  method: 'GET'
 }
+
+const req = request(options, res => {
+  console.log('状态码:', res.statusCode)
+  console.log('请求头:', res.headers)
+  const chunks:Buffer[] = []
+  res.on('data', (d: Buffer) => {
+    chunks.push(d)
+  })
+  res.on('end', () =>{
+    const data = Buffer.concat(chunks)
+    writeFileSync(join(PUBLIC_PATH, './baidu.html'), data)
+  })
+})
+
+req.on('error', (e) => {
+  console.error(e)
+})
+req.end()

@@ -594,7 +594,7 @@
         "signature": "9cd724fecc1b79143ef673151d26d6c61c5d8bafcb265e1113ec99979d8422e3"
       },
       "c:/luo/develop/nicest/src/test/index.ts": {
-        "version": "20a7160dfe7fef7ef372468ed6637274de420c7799dc9c7126cc88a2b99f24da",
+        "version": "845351704d99149a01363a210cba59716594553ea7bdf9d8be248bd4ba2e0219",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
       },
       "c:/luo/develop/nicest/src/test/buffer/arraybuffer.ts": {
@@ -635,6 +635,10 @@
       },
       "c:/luo/develop/nicest/src/test/thread/share_buffer.ts": {
         "version": "e8a1c525975e9b7b25a7f773187c82d20e08357efcd6d87c783807d1278bd514",
+        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
+      },
+      "c:/luo/develop/nicest/src/test/thread/share_buffer_2.ts": {
+        "version": "20a7160dfe7fef7ef372468ed6637274de420c7799dc9c7126cc88a2b99f24da",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
       },
       "c:/luo/develop/nicest/src/tsdoc/namespaces.ts": {
@@ -1699,7 +1703,10 @@
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "c:/luo/develop/nicest/src/test/index.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/worker_threads.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/https.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/path.d.ts",
+        "c:/luo/develop/nicest/src/common/path.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1742,6 +1749,11 @@
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "c:/luo/develop/nicest/src/test/thread/share_buffer.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/worker_threads.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/src/test/thread/share_buffer_2.ts": [
         "c:/luo/develop/nicest/node_modules/@types/node/worker_threads.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
@@ -2637,6 +2649,7 @@
       "c:/luo/develop/nicest/src/test/thread/compute_fibonacci.ts",
       "c:/luo/develop/nicest/src/test/thread/fibonacci.ts",
       "c:/luo/develop/nicest/src/test/thread/share_buffer.ts",
+      "c:/luo/develop/nicest/src/test/thread/share_buffer_2.ts",
       "c:/luo/develop/nicest/src/tsdoc/namespaces.ts",
       "c:/luo/develop/nicest/src/tsdoc/typeassertions.ts",
       "c:/luo/develop/nicest/src/tsdoc/typeguards.ts",
