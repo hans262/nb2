@@ -11,9 +11,9 @@ jobs:
       uses: actions/checkout@master
 
     - name: Build
-      run: npm install && npm run doc
-
-    - name: Submit3
-      uses: ad-m/github-push-action@master
-      with:
-        repo-token: ${{secrets.ACCESS_TOKEN}}
+      uses: JamesIves/github-pages-deploy-action@master
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BRANCH: master
+        FOLDER: docs
+        BUILD_SCRIPT: npm install && npm run doc
