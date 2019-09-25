@@ -5,9 +5,9 @@ LABEL "com.github.actions.description"="This action will handle the building and
 LABEL "com.github.actions.icon"="git-commit"
 LABEL "com.github.actions.color"="orange"
 
-LABEL "repository"="http://github.com/JamesIves/gh-pages-github-action"
-LABEL "homepage"="http://github.com/JamesIves/gh-pages-gh-action"
-LABEL "maintainer"="James Ives <iam@jamesiv.es>"
+LABEL "repository"="https://github.com/ounana/nicest"
+LABEL "homepage"="https://ounana.github.io/nicest/"
+LABEL "maintainer"="ounana <771565119@qq.com>"
 
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
