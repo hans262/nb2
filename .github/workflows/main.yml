@@ -7,10 +7,10 @@ jobs:
   DOC-DEPLOY:
     runs-on: ubuntu-latest
     steps:
-    - name: CHECKOUT
+    - name: Checkout
       uses: actions/checkout@master
 
-    - name: RUN BUILD
+    - name: Run build
       uses: ./.github/action-deploy-doc
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
