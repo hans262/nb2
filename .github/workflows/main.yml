@@ -1,17 +1,17 @@
-name: nicest
+name: NICEST
 on:
   push:
     branches:
       - master
 jobs:
-  doc-deploy:
+  DOC-DEPLOY:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
+    - name: CHECKOUT
       uses: actions/checkout@master
 
-    - name: Build
-      uses: ./.github/action-a
+    - name: RUN BUILD
+      uses: ./.github/action-deploy-doc
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: gh-pages

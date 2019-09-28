@@ -166,7 +166,7 @@
         "signature": "7ac29a13ba7a7b22881f66154a36618c03c6c591cbf6b52f628ee123497d20b9"
       },
       "c:/luo/develop/nicest/src/common/stdout.ts": {
-        "version": "7691d155ca64d5a181094c0104504d519663578634a5b9239a1ebd641fd38c2f",
+        "version": "a5a2a439ab1c2a7eeb795fa7dd02daec9a074fa2bb834b14959c857c3f059dad",
         "signature": "aeb73c723ecfa22fac68d3064a215d455d729f21d830111ac82471b59623021e"
       },
       "c:/luo/develop/nicest/src/modules/logger.ts": {
@@ -594,8 +594,8 @@
         "signature": "9cd724fecc1b79143ef673151d26d6c61c5d8bafcb265e1113ec99979d8422e3"
       },
       "c:/luo/develop/nicest/src/test/index.ts": {
-        "version": "845351704d99149a01363a210cba59716594553ea7bdf9d8be248bd4ba2e0219",
-        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
+        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
       },
       "c:/luo/develop/nicest/src/test/buffer/atomics.ts": {
         "version": "50e4e9edb747546831a8ba18e25bc36ae98adcfd49c5902e08ef84ebefbaa807",
@@ -1703,10 +1703,6 @@
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "c:/luo/develop/nicest/src/test/index.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/https.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/path.d.ts",
-        "c:/luo/develop/nicest/src/common/path.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
