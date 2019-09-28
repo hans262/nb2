@@ -7,7 +7,7 @@ const logger_1 = require("../modules/logger");
 const ResStatic_1 = require("./ResStatic");
 const ResNotFound_1 = require("./ResNotFound");
 function ResDir(req, res) {
-    const { __absolutePath, __relativePath } = req;
+    const { __absolutePath, __relativePath, __startTime } = req;
     let dirents;
     try {
         dirents = fs_1.readdirSync(__absolutePath, {
@@ -35,7 +35,10 @@ function ResDir(req, res) {
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
     res.writeHead(200, 'Access Directory');
     res.end(content);
-    logger_1.DEBUG({ type: 'RES_DIR', msg: __absolutePath });
+    logger_1.DEBUG({
+        type: 'RES_DIR',
+        msg: __absolutePath + ' +' + (Date.now() - __startTime) + 'ms'
+    });
 }
 exports.ResDir = ResDir;
 //# sourceMappingURL=ResDir.js.map

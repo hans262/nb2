@@ -9,7 +9,7 @@ import { DEBUG } from '../modules/logger';
 export const CheckController: Middleware = function (
   req: Req, res: ServerResponse, next: () => void
 ): void {
-  const { method, __relativePath, __absolutePath } = req
+  const { method, __relativePath, __absolutePath, __startTime } = req
 
   if (!method || !__relativePath) return next()
 
@@ -30,5 +30,8 @@ export const CheckController: Middleware = function (
     !controller || !controller[method]
   ) return next()
   controller[method](req, res)
-  DEBUG({ type: 'CONTROLLER', msg: __absolutePath! })
+  DEBUG({
+    type: 'CONTROLLER',
+    msg: __absolutePath! + ' +' + (Date.now() - __startTime!) + 'ms'
+  })
 }

@@ -7,4 +7,5 @@ export interface Req extends IncomingMessage {
   __relativePath?: string
   __absolutePath?: string
   __query?: ParsedUrlQuery
+  __startTime?: number
 }

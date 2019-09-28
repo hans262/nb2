@@ -154,7 +154,7 @@
         "signature": "77da03b9bd7c032b8d79bfa058688fa0aaf9c4c1bd1f9158352bb594283bf75c"
       },
       "c:/luo/develop/nicest/src/configure/index.ts": {
-        "version": "96bd340e60792eeb2d60037fb7582ec1125722231836d0b976ea56c63c7a0271",
+        "version": "428aa2f2aa568350642ca1590f0c7c085404810e6a93a6baa0571cbb00671542",
         "signature": "022de2de0b68d41219c8c91cfb0b2c63bd78621aa303cb4407237ead49d7e022"
       },
       "c:/luo/develop/nicest/src/common/path.ts": {
@@ -174,8 +174,8 @@
         "signature": "6fe7b1f0fa96f59a647bd7df355d09a6ad9dbfbbb3900835f1253c86e3c9dff4"
       },
       "c:/luo/develop/nicest/src/interface/req.ts": {
-        "version": "6caa191bbbd0a0d7fb3753241f3db32789f292f46e618c61ccd429a1d72200b9",
-        "signature": "be246d722281cf75793d06009225d994fccf6713766bd544c526bd39fe63328c"
+        "version": "653e35e071ac5281db470b2c2a175d2f520ab367c4d8f30cf216cad02828c934",
+        "signature": "3e136cf64b4868fcadad604ab9743133926418bf1f08bd58a4d475c258171276"
       },
       "c:/luo/develop/nicest/src/interface/middleware.ts": {
         "version": "442532bc61e16f985af23a2d3a9b4ef284dc3b83838d2a265332609d9f84226a",
@@ -226,7 +226,7 @@
         "signature": "0f74f1dcbf3f7798d03a6a667d8c7740102445043fe5a42cdd66e41d9995c5e1"
       },
       "c:/luo/develop/nicest/src/middleware/checkcontroller.ts": {
-        "version": "e2427b966494f581310690ad793e0dd03f4aeea5713c646a890d78e83a99bfaa",
+        "version": "0e4ab5907a72239875830bb6d077469c0df380f0e05bc691a1e48fe061c4dbe4",
         "signature": "842d254e7a95be07888759cc7c26163010e6bbea6dc66acc1666ae5c5e79ac86"
       },
       "c:/luo/develop/nicest/src/interface/session.ts": {
@@ -254,11 +254,11 @@
         "signature": "02834e7b33e39d8a30e9e1ca6f3122d10b3bd3289af9f7d667b09657bc865bde"
       },
       "c:/luo/develop/nicest/src/respond/resnotfound.ts": {
-        "version": "2dc12322ae06308bbc161f11a344e7077159e80ff5181b182647caad225b6fa0",
+        "version": "52aae091a2bb08fb24ede7bb1a9685ba037260cb923b764743d556d11032c75d",
         "signature": "d49531dc238e8eff5eea821bfc9348e9b3ffdb423bffa5373d7273353d044d4f"
       },
       "c:/luo/develop/nicest/src/respond/resdir.ts": {
-        "version": "cad67b661afb9022a640a3eafbb951180a6b4fbf5b7bab92bafa0e922c514ad1",
+        "version": "036e3cec7bd0e4a814a5ef66475313e36ff9642a607185fb5a91b5382b2f8e0b",
         "signature": "1e9d90607994ef6b9df023f1fd35db2232a344a77c67fe7a80499f5a40491c59"
       },
       "c:/luo/develop/nicest/src/common/cache.ts": {
@@ -274,11 +274,11 @@
         "signature": "ff33bc81a351241040de52ed9e4611c51f270899b37d97c908bb4c8c5d69c696"
       },
       "c:/luo/develop/nicest/src/respond/rescache.ts": {
-        "version": "9d208298e563ec8ab903eedabe0b882fe81bfabf6d89ced4ba4ce9aa655ff508",
+        "version": "a1cea2b1e990b0f46eaed6a8210707780dafdc332c942bc953c2d876df50547e",
         "signature": "357e8815998e28d4cd3e4354edc61be146cc5dd6afefbc0ba9e996424517d40d"
       },
       "c:/luo/develop/nicest/src/respond/resfile.ts": {
-        "version": "60bfbab67a6b0becc7f8920bf3e899d907e6be8c9c1c5118916a8144302d2bc4",
+        "version": "d6449eeb0aff171c8534c6fde867d14871abac30a84bf698d9e83ab604229fa6",
         "signature": "0b250188d5661a346ffc979edd9ed982d392426bd22ec3a99e701d2050667e8b"
       },
       "c:/luo/develop/nicest/src/common/range.ts": {
@@ -286,11 +286,11 @@
         "signature": "52899e53ea95dcf430db5ddad9bd091ef5bbb629c18e722183ff91507aeba81f"
       },
       "c:/luo/develop/nicest/src/respond/resrange.ts": {
-        "version": "544156c0515f3859bf730dc49df3510b7363ed170150b64c4bc57f34de45217e",
+        "version": "eea578966fcc41de02a689a10ada6be675b8d32c9a8874cc7cb3b5f51c71816c",
         "signature": "2e27fb0210fc5333ccf03864e318fc94b00d0b4afb054c5c0f364813380cb0b6"
       },
       "c:/luo/develop/nicest/src/respond/reszip.ts": {
-        "version": "37353fe86c9e2168208c69a29890dee19fa6e4903a7244fef8571178bf5f2b0d",
+        "version": "1ed44dd9399dde047d3da8ec2a6c5f3455aeb1b2aa94cb8a9cf836d0a842eadc",
         "signature": "9843761996e5ccf6b7f05d529f0e0ec7de034a7fbe67fc1a29681b5c2565cbbd"
       },
       "c:/luo/develop/nicest/src/respond/resverify.ts": {
@@ -318,7 +318,7 @@
         "signature": "a47c6c704ebedf930a0a3b0eaa1eca4dd50e222b4477cd7fdb67fc9f748c2903"
       },
       "c:/luo/develop/nicest/src/middleware/mount.ts": {
-        "version": "af3801d4f32f563d1674a9d6d89ac3e9360af9e81f0df6552f73dd121e6257cb",
+        "version": "313484f5ea5c04bad8ef2ecb4501f9d637083d60b4aa5fbfbee4e976049b3a48",
         "signature": "7abd0e7b0bd5d2d8c10e65bd68f5b1be986d33ed5b9a23a4756db1f540d7f96b"
       },
       "c:/luo/develop/nicest/src/middleware/resfavicon.ts": {
@@ -434,8 +434,8 @@
         "signature": "6bd120d96313412155ae7d4766d586a38576a058b3e269be2152db7030fbc882"
       },
       "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts": {
-        "version": "db6de49919cf11a300f9203371d8e251d58558c509b3b92cee3badadfdb34d36",
-        "signature": "db6de49919cf11a300f9203371d8e251d58558c509b3b92cee3badadfdb34d36"
+        "version": "d5470fad800f025be0c4bd1b14c013ea5b4aeec90e53ab0e2703a8fe01f292b3",
+        "signature": "d5470fad800f025be0c4bd1b14c013ea5b4aeec90e53ab0e2703a8fe01f292b3"
       },
       "c:/luo/develop/nicest/node_modules/@types/node/http2.d.ts": {
         "version": "745494f14a9e133beee622ca51cdc59c8896ff77c9f3cd017a4ce735b30dac2d",
@@ -482,16 +482,16 @@
         "signature": "e0070c45bf15b872f58eee948f71ad6f4f424f36330b2477753fc1aed3ece36e"
       },
       "c:/luo/develop/nicest/node_modules/@types/node/readline.d.ts": {
-        "version": "b0bc3b2fd4113d182da1af2442ac532b987401579b291669859b60a261b7ee24",
-        "signature": "b0bc3b2fd4113d182da1af2442ac532b987401579b291669859b60a261b7ee24"
+        "version": "e1045d32a6a59dbcbe0ed2edddc6568221acc299ac68d92284153e7c00b39d51",
+        "signature": "e1045d32a6a59dbcbe0ed2edddc6568221acc299ac68d92284153e7c00b39d51"
       },
       "c:/luo/develop/nicest/node_modules/@types/node/repl.d.ts": {
         "version": "65dbe15ed8a8ed5d4707a63868178dc38111cfc06de28a2e50713ca017a9c157",
         "signature": "65dbe15ed8a8ed5d4707a63868178dc38111cfc06de28a2e50713ca017a9c157"
       },
       "c:/luo/develop/nicest/node_modules/@types/node/stream.d.ts": {
-        "version": "2350c09d0121a0b22c386a7bb8436d521b444c6b4b3e6ee37197d08a23f3b9dd",
-        "signature": "2350c09d0121a0b22c386a7bb8436d521b444c6b4b3e6ee37197d08a23f3b9dd"
+        "version": "3d196dfe427fc2ce52eec1892926ed13895be95847bf3a927476498135225102",
+        "signature": "3d196dfe427fc2ce52eec1892926ed13895be95847bf3a927476498135225102"
       },
       "c:/luo/develop/nicest/node_modules/@types/node/string_decoder.d.ts": {
         "version": "7e62aac2cc9c0710d772047ad89e8d7117f52592c791eb995ce1f865fedab432",

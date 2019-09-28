@@ -4,7 +4,7 @@ const configure_1 = require("../configure");
 const controller_1 = require("../controller");
 const logger_1 = require("../modules/logger");
 exports.CheckController = function (req, res, next) {
-    const { method, __relativePath, __absolutePath } = req;
+    const { method, __relativePath, __absolutePath, __startTime } = req;
     if (!method || !__relativePath)
         return next();
     const prefix = __relativePath.match(new RegExp('^' + configure_1.API_PREFIX + '/'));
@@ -21,6 +21,9 @@ exports.CheckController = function (req, res, next) {
     if (!controller || !controller[method])
         return next();
     controller[method](req, res);
-    logger_1.DEBUG({ type: 'CONTROLLER', msg: __absolutePath });
+    logger_1.DEBUG({
+        type: 'CONTROLLER',
+        msg: __absolutePath + ' +' + (Date.now() - __startTime) + 'ms'
+    });
 };
 //# sourceMappingURL=CheckController.js.map

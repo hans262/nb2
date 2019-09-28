@@ -18,7 +18,7 @@ export const USER: User = {
 //unit minute
 export const SESSION_EXPIRES: number = 20
 //is react app
-export const REACT_APP: boolean = false
+export const REACT_APP: boolean = true
 //api prefix
 export const API_PREFIX: string = '/api'
 //port

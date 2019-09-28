@@ -11,6 +11,8 @@ export const Mount: Middleware = function (
 ): void {
   const { url = '/', method } = req
   const { pathname = '/', query } = parse(url, true)
+  //起始时间
+  req.__startTime = Date.now()
   //相对路径
   req.__relativePath = decodeURI(pathname)
   //绝对路径
@@ -22,6 +24,6 @@ export const Mount: Middleware = function (
 
   //解决跨域请求
   if (method === 'OPTIONS') return res.end()
-  
+
   next()
 }

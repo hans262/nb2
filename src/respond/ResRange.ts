@@ -5,7 +5,7 @@ import { DEBUG } from '../modules/logger';
 import { parseRange, Range } from '../common/Range';
 
 export function ResRange(req: Req, res: ServerResponse): void {
-  const { __absolutePath, __stats } = req
+  const { __absolutePath, __stats, __startTime } = req
   const { size } = __stats!
 
   //解析范围
@@ -19,12 +19,18 @@ export function ResRange(req: Req, res: ServerResponse): void {
 
     res.writeHead(206, 'Partial content')
     stream.pipe(res)
-    DEBUG({ type: 'RES_RANGE', msg: __absolutePath! })
+    DEBUG({
+      type: 'RES_RANGE',
+      msg: __absolutePath! + ' +' + (Date.now() - __startTime!) + 'ms'
+    })
   } else {
     res.removeHeader('Content-Length')
     res.setHeader('Content-Range', `bytes=*/${size}`)
     res.writeHead(416, 'Out of range')
     res.end()
-    DEBUG({ type: 'RES_416', msg: __absolutePath! })
+    DEBUG({
+      type: 'RES_416',
+      msg: __absolutePath! + ' +' + (Date.now() - __startTime!) + 'ms'
+    })
   }
 }

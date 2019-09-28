@@ -8,7 +8,7 @@ import { ResStatic } from './ResStatic';
 import { ResNotFound } from './ResNotFound';
 
 export function ResDir(req: Req, res: ServerResponse): void {
-  const { __absolutePath, __relativePath } = req
+  const { __absolutePath, __relativePath, __startTime } = req
   let dirents: Array<Dirent>
   try {
     dirents = readdirSync(__absolutePath!, {
@@ -36,5 +36,8 @@ export function ResDir(req: Req, res: ServerResponse): void {
   res.setHeader('Content-Type', 'text/html; charset=utf-8')
   res.writeHead(200, 'Access Directory')
   res.end(content)
-  DEBUG({ type: 'RES_DIR', msg: __absolutePath! })
+  DEBUG({ 
+    type: 'RES_DIR', 
+    msg: __absolutePath! + ' +' + (Date.now() - __startTime!) + 'ms'
+  })
 }
