@@ -42,6 +42,8 @@ REPOSITORY_PATH="https://${ACCESS_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" &&
 
 # Checks to see if the remote exists prior to deploying.
 # If the branch doesn't exist it gets created here as an orphan.
+# 统计输出行数 wc -l
+# -eq 对比相等的意思
 if [ "$(git ls-remote --heads "$REPOSITORY_PATH" "$BRANCH" | wc -l)" -eq 0 ];
 then
   echo "Creating remote branch ${BRANCH} as it doesn't exist..."
@@ -52,6 +54,12 @@ then
   git add README.md && \
   git commit -m "Initial ${BRANCH} commit" && \
   git push $REPOSITORY_PATH $BRANCH
+  # 上一条命令的执行失败则退出
+  if [ $? -ne 0 ];
+  then
+    echo "create remote branch failed..."
+    exit 1
+  fi
 fi
 
 # Checks out the base branch to begin the deploy process.
