@@ -1,16 +1,13 @@
-import { exec, ExecException, execSync } from 'child_process'
+import { exec, ExecException } from 'child_process'
 
 /**
- * run shell
+ * @version 2019-10-15
+ * @param cmd 
  */
-export function shell() {
-  //异步
-  exec('node -v', (err: ExecException | null, stdout: string, stderr: string) => {
+export function system(cmd: string) {
+  exec(cmd, (err: ExecException | null, stdout: string, stderr: string) => {
     if (err) return console.log(err)
-    console.log(stdout)
     console.log(stderr)
+    console.log(stdout)
   })
-  //同步
-  const stdout: Buffer = execSync('node -v')
-  console.log(stdout.toString())
 }

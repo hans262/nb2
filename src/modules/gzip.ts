@@ -12,6 +12,7 @@ export function toGzip() {
   const out: WriteStream = createWriteStream(join(PUBLIC_PATH, 'input.txt.gz'))
   inp.pipe(gzip).pipe(out)
 }
+
 /**
  * to gunzip
  */
