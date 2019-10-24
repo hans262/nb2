@@ -585,6 +585,10 @@
         "version": "28f045a6707657303374d17f308b2e50aec943d181a06594d1db012f272ebf1d",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
       },
+      "c:/luo/develop/nicest/src/test/listmiddleware.ts": {
+        "version": "f75ee04150e839631be22ca89d05d55853b633f044f00864babd98f7f14cf6a7",
+        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
+      },
       "c:/luo/develop/nicest/src/test/api.test.ts": {
         "version": "2fe7d073dd90cbf8b1b52c86f33a3b0f435d5ea3dbaa76b1c0ee813e1b8dedeb",
         "signature": "85c1f62830f6ec25c213cb6ac0844e2d8b330b851da4a7e2584ef63673c03b75"
@@ -594,8 +598,8 @@
         "signature": "9cd724fecc1b79143ef673151d26d6c61c5d8bafcb265e1113ec99979d8422e3"
       },
       "c:/luo/develop/nicest/src/test/index.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        "version": "6a5dd20b6dfc936477d0fc04eabcbf003db76a66f8a91e73cfef8895c5ec6aa8",
+        "signature": "5a17e8a6b7659f57fa5484db150052ebc5828510ce10e5bcc9825378474bbbd6"
       },
       "c:/luo/develop/nicest/src/test/buffer/atomics.ts": {
         "version": "50e4e9edb747546831a8ba18e25bc36ae98adcfd49c5902e08ef84ebefbaa807",
@@ -1693,6 +1697,12 @@
         "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "c:/luo/develop/nicest/src/test/listmiddleware.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts",
+        "c:/luo/develop/nicest/src/interface/req.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "c:/luo/develop/nicest/src/test/api.test.ts": [
         "c:/luo/develop/nicest/src/modules/request.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
@@ -2586,6 +2596,7 @@
       "c:/luo/develop/nicest/src/modules/socketpool.ts",
       "c:/luo/develop/nicest/src/modules/base64.ts",
       "c:/luo/develop/nicest/src/modules/encrypt.ts",
+      "c:/luo/develop/nicest/src/modules/gzip.ts",
       "c:/luo/develop/nicest/node_modules/@types/node/globals.d.ts",
       "c:/luo/develop/nicest/node_modules/@types/node/assert.d.ts",
       "c:/luo/develop/nicest/node_modules/@types/node/async_hooks.d.ts",
@@ -2638,6 +2649,7 @@
       "c:/luo/develop/nicest/src/modules/system.ts",
       "c:/luo/develop/nicest/src/service/socketserver.ts",
       "c:/luo/develop/nicest/src/service/websocket.ts",
+      "c:/luo/develop/nicest/src/test/listmiddleware.ts",
       "c:/luo/develop/nicest/src/test/api.test.ts",
       "c:/luo/develop/nicest/src/test/fibonacci.ts",
       "c:/luo/develop/nicest/src/test/index.ts",
@@ -2686,8 +2698,7 @@
       "c:/luo/develop/nicest/src/tsdoc/generics/demo.ts",
       "c:/luo/develop/nicest/src/tsdoc/generics/demo2.ts",
       "c:/luo/develop/nicest/src/tsdoc/generics/demo3.ts",
-      "c:/luo/develop/nicest/node_modules/@types/minimatch/index.d.ts",
-      "c:/luo/develop/nicest/src/modules/gzip.ts"
+      "c:/luo/develop/nicest/node_modules/@types/minimatch/index.d.ts"
     ]
   },
   "version": "3.5.2"
