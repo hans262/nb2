@@ -5,7 +5,7 @@
  * 类似与js的自执行匿名函数 ;(function(){})()
  */
 
-export namespace MySpace {
+export namespace Test {
   export class User { }
   export const name: string = 'huahua'
   const age: number = 25
@@ -13,4 +13,4 @@ export namespace MySpace {
     return age
   }
 }
-console.log(MySpace)
+console.log(Test)

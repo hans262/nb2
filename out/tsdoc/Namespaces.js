@@ -1,16 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var MySpace;
-(function (MySpace) {
+var Test;
+(function (Test) {
     class User {
     }
-    MySpace.User = User;
-    MySpace.name = 'huahua';
+    Test.User = User;
+    Test.name = 'huahua';
     const age = 25;
     function getAge() {
         return age;
     }
-    MySpace.getAge = getAge;
-})(MySpace = exports.MySpace || (exports.MySpace = {}));
-console.log(MySpace);
+    Test.getAge = getAge;
+})(Test = exports.Test || (exports.Test = {}));
+console.log(Test);
 //# sourceMappingURL=Namespaces.js.map
