@@ -1,8 +1,7 @@
 /**
  * 命令空间 -> Namespaces
- * 
  * 防止命名冲突，组织模块
- * 类似与js的自执行匿名函数 ;(function(){})()
+ * 
  */
 
 export namespace Test {

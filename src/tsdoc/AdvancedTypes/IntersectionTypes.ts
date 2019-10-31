@@ -1,39 +1,29 @@
 /**
  * 交叉类型 -> Intersection Types
  * 
- * 交叉类型是将多个类型合并为一个类型。 
- * 这让我们可以把现有的多种类型叠加到一起成为一种类型，
+ * 将多个类型合并为一个类型
  * 它包含了所需的所有类型的特性。
- * 
  * 应用场景：混入
  * 
  */
 
-function mixins<T, U>(first: T, second: U): T & U {
-  let result = <T & U>{}
-  for (let key in first) {
-    (<any>result)[key] = (<any>first)[key]
+namespace TestIntersectionTypes {
+  type T1 = {
+    name: string
+    age: number
   }
-  for (let key in second) {
-    (<any>result)[key] = (<any>second)[key]
+  
+  type T2 = {
+    name: string
+    location: string
   }
-  return result
+
+  type T3 = T1 & T2
+
+  const t3: T3 = {
+    name: 'huahua',
+    location: 'china',
+    age: 18
+  }
+
 }
-
-const first = {
-  name: 'huahua',
-  loacation: 'china'
-}
-
-const second = {
-  name: 'goudan',
-  age: 18
-}
-
-type T26 = typeof first & typeof second
-
-const myObj: T26 = mixins(
-  first, second
-)
-
-console.log(myObj.name)

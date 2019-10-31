@@ -4,47 +4,16 @@
  * 一旦检查过类型，就能在之后的每个分支里清楚地知道类型
  */
 
-function ttt(mok: any) {
-  if (typeof mok === 'number') {
-    //此处mok是number
-    mok
-  } else if (mok instanceof Date) {
-    //此处mok是Date
-    mok
-  }
-}
+namespace TestTypeGuards {
+  let mok:any
 
-/**
- * 类型谓词 -> n is Type
- * 作用：自定义类型守护
- */
-
-function isDate(d: any): d is Date {
-  return d instanceof Date
-}
-function www(mok: any) {
-  if (isDate(mok)) {
-    //此处mok是Date类型
+  //typeof 守卫
+  if(typeof mok === 'number') {
     mok
   }
-}
-
-/**
- * in运算符 ->
- * 
- */
-
-interface Bird {
-  fly(): void
-}
-
-interface Fish {
-  swim(): void
-}
-
-function move(pet: Fish | Bird) {
-  if ('swim' in pet) {
-    return pet.swim()
+  //instanceof 守卫
+  if(mok instanceof Date) {
+    mok.toLocaleDateString()
   }
-  return pet.fly()
+
 }

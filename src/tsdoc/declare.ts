@@ -1,7 +1,9 @@
 /**
  * declare ->
  * 全局申明关键词
+ * 一般用在.d.ts文件中
  */
+
 declare class Component<P> {
   props: P
   constructor(props: P)

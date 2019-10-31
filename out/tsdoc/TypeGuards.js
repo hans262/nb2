@@ -1,24 +1,12 @@
 "use strict";
-function ttt(mok) {
+var TestTypeGuards;
+(function (TestTypeGuards) {
+    let mok;
     if (typeof mok === 'number') {
         mok;
     }
-    else if (mok instanceof Date) {
-        mok;
+    if (mok instanceof Date) {
+        mok.toLocaleDateString();
     }
-}
-function isDate(d) {
-    return d instanceof Date;
-}
-function www(mok) {
-    if (isDate(mok)) {
-        mok;
-    }
-}
-function move(pet) {
-    if ('swim' in pet) {
-        return pet.swim();
-    }
-    return pet.fly();
-}
+})(TestTypeGuards || (TestTypeGuards = {}));
 //# sourceMappingURL=TypeGuards.js.map

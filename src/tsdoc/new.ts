@@ -1,16 +1,20 @@
 /**
  * 类类型 -> new
+ * 用来描述类的构造函数的类型
+ * 
  */
 
-type Clazz<P> = new () => P
-class C2 {
-  name: string = 'huahua'
-  age: number = 18
-  study(): void { }
+namespace TestNew {
+  type Clazz<P> = new (...arg: any[]) => P
+  class Student {
+    name: string = 'huahua'
+    age: number = 18
+  }
+
+  const create = <T>(clazz: Clazz<T>): T => new clazz()
+  const stu = create<Student>(Student)
+  const stu2 = create<Student>(Student)
+  console.log(stu)
+  console.log(stu2)
+  debugger
 }
-
-const create = <T>(clazz: Clazz<T>): T => new clazz()
-const c2 = create<C2>(C2)
-
-console.log(c2)
-debugger

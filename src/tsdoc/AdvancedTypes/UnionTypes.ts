@@ -3,8 +3,15 @@
  * 取值可以为多种类型中的一种
  */
 
-const myArray: Array<string | number> = [123, 'hello']
+namespace TestUnionTypes {
+  function getLength(arg: string | any[]): number {
+    return arg.length
+  }
 
-function demo(arg: string | number): string | number {
-  return arg
+  export function main() {
+    console.log(getLength('hello'))
+    console.log(getLength([1, 2, 3]))
+  }
 }
+
+TestUnionTypes.main()

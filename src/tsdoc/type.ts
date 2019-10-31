@@ -18,9 +18,3 @@ type T48 = typeof testT46
 const testA: readonly number[] = [1, 2, 3]
 const testB: readonly [number, string] = [2, 'hello']
 
-/**
- * const assertions ->
- * 只读断言，将任意值断言成只读类型，包括子项
- */
-const x = { text: 'hello' } as const
-let y = 25 as const

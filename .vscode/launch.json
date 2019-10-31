@@ -51,15 +51,6 @@
       "outFiles": [
         "${workspaceFolder}/out/**/*.js"
       ]
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "TS_DOC",
-      "program": "${workspaceFolder}/src/tsdoc/index.ts",
-      "outFiles": [
-        "${workspaceFolder}/out/**/*.js"
-      ]
     }
   ]
 }
