@@ -18,4 +18,4 @@ var TestTypeAssertions;
     const x = { text: 'hello' };
     let y = 25;
 })(TestTypeAssertions || (TestTypeAssertions = {}));
-//# sourceMappingURL=TypeAssertions.js.map
+//# sourceMappingURL=typeAssertions.js.map

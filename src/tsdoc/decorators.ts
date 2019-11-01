@@ -7,23 +7,30 @@
  * 执行顺序：从下往上
  */
 
-//扩展静态成员
-function path(path: string) {
-  return function (target: any) {
-    target.PATH = path
+namespace TestDecorators {
+  const path = (p: string) => (target: any) => {
+    target.PATH = p
   }
-}
-//扩展成员
-function attr<T extends new (...args: any[]) => {}>(target: T): T {
-  return class extends target {
-    name = "huahua"
-    age = 18
+  const attr = (props: { [key: string]: any }) => (target: any) => {
+    Object.entries(props).forEach(v => {
+      target.prototype[v[0]] = v[1]
+    })
   }
-}
 
-@path('/api/user')
-@attr
-class C3 { }
-const c3 = new C3()
-console.log(c3)
-debugger
+  @attr({
+    aaa: 'aaa',
+    bbb: 'bbb'
+  })
+  @path('/api/user')
+  class Test {
+    ccc = 'ccc'
+    say() {
+      console.log((this as any).aaa)
+    }
+  }
+
+  console.log(Test)
+  const t: any = new Test()
+  t.say()
+  debugger
+}

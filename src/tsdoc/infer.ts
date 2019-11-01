@@ -1,14 +1,19 @@
 /**
  * infer ->
  * 待推断的类型
+ * 可推断函数参数，或函数返回值
  * 
  */
 
-type PType<T extends (...arg: any) => any> = T extends (...param: infer P) => any ? P : never
-type RType<T extends (...args: any) => any> = T extends (...args: any) => infer R ? R : any
+namespace TestInfer {
+  type Test = (name: string, age: number) => boolean
 
-type Func = (user: bigint, loc: string) => boolean
-type T15 = PType<Func>
-type T16 = PType<Func>[0]
+  //推断参数
+  type T1<T> = T extends (...arg: infer P) => any ? P : never
+  type R1 = T1<Test>
+  
+  //推断返回值
+  type T2<T> = T extends (...arg: any[]) => infer P ? P : never
+  type R2 = T2<Test>
 
-type T17 = RType<Func>
+}

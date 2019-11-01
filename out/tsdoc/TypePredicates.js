@@ -1,7 +1,6 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var Test;
-(function (Test) {
+var TestTypePredicates;
+(function (TestTypePredicates) {
     function isColor(val) {
         return val === 'Red' || val === 'Green';
     }
@@ -11,6 +10,6 @@ var Test;
             color;
         }
     }
-    Test.main = main;
-})(Test = exports.Test || (exports.Test = {}));
-//# sourceMappingURL=TypePredicates.js.map
+    TestTypePredicates.main = main;
+})(TestTypePredicates || (TestTypePredicates = {}));
+//# sourceMappingURL=typePredicates.js.map

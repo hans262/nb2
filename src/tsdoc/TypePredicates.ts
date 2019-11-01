@@ -1,9 +1,9 @@
 /**
- * 类型谓词 ->
+ * 类型谓词 -> Type Predicates
  * 用于自定义类型守护
  */
 
-export namespace Test {
+namespace TestTypePredicates {
   type Color = 'Red' | 'Green'
 
   function isColor(val: any): val is Color {

@@ -1,9 +1,12 @@
 "use strict";
-class Bok {
-    constructor() {
-        this.props = {
-            name: 'huahua'
-        };
+var Testdeclare;
+(function (Testdeclare) {
+    class Bok {
+        constructor() {
+            this.props = {
+                name: 'huahua'
+            };
+        }
     }
-}
+})(Testdeclare || (Testdeclare = {}));
 //# sourceMappingURL=declare.js.map

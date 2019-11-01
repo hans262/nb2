@@ -1,10 +1,10 @@
 /**
- * 命令空间 -> Namespaces
+ * 命令空间 -> namespaces
  * 防止命名冲突，组织模块
  * 
  */
 
-export namespace Test {
+namespace TestNamespaces {
   export class User { }
   export const name: string = 'huahua'
   const age: number = 25
@@ -12,4 +12,4 @@ export namespace Test {
     return age
   }
 }
-console.log(Test)
+console.log(TestNamespaces)

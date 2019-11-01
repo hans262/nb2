@@ -9,4 +9,4 @@ var TestTypeGuards;
         mok.toLocaleDateString();
     }
 })(TestTypeGuards || (TestTypeGuards = {}));
-//# sourceMappingURL=TypeGuards.js.map
+//# sourceMappingURL=typeGuards.js.map
