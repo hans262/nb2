@@ -7,7 +7,7 @@ class DownLoad {
     constructor() {
         this.PATH_NAME = '/api/download';
     }
-    POST(req, res) {
+    POST(_, res) {
         const file = 'ajax.js';
         const filename = path_1.join(path_2.PUBLIC_PATH, file);
         res.setHeader('Content-Type', 'application/octet-stream; charset=utf-8');

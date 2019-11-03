@@ -7,7 +7,7 @@ import { PUBLIC_PATH } from '../common/path';
 
 export class DownLoad implements Controller {
   readonly PATH_NAME: string = '/api/download'
-  POST(req: Req, res: ServerResponse): void {
+  POST(_: Req, res: ServerResponse): void {
     const file: string = 'ajax.js'
     const filename: string = join(PUBLIC_PATH, file)
     res.setHeader('Content-Type', 'application/octet-stream; charset=utf-8')

@@ -14,8 +14,9 @@ function HANDLER(req: IncomingMessage, res: ServerResponse): void {
     }
     next()
   } catch (err) {
-    res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' })
-    res.end('500 服务器错误')
+    //这里有可能已经writeHead了，再使用的话就会出错
+    // res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' })
+    res.end('500 服务器错误' + err.message)
     DEBUG({ type: 'ERROR', msg: err.message })
   }
 }

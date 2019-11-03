@@ -182,23 +182,23 @@
         "signature": "67331d24e293ddf901ce5ffe30202ec83f3fbcdf3625cd9aa64c2f665af4dfc3"
       },
       "c:/luo/develop/nicest/src/interface/controller.ts": {
-        "version": "d657f63c2b9a163d5340c70c8a4c3cc820044c52fe0323fe568cfa472bcb61a4",
-        "signature": "e3493f01b8e18110e04fe2f3eb60f6081be95b1eceb7833bb1f8c4d650eab771"
+        "version": "ec30d586df90bfa469274b6c4a4316ae1545c539b931d36fdf7b62430359d561",
+        "signature": "1aff18521db572a10d1218625ebe7836b7f84b83963ad89fa9fef0eb4c92bd1b"
       },
       "c:/luo/develop/nicest/src/controller/download.ts": {
-        "version": "34a6529a1d89476181fc4e04f669f685445bc2c7cb938a899394903c767784e0",
-        "signature": "68be300457eb482c8d3e522ab051092f4786d66133952b8dd9bffa5fee625f20"
+        "version": "55d753c08d38dae7ee1e5e7c3a0b71dbb8fdef15e7dd99fbc20d6454af313f7f",
+        "signature": "99f0976c21a5cacba1551efdc73dbe0c7863965528097ac8269a686d7a083c5d"
       },
       "c:/luo/develop/nicest/src/controller/restart.ts": {
-        "version": "87d8b8aaad5097b5ed114e7437399adcfee7483a438416c69de30b7af8050165",
-        "signature": "e38d7051a405d1980c514ba4fae66acfecbdf58fb404dbf83384fd1b67c6d669"
+        "version": "8eb8b62c434c07165d01a887bc7e90b236ecd5a0cd4c03fe5c22ae240a4d4345",
+        "signature": "13c13a792031daad9d5e7596d48f3171a3fa405689a81d4d085f27a8d14b32b0"
       },
       "c:/luo/develop/nicest/src/controller/shutdown.ts": {
-        "version": "d765daa0f35d9e5d0804ac44a2e655fef62f3316fb80055a44dcf233d82a4a8c",
-        "signature": "6124f4150d48070f7cbf1abd4d3fa8515f662b65584efa1cec22931dcac0f55e"
+        "version": "37958a7128e206054f790e50590949cb75e4c794bc25c19a1851eebfc56609d8",
+        "signature": "4c257654297779dd7d5b487e49f43b7984461fe20432caf6f0220fdbc5f9cd5a"
       },
       "c:/luo/develop/nicest/src/controller/testget.ts": {
-        "version": "2546dd9ed44f40d2f44de94ec22c7c42090d84ac25da94f9664ca7ad426b249d",
+        "version": "6dcf01c4373a417663f29e0ade0a3790b8c4467f8e04276f62345e5da6e21225",
         "signature": "7a611b8c3e32a5e74e80c80e04e10a788ecfc1f90faf87ca11d4dae9375dc2a4"
       },
       "c:/luo/develop/nicest/src/controller/testjsonp.ts": {
@@ -226,7 +226,7 @@
         "signature": "0f74f1dcbf3f7798d03a6a667d8c7740102445043fe5a42cdd66e41d9995c5e1"
       },
       "c:/luo/develop/nicest/src/middleware/checkcontroller.ts": {
-        "version": "0e4ab5907a72239875830bb6d077469c0df380f0e05bc691a1e48fe061c4dbe4",
+        "version": "7d9125a98996fd93f46b62b540f42736c2f8f8f20a9c7cfa21ab8eea76ea28a4",
         "signature": "842d254e7a95be07888759cc7c26163010e6bbea6dc66acc1666ae5c5e79ac86"
       },
       "c:/luo/develop/nicest/src/interface/session.ts": {
@@ -334,7 +334,7 @@
         "signature": "8419c1a12d1b036997f1174c03b5262d89d15f7369ee90c91c9a4faa8186e225"
       },
       "c:/luo/develop/nicest/src/service/worker.ts": {
-        "version": "7c2b6e9aeee3e110bf1f584635ee4e5dd32542c6e056973035fb4e777016d503",
+        "version": "f5c0eaf323f4172ba1d81164329bf484841428e6545772946f74e477ca5b0549",
         "signature": "04b922734008bb01f7626eadcaf9ad33f238dd7b90e8341107fb836ec40f8e64"
       },
       "c:/luo/develop/nicest/src/service/cluster.ts": {
@@ -681,10 +681,6 @@
         "version": "67d85fe2ae180db85ca05c853c07d0a57e77933bd26c767285698104990742f0",
         "signature": "781299dcf63498f1ba91333502946db8fcd24a6376acbd876576bd88f92e8f81"
       },
-      "c:/luo/develop/nicest/src/tsdoc/new.ts": {
-        "version": "858cd39275c3d7358d0e37cc2c715e9f39d005e5454571ac8eeb9e2d9ea8fb17",
-        "signature": "73cdac047cffff58a29f0eb52b41bcaefd00f830af12470936ffde56a386284a"
-      },
       "c:/luo/develop/nicest/src/tsdoc/type.ts": {
         "version": "a129fd9f52c7be8496b3fbc5557180c26b4650da871c3effd8d7d8cf906475a8",
         "signature": "18c033f5c67ade7d9691b2806e4b695e7a8aa37fe872d2faae6795b2440deb5d"
@@ -717,6 +713,10 @@
         "version": "cb93ef26fbb57eb0f1cb67c23436016bc5df287ac243c5d3fdc8407980a01d15",
         "signature": "c9b7fefd6a98978293351064444872daa94e802659a820e5c6f89fd6205dc538"
       },
+      "c:/luo/develop/nicest/src/tsdoc/advancedtypes/new.ts": {
+        "version": "858cd39275c3d7358d0e37cc2c715e9f39d005e5454571ac8eeb9e2d9ea8fb17",
+        "signature": "73cdac047cffff58a29f0eb52b41bcaefd00f830af12470936ffde56a386284a"
+      },
       "c:/luo/develop/nicest/src/tsdoc/generics/demo.ts": {
         "version": "e59d41a1e72cfd7385a6111e2056fd16c0103d14b5a4a120a2e9aa07b89de0b9",
         "signature": "7aad0000b1729429028b83ad460382a820b6f8a96a9de8be7c62a02b4560d9e0"
@@ -730,19 +730,19 @@
         "signature": "36d934303d774e21c249525b79da898814e54744c40a00c5cf3ef62f953f31d2"
       },
       "c:/luo/develop/nicest/src/tsdoc/utilitytypes/constructorparameters.ts": {
-        "version": "4db3270d089649fd4518ea325e4e2df62c1cad4b57405dc62c29fdab104446c0",
-        "signature": "1d4fbc943f5dc5e79050898860aab4870f669cc1c9168e0539004e175084efec"
+        "version": "72ea80ae4152ccf22360e339b43fdc5844d433f7bbab6abd3249ba4782170072",
+        "signature": "0c0d552b4a07885e41145e92818e0c06a3038f305a964d51f2c71e58b0d7d5b6"
       },
       "c:/luo/develop/nicest/src/tsdoc/utilitytypes/exclude.ts": {
-        "version": "45832854406dcbb4088d5b69702d297acac78f970b72a1c094ede4d9f52d8fb4",
-        "signature": "497c26dac05749c6775badcc20ad586376a8f240791cac91034e93197d4952d7"
+        "version": "e890d27de4ba22e8d4bc7812aec83fd416bf0c290296e00e6827c19061e16d3e",
+        "signature": "b101dd29c55c2060e65e091c6c0837dbcde3965648ad00b68c6652969956bc13"
       },
       "c:/luo/develop/nicest/src/tsdoc/utilitytypes/extract.ts": {
-        "version": "7ac387d4d71e1753ec47e8b9dae1d6d6451b63120b225a6ea98161671c7bf922",
-        "signature": "f4cb19c42580b63879a28ea151e31890e4504e64c72f556cee795b65b0d008bb"
+        "version": "261ac8e32efdd511318e5edc5b571fd07c5e71d75cd7aef098e0c203a1591526",
+        "signature": "ce21713a7536b217c9a1a40f756d49f1edbb2fb5f8781c992c3e22fd6710ded6"
       },
       "c:/luo/develop/nicest/src/tsdoc/utilitytypes/instancetype.ts": {
-        "version": "ef433f0050bc6285cde518dddd49f35bfd36c6d187ccbebd3d3b7b671b61afdb",
+        "version": "3d5716cbc5d86110be287a043f84bc75be56e19e20e1a06fed6a6e34bbfad485",
         "signature": "cad57749eaaef401a71a8b6a41527d55b93b7e387b73b8e0e974fcd25b72be8e"
       },
       "c:/luo/develop/nicest/src/tsdoc/utilitytypes/nonnullable.ts": {
@@ -797,6 +797,7 @@
       "tsBuildInfoFile": "C:/LUO/develop/nicest/out/tsconfig.tsbuildinfo",
       "strict": true,
       "emitDecoratorMetadata": true,
+      "watch": true,
       "configFilePath": "C:/LUO/develop/nicest/tsconfig.json"
     },
     "referencedMap": {
@@ -1799,10 +1800,6 @@
         "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "c:/luo/develop/nicest/src/tsdoc/new.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
       "c:/luo/develop/nicest/src/tsdoc/type.ts": [
         "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
@@ -1832,6 +1829,10 @@
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "c:/luo/develop/nicest/src/tsdoc/advancedtypes/uniontypes.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/src/tsdoc/advancedtypes/new.ts": [
         "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -2056,93 +2057,26 @@
       "c:/luo/develop/nicest/src/configure/index.ts": [
         "c:/luo/develop/nicest/src/interface/user.ts"
       ],
-      "c:/luo/develop/nicest/src/middleware/index.ts": [
-        "c:/luo/develop/nicest/src/interface/middleware.ts"
-      ],
-      "c:/luo/develop/nicest/src/middleware/proxyserver.ts": [
-        "c:/luo/develop/nicest/src/interface/middleware.ts"
-      ],
-      "c:/luo/develop/nicest/src/middleware/mount.ts": [
-        "c:/luo/develop/nicest/src/interface/middleware.ts"
-      ],
-      "c:/luo/develop/nicest/src/common/public_header.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "c:/luo/develop/nicest/src/respond/resstatic.ts": [
-        "c:/luo/develop/nicest/src/interface/req.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "c:/luo/develop/nicest/src/middleware/resfavicon.ts": [
-        "c:/luo/develop/nicest/src/interface/middleware.ts"
-      ],
-      "c:/luo/develop/nicest/src/middleware/later.ts": [
-        "c:/luo/develop/nicest/src/interface/middleware.ts"
-      ],
-      "c:/luo/develop/nicest/src/respond/resdir.ts": [
-        "c:/luo/develop/nicest/src/interface/req.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "c:/luo/develop/nicest/src/respond/resindex.ts": [
-        "c:/luo/develop/nicest/src/interface/req.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "c:/luo/develop/nicest/src/respond/resverify.ts": [
-        "c:/luo/develop/nicest/src/interface/req.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "c:/luo/develop/nicest/src/common/zip.ts": [
-        "c:/luo/develop/nicest/src/interface/req.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "c:/luo/develop/nicest/src/respond/reszip.ts": [
-        "c:/luo/develop/nicest/src/interface/req.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts",
-        "c:/luo/develop/nicest/src/common/zip.ts"
-      ],
-      "c:/luo/develop/nicest/src/middleware/gettoken.ts": [
-        "c:/luo/develop/nicest/src/interface/middleware.ts"
-      ],
-      "c:/luo/develop/nicest/src/modules/session.ts": [
-        "c:/luo/develop/nicest/src/interface/session.ts"
-      ],
-      "c:/luo/develop/nicest/src/middleware/checklogin.ts": [
-        "c:/luo/develop/nicest/src/interface/middleware.ts"
-      ],
-      "c:/luo/develop/nicest/src/middleware/checkcontroller.ts": [
-        "c:/luo/develop/nicest/src/interface/middleware.ts"
-      ],
-      "c:/luo/develop/nicest/src/controller/download.ts": [
-        "c:/luo/develop/nicest/src/interface/req.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts",
-        "c:/luo/develop/nicest/src/interface/controller.ts"
-      ],
-      "c:/luo/develop/nicest/src/controller/index.ts": [
-        "c:/luo/develop/nicest/src/interface/controller.ts"
+      "c:/luo/develop/nicest/src/common/stdout.ts": [
+        "c:/luo/develop/nicest/src/interface/message.ts"
       ],
       "c:/luo/develop/nicest/src/modules/logger.ts": [
         "c:/luo/develop/nicest/src/interface/message.ts"
       ],
-      "c:/luo/develop/nicest/src/respond/resrange.ts": [
+      "c:/luo/develop/nicest/src/interface/req.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/querystring.d.ts"
+      ],
+      "c:/luo/develop/nicest/src/interface/middleware.ts": [
         "c:/luo/develop/nicest/src/interface/req.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts"
       ],
-      "c:/luo/develop/nicest/src/respond/resfile.ts": [
+      "c:/luo/develop/nicest/src/interface/controller.ts": [
         "c:/luo/develop/nicest/src/interface/req.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts"
       ],
-      "c:/luo/develop/nicest/src/respond/rescache.ts": [
-        "c:/luo/develop/nicest/src/interface/req.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "c:/luo/develop/nicest/src/respond/resnotfound.ts": [
-        "c:/luo/develop/nicest/src/interface/req.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "c:/luo/develop/nicest/src/respond/resredirect.ts": [
-        "c:/luo/develop/nicest/src/interface/req.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "c:/luo/develop/nicest/src/controller/shutdown.ts": [
+      "c:/luo/develop/nicest/src/controller/download.ts": [
         "c:/luo/develop/nicest/src/interface/req.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts",
         "c:/luo/develop/nicest/src/interface/controller.ts"
@@ -2152,41 +2086,7 @@
         "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts",
         "c:/luo/develop/nicest/src/interface/controller.ts"
       ],
-      "c:/luo/develop/nicest/src/common/stdout.ts": [
-        "c:/luo/develop/nicest/src/interface/message.ts"
-      ],
-      "c:/luo/develop/nicest/src/interface/req.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/querystring.d.ts"
-      ],
-      "c:/luo/develop/nicest/src/middleware/loginpage.ts": [
-        "c:/luo/develop/nicest/src/interface/middleware.ts"
-      ],
-      "c:/luo/develop/nicest/src/common/cache.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
-        "c:/luo/develop/nicest/src/interface/req.ts"
-      ],
-      "c:/luo/develop/nicest/src/common/cookie.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts",
-        "c:/luo/develop/nicest/src/interface/req.ts"
-      ],
-      "c:/luo/develop/nicest/src/controller/upfiles.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts",
-        "c:/luo/develop/nicest/src/interface/req.ts",
-        "c:/luo/develop/nicest/src/interface/controller.ts"
-      ],
-      "c:/luo/develop/nicest/src/controller/testrand.ts": [
-        "c:/luo/develop/nicest/src/interface/req.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts",
-        "c:/luo/develop/nicest/src/interface/controller.ts"
-      ],
-      "c:/luo/develop/nicest/src/controller/testpost.ts": [
-        "c:/luo/develop/nicest/src/interface/req.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts",
-        "c:/luo/develop/nicest/src/interface/controller.ts"
-      ],
-      "c:/luo/develop/nicest/src/controller/testjsonp.ts": [
+      "c:/luo/develop/nicest/src/controller/shutdown.ts": [
         "c:/luo/develop/nicest/src/interface/req.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts",
         "c:/luo/develop/nicest/src/interface/controller.ts"
@@ -2196,13 +2096,114 @@
         "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts",
         "c:/luo/develop/nicest/src/interface/controller.ts"
       ],
-      "c:/luo/develop/nicest/src/interface/controller.ts": [
+      "c:/luo/develop/nicest/src/controller/testjsonp.ts": [
+        "c:/luo/develop/nicest/src/interface/req.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts",
+        "c:/luo/develop/nicest/src/interface/controller.ts"
+      ],
+      "c:/luo/develop/nicest/src/controller/testpost.ts": [
+        "c:/luo/develop/nicest/src/interface/req.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts",
+        "c:/luo/develop/nicest/src/interface/controller.ts"
+      ],
+      "c:/luo/develop/nicest/src/controller/testrand.ts": [
+        "c:/luo/develop/nicest/src/interface/req.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts",
+        "c:/luo/develop/nicest/src/interface/controller.ts"
+      ],
+      "c:/luo/develop/nicest/src/controller/upfiles.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts",
+        "c:/luo/develop/nicest/src/interface/req.ts",
+        "c:/luo/develop/nicest/src/interface/controller.ts"
+      ],
+      "c:/luo/develop/nicest/src/controller/index.ts": [
+        "c:/luo/develop/nicest/src/interface/controller.ts"
+      ],
+      "c:/luo/develop/nicest/src/middleware/checkcontroller.ts": [
+        "c:/luo/develop/nicest/src/interface/middleware.ts"
+      ],
+      "c:/luo/develop/nicest/src/modules/session.ts": [
+        "c:/luo/develop/nicest/src/interface/session.ts"
+      ],
+      "c:/luo/develop/nicest/src/respond/resredirect.ts": [
         "c:/luo/develop/nicest/src/interface/req.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts"
       ],
-      "c:/luo/develop/nicest/src/interface/middleware.ts": [
+      "c:/luo/develop/nicest/src/common/cookie.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts",
+        "c:/luo/develop/nicest/src/interface/req.ts"
+      ],
+      "c:/luo/develop/nicest/src/middleware/checklogin.ts": [
+        "c:/luo/develop/nicest/src/interface/middleware.ts"
+      ],
+      "c:/luo/develop/nicest/src/middleware/gettoken.ts": [
+        "c:/luo/develop/nicest/src/interface/middleware.ts"
+      ],
+      "c:/luo/develop/nicest/src/respond/resnotfound.ts": [
         "c:/luo/develop/nicest/src/interface/req.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "c:/luo/develop/nicest/src/respond/resdir.ts": [
+        "c:/luo/develop/nicest/src/interface/req.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "c:/luo/develop/nicest/src/common/cache.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/src/interface/req.ts"
+      ],
+      "c:/luo/develop/nicest/src/common/zip.ts": [
+        "c:/luo/develop/nicest/src/interface/req.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "c:/luo/develop/nicest/src/respond/rescache.ts": [
+        "c:/luo/develop/nicest/src/interface/req.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "c:/luo/develop/nicest/src/respond/resfile.ts": [
+        "c:/luo/develop/nicest/src/interface/req.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "c:/luo/develop/nicest/src/respond/resrange.ts": [
+        "c:/luo/develop/nicest/src/interface/req.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "c:/luo/develop/nicest/src/respond/reszip.ts": [
+        "c:/luo/develop/nicest/src/interface/req.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts",
+        "c:/luo/develop/nicest/src/common/zip.ts"
+      ],
+      "c:/luo/develop/nicest/src/respond/resverify.ts": [
+        "c:/luo/develop/nicest/src/interface/req.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "c:/luo/develop/nicest/src/respond/resindex.ts": [
+        "c:/luo/develop/nicest/src/interface/req.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "c:/luo/develop/nicest/src/respond/resstatic.ts": [
+        "c:/luo/develop/nicest/src/interface/req.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "c:/luo/develop/nicest/src/middleware/later.ts": [
+        "c:/luo/develop/nicest/src/interface/middleware.ts"
+      ],
+      "c:/luo/develop/nicest/src/middleware/loginpage.ts": [
+        "c:/luo/develop/nicest/src/interface/middleware.ts"
+      ],
+      "c:/luo/develop/nicest/src/common/public_header.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts"
+      ],
+      "c:/luo/develop/nicest/src/middleware/mount.ts": [
+        "c:/luo/develop/nicest/src/interface/middleware.ts"
+      ],
+      "c:/luo/develop/nicest/src/middleware/resfavicon.ts": [
+        "c:/luo/develop/nicest/src/interface/middleware.ts"
+      ],
+      "c:/luo/develop/nicest/src/middleware/proxyserver.ts": [
+        "c:/luo/develop/nicest/src/interface/middleware.ts"
+      ],
+      "c:/luo/develop/nicest/src/middleware/index.ts": [
+        "c:/luo/develop/nicest/src/interface/middleware.ts"
       ],
       "c:/luo/develop/nicest/src/common/dataframe.ts": [
         "c:/luo/develop/nicest/src/interface/headers.ts"
@@ -2218,6 +2219,208 @@
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "c:/luo/develop/nicest/node_modules/@types/node/assert.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/async_hooks.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/buffer.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/child_process.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/net.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/stream.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/cluster.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/child_process.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/net.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/console.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/constants.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/crypto.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/stream.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/dgram.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/net.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/dns.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/dns.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/domain.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/stream.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/url.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/stream.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/url.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/net.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/http2.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/net.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/stream.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/tls.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/url.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/https.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/tls.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/url.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/inspector.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/module.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/net.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/stream.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/dns.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/os.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/path.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/perf_hooks.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/async_hooks.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/process.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/tty.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/punycode.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/querystring.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/readline.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/stream.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/repl.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/readline.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/vm.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/stream.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/string_decoder.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/timers.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/tls.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/crypto.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/dns.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/net.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/stream.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/trace_events.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/tty.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/net.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/url.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/querystring.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/v8.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/stream.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/vm.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/worker_threads.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/vm.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/stream.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/zlib.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/stream.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -2264,6 +2467,14 @@
         "c:/luo/develop/nicest/node_modules/@types/node/zlib.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/globals.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/globals.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/index.d.ts": [
         "c:/luo/develop/nicest/node_modules/@types/node/base.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts",
@@ -2277,226 +2488,16 @@
         "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "c:/luo/develop/nicest/node_modules/@types/node/async_hooks.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/perf_hooks.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/async_hooks.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/buffer.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/child_process.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/net.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/stream.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/cluster.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/child_process.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/net.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/console.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/constants.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/crypto.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/stream.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/tls.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/crypto.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/dns.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/net.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/stream.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/https.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/tls.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/url.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/http2.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/net.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/stream.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/tls.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/url.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/dgram.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/net.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/dns.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/dns.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/net.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/stream.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/dns.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/tty.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/net.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/process.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/tty.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/stream.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/url.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/net.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/src/modules/request.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/domain.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/worker_threads.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/vm.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/stream.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/stream.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/zlib.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/stream.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/v8.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/stream.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/readline.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/stream.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      "c:/luo/develop/nicest/src/modules/readline.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/readline.d.ts"
       ],
       "c:/luo/develop/nicest/src/modules/repl.ts": [
         "c:/luo/develop/nicest/node_modules/@types/node/repl.d.ts"
       ],
-      "c:/luo/develop/nicest/src/modules/readline.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/readline.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/repl.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/readline.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/vm.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/stream.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/url.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/inspector.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/events.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/module.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/os.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/path.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/punycode.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/querystring.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/url.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/querystring.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/string_decoder.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/timers.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/trace_events.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      "c:/luo/develop/nicest/src/modules/request.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/http.d.ts"
       ],
       "c:/luo/develop/nicest/node_modules/@types/minimatch/index.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/globals.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/globals.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts": [
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts"
-      ],
-      "c:/luo/develop/nicest/node_modules/@types/node/vm.d.ts": [
         "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ]
@@ -2651,7 +2652,6 @@
       "c:/luo/develop/nicest/src/test/listmiddleware.ts",
       "c:/luo/develop/nicest/src/test/api.test.ts",
       "c:/luo/develop/nicest/src/test/fibonacci.ts",
-      "c:/luo/develop/nicest/src/test/index.ts",
       "c:/luo/develop/nicest/src/test/buffer/atomics.ts",
       "c:/luo/develop/nicest/src/test/buffer/sharedarraybuffer.ts",
       "c:/luo/develop/nicest/src/test/buffer/typedarray.ts",
@@ -2672,7 +2672,6 @@
       "c:/luo/develop/nicest/src/tsdoc/keyof.ts",
       "c:/luo/develop/nicest/src/tsdoc/metadata.ts",
       "c:/luo/develop/nicest/src/tsdoc/namespaces.ts",
-      "c:/luo/develop/nicest/src/tsdoc/new.ts",
       "c:/luo/develop/nicest/src/tsdoc/type.ts",
       "c:/luo/develop/nicest/src/tsdoc/typeassertions.ts",
       "c:/luo/develop/nicest/src/tsdoc/typeguards.ts",
@@ -2681,6 +2680,7 @@
       "c:/luo/develop/nicest/src/tsdoc/advancedtypes/intersectiontypes.ts",
       "c:/luo/develop/nicest/src/tsdoc/advancedtypes/tuple.ts",
       "c:/luo/develop/nicest/src/tsdoc/advancedtypes/uniontypes.ts",
+      "c:/luo/develop/nicest/src/tsdoc/advancedtypes/new.ts",
       "c:/luo/develop/nicest/src/tsdoc/generics/demo.ts",
       "c:/luo/develop/nicest/src/tsdoc/generics/demo2.ts",
       "c:/luo/develop/nicest/src/tsdoc/generics/demo3.ts",
@@ -2697,7 +2697,8 @@
       "c:/luo/develop/nicest/src/tsdoc/utilitytypes/record.ts",
       "c:/luo/develop/nicest/src/tsdoc/utilitytypes/required.ts",
       "c:/luo/develop/nicest/src/tsdoc/utilitytypes/returntype.ts",
-      "c:/luo/develop/nicest/node_modules/@types/minimatch/index.d.ts"
+      "c:/luo/develop/nicest/node_modules/@types/minimatch/index.d.ts",
+      "c:/luo/develop/nicest/src/test/index.ts"
     ]
   },
   "version": "3.5.2"

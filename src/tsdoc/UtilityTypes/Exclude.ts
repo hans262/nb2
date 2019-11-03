@@ -4,4 +4,8 @@
  * 从T中排除那些可分配给U的类型
  */
 
-type T00 = Exclude<'a' | 'b' | 'c', 'c'>
+namespace TestExclude {
+  type T1 = 'a' | 'b' | 'c'
+  type T2 = 'c'
+  type T3 = Exclude<T1, T2>
+}

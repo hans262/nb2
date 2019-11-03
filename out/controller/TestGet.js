@@ -6,6 +6,8 @@ class TestGet {
     }
     GET(req, res) {
         res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+        console.log(this);
+        debugger;
         const { __query } = req;
         res.end(JSON.stringify(__query));
     }

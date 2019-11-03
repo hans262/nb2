@@ -1,0 +1,23 @@
+[2019-11-3 16:44:18] [11004] [WORKER_STARTUP] -> port: 5000
+[2019-11-3 16:44:23] [11004] [RES_DIR] -> C:\ +5ms
+[2019-11-3 16:44:23] [11004] [RES_FILE] -> c:\LUO\develop\nicest\public\favicon.ico +2ms
+[2019-11-3 16:44:32] [11004] [CONTROLLER] -> C:\api\get +2ms
+[2019-11-3 16:44:55] [1880] [WORKER_STARTUP] -> port: 5000
+[2019-11-3 16:45:30] [10320] [WORKER_STARTUP] -> port: 5000
+[2019-11-3 16:45:34] [10320] [RES_DIR] -> C:\ +4ms
+[2019-11-3 16:45:50] [11272] [WORKER_STARTUP] -> port: 5000
+[2019-11-3 16:45:53] [11272] [RES_DIR] -> C:\ +4ms
+[2019-11-3 16:47:31] [3500] [WORKER_STARTUP] -> port: 5000
+[2019-11-3 16:52:39] [4420] [WORKER_STARTUP] -> port: 5000
+[2019-11-3 16:52:57] [4420] [ERROR] -> Cannot read property 'PATH_NAME' of undefined
+[2019-11-3 16:53:15] [4420] [RES_DIR] -> C:\ +3ms
+[2019-11-3 16:53:23] [4420] [ERROR] -> Cannot read property 'PATH_NAME' of undefined
+[2019-11-3 16:53:34] [7264] [WORKER_STARTUP] -> port: 5000
+[2019-11-3 16:53:39] [7264] [ERROR] -> Cannot read property 'PATH_NAME' of undefined
+[2019-11-3 16:53:39] [7264] [RES_FILE] -> c:\LUO\develop\nicest\public\favicon.ico +5ms
+[2019-11-3 16:56:00] [6240] [WORKER_STARTUP] -> port: 5000
+[2019-11-3 16:56:17] [6240] [CONTROLLER] -> C:\api\get +12517ms
+[2019-11-3 16:56:17] [6240] [RES_FILE] -> c:\LUO\develop\nicest\public\favicon.ico +2ms
+[2019-11-3 16:56:42] [5964] [WORKER_STARTUP] -> port: 5000
+[2019-11-3 17:00:23] [11972] [WORKER_STARTUP] -> port: 5000
+[2019-11-3 17:05:34] [2200] [WORKER_STARTUP] -> port: 5000
