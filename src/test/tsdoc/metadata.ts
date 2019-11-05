@@ -13,80 +13,62 @@
  * 
  */
 
-/*
-  class Test {
-    size: string
-    constructor(size: string) {
-      this.size = size
-    }
-    getSize(): string {
-      return this.size
-    }
-    say() { }
-  }
-
-  const test = new Test('XL')
-  //获取类方法
-  console.log(Object.getOwnPropertyNames(Test.prototype))
-  //判断类属性
-  console.log(test.hasOwnProperty('size'))
-  debugger
-*/
-
-/*
+import "reflect-metadata";
 
 const Controller = (path: string): ClassDecorator => {
   return target => {
-    Reflect.defineMetadata(PATH_METADATA, path, target);
+    Reflect.defineMetadata('controllerPath', path, target)
+    Reflect.defineMetadata('controllerName', target.name, target)
   }
 }
-
-const METHOD_METADATA = 'method'
-const PATH_METADATA = 'path'
 
 const createMappingDecorator = (method: string) => (path: string): MethodDecorator => {
-  return (target, key, descriptor: any) => {
-    Reflect.defineMetadata(PATH_METADATA, path, descriptor.value)
-    Reflect.defineMetadata(METHOD_METADATA, method, descriptor.value)
+  return (target, key) => {
+    const handle = { path, method, methodName: key }
+    const handles = Reflect.getMetadata('handles', target.constructor) || []
+    handles.push(handle)
+    Reflect.defineMetadata('handles', handles, target.constructor)
   }
 }
+
 const Get = createMappingDecorator('GET')
 const Post = createMappingDecorator('POST')
 
-@Controller('/test')
-
-class SomeClass {
+@Controller('/testA')
+class TestA {
   @Get('/a')
   someGetMethod() { }
   @Post('/b')
   somePostMethod() { }
 }
 
-function mapRoute(instance: Object) {
-  const prototype = Object.getPrototypeOf(instance)
-
-  // 筛选出类的 methodName
-  const methodsNames = Object.getOwnPropertyNames(prototype).filter(
-    item => item !== 'constructor'
-  )
-
-  return methodsNames.map(methodName => {
-    const fn = prototype[methodName]
-
-    // 取出定义的 metadata
-    const route = Reflect.getMetadata(PATH_METADATA, fn)
-    const method = Reflect.getMetadata(METHOD_METADATA, fn)
-    return {
-      route,
-      method,
-      fn,
-      methodName
-    }
-  })
+@Controller('/testB')
+class TestB {
+  @Get('/a')
+  someGetMethod() { }
+  @Post('/b')
+  somePostMethod() { }
 }
 
-Reflect.getMetadata(PATH_METADATA, SomeClass)
-const rr = mapRoute(new SomeClass())
-console.log(rr)
+const combineController = (...arg: (new (...arg: any) => any)[]): Controller[] => {
+  return arg.map(p => ({
+    controllerName: Reflect.getMetadata('controllerName', p),
+    controllerPath: Reflect.getMetadata('controllerPath', p),
+    controllerHandles: Reflect.getMetadata('handles', p)
+  }))
+}
 
-*/
+console.log(
+  combineController(TestA, TestB)
+)
+
+debugger
+interface Controller {
+  controllerPath: string
+  controllerName: string
+  controllerHandles: {
+    path: string,
+    method: string,
+    methodName: string
+  }[]
+}

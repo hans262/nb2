@@ -16,7 +16,8 @@
   "dependencies": {
     "@types/mysql": "^2.15.6",
     "@types/node": "^12.12.5",
-    "mysql": "^2.16.0"
+    "mysql": "^2.16.0",
+    "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
     "typedoc": "^0.15.0"

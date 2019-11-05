@@ -681,9 +681,13 @@
         "version": "825fde963533573b98e6e8eefbce15008b2dff9199986e3e20e369e582875eb0",
         "signature": "23c7bc0642b827fbc774b3cacda254867f3b72bf571e338b35dc933ada05b2e9"
       },
+      "c:/luo/develop/nicest/node_modules/reflect-metadata/index.d.ts": {
+        "version": "8d6d51a5118d000ed3bfe6e1dd1335bebfff3fef23cd2af2f84a24d30f90cc90",
+        "signature": "8d6d51a5118d000ed3bfe6e1dd1335bebfff3fef23cd2af2f84a24d30f90cc90"
+      },
       "c:/luo/develop/nicest/src/test/tsdoc/metadata.ts": {
-        "version": "62fbd7c0a7a3eae7ca116612c8b0a0c23203699a14c80fd6ff06931bd129f66e",
-        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        "version": "9792d53d8f8708a35999e61639efe550b0880a6baf83a0453899a93e902c7d6b",
+        "signature": "3b3cbe89219f5c7208870ae9336c27c597cc0148fa7858e25ee8561172abbec9"
       },
       "c:/luo/develop/nicest/src/test/tsdoc/namespaces.ts": {
         "version": "67d85fe2ae180db85ca05c853c07d0a57e77933bd26c767285698104990742f0",
@@ -2120,7 +2124,14 @@
         "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "c:/luo/develop/nicest/node_modules/reflect-metadata/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "c:/luo/develop/nicest/src/test/tsdoc/metadata.ts": [
+        "c:/luo/develop/nicest/node_modules/reflect-metadata/index.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
@@ -2945,6 +2956,15 @@
         "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "c:/luo/develop/nicest/src/test/tsdoc/metadata.ts": [
+        "c:/luo/develop/nicest/node_modules/reflect-metadata/index.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/reflect-metadata/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/globals.d.ts": [
         "c:/luo/develop/nicest/node_modules/@types/node/globals.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
@@ -3207,6 +3227,7 @@
       "c:/luo/develop/nicest/src/test/tsdoc/instance.ts",
       "c:/luo/develop/nicest/src/test/tsdoc/ioc.ts",
       "c:/luo/develop/nicest/src/test/tsdoc/keyof.ts",
+      "c:/luo/develop/nicest/node_modules/reflect-metadata/index.d.ts",
       "c:/luo/develop/nicest/src/test/tsdoc/metadata.ts",
       "c:/luo/develop/nicest/src/test/tsdoc/namespaces.ts",
       "c:/luo/develop/nicest/src/test/tsdoc/type.ts",
