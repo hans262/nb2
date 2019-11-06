@@ -10,67 +10,70 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 require("reflect-metadata");
-const Controller = (path) => {
-    return target => {
-        Reflect.defineMetadata('controllerPath', path, target);
-        Reflect.defineMetadata('controllerName', target.name, target);
+var TestMetadata;
+(function (TestMetadata) {
+    const Controller = (path) => {
+        return target => {
+            Reflect.defineMetadata('controllerPath', path, target);
+            Reflect.defineMetadata('controllerName', target.name, target);
+        };
     };
-};
-const createMappingDecorator = (method) => (path) => {
-    return (target, key) => {
-        const handle = { path, method, methodName: key };
-        const handles = Reflect.getMetadata('handles', target.constructor) || [];
-        handles.push(handle);
-        Reflect.defineMetadata('handles', handles, target.constructor);
+    const createMappingDecorator = (method) => (path) => {
+        return (target, key) => {
+            const handle = { path, method, methodName: key };
+            const handles = Reflect.getMetadata('handles', target.constructor) || [];
+            handles.push(handle);
+            Reflect.defineMetadata('handles', handles, target.constructor);
+        };
     };
-};
-const Get = createMappingDecorator('GET');
-const Post = createMappingDecorator('POST');
-let TestA = class TestA {
-    someGetMethod() { }
-    somePostMethod() { }
-};
-__decorate([
-    Get('/a'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], TestA.prototype, "someGetMethod", null);
-__decorate([
-    Post('/b'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], TestA.prototype, "somePostMethod", null);
-TestA = __decorate([
-    Controller('/testA')
-], TestA);
-let TestB = class TestB {
-    someGetMethod() { }
-    somePostMethod() { }
-};
-__decorate([
-    Get('/a'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], TestB.prototype, "someGetMethod", null);
-__decorate([
-    Post('/b'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], TestB.prototype, "somePostMethod", null);
-TestB = __decorate([
-    Controller('/testB')
-], TestB);
-const combineController = (...arg) => {
-    return arg.map(p => ({
-        controllerName: Reflect.getMetadata('controllerName', p),
-        controllerPath: Reflect.getMetadata('controllerPath', p),
-        controllerHandles: Reflect.getMetadata('handles', p)
-    }));
-};
-console.log(combineController(TestA, TestB));
-debugger;
+    const Get = createMappingDecorator('GET');
+    const Post = createMappingDecorator('POST');
+    let TestA = class TestA {
+        someGetMethod() { }
+        somePostMethod() { }
+    };
+    __decorate([
+        Get('/a'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], TestA.prototype, "someGetMethod", null);
+    __decorate([
+        Post('/b'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], TestA.prototype, "somePostMethod", null);
+    TestA = __decorate([
+        Controller('/testA')
+    ], TestA);
+    let TestB = class TestB {
+        someGetMethod() { }
+        somePostMethod() { }
+    };
+    __decorate([
+        Get('/a'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], TestB.prototype, "someGetMethod", null);
+    __decorate([
+        Post('/b'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], TestB.prototype, "somePostMethod", null);
+    TestB = __decorate([
+        Controller('/testB')
+    ], TestB);
+    const combineController = (...arg) => {
+        return arg.map(p => ({
+            controllerName: Reflect.getMetadata('controllerName', p),
+            controllerPath: Reflect.getMetadata('controllerPath', p),
+            controllerHandles: Reflect.getMetadata('handles', p)
+        }));
+    };
+    console.log(combineController(TestA, TestB));
+    debugger;
+})(TestMetadata || (TestMetadata = {}));
 //# sourceMappingURL=metadata.js.map

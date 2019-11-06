@@ -602,7 +602,7 @@
         "signature": "9cd724fecc1b79143ef673151d26d6c61c5d8bafcb265e1113ec99979d8422e3"
       },
       "c:/luo/develop/nicest/src/test/index.ts": {
-        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "version": "15c84f2e45f39c21cde2d512d322889ed2e9b470242501f6959d6d6522f7d434",
         "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
       },
       "c:/luo/develop/nicest/src/test/buffer/atomics.ts": {
@@ -686,7 +686,7 @@
         "signature": "8d6d51a5118d000ed3bfe6e1dd1335bebfff3fef23cd2af2f84a24d30f90cc90"
       },
       "c:/luo/develop/nicest/src/test/tsdoc/metadata.ts": {
-        "version": "9792d53d8f8708a35999e61639efe550b0880a6baf83a0453899a93e902c7d6b",
+        "version": "c2c147e8ad2e12aa8f1b9973ca5f6320d684dc986f6c6c77b9b2bfc2c3756a07",
         "signature": "3b3cbe89219f5c7208870ae9336c27c597cc0148fa7858e25ee8561172abbec9"
       },
       "c:/luo/develop/nicest/src/test/tsdoc/namespaces.ts": {

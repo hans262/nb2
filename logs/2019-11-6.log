@@ -1,0 +1,8 @@
+[2019-11-6 13:46:04] [2208] [MASTER_STARTUP] -> Nicest version: 4.2.0
+[2019-11-6 13:46:04] [6864] [WORKER_STARTUP] -> port: 5000
+[2019-11-6 13:46:04] [10652] [WORKER_STARTUP] -> port: 5000
+[2019-11-6 13:46:04] [6292] [WORKER_STARTUP] -> port: 5000
+[2019-11-6 13:46:04] [5196] [WORKER_STARTUP] -> port: 5000
+[2019-11-6 13:47:41] [5196] [RES_DIR] -> C:\ +7ms
+[2019-11-6 13:47:41] [5196] [RES_FILE] -> C:\LUO\develop\nicest\public\favicon.ico +3ms
+[2019-11-6 13:47:48] [6292] [RES_DIR] -> C:\LUO\ +4ms
