@@ -6,10 +6,13 @@
  * 
  */
 
-//创建64个字节的区域
-let sab = new SharedArrayBuffer(64)
-//创建8位无符号整型视图，每个位置占一个字节
-let u8v = new Uint8Array(sab)
-u8v.fill(255)
-console.log(u8v)
-debugger
+namespace TestSharedArrayBuffer {
+  //创建64个字节的区域
+  let sab = new SharedArrayBuffer(64)
+  //创建8位无符号整型视图，每个位置占一个字节
+  let u8v = new Uint8Array(sab)
+  u8v.fill(255)
+  console.log(u8v)
+  debugger
+  
+}

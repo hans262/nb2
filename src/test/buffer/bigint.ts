@@ -8,7 +8,10 @@
  * 
  */
 
-let bi: bigint =100n
+namespace TestBigInt {
+  let bint: bigint = 100n
 
-//转化
-let bi2: bigint = BigInt(200)
+  //转化
+  let bint2: bigint = BigInt(200)
+  
+}

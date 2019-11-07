@@ -15,20 +15,15 @@
 import "reflect-metadata";
 
 export namespace TestMetadata {
-  const Controller = (path: string): ClassDecorator => {
-    return target => {
-      Reflect.defineMetadata('controllerPath', path, target)
-      Reflect.defineMetadata('controllerName', target.name, target)
-    }
+  const Controller = (path: string): ClassDecorator => target => {
+    Reflect.defineMetadata('controllerPath', path, target)
+    Reflect.defineMetadata('controllerName', target.name, target)
   }
-
-  const createMappingDecorator = (method: string) => (path: string): MethodDecorator => {
-    return (target, key) => {
-      const handle = { path, method, methodName: key }
-      const handles = Reflect.getMetadata('handles', target.constructor) || []
-      handles.push(handle)
-      Reflect.defineMetadata('handles', handles, target.constructor)
-    }
+  const createMappingDecorator = (method: string) => (path: string): MethodDecorator => (target, key) => {
+    const handle = { path, method, methodName: key }
+    const handles = Reflect.getMetadata('handles', target.constructor) || []
+    handles.push(handle)
+    Reflect.defineMetadata('handles', handles, target.constructor)
   }
 
   const Get = createMappingDecorator('GET')
@@ -41,7 +36,6 @@ export namespace TestMetadata {
     @Post('/b')
     somePostMethod() { }
   }
-
   @Controller('/testB')
   class TestB {
     @Get('/a')
@@ -49,18 +43,13 @@ export namespace TestMetadata {
     @Post('/b')
     somePostMethod() { }
   }
+  const combineController = (...arg: (new (...arg: any) => any)[]): Controller[] => arg.map(p => ({
+    controllerName: Reflect.getMetadata('controllerName', p),
+    controllerPath: Reflect.getMetadata('controllerPath', p),
+    controllerHandles: Reflect.getMetadata('handles', p)
+  }))
 
-  const combineController = (...arg: (new (...arg: any) => any)[]): Controller[] => {
-    return arg.map(p => ({
-      controllerName: Reflect.getMetadata('controllerName', p),
-      controllerPath: Reflect.getMetadata('controllerPath', p),
-      controllerHandles: Reflect.getMetadata('handles', p)
-    }))
-  }
-
-  console.log(
-    combineController(TestA, TestB)
-  )
+  console.log(combineController(TestA, TestB))
 
   debugger
   interface Controller {
@@ -72,5 +61,4 @@ export namespace TestMetadata {
       methodName: string
     }[]
   }
-
 }

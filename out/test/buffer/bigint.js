@@ -1,4 +1,7 @@
 "use strict";
-let bi = 100n;
-let bi2 = BigInt(200);
+var TestBigInt;
+(function (TestBigInt) {
+    let bint = 100n;
+    let bint2 = BigInt(200);
+})(TestBigInt || (TestBigInt = {}));
 //# sourceMappingURL=bigint.js.map

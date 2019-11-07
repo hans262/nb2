@@ -7,11 +7,14 @@
  * 
  */
 
-//分配8个字节的缓冲区
-let f64a = new Float64Array(1)
-f64a.fill(3.1415926)
-console.log(f64a)
-debugger
+namespace TestTypedArray {
+  //分配8个字节的缓冲区
+  let f64a = new Float64Array(1)
+  f64a.fill(3.1415926)
+  console.log(f64a)
+  
+  debugger
+}
 
 /**
  * | TYPE            | RANGE                  |   SIZE              |

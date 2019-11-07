@@ -8,18 +8,20 @@
  * 
  */
 
-let sab2 = new SharedArrayBuffer(20)
-let vi = new Uint8Array(sab2)
-// vi.fill(255)
+namespace TestAtomics {
+  let sab2 = new SharedArrayBuffer(20)
+  let vi = new Uint8Array(sab2)
+  // vi.fill(255)
 
-console.log(Atomics)
-//设置值
-Atomics.store(vi, 0, 255)
-console.log(vi)
-//获取值
-console.log(Atomics.load(vi, 0))
-debugger
+  console.log(Atomics)
+  //设置值
+  Atomics.store(vi, 0, 255)
+  console.log(vi)
+  //获取值
+  console.log(Atomics.load(vi, 0))
+  debugger
 
-//线程等待和线程通知
-// Atomics.wait(vi, 0, 0);
-// Atomics.notify(vi, 0, 1);
+  //线程等待和线程通知
+  // Atomics.wait(vi, 0, 0);
+  // Atomics.notify(vi, 0, 1);
+}
