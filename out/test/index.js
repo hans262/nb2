@@ -12,19 +12,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("reflect-metadata");
 var TestMetadata;
 (function (TestMetadata) {
-    const Controller = (path) => {
-        return target => {
-            Reflect.defineMetadata('controllerPath', path, target);
-            Reflect.defineMetadata('controllerName', target.name, target);
-        };
+    const Controller = (path) => target => {
+        Reflect.defineMetadata('controllerPath', path, target);
+        Reflect.defineMetadata('controllerName', target.name, target);
     };
-    const createMappingDecorator = (method) => (path) => {
-        return (target, key) => {
-            const handle = { path, method, methodName: key };
-            const handles = Reflect.getMetadata('handles', target.constructor) || [];
-            handles.push(handle);
-            Reflect.defineMetadata('handles', handles, target.constructor);
-        };
+    const createMappingDecorator = (method) => (path) => (target, key) => {
+        const handle = { path, method, methodName: key };
+        const handles = Reflect.getMetadata('handles', target.constructor) || [];
+        handles.push(handle);
+        Reflect.defineMetadata('handles', handles, target.constructor);
     };
     const Get = createMappingDecorator('GET');
     const Post = createMappingDecorator('POST');
@@ -66,13 +62,11 @@ var TestMetadata;
     TestB = __decorate([
         Controller('/testB')
     ], TestB);
-    const combineController = (...arg) => {
-        return arg.map(p => ({
-            controllerName: Reflect.getMetadata('controllerName', p),
-            controllerPath: Reflect.getMetadata('controllerPath', p),
-            controllerHandles: Reflect.getMetadata('handles', p)
-        }));
-    };
+    const combineController = (...arg) => arg.map(p => ({
+        controllerName: Reflect.getMetadata('controllerName', p),
+        controllerPath: Reflect.getMetadata('controllerPath', p),
+        controllerHandles: Reflect.getMetadata('handles', p)
+    }));
     console.log(combineController(TestA, TestB));
     debugger;
 })(TestMetadata = exports.TestMetadata || (exports.TestMetadata = {}));

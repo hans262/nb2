@@ -610,7 +610,7 @@
         "signature": "8d6d51a5118d000ed3bfe6e1dd1335bebfff3fef23cd2af2f84a24d30f90cc90"
       },
       "c:/luo/develop/nicest/src/test/index.ts": {
-        "version": "6dff05164e8a9fdf05ddfbbc5f9fcc01b3dc4b64559758b6fbd1063b3cfd9d70",
+        "version": "9935b86ae2268f8f8c707febe15f311cc0c818504b4ba4a5224388a4f3976af7",
         "signature": "8d3da177b3548c8b75621c5f5dfe77d37e83d679cd86e46d4a206d986df8c6b0"
       },
       "c:/luo/develop/nicest/src/test/buffer/atomics.ts": {
@@ -3223,7 +3223,6 @@
       "c:/luo/develop/nicest/src/test/chachedb.ts",
       "c:/luo/develop/nicest/src/test/fibonacci.ts",
       "c:/luo/develop/nicest/node_modules/reflect-metadata/index.d.ts",
-      "c:/luo/develop/nicest/src/test/index.ts",
       "c:/luo/develop/nicest/src/test/buffer/atomics.ts",
       "c:/luo/develop/nicest/src/test/buffer/sharedarraybuffer.ts",
       "c:/luo/develop/nicest/src/test/buffer/typedarray.ts",
@@ -3267,7 +3266,8 @@
       "c:/luo/develop/nicest/src/test/tsdoc/utilitytypes/record.ts",
       "c:/luo/develop/nicest/src/test/tsdoc/utilitytypes/required.ts",
       "c:/luo/develop/nicest/src/test/tsdoc/utilitytypes/returntype.ts",
-      "c:/luo/develop/nicest/node_modules/@types/minimatch/index.d.ts"
+      "c:/luo/develop/nicest/node_modules/@types/minimatch/index.d.ts",
+      "c:/luo/develop/nicest/src/test/index.ts"
     ]
   },
   "version": "3.5.2"
