@@ -75,5 +75,5 @@ var TestMetadata;
     };
     console.log(combineController(TestA, TestB));
     debugger;
-})(TestMetadata || (TestMetadata = {}));
+})(TestMetadata = exports.TestMetadata || (exports.TestMetadata = {}));
 //# sourceMappingURL=metadata.js.map

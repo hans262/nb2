@@ -14,7 +14,7 @@
  */
 import "reflect-metadata";
 
-namespace TestMetadata {
+export namespace TestMetadata {
   const Controller = (path: string): ClassDecorator => {
     return target => {
       Reflect.defineMetadata('controllerPath', path, target)

@@ -1,27 +1,53 @@
-/**
- *
- * fork 出来的进程 允许在父进程与子进程之间发送消息。
- *
- * 基于IPC管道通信，我觉得很容易设计出一个缓存共享服务进程
- *
- *
- * 或者用 socket来实现进程间通信，这样就可以跨网络跨机器
- * 服务端采用 一个队列的机制，来收集更新数据的任务
- *
- */
+import "reflect-metadata";
+export namespace TestMetadata {
+  const Controller = (path: string): ClassDecorator => {
+    return target => {
+      Reflect.defineMetadata('controllerPath', path, target)
+      Reflect.defineMetadata('controllerName', target.name, target)
+    }
+  }
+  const createMappingDecorator = (method: string) => (path: string): MethodDecorator => {
+    return (target, key) => {
+      const handle = { path, method, methodName: key }
+      const handles = Reflect.getMetadata('handles', target.constructor) || []
+      handles.push(handle)
+      Reflect.defineMetadata('handles', handles, target.constructor)
+    }
+  }
+  const Get = createMappingDecorator('GET')
+  const Post = createMappingDecorator('POST')
+  @Controller('/testA')
+  class TestA {
+    @Get('/a')
+    someGetMethod() { }
+    @Post('/b')
+    somePostMethod() { }
+  }
+  @Controller('/testB')
+  class TestB {
+    @Get('/a')
+    someGetMethod() { }
+    @Post('/b')
+    somePostMethod() { }
+  }
+  const combineController = (...arg: (new (...arg: any) => any)[]): Controller[] => {
+    return arg.map(p => ({
+      controllerName: Reflect.getMetadata('controllerName', p),
+      controllerPath: Reflect.getMetadata('controllerPath', p),
+      controllerHandles: Reflect.getMetadata('handles', p)
+    }))
+  }
+  console.log(combineController(TestA, TestB))
 
-/**
- * 协议
- *
- * 服务端只处理客户端发送的第一条消息，即once事件
- * 服务端解析此条消息后，返回类容
- * 返回后，直接关闭socket连接
- *
- * 接受消息的尺寸：目前阶段不做控制，尽量小
- *
- * 客户端：
- * 发送一条消息后，直接接收服务端的第一条消息，即once事件
- * 收到后关闭此连接
- *
- *
- */
+
+  debugger
+  interface Controller {
+    controllerPath: string
+    controllerName: string
+    controllerHandles: {
+      path: string,
+      method: string,
+      methodName: string
+    }[]
+  }
+}
