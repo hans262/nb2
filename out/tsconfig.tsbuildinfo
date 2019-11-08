@@ -593,16 +593,12 @@
         "version": "f75ee04150e839631be22ca89d05d55853b633f044f00864babd98f7f14cf6a7",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
       },
-      "c:/luo/develop/nicest/src/test/api.test.ts": {
-        "version": "2fe7d073dd90cbf8b1b52c86f33a3b0f435d5ea3dbaa76b1c0ee813e1b8dedeb",
-        "signature": "85c1f62830f6ec25c213cb6ac0844e2d8b330b851da4a7e2584ef63673c03b75"
-      },
       "c:/luo/develop/nicest/src/test/chachedb.ts": {
-        "version": "26370d91513ff918e8a98b3178c7eb4f17664416c08816fcff53c19aa5bbd1e2",
-        "signature": "1cd46d8ae930e7c703f5b59c2866b005515bc986e65456e0b817ed40fc188dc9"
+        "version": "b88afbf6279daa40274995490aa38c7eae1d146ad534cb0d30b392316399f850",
+        "signature": "9240516a10108a3dbdcd12f8ea6120f0665c761dc3634e5c5c11fd6f046d5752"
       },
       "c:/luo/develop/nicest/src/test/fibonacci.ts": {
-        "version": "2a2c6978f0e3ead2128d481bb77416dec021273db45ee4b4201e94048b2e1a65",
+        "version": "94a463008f4d6f2b322b1cf55e483cea00bb7a9a71605bcca40a7fbaca66022d",
         "signature": "9cd724fecc1b79143ef673151d26d6c61c5d8bafcb265e1113ec99979d8422e3"
       },
       "c:/luo/develop/nicest/src/test/index.ts": {
@@ -785,9 +781,73 @@
         "version": "cf00829613e2c3fe0a9c97733a49f8270e0ed43f151202d252f5c44721e19f15",
         "signature": "0f8628592426b7973d4aaec84f80ebad6ded6bc3c12a33372b71c9eaefb7dc24"
       },
+      "c:/luo/develop/nicest/node_modules/@babel/types/lib/index.d.ts": {
+        "version": "74f9bcff3ff74cf869dd567eefb979e017a6d5d7503c39ee11582f7c10e21d02",
+        "signature": "74f9bcff3ff74cf869dd567eefb979e017a6d5d7503c39ee11582f7c10e21d02"
+      },
+      "c:/luo/develop/nicest/node_modules/@types/babel__generator/index.d.ts": {
+        "version": "b71b7d1e18c61f41ed9b3917a6ccf2929022278154d9f55e2b8990549c1826a9",
+        "signature": "b71b7d1e18c61f41ed9b3917a6ccf2929022278154d9f55e2b8990549c1826a9"
+      },
+      "c:/luo/develop/nicest/node_modules/@types/babel__traverse/index.d.ts": {
+        "version": "44d81327b8fbb2d7ca0701f5b7bb73e48036eb99a87356acf95f19ed96e907aa",
+        "signature": "44d81327b8fbb2d7ca0701f5b7bb73e48036eb99a87356acf95f19ed96e907aa"
+      },
+      "c:/luo/develop/nicest/node_modules/@babel/parser/typings/babel-parser.d.ts": {
+        "version": "56dede90729ef85351f132d66e05510851211d627e2f2c6621475d4f7938f365",
+        "signature": "56dede90729ef85351f132d66e05510851211d627e2f2c6621475d4f7938f365"
+      },
+      "c:/luo/develop/nicest/node_modules/@types/babel__template/index.d.ts": {
+        "version": "3e0a34f7207431d967dc32d593d1cda0c23975e9484bc8895b39d96ffca4a0d8",
+        "signature": "3e0a34f7207431d967dc32d593d1cda0c23975e9484bc8895b39d96ffca4a0d8"
+      },
+      "c:/luo/develop/nicest/node_modules/@types/babel__core/index.d.ts": {
+        "version": "8b6748f9e15ad7bac494dc3cd3b13ba0a8be195aca97f7c10a96b1c74a956f32",
+        "signature": "8b6748f9e15ad7bac494dc3cd3b13ba0a8be195aca97f7c10a96b1c74a956f32"
+      },
+      "c:/luo/develop/nicest/node_modules/@types/istanbul-lib-coverage/index.d.ts": {
+        "version": "9e951ec338c4232d611552a1be7b4ecec79a8c2307a893ce39701316fe2374bd",
+        "signature": "9e951ec338c4232d611552a1be7b4ecec79a8c2307a893ce39701316fe2374bd"
+      },
+      "c:/luo/develop/nicest/node_modules/@types/istanbul-lib-report/index.d.ts": {
+        "version": "70c61ff569aabdf2b36220da6c06caaa27e45cd7acac81a1966ab4ee2eadc4f2",
+        "signature": "70c61ff569aabdf2b36220da6c06caaa27e45cd7acac81a1966ab4ee2eadc4f2"
+      },
+      "c:/luo/develop/nicest/node_modules/@types/istanbul-reports/index.d.ts": {
+        "version": "93b59bc67329d5add033e3198583c39aa939cef891e6a2b763e0bea2b514ea9b",
+        "signature": "93b59bc67329d5add033e3198583c39aa939cef891e6a2b763e0bea2b514ea9b"
+      },
+      "c:/luo/develop/nicest/node_modules/@types/jest-diff/index.d.ts": {
+        "version": "6ecb326999da47034eff85653423767152858fbb7acf0433f7603c9abf1e3f06",
+        "signature": "6ecb326999da47034eff85653423767152858fbb7acf0433f7603c9abf1e3f06"
+      },
+      "c:/luo/develop/nicest/node_modules/jest-diff/build/types.d.ts": {
+        "version": "71ba0678a3c647f5c0706ae975c031ace0d464e60f9ce56eaa7f1678d065aab7",
+        "signature": "71ba0678a3c647f5c0706ae975c031ace0d464e60f9ce56eaa7f1678d065aab7"
+      },
+      "c:/luo/develop/nicest/node_modules/jest-diff/build/index.d.ts": {
+        "version": "162c6f2951bd80ae6e16679378f382200b26bba9de8f255af3a2895fbfa670b4",
+        "signature": "162c6f2951bd80ae6e16679378f382200b26bba9de8f255af3a2895fbfa670b4"
+      },
+      "c:/luo/develop/nicest/node_modules/@types/jest/index.d.ts": {
+        "version": "4178f96c88b72f2787fa9e59f941cf3e16fa573a54c880582af8c0527cafd89c",
+        "signature": "4178f96c88b72f2787fa9e59f941cf3e16fa573a54c880582af8c0527cafd89c"
+      },
       "c:/luo/develop/nicest/node_modules/@types/minimatch/index.d.ts": {
         "version": "1d1e6bd176eee5970968423d7e215bfd66828b6db8d54d17afec05a831322633",
         "signature": "1d1e6bd176eee5970968423d7e215bfd66828b6db8d54d17afec05a831322633"
+      },
+      "c:/luo/develop/nicest/node_modules/@types/stack-utils/index.d.ts": {
+        "version": "41422586881bcd739b4e62d9b91cd29909f8572aa3e3cdf316b7c50f14708d49",
+        "signature": "41422586881bcd739b4e62d9b91cd29909f8572aa3e3cdf316b7c50f14708d49"
+      },
+      "c:/luo/develop/nicest/node_modules/@types/yargs-parser/index.d.ts": {
+        "version": "e65fca93c26b09681d33dad7b3af32ae42bf0d114d859671ffed30a92691439c",
+        "signature": "e65fca93c26b09681d33dad7b3af32ae42bf0d114d859671ffed30a92691439c"
+      },
+      "c:/luo/develop/nicest/node_modules/@types/yargs/index.d.ts": {
+        "version": "989ea8e89ef2d6a07a1872fcee14be6b9e1920b04f19a4ab149d673f89af67e6",
+        "signature": "989ea8e89ef2d6a07a1872fcee14be6b9e1920b04f19a4ab149d673f89af67e6"
       }
     },
     "options": {
@@ -1991,13 +2051,6 @@
         "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "c:/luo/develop/nicest/src/test/api.test.ts": [
-        "c:/luo/develop/nicest/src/modules/request.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
-        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
       "c:/luo/develop/nicest/src/test/chachedb.ts": [
         "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
@@ -2285,7 +2338,120 @@
         "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "c:/luo/develop/nicest/node_modules/@babel/types/lib/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/babel__generator/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@babel/types/lib/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/babel__traverse/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@babel/types/lib/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@babel/parser/typings/babel-parser.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@babel/types/lib/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/babel__template/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@babel/parser/typings/babel-parser.d.ts",
+        "c:/luo/develop/nicest/node_modules/@babel/types/lib/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/babel__core/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/babel__generator/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/babel__traverse/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/babel__template/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@babel/types/lib/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@babel/parser/typings/babel-parser.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/istanbul-lib-coverage/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/istanbul-lib-report/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/istanbul-lib-coverage/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/istanbul-reports/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/istanbul-lib-report/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/istanbul-lib-coverage/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/jest-diff/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/jest-diff/build/types.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/jest-diff/build/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/jest-diff/build/types.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/jest/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/jest-diff/build/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/jest-diff/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "c:/luo/develop/nicest/node_modules/@types/minimatch/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/stack-utils/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/yargs-parser/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/yargs/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/yargs-parser/index.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
@@ -2960,7 +3126,120 @@
         "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "c:/luo/develop/nicest/node_modules/@types/yargs/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/yargs-parser/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/yargs-parser/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/stack-utils/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "c:/luo/develop/nicest/node_modules/@types/minimatch/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/jest/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/jest-diff/build/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/jest-diff/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/jest-diff/build/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/jest-diff/build/types.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/jest-diff/build/types.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/jest-diff/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/istanbul-reports/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/istanbul-lib-report/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/istanbul-lib-coverage/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/istanbul-lib-report/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/istanbul-lib-coverage/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/istanbul-lib-coverage/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/babel__core/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@types/babel__generator/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/babel__traverse/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/babel__template/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@babel/types/lib/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@babel/parser/typings/babel-parser.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/babel__template/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@babel/parser/typings/babel-parser.d.ts",
+        "c:/luo/develop/nicest/node_modules/@babel/types/lib/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@babel/parser/typings/babel-parser.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@babel/types/lib/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/babel__traverse/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@babel/types/lib/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@types/babel__generator/index.d.ts": [
+        "c:/luo/develop/nicest/node_modules/@babel/types/lib/index.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
+        "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/luo/develop/nicest/node_modules/@babel/types/lib/index.d.ts": [
         "c:/luo/develop/nicest/node_modules/@types/node/fs.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/ts3.2/fs.d.ts",
         "c:/luo/develop/nicest/node_modules/@types/node/util.d.ts",
@@ -3215,7 +3494,6 @@
       "c:/luo/develop/nicest/src/service/socketserver.ts",
       "c:/luo/develop/nicest/src/service/websocket.ts",
       "c:/luo/develop/nicest/src/test/listmiddleware.ts",
-      "c:/luo/develop/nicest/src/test/api.test.ts",
       "c:/luo/develop/nicest/src/test/chachedb.ts",
       "c:/luo/develop/nicest/src/test/fibonacci.ts",
       "c:/luo/develop/nicest/src/test/index.ts",
@@ -3263,7 +3541,23 @@
       "c:/luo/develop/nicest/src/test/tsdoc/utilitytypes/record.ts",
       "c:/luo/develop/nicest/src/test/tsdoc/utilitytypes/required.ts",
       "c:/luo/develop/nicest/src/test/tsdoc/utilitytypes/returntype.ts",
-      "c:/luo/develop/nicest/node_modules/@types/minimatch/index.d.ts"
+      "c:/luo/develop/nicest/node_modules/@babel/types/lib/index.d.ts",
+      "c:/luo/develop/nicest/node_modules/@types/babel__generator/index.d.ts",
+      "c:/luo/develop/nicest/node_modules/@types/babel__traverse/index.d.ts",
+      "c:/luo/develop/nicest/node_modules/@babel/parser/typings/babel-parser.d.ts",
+      "c:/luo/develop/nicest/node_modules/@types/babel__template/index.d.ts",
+      "c:/luo/develop/nicest/node_modules/@types/babel__core/index.d.ts",
+      "c:/luo/develop/nicest/node_modules/@types/istanbul-lib-coverage/index.d.ts",
+      "c:/luo/develop/nicest/node_modules/@types/istanbul-lib-report/index.d.ts",
+      "c:/luo/develop/nicest/node_modules/@types/istanbul-reports/index.d.ts",
+      "c:/luo/develop/nicest/node_modules/@types/jest-diff/index.d.ts",
+      "c:/luo/develop/nicest/node_modules/jest-diff/build/types.d.ts",
+      "c:/luo/develop/nicest/node_modules/jest-diff/build/index.d.ts",
+      "c:/luo/develop/nicest/node_modules/@types/jest/index.d.ts",
+      "c:/luo/develop/nicest/node_modules/@types/minimatch/index.d.ts",
+      "c:/luo/develop/nicest/node_modules/@types/stack-utils/index.d.ts",
+      "c:/luo/develop/nicest/node_modules/@types/yargs-parser/index.d.ts",
+      "c:/luo/develop/nicest/node_modules/@types/yargs/index.d.ts"
     ]
   },
   "version": "3.5.2"

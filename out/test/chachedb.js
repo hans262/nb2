@@ -1,11 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const single = Symbol('instance');
 class CacheDb {
     constructor() {
         this.store = {
             token: new Map()
         };
         this.EXPIRES = 20 * 60 * 1000;
+    }
+    static get instance() {
+        if (!this[single]) {
+            this[single] = new CacheDb();
+        }
+        return this[single];
     }
     ADD_TOKEN() {
         const t = {

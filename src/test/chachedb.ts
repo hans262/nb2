@@ -10,15 +10,16 @@ interface Store {
   token: TokenDb
 }
 
-/**
- * 创建 CREATE
- * 增 ADD
- * 删 DELETE
- * 改 UPDATE
- * 查 SELECT
- */
-
+const single: unique symbol = Symbol('instance')
 export class CacheDb {
+  private static [single]: CacheDb
+  public static get instance(): CacheDb {
+    if (!this[single]) {
+      this[single] = new CacheDb()
+    }
+    return this[single]
+  }
+  private constructor() { }
   private store: Store = {
     token: new Map()
   }
@@ -52,34 +53,3 @@ export class CacheDb {
     return this.store.token.get(id)
   }
 }
-
-
-
-
-/**
- *
- * fork 出来的进程 允许在父进程与子进程之间发送消息。
- *
- * 基于IPC管道通信，我觉得很容易设计出一个缓存共享服务进程
- *
- *
- * 或者用 socket来实现进程间通信，这样就可以跨网络跨机器
- * 服务端采用 一个队列的机制，来收集更新数据的任务
- *
- */
-
-/**
- * 协议
- *
- * 服务端只处理客户端发送的第一条消息，即once事件
- * 服务端解析此条消息后，返回类容
- * 返回后，直接关闭socket连接
- *
- * 接受消息的尺寸：目前阶段不做控制，尽量小
- *
- * 客户端：
- * 发送一条消息后，直接接收服务端的第一条消息，即once事件
- * 收到后关闭此连接
- *
- *
- */
