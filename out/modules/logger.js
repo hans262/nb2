@@ -7,7 +7,7 @@ const stdout_1 = require("../common/stdout");
 let STREAM = null;
 let CURRENT_DAY;
 function getStream() {
-    CURRENT_DAY = new Date().toLocaleDateString();
+    CURRENT_DAY = new Date().toLocaleDateString().replace(/\//g, '-');
     const fileName = path_1.join(path_2.LOGS_PATH, `/${CURRENT_DAY}.log`);
     return fs_1.createWriteStream(fileName, { flags: 'a' });
 }

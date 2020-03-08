@@ -10,11 +10,11 @@ export const Mount: Middleware = function (
   req: Req, res: ServerResponse, next: () => void
 ): void {
   const { url = '/', method } = req
-  const { pathname = '/', query } = parse(url, true)
+  const { pathname, query } = parse(url, true)
   //起始时间
   req.__startTime = Date.now()
   //相对路径
-  req.__relativePath = decodeURI(pathname)
+  req.__relativePath = decodeURI(pathname ?? '/')
   //绝对路径
   req.__absolutePath = decodeURI(join(ROOT, req.__relativePath))
   //查询字符串

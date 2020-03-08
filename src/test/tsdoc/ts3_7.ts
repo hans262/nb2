@@ -1,30 +1,28 @@
-import { AssertionError } from "assert";
-
 namespace Ts3_7 {
   /**
    * Optional Chaining -> 可选链
    * Nullish Coalescing -> 空位合并
    * 
    */
-  type AlbumAPIResponse = {
-    title: string
-    artist?: {
-      name: string
-      bio?: string
-      previousAlbums?: string[]
+
+  type Teacher = {
+    subject?: string[]
+    contact?: {
+      location: string
+      phone?: number[]
+      email?: string
     }
   }
 
-  const album: AlbumAPIResponse = {
-    title: 'ww',
-    // artist: {
-    //   name: 'asd',
-    //   bio: 'www'
-    // }
+  const teacher: Teacher = {
+    subject: ['Chemistry', 'History'],
+    contact: {
+      location: 'Washington'
+    }
   }
 
-  const artistBio = album.artist?.bio ?? 'hag'
-  console.log(artistBio)
+  const email = teacher.contact?.email ?? 'hetong@hu123.ck'
+  console.log(email)
 
   /**
    * 断言签名
@@ -33,23 +31,22 @@ namespace Ts3_7 {
    */
   function assertIsDefined<T>(val: T): asserts val is NonNullable<T> {
     if (val === undefined || val === null) {
-      throw new AssertionError({ message: `Expected 'val' to be defined, but received ${val}` })
+      throw new Error(`Expected 'val' to be defined, but received ${val}`)
     }
   }
-  assertIsDefined(undefined)
+  assertIsDefined(123)
 
   function assertIsString(val: any): asserts val is string {
     if (typeof val !== "string") {
-      throw new AssertionError({ message: 'Not a string!' })
+      throw new Error('Not of string')
     }
   }
-  assertIsString('abc')
+  assertIsString('hello')
 
-  function assert(condition: any, msg?: string): asserts condition {
-    if (!condition) {
-      throw new AssertionError({ message: msg })
-    }
+  function assert<T>(val: T, msg: string): asserts val {
+    if (!val) throw new Error(msg)
+    console.log('pass')
   }
-  assert(null, 'val is undefined')
+  assert(null, 'val of undefined or null')
 
 }

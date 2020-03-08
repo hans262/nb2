@@ -8,8 +8,9 @@ let STREAM: WriteStream | null = null;
 let CURRENT_DAY: string;
 
 function getStream(): WriteStream {
-  CURRENT_DAY = new Date().toLocaleDateString()
+  CURRENT_DAY = new Date().toLocaleDateString().replace(/\//g, '-')
   const fileName: string = join(LOGS_PATH, `/${CURRENT_DAY}.log`)
+  //这里需检测地址是否存在
   return createWriteStream(fileName, { flags: 'a' })
 }
 
