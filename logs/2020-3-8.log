@@ -38,3 +38,4 @@
 [2020/3/8 下午1:42:38] [8296] [RES_DIR] -> D:\develop\nicest\ +5ms
 [2020/3/8 下午1:42:38] [8296] [RES_FILE] -> D:\develop\nicest\public\favicon.ico +6ms
 [2020/3/8 下午1:42:49] [8296] [RES_DIR] -> D:\develop +1ms
+[2020/3/8 下午2:41:12] [12636] [WORKER_STARTUP] -> port: 5000

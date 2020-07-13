@@ -14,7 +14,7 @@ export const Mount: Middleware = function (
   //起始时间
   req.__startTime = Date.now()
   //相对路径
-  req.__relativePath = decodeURI(pathname ?? '/')
+  req.__relativePath = decodeURI(pathname ? pathname : '/')
   //绝对路径
   req.__absolutePath = decodeURI(join(ROOT, req.__relativePath))
   //查询字符串
