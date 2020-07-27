@@ -15,9 +15,9 @@
     "tsBuildInfoFile": "./out/tsconfig.tsbuildinfo",
     //提升代码健壮性
     "strict": true,
-    "emitDecoratorMetadata":true
+    "emitDecoratorMetadata": true
   },
   "include": [
-    "src"
+    "src", "typescript"
   ]
 }

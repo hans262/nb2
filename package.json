@@ -3,15 +3,15 @@
   "version": "4.2.0",
   "description": "Configurable engineering container service is implemented by Node V8.",
   "scripts": {
-    "start": "node out/Worker.js",
-    "cluster": "node out/Cluster.js",
-    "websocket": "node out/service/WebSocket.js",
-    "socketserver": "node out/service/SocketServer.js",
+    "start": "node out/src/Worker.js",
+    "cluster": "node out/src/Cluster.js",
+    "websocket": "node out/src/service/WebSocket.js",
+    "socketserver": "node out/src/service/SocketServer.js",
     "out": "tsc",
     "out:w": "tsc -watch",
     "doc": "typedoc --options ./typedoc.json",
     "test": "jest",
-    "parsemd": "node out/test/parsemd.js"
+    "parsemd": "node out/src/test/parsemd.js"
   },
   "author": "ounana",
   "license": "MIT",
