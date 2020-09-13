@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>game1</title>
+</head>
+<body>
+	<canvas class="canvas"></canvas>
+	<hr>
+	<input id="speed" type="range" name="" value="10">
+	<script type="text/javascript" src="js/utils.js"></script>
+	<script type="text/javascript" src="js/guagame.js"></script>
+	<script type="text/javascript" src="js/paddle.js"></script>
+	<script type="text/javascript" src="js/ball.js"></script>
+	<script type="text/javascript" src="js/block.js"></script>
+	<script type="text/javascript" src="js/level.js"></script>
+<script type="text/javascript">
+	let loadLevel=function(n){
+		n=n-1
+		let level=levels[n]
+		let blocks=[]
+		for(let i=0;i<level.length;i++){
+			let p=level[i]
+			let b=Block(p)
+			blocks.push(b)
+		}
+		return blocks
+	}
+	//全局变量
+	let allVar={
+		paused:false,
+		fps:30
+	}
+	//调试工具
+	let deBugToll=function(){
+		window.addEventListener('keydown',function(event){
+			let k=event.key
+			if(k=='s') allVar.paused=!allVar.paused
+		})
+		document.getElementById('speed').addEventListener('input',function(event){
+			let input=event.target
+			allVar.fps=Number(input.value)
+		})
+	}
+	let __main=function(){
+		deBugToll()
+		let game=GuaGame()
+		let paddle=Paddle()
+		let ball=Ball()
+
+		let blocks=loadLevel(1)
+		//左移
+		game.registerAction('a',function(){
+			paddle.moveLeft()	
+		})
+		//右移
+		game.registerAction('d',function(){
+			paddle.moveRight()	
+		})
+		//发射弹球
+		game.registerAction('f',function(){
+			ball.fire()
+		})
+		//设置关卡
+		window.addEventListener('keydown',function(event){
+			let k=event.key
+			if('1234567'.includes(k)) blocks=loadLevel(Number(k))
+		})
+		//定义动画
+		game.updata=function(){
+			//暂停
+			if(allVar.paused) return
+			ball.move()
+			//判断与挡板相撞
+			if(paddle.collide(ball)) ball.rebound()
+			//判断与砖块相撞
+			for(let i=0;i<blocks.length;i++){
+				if(blocks[i].collide(ball)){
+					console.log('block相撞')
+					blocks[i].kill()
+					ball.rebound()
+				}
+			}
+		}
+		//定义绘制对象功能
+		game.draw=function(){
+			game.drawImage(paddle)
+			game.drawImage(ball)
+			for(let i=0;i<blocks.length;i++){
+				if(blocks[i].alive){
+					game.drawImage(blocks[i])
+				}
+			}
+		}
+	}
+	__main()
+</script>
+</body>
+</html>

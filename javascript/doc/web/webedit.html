@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>webedit</title>
+	<style type="text/css">
+		body{padding: 10px;}
+		#content{
+			width: 600px;
+			height: 300px;
+			border: 1px solid #e2e2e2;
+			padding: 5px;
+			overflow: auto;
+		}
+		p{
+			line-height: 16px;
+			display: inline-block;
+			margin: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div id="content" contenteditable="true"><p><br></p></div>
+	<button id="btn">提交</button>
+	<button id="bold">加粗</button>
+	<button id="fontsize">字号</button>
+	<button id="bgcolor">背景</button>
+	<button id="color">字体颜色</button>
+	<button id="line">下划线</button>
+	<script type="text/javascript" src="./lib/select.js"></script>
+	<script type="text/javascript">
+		// let range=window.getSelection().getRangeAt(0)
+		// let textEle=range.commonAncestorContainer
+		// range.setStart(range.startContainer,textEle.length)
+		// range.setEnd(range.endContainer,textEle.length)
+		// console.log(range)
+		select('#btn').addEventListener('click',function(e){
+			console.log(select('#content').innerHTML)
+		})
+		select('#bold').addEventListener('click',function(e){
+			document.execCommand('Bold',false,null)
+		})
+		select('#fontsize').addEventListener('click',function(e){
+			document.execCommand('FontSize',false,'5')
+		})
+		select('#bgcolor').addEventListener('click',function(e){
+			document.execCommand('BackColor',false,'#ccc')
+		})
+		select('#color').addEventListener('click',function(e){
+			document.execCommand('ForeColor',false,'#fff')
+		})
+		select('#line').addEventListener('click',function(e){
+			document.execCommand('Underline',false,null)
+		})
+	</script>
+</body>
+</html>

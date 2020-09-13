@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>map</title>
+</head>
+<body>
+	<div id="mapContainer" style="width: 600px;height: 600px;"></div>
+	<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.6&key=4f61b980c8dedfce2e287de13f09cee0"></script>
+	<script type="text/javascript">
+		//创建地图
+		let map=new AMap.Map('mapContainer',{
+		  zoom: 10,
+		  lang:'ch',
+		  center:[117.770236,35.918489],
+		})
+		
+		//窗体插件
+		AMap.plugin(['AMap.ToolBar','AMap.Scale','AMap.OverView'],function(){
+		  //缩放、定位、平移窗体
+		  map.addControl(new AMap.ToolBar())
+		  //比例尺窗体
+		  map.addControl(new AMap.Scale())
+		  //缩略图窗体
+		  // map.addControl(new AMap.OverView({isOpen:true}))
+		})
+
+		//标记窗体
+		let marker=new AMap.Marker({
+		  position: [117.770236,35.918489]
+		})
+		marker.setMap(map)
+
+		//设置最大缩放
+		// map.setFitView()
+
+		//圆圈窗体
+		let circle= new AMap.Circle({
+		    center:[117.770236,35.918489],
+		    radius:5000,
+		    fillOpacity:0.1,
+		    strokeWeight:1,
+		})
+		// circle.setMap(map)
+
+		//标题内容信息窗体
+		let info = new AMap.InfoWindow({
+		    content:"Yancheng Fire Equipment Co., Ltd",
+		    offset:new AMap.Pixel(0,-28)
+		})
+		info.open(map,marker.getPosition())
+	</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+    <head>
+      <meta charset="utf-8">
+        <style type="text/css">
+            canvas { background:#FAFAFA;}
+        </style>
+    </head>
+    <body onload="setup();">
+        <canvas id="MyCanvas" width="500" height="500"></canvas>
+        <script>
+function setup(){
+  var canvas = document.getElementById('MyCanvas');
+  if (canvas.getContext){
+    ctx = canvas.getContext('2d');
+
+    var red = {
+      x : 70,
+      y : 180,
+      width : 80,
+      height : 100
+    };
+
+    var blue = {
+      x : 160,
+      y : 180,
+      width : 100,
+      height : 130
+    };
+
+    // 碰撞检测（两行代码搞定）
+    if(
+      Math.abs(red.x - blue.x) < red.width/2 + blue.width/2 //横向判断
+      &&
+      Math.abs(red.y - blue.y) < red.height/2 + blue.height/2 //纵向判断
+    ){
+      console.log("发生碰撞"); 
+    }
+
+    //rect的基准点是矩形的左上角
+    ctx.rect(red.x - red.width/2,red.y - red.height/2,red.width,red.height);
+    ctx.rect(blue.x - blue.width/2,blue.y - blue.height/2,blue.width,blue.height);
+    ctx.fill();
+  }
+}
+</script>
+    </body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="utf-8">
+    <title>big</title>
+    <style type="text/css">
+        .pro-left{
+            width: 300px;
+            position: relative;
+        }
+        /*bigimg*/
+        .now-img{
+            display: block;
+            width: 300px;
+            height: 300px;
+            position: relative;
+            z-index: 51;
+        }
+        .now-img img{
+            width: 300px;
+            height: 300px;
+            transition: all 0.5s;
+        }
+        .big-box{
+            position: absolute;
+            width: 400px;
+            height: 300px;
+            border: 1px solid #ccc;
+            top: 0;
+            left: 310px;
+            overflow: hidden;
+            z-index: 50;
+            display: none;
+        }
+        .big-box img{
+            width: 150%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .float-box{
+            width: 100px;
+            height: 80px;
+            background: #fff;
+            opacity: 0.5;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        .mark-box{
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 52;
+        }
+        .min-img{
+            margin-top: 10px;
+            width: 100%;
+        }
+        .min-img img{
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            margin-right: 5px;
+        }
+        .min-img img:first-child{
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="pro-left">
+        <a href="javascript:;" class="now-img">
+            <div class="mark-box"></div>
+            <div class="float-box"></div>
+            <img src="image/510.png">
+        </a>
+        <div class="big-box">
+            <img src="image/510.png">
+        </div>
+        <div class="min-img">
+            <img src="image/510.png">
+            <img src="image/511.png">
+            <img src="image/512.png">
+            <img src="image/510.png">
+            <img src="image/511.png">
+        </div>
+    </div>
+    <script type="text/javascript" src="../lib/select.js"></script>
+    <script type="text/javascript">
+        for(let i=0;i<select('.min-img img').length;i++){
+            select('.min-img img')[i].addEventListener('mouseover',function(event){
+                select('.now-img img')[0].style.opacity=0;
+                setTimeout(function(){
+                    select('.now-img img')[0].style.opacity=1;
+                    select('.now-img img')[0].src=event.target.src
+                },500)
+                changeBorder(i)
+            })
+        }
+        function changeBorder(num){
+            for(let i=0;i<select('.min-img img').length;i++){
+                if(i==num){
+                    select('.min-img img')[i].style.border='1px solid rgba(204, 204, 204)'
+                }else{
+                    select('.min-img img')[i].style.border='0px solid rgba(68, 68, 68)'
+                }
+            }
+        }
+        
+        // bigimg
+        select('.mark-box').addEventListener('mouseover',function(){
+            select('.float-box').style.display='block'
+            select('.big-box').style.display='block'
+        })
+        select('.mark-box').addEventListener('mouseout',function(){
+            select('.float-box').style.display='none'
+            select('.big-box').style.display='none'
+        })
+
+        select('.mark-box').addEventListener('mousemove',function(event){
+            //切换图片
+            select('.big-box img')[0].src=select('.now-img img')[0].src
+            
+            //设置定位
+            let left=event.offsetX-select('.float-box').offsetWidth/2
+            let top=event.offsetY-select('.float-box').offsetHeight/2
+            if(left<0) left=0
+            if(left>(select('.mark-box').offsetWidth-select('.float-box').offsetWidth)){
+                left=select('.mark-box').offsetWidth-select('.float-box').offsetWidth
+            }
+            if(top<0) top=0
+            if(top>(select('.mark-box').offsetHeight-select('.float-box').offsetHeight)){
+                top=select('.mark-box').offsetHeight-select('.float-box').offsetHeight
+            }
+            // console.log(left,top)
+            let bigX=left / (select('.mark-box').offsetWidth-select('.float-box').offsetWidth)
+            let bigY=top / (select('.mark-box').offsetHeight-select('.float-box').offsetHeight)
+
+            select('.big-box img')[0].style.left=-bigX*(select('.big-box img')[0].offsetWidth-select('.big-box').offsetWidth)+'px'
+            select('.big-box img')[0].style.top=-bigY*(select('.big-box img')[0].offsetHeight-select('.big-box').offsetHeight)+'px'
+            select('.float-box').style.left=left+'px'
+            select('.float-box').style.top=top+'px'
+        })
+    </script>
+</body>
+</html>
