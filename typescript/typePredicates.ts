@@ -10,10 +10,9 @@ namespace TestTypePredicates {
     return val === 'Red' || val === 'Green'
   }
 
-  export function main() {
-    let color: any = 'Red'
-    if (isColor(color)) {
-      color
-    }
+  let color: any = 'Red'
+  if (isColor(color)) {
+    color
   }
+
 }
