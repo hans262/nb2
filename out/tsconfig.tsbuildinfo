@@ -834,8 +834,8 @@
         "signature": "0e33e3180fd9de67118ac4f5413dc86df0e9349f331c30f9a781be55fdca0d98"
       },
       "../javascript/index.ts": {
-        "version": "f0d508d4c188a2a332b51dd9c1b5fc18a30494945637c60f71105f9d4c69fd91",
-        "signature": "0e33e3180fd9de67118ac4f5413dc86df0e9349f331c30f9a781be55fdca0d98"
+        "version": "df415e72f0e581de16a79a10717b252693aef021c0e1f84f7b3de539cafeec64",
+        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
       },
       "../javascript/object/entries.ts": {
         "version": "321c1b573a7ef4a5658dc6d48acf3665771de0e7caf2071f388be2eb63a6dd3c",
@@ -2425,6 +2425,7 @@
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "../javascript/index.ts": [
+        "../node_modules/@types/node/events.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",

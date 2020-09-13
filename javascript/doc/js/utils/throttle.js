@@ -1,15 +1,14 @@
 /**
- * 节流函数，多次触发，只执行一次，忽略后续触发
- * @param {Function} action 执行动作
- * @param {number} delay 延迟
+ * 连续触发事件，但是在 n 秒中只执行一次函数。
+ * 
  */
-export function throttle(action, delay){
+function throttle(func, wait) {
 	let last = 0
-	return function() {
-		let curr = Date.now()
-		if (curr - last > delay) {
-			action.apply(this, arguments)
-			last = curr
+	return function () {
+		let now = Date.now()
+		if (now - last > wait) {
+			func.apply(this, arguments)
+			last = now
 		}
 	}
 }
