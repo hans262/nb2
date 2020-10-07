@@ -1,7 +1,7 @@
 const { Remarkable } = require('remarkable')
 import { readdir, readFileSync, writeFileSync } from 'fs'
 import { join } from 'path'
-import { ROOT } from '../common/path'
+import { ROOT } from './common/path'
 const md = new Remarkable()
 
 readdir(join(ROOT, './tsdoc'), (err, files) => {

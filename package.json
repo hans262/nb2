@@ -10,7 +10,7 @@
     "out": "tsc",
     "out:w": "tsc -watch",
     "doc": "typedoc --options ./typedoc.json",
-    "parsemd": "node out/src/test/parsemd.js"
+    "parsemd": "node out/src/parsemd.js"
   },
   "author": "ounana",
   "license": "MIT",

@@ -1,5 +1,0 @@
-[2019-7-30 20:54:17] [7492] [WORKER_STARTUP] -> port: 5000
-[2019-7-30 20:54:26] [7492] [REQUEST] -> C:\
-[2019-7-30 20:54:26] [7492] [RES_DIR] -> C:\
-[2019-7-30 20:54:27] [7492] [REQUEST] -> C:\favicon.ico
-[2019-7-30 20:54:27] [7492] [RES_FILE] -> d:\develop\nicest\public\favicon.ico

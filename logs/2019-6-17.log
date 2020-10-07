@@ -1,9 +1,0 @@
-[2019-6-17 10:20:10] [11568] [WORKER STARTUP] -> port: 5000
-[2019-6-17 10:20:23] [11568] [REQUEST] -> C:\
-[2019-6-17 10:20:23] [11568] [RES_DIR] -> C:\
-[2019-6-17 10:20:26] [11568] [REQUEST] -> C:\Documents and Settings
-[2019-6-17 10:20:26] [11568] [ERROR] -> EPERM: operation not permitted, scandir 'C:\Documents and Settings'
-[2019-6-17 10:20:26] [11568] [404] -> C:\Documents and Settings
-[2019-6-17 10:20:28] [11568] [REQUEST] -> C:\LUO\
-[2019-6-17 10:20:28] [11568] [RES_DIR] -> C:\LUO\
-[2019-6-17 16:57:42] [12200] [WORKER STARTUP] -> port: 5000

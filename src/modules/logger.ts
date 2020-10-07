@@ -1,4 +1,4 @@
-import { createWriteStream, WriteStream } from 'fs';
+import { createWriteStream, existsSync, mkdir, mkdirSync, statSync, WriteStream } from 'fs';
 import { join } from 'path';
 import { LOGS_PATH } from '../common/path';
 import { MESSAGE, ACTION } from '../Interface/Message';
@@ -10,7 +10,14 @@ let CURRENT_DAY: string;
 function getStream(): WriteStream {
   CURRENT_DAY = new Date().toLocaleDateString().replace(/\//g, '-')
   const fileName: string = join(LOGS_PATH, `/${CURRENT_DAY}.log`)
-  //这里需检测地址是否存在
+  //检测目录是否存在
+  if (!existsSync(LOGS_PATH)) {
+    try {
+      mkdirSync(LOGS_PATH)
+    } catch (error) {
+      throw new Error('创建目录失败')
+    }
+  }
   return createWriteStream(fileName, { flags: 'a' })
 }
 
