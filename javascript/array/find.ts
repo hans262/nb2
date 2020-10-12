@@ -8,5 +8,11 @@
  */
 
 namespace Test {
-  
+  const arr = [
+    { name: 'aa', age: 1 },
+    { name: 'bb', age: 2 },
+    { name: 'cc', age: 3 }
+  ]
+  const r0 = arr.find(x => x.age > 1)
+  console.log(r0)
 }
