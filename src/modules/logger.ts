@@ -1,4 +1,4 @@
-import { createWriteStream, existsSync, mkdir, mkdirSync, statSync, WriteStream } from 'fs';
+import { createWriteStream, existsSync, mkdirSync, WriteStream } from 'fs';
 import { join } from 'path';
 import { LOGS_PATH } from '../common/path';
 import { MESSAGE, ACTION } from '../Interface/Message';

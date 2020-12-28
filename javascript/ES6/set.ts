@@ -1,7 +1,6 @@
 /**
- * set
+ * Set
  * 成员唯一的数组
- * 去重
  * 
  * add(value)
  * has(value)
@@ -12,7 +11,9 @@
  * 
  */
 
-const mySet=new Set()
-mySet.add(1).add(2)
+namespace Test {
+  const set = new Set([3, 3])
+  set.add(1).add(2).add(1)
+  console.log(set)
 
-console.log(mySet)
+}

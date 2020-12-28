@@ -3,3 +3,4 @@ package-lock.json
 out
 logs
 .DS_Store
+docs

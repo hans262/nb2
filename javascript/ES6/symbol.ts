@@ -8,12 +8,15 @@
  * 
  */
 
+namespace Test {
+  const named = Symbol('key')
+  type Person = {
+    [named]: string
+  }
+  const person: Person = {
+    [named]: 'hh'
+  }
+  person[named] = 'ww'
+  console.log(person)
 
-const name=Symbol()
-const person={}
-person[name]='花花'
-person['name']='狗蛋'//无法重写
-
-console.log(person)
-console.log(person[name])
-console.log(person['name'])
+}

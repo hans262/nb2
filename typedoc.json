@@ -1,6 +1,9 @@
 {
   "mode": "file",
   "out": "docs",
+  "inputFiles": [
+    "src"
+  ],
   "exclude": [
     "./src/tsdoc/**/*",
     "./src/test/**/*"
