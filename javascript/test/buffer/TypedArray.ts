@@ -1,19 +1,29 @@
 /**
- * TypedArray
- * 二进制数据缓存区，视图
+ * 
+ * TypedArray 类数组视图
+ * 二进制数据缓存区，的数据视图
  * 每一个位置占用当前位的字节
- * 与Buffer的区别
- * slice方法的实现没有Buffer的性能高
  * 
  */
-
 namespace TestTypedArray {
-  //分配8个字节的缓冲区
+  //8位无符号数组， 8 * 10 / 8 =  10个字节
+  let u8a = new Uint8Array(10)
+  u8a[0] = 255
+  u8a[1] = 257 //溢出
+  u8a[2] = 255
+  console.log(u8a)
+
+  //64位浮点数数据， 64 *1 /8 = 8 个字节
   let f64a = new Float64Array(1)
-  f64a.fill(3.1415926)
+  f64a.fill(-3.1415926)
   console.log(f64a)
-  
-  debugger
+
+  //16位无符号数组，16 * 2 / 8 =  4个字节
+  let u16a = new Uint16Array(2)
+  u16a[0]= 65535
+  console.log(u16a)
+  console.log(u16a.byteLength)
+
 }
 
 /**

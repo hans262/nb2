@@ -18,7 +18,7 @@
     "@types/mysql": "^2.15.6",
     "@types/node": "^12.12.5",
     "mysql": "^2.16.0",
-    "osov": "^1.0.0",
+    "osov": "^1.0.2",
     "reflect-metadata": "^0.1.13",
     "remarkable": "^2.0.1",
     "rxjs": "^6.6.3"

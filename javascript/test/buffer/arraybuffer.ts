@@ -1,32 +1,25 @@
 /**
  * ArrayBuffer
+ * 通用的、固定长度的原始二进制数据缓冲区
+ * 
  * 分配一段内存缓冲区，但是不能直接读写
- * 只能通过 TypedArray DataView 读写
+ * 只能通过 类型数组对象TypedArray或数据视图DataView 来操作
  * 
  */
 
 namespace TestArrayBuffer {
-  let ab = new ArrayBuffer(16)
-  let view = new DataView(ab)
-  //前八个字节写入8位无符号整数
-  view.setBigUint64(0, 18446744073709551615n)
-  console.log(view.getBigUint64(0))
-  
-  //全部填充
-  let ab2 = new ArrayBuffer(10)
-  let u8a = new Uint8Array(ab2)
-  u8a.fill(50)
-  console.log(u8a)
-  
-  /**
-   * ArrayBuffer | ArrayBufferView  <=> string
-   * 互转
-   */
+  //分配一个字节的缓冲区
+  const ab = new ArrayBuffer(5)
+  console.log(ab)
 
-  const enCoder = new TextEncoder()
-  const uint8: Uint8Array = enCoder.encode('hello 你好!')
-  const deCoder = new TextDecoder('utf-8')
-  const ret = deCoder.decode(uint8)
-  console.log(ret)
-  debugger
+  //获取内存大小 单位字节
+  console.log(ab.byteLength)
+
+  //拷贝一段内存区域
+  const cab = ab.slice(3)
+  console.log(cab)
+
+  //判断传入的参数值是否是TypedArray或DataView 
+  console.log(ArrayBuffer.isView(new Int32Array()))
+  
 }
