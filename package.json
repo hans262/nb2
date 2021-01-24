@@ -20,8 +20,7 @@
     "mysql": "^2.16.0",
     "osov": "^1.0.2",
     "reflect-metadata": "^0.1.13",
-    "remarkable": "^2.0.1",
-    "rxjs": "^6.6.3"
+    "remarkable": "^2.0.1"
   },
   "devDependencies": {
     "typedoc": "^0.19.2",
