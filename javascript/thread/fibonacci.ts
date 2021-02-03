@@ -26,3 +26,15 @@ export function test(nums: number[] = [40, 41]): void {
     console.timeEnd('timer')
   })
 }
+
+/**
+ * 斐波那契数列 递归测试
+ */
+const fibonacci = (num: number): number =>
+  num <= 2 ? 1 : fibonacci(num - 1) + fibonacci(num - 2)
+
+export function test2(num: number): void {
+  console.time('fib')
+  const ret = fibonacci(num)
+  console.timeEnd('fib')
+}

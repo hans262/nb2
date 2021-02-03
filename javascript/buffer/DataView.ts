@@ -21,4 +21,15 @@ namespace TestDataView {
 
   //读取写入的数据
   console.log(dv.getInt8(0))
+
+  /**
+   * ArrayBuffer | ArrayBufferView  <=> string
+   * 互转
+   */
+
+  const enCoder = new TextEncoder()
+  const uint8: Uint8Array = enCoder.encode('hello 你好!')
+  const deCoder = new TextDecoder('utf-8')
+  const ret = deCoder.decode(uint8)
+  console.log(ret)
 }
