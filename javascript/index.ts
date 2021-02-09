@@ -1,54 +1,77 @@
-/**
- * 
- * TypedArray 类数组视图
- * 二进制数据缓存区，的数据视图
- * 每一个位置占用当前位的字节
- * 
- */
-namespace TestTypedArray {
-  //8位无符号数组， 8 * 10 / 8 =  10个字节
-  let u8a = new Uint8Array(10)
-  u8a[0] = 255
-  u8a[1] = 257 //溢出
-  u8a[2] = 255
-  console.log(u8a)
 
-  //64位浮点数数据， 64 *1 /8 = 8 个字节
-  let f64a = new Float64Array(1)
-  f64a.fill(-3.1415926)
-  console.log(f64a)
+namespace Test {
+  /**
+   * 0 0 -> 0
+   * 1 0 -> 0
+   * 0 1 -> 0
+   * 1 1 -> 1
+   */
 
-  //16位无符号数组，16 * 2 / 8 =  4个字节
-  let u16a = new Uint16Array(2)
-  u16a[0]= 65535
-  console.log(u16a)
-  console.log(u16a.byteLength)
+  type Input = [number, number]
+  type Output = number
+  const inputs: Input[] = [[0, 0], [1, 0], [0, 1], [1, 1]]
+  const outputs: Output[] = [0, 0, 0, 1]
 
+  let weights = initWeights(3)
+  function initWeights(num: number) {
+    // 0 ~ 1
+    return new Array<number>(num).fill(0).map(v => Math.random() - 0.5)
+  }
+
+  function sigmoid(x: number) {
+    return 1 / (1 + Math.pow(Math.E, -x))
+  }
+
+  function calcOutput(inputs: Input[]): Output[] {
+    return inputs.map(input => {
+      let output = input[0] * weights[0] + input[1] * weights[1] + 1 * weights[2]
+      return sigmoid(output)
+    })
+  }
+  //求平均误差
+  function calcLoss(cOutputs: Output[], outputs: Output[]) {
+    const losss: number[] = []
+    cOutputs.forEach((cop, i) => {
+      let loss = Math.abs(cop - outputs[i])
+      losss.push(loss)
+    })
+    return losss.reduce((tmp, item) => tmp + item) / losss.length
+  }
+
+  //计算最近n次的错误率的平均值
+  const ls: number[] = []
+  const maxError = 20
+  function calcLossp(loss: number) {
+    ls.push(loss)
+    if (ls.length > maxError) {
+      ls.shift()
+    }
+    return ls.reduce((tmp, item) => tmp + item) / ls.length
+  }
+
+  const trainRate = 0.001 //训练率
+  const threshold = 0.001 //预值 当误差小于这个值的时候就可以
+  function train(inputs: Input[], outputs: Output[]) {
+    let cOutputs = calcOutput(inputs)
+    //计算平均误差
+    let loss = calcLoss(cOutputs, outputs)
+    //满足平均误差 小于预值的时候 就不调整误差
+    //计算下一次的误差，增加就减少权重，减少就增加权重
+    weights.forEach((_, i) => {
+      cOutputs = calcOutput(inputs)
+      const nextLoss = calcLoss(cOutputs, outputs)
+      if (nextLoss > loss) {
+        weights[i] -= trainRate
+      } else {
+        weights[i] += trainRate
+      }
+    })
+    loss = calcLoss(calcOutput(inputs), outputs)
+    return loss
+  }
+
+  for (let i = 0; i < 100; i++) {
+    const loss = train(inputs, outputs)
+    console.log(i + ': ' + loss)
+  }
 }
-
-/**
- * | TYPE            | RANGE                  |   SIZE              |
- * +-----------------+------------------------+---------------------+
- * | Int8Array       | -2 ** 7 ~ 2 ** 7       |   1BYTE             |
- * +-----------------+------------------------+---------------------+
- * | Uint8Arr        | 0 ~ 2 ** 8             |   1BYTE             |
- * +-----------------+------------------------+---------------------+
- * | Uint8ClampedArr | 0 ~ 255  溢出处理不同!  |   1BYTE             |
- * +-------------------+----------------------+---------------------+
- * | Int16Array      | -2 ** 15 ~ 2 ** 15     |   2BYTE             |
- * +-----------------+------------------------+---------------------+
- * | Uint16Array     | 0 ~ 2 ** 16            |   2BYTE             |
- * +-----------------+------------------------+---------------------+
- * | Int32Array      | -2 ** 31 ~ 2 ** 31     |   4BYTE             |
- * +-----------------+------------------------+---------------------+
- * | Uint32Array     | 0 ~ 2 ** 32            |   4BYTE             |
- * +-----------------+------------------------+---------------------+
- * | BigInt64Array   | -2n ** 63n ~ 2n ** 63n |   8BYTE             |
- * +-----------------+------------------------+---------------------+
- * | BigUint64Array  | 0n ~ 2n ** 64n         |   8BYTE             |
- * +-----------------+------------------------+---------------------+
- * | Float32Array    |                        |   4BYTE             |
- * +-----------------+------------------------+---------------------+
- * | Float64Array    |                        |   8BYTE             |
- * +-----------------+------------------------+---------------------+
- */
