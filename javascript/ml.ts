@@ -1,40 +1,75 @@
 namespace Test {
-  //y = xw
+  /**
+   * 训练数据
+   * 模拟这样一个模型 -> y = 2x -1
+   */
   type Input = number[]
   type Output = number[]
-  const xs = [1, 2, 3, 4]
-  const ys = [2, 4, 6, 8]
+  const xs = [45, 60, 87, 120]
+  const ys = [100, 140, 200, 270]
 
-  //初始化权重
-  let weight: number = Math.random() + 1
+  /**
+   * 初始化权重，置为0
+   * 双参数模型 -> [θ0, θ1]
+   */
+  const weight = [0, 0]
 
-  //计算输出
-  function calcOutput(input: number) {
-    return input * weight
+  /**
+   * 假设函数 H(X) = θ0 + θ1X
+   * @param x 
+   * @returns H(X)
+   */
+  function hypothetical(x: number) {
+    return weight[0] + weight[1] * x
   }
 
-  const d = 0.0001 //增量
-  const threshold = 0.001 //预值
-  function tarin(xs: Input, ys: Output) {
-    const real = xs.map(input => calcOutput(input))
-    const losss = real.map((rv, i) => rv - ys[i])
-    //求平均误差
-    const loss = losss.reduce((a, b) => a + b) / losss.length
-    //误差为负数 说明权重小了，误差为正说明权重大了
-    if (loss > 0) {
-      weight -= d
-    } else {
-      weight += d
-    }
-    return Math.abs(loss)
+  /**
+   * 代价函数
+   * J(θ0, θ1) = 1/2m * ∑m( H(X[i]) - Y[i] )^2
+   * @param xs 
+   * @param ys 
+   * @returns 
+   */
+  function cost(xs: Input, ys: Output): number {
+    const M = xs.length
+    const sum = xs.reduce((p, c, i) => {
+      return p + (hypothetical(c) - ys[i]) ** 2
+    }, 0)
+    return (1 / (2 * M)) * sum
   }
 
-  for (let i = 0; ; i++) {
-    let loss = tarin(xs, ys)
-    console.log(i + ': ' + loss)
-    if (loss < threshold) {
-      console.log(calcOutput(5))
-      break
-    }
+  /**
+   * 学习率
+   * 对于不同的数据类型需要调整训练率ß
+   */
+  const rate = 0.00001
+
+  /**
+   * 训练函数, 目的是更新两个权重值  
+   * `θ(j) = θ(j) - rate * (d/ d* θ(j)) * J(θ0, θ1)`
+   * 导数a其实是一个斜率，利用斜率的正负来控制增减
+   * 这里用到了微积分求导知识  
+   * `θ0 = θ0 - rate * 1/m ∑m(H(X[i]) - Y[i])`  
+   * `θ1 = θ1 - rate * 1/m ∑m(H(X[i]) - Y[i]) * X[i]`
+   */
+  function tarin() {
+    const loss = cost(xs, ys)
+    console.log(loss)
+    //改变权重
+    let tempθ0, tempθ1;
+    tempθ0 = tempθ1 = 0
+    const M = xs.length
+    tempθ0 = xs.reduce((p, c, i) => p + hypothetical(c) - ys[i], 0)
+    tempθ1 = xs.reduce((p, c, i) => p + (hypothetical(c) - ys[i]) * c, 0)
+    tempθ0 = weight[0] - rate * (1 / M) * tempθ0
+    tempθ1 = weight[1] - rate * (1 / M) * tempθ1
+    weight[0] = tempθ0
+    weight[1] = tempθ1
   }
+
+  for (let i = 0; i < 100; i++) {
+    tarin()
+  }
+  console.log(weight)
+  console.log(hypothetical(200))
 }
