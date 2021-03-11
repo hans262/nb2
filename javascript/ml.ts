@@ -48,9 +48,11 @@ namespace Test {
    * 训练函数, 目的是更新两个权重值  
    * `θ(j) = θ(j) - rate * (d/ d* θ(j)) * J(θ0, θ1)`
    * 导数a其实是一个斜率，利用斜率的正负来控制增减
-   * 这里用到了微积分求导知识  
-   * `θ0 = θ0 - rate * 1/m ∑m(H(X[i]) - Y[i])`  
-   * `θ1 = θ1 - rate * 1/m ∑m(H(X[i]) - Y[i]) * X[i]`
+   * 这里用到了微积分求导知识  X0 = 1
+   * `θ0 = θ0 - rate * 1/m ∑m(H(X[i]) - Y[i]) * X0[i]`  
+   * `θ1 = θ1 - rate * 1/m ∑m(H(X[i]) - Y[i]) * X1[i]`
+   * 多元参数的情况
+   * `θ2 = θ2 - rate * 1/m ∑m(H(X[i]) - Y[i]) * X2[i]`
    */
   function tarin() {
     const loss = cost(xs, ys)
@@ -67,7 +69,7 @@ namespace Test {
     weight[1] = tempθ1
   }
 
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 1000; i++) {
     tarin()
   }
   console.log(weight)
