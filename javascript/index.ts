@@ -1,3 +1,3 @@
 namespace Test {
-  console.log(2121)
+  console.log('hello world')
 }

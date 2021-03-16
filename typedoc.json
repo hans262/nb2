@@ -1,13 +1,8 @@
 {
-  "mode": "file",
   "out": "docs",
-  "inputFiles": [
-    "src"
+  "entryPoints": [
+    "src/service/Worker.ts"
   ],
-  "exclude": [
-    "./src/tsdoc/**/*",
-    "./src/test/**/*"
-  ],
-  "excludeNotExported": true,
-  "theme": "default"
+  "theme": "default",
+  "includeVersion": true
 }
