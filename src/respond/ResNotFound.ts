@@ -1,17 +1,16 @@
-import { ServerResponse } from 'http';
-import { Req } from '../Interface/Req';
+import { Context } from '../Interface/Context';
 import { DEBUG } from '../modules/logger';
 
-export function ResNotFound(req: Req, res: ServerResponse): void {
-  const { __absolutePath, __relativePath, __startTime } = req
+export function ResNotFound(ctx: Context) {
+  const { absolutePath, relativePath, startTime,res } = ctx
   res.setHeader('Content-Type', 'text/html; charset=utf-8')
   res.writeHead(404, 'Not Found')
   res.end(`
   	<h1>Not Found</h1>
-  	<p>The requested URL ${__relativePath} was not found on this server.</p>
+  	<p>The requested URL ${relativePath} was not found on this server.</p>
   `)
   DEBUG({ 
     type: 'RES_404', 
-    msg: __absolutePath! + ' +' + (Date.now() - __startTime!) + 'ms'
+    msg: absolutePath! + ' +' + (Date.now() - startTime!) + 'ms'
   })
 }

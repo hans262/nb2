@@ -1,2 +1,5 @@
-import { RUN_WORKER } from './service/Worker';
-RUN_WORKER()
+import { PORT } from './configure';
+import { Nicest } from './service/Worker';
+
+const nicest = new Nicest()
+nicest.listen(PORT)

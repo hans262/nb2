@@ -1,22 +1,35 @@
-import { ServerResponse } from 'http';
 import { Middleware } from '../Interface/Middleware';
-import { Req } from '../Interface/Req';
 import { Session } from '../Interface/Session';
 import { KEY, remove, reset, select } from '../modules/Session';
 import { ResRedirect } from '../respond/ResRedirect';
 import { getCookie, setCookie } from '../common/cookie';
+import { Context } from '../Interface/Context';
+import { LOGIN } from '../configure';
 
-export const CheckLogin: Middleware = function (
-  req: Req, res: ServerResponse, next: () => void
-): void {
-  if (!isLogin(req, res)) {
-    ResRedirect({ req, res, location: '/login', code: 302, reasonPhrase: 'temporarily moved' })
+export const CheckLogin: Middleware = (ctx, next) => {
+  if (!LOGIN) {
+    next()
+    return
+  }
+  
+  //排除不需要登录的接口
+  const { req: { method }, relativePath } = ctx
+  if ((method === 'GET' && relativePath === '/login') ||
+    (method === 'POST' && relativePath === '/getToken')
+  ) {
+    next()
+    return
+  }
+
+  if (!isLogin(ctx)) {
+    ResRedirect({ ctx, location: '/login', code: 302, reasonPhrase: 'temporarily moved' })
   } else {
     next()
   }
 }
 
-function isLogin(req: Req, res: ServerResponse): boolean {
+function isLogin(ctx: Context): boolean {
+  const { req, res } = ctx
   const id: string | null = getCookie(req, KEY)
   //检查id
   if (!id) return false

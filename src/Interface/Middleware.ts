@@ -1,6 +1,5 @@
-import { ServerResponse } from "http";
-import { Req } from "../Interface/Req";
+import { Context } from "./Context";
 
 export interface Middleware {
-  (req: Req, res: ServerResponse, next: () => void): void
+  (ctx: Context, next: () => void): void
 }

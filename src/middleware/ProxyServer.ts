@@ -3,7 +3,6 @@ import * as https from "https";
 import { parse } from "url";
 import { proxyConfig } from "../configure";
 import { Middleware } from "../Interface/Middleware";
-import { Req } from "../Interface/Req";
 
 /**
  * 代理中间件
@@ -11,11 +10,10 @@ import { Req } from "../Interface/Req";
  * @param res 
  * @param next 
  */
-export const ProxyServer: Middleware = (
-  req: Req, res: http.ServerResponse, next: () => void
-): void => {
-  const { method, __relativePath } = req
-  const cf = Object.entries(proxyConfig).find(v => __relativePath!.match(
+export const ProxyServer: Middleware = (ctx, next) => {
+  const { req, relativePath, res } = ctx
+  const { method } = req
+  const cf = Object.entries(proxyConfig).find(v => relativePath!.match(
     new RegExp(`^(${v[0]}|${v[0]}\/.*)$`)
   ))
   if (!cf) return next()

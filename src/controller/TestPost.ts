@@ -1,10 +1,10 @@
-import { ServerResponse } from "http";
 import { Controller } from "../Interface/Controller";
-import { Req } from "../Interface/Req";
+import { Context } from "../Interface/Context";
 
 export class TestPost implements Controller {
 	readonly PATH_NAME: string = '/api/post'
-	POST(req: Req, res: ServerResponse): void {
+	POST(ctx: Context) {
+		const { req, res } = ctx
 		res.setHeader('Content-Type', 'application/octet-stream; charset=utf-8')
 		res.writeHead(200, 'OK')
 		const chunks: Array<Buffer> = []

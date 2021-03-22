@@ -1,6 +1,6 @@
 import { ServerResponse } from 'http';
 import { Controller } from '../Interface/Controller';
-import { Req } from '../Interface/Req';
+import { Context } from '../Interface/Context';
 import { bufferSplit } from '../modules/bufferSplit';
 
 /**
@@ -22,7 +22,8 @@ export class UpFiles implements Controller {
     res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' })
     res.end(JSON.stringify({ sucess: true, result: msg }))
   }
-  POST(req: Req, res: ServerResponse): void {
+  POST(ctx: Context) {
+    const { req, res } = ctx
     //拿到content-length，非空检查
     const contentLength: string | undefined = req.headers['content-length']
     if (!contentLength) return this.resError(res, 'content-length 不存在')

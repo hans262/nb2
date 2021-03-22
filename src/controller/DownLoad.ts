@@ -1,19 +1,18 @@
 import { createReadStream, ReadStream } from 'fs';
-import { ServerResponse } from 'http';
 import { join } from 'path';
 import { Controller } from '../Interface/Controller';
-import { Req } from '../Interface/Req';
+import { Context } from '../Interface/Context';
 import { PUBLIC_PATH } from '../common/path';
 
 export class DownLoad implements Controller {
   readonly PATH_NAME: string = '/api/download'
-  POST(_: Req, res: ServerResponse): void {
+  POST(ctx: Context) {
     const file: string = 'ajax.js'
     const filename: string = join(PUBLIC_PATH, file)
-    res.setHeader('Content-Type', 'application/octet-stream; charset=utf-8')
-    res.setHeader('Content-Disposition', `attachment; filename=${file}`)
+    ctx.res.setHeader('Content-Type', 'application/octet-stream; charset=utf-8')
+    ctx.res.setHeader('Content-Disposition', `attachment; filename=${file}`)
     const reader: ReadStream = createReadStream(filename)
-    reader.pipe(res)
+    reader.pipe(ctx.res)
   }
 }
 

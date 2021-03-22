@@ -1,23 +1,21 @@
-import { ServerResponse } from 'http';
+import { Context } from '../Interface/Context';
 import { DEBUG } from '../modules/logger';
-import { Req } from '../Interface/Req';
 
 /**
  * 重定向 301永久/302临时
  * @param redirect 
  */
-export function ResRedirect(redirect: Redirect): void {
-  const { res, location, code, reasonPhrase, req } = redirect
-  const { __absolutePath } = req
+export function ResRedirect(redirect: Redirect) {
+  const { ctx, location, code, reasonPhrase } = redirect
+  const { absolutePath, res } = ctx
   res.setHeader('Location', location)
   res.writeHead(code, reasonPhrase)
   res.end()
-  DEBUG({ type: 'REDIRECT', msg: __absolutePath! + ' -> ' + location })
+  DEBUG({ type: 'REDIRECT', msg: absolutePath! + ' -> ' + location })
 }
 
 export interface Redirect {
-  req: Req
-  res: ServerResponse
+  ctx: Context
   location: string
   code: number
   reasonPhrase: string

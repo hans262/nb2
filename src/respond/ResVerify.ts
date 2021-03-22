@@ -1,6 +1,5 @@
-import { ServerResponse } from 'http';
 import { CACHE_MAX_AGE } from '../configure';
-import { Req } from '../Interface/Req';
+import { Context } from '../Interface/Context';
 import { generateETag, isCache } from '../common/cache';
 import { mime } from '../common/mime';
 import { getZipType, ZIP_TYPE } from '../common/zip';
@@ -9,12 +8,12 @@ import { ResFile } from './ResFile';
 import { ResRange } from './ResRange';
 import { ResZip } from './ResZip';
 
-export function ResVerify(req: Req, res: ServerResponse): void {
-  const { __absolutePath, __stats } = req
-  const { size, mtime } = __stats!
+export function ResVerify(ctx: Context) {
+  const { absolutePath, stats, res, req } = ctx
+  const { size, mtime } = stats!
 
   //判断缓存
-  if (isCache(req)) return ResCache(req, res)
+  if (isCache(req, stats!)) return ResCache(ctx)
 
   //文件最后修改时间
   res.setHeader('Last-Modified', mtime.toUTCString())
@@ -24,22 +23,22 @@ export function ResVerify(req: Req, res: ServerResponse): void {
   //实现缓存机制
   res.setHeader('Cache-Control', `public, max-age=${CACHE_MAX_AGE}`)
   //资源关联记号
-  res.setHeader('ETag', generateETag(__stats!))
+  res.setHeader('ETag', generateETag(stats!))
 
   //mime类型
-  res.setHeader('Content-Type', mime(__absolutePath!) + '; charset=utf-8')
+  res.setHeader('Content-Type', mime(absolutePath!) + '; charset=utf-8')
   //内容大小
   res.setHeader('Content-Length', size)
 
   //范围请求
-  if (req.headers['range']) return ResRange(req, res)
+  if (req.headers['range']) return ResRange(ctx)
 
-  const zipType: ZIP_TYPE | null = getZipType(req, res)
+  const zipType: ZIP_TYPE | null = getZipType(ctx)
   //不是压缩
   if (!zipType) {
-    return ResFile(req, res)
+    return ResFile(ctx)
   }
 
   //需要压缩
-  ResZip(req, res, zipType)
+  ResZip(ctx, zipType)
 }

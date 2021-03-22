@@ -1,12 +1,11 @@
 import { createReadStream, ReadStream } from 'fs';
-import { ServerResponse } from 'http';
-import { Req } from '../Interface/Req';
 import { DEBUG } from '../modules/logger';
 import { parseRange, Range } from '../common/Range';
+import { Context } from '../Interface/Context';
 
-export function ResRange(req: Req, res: ServerResponse): void {
-  const { __absolutePath, __stats, __startTime } = req
-  const { size } = __stats!
+export function ResRange(ctx: Context) {
+  const { absolutePath, stats, startTime, req, res } = ctx
+  const { size } = stats!
 
   //解析范围
   const range: Range | null = parseRange(req.headers['range'], size)
@@ -15,13 +14,13 @@ export function ResRange(req: Req, res: ServerResponse): void {
     const { start, end } = range
     res.setHeader('Content-Range', `bytes ${start}-${end}/${size}`)
     res.setHeader('Content-Length', (end - start + 1))
-    const stream: ReadStream = createReadStream(__absolutePath!, { start, end })
+    const stream: ReadStream = createReadStream(absolutePath!, { start, end })
 
     res.writeHead(206, 'Partial content')
     stream.pipe(res)
     DEBUG({
       type: 'RES_RANGE',
-      msg: __absolutePath! + ' +' + (Date.now() - __startTime!) + 'ms'
+      msg: absolutePath! + ' +' + (Date.now() - startTime!) + 'ms'
     })
   } else {
     res.removeHeader('Content-Length')
@@ -30,7 +29,7 @@ export function ResRange(req: Req, res: ServerResponse): void {
     res.end()
     DEBUG({
       type: 'RES_416',
-      msg: __absolutePath! + ' +' + (Date.now() - __startTime!) + 'ms'
+      msg: absolutePath! + ' +' + (Date.now() - startTime!) + 'ms'
     })
   }
 }

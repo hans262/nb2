@@ -1,16 +1,15 @@
-import { ServerResponse } from "http";
 import { extname } from 'path';
 import { ZIP_MATCH } from '../configure';
-import { Req } from "../Interface/Req";
+import { Context } from "../Interface/Context";
 
 /**
  * check zip
  * @param req 
  * @param res 
  */
-export function getZipType(req: Req, res: ServerResponse): ZIP_TYPE | null {
-  const { __absolutePath } = req
-  const type: string = extname(__absolutePath!)
+export function getZipType(ctx: Context): ZIP_TYPE | null {
+  const { absolutePath, req } = ctx
+  const type: string = extname(absolutePath!)
 
   //检查是否在压缩范围
   const matched: RegExpMatchArray | null = type.match(ZIP_MATCH)

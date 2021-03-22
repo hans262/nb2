@@ -1,5 +1,7 @@
 import { Controller } from '../Interface/Controller';
 import { DownLoad } from './DownLoad';
+import { GetToken } from './GetToken';
+import { LoginPage } from './LoginPage';
 import { Restart } from './Restart';
 import { ShutDown } from './ShutDown';
 import { TestGet } from './TestGet';
@@ -8,8 +10,9 @@ import { TestPost } from './TestPost';
 import { TestRand } from './TestRand';
 import { UpFiles } from './UpFiles';
 
-const combineController = <T>(...clazz: { new(): T }[]): T[] => clazz.map<T>(c => new c())
-const CONTROLLER: Controller[] = combineController<Controller>(
+const combineController = <T>(...clazz: { new(): T }[]) => clazz.map(c => new c())
+
+const CONTROLLER = combineController<Controller>(
   DownLoad,
   Restart,
   ShutDown,
@@ -17,7 +20,9 @@ const CONTROLLER: Controller[] = combineController<Controller>(
   TestJsonp,
   TestPost,
   UpFiles,
-  TestRand
+  TestRand,
+  LoginPage,
+  GetToken
 )
 
 export default CONTROLLER

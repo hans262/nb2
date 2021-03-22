@@ -1,19 +1,18 @@
 import { statSync, stat } from "fs";
-import { ServerResponse } from "http";
 import { join } from 'path';
 import { INDEX_PAGE, ROOT } from "../configure";
-import { Req } from "../Interface/Req";
+import { Context } from "../Interface/Context";
 import { ResVerify } from "./ResVerify";
 import { ResNotFound } from "./ResNotFound";
 
-export function ResIndex(req: Req, res: ServerResponse): void {
+export function ResIndex(ctx: Context) {
   const INDEX_PATH: string = join(ROOT, INDEX_PAGE)
-  stat(INDEX_PATH, (err: NodeJS.ErrnoException | null, stats) => {
+  stat(INDEX_PATH, (_, stats) => {
     if (stats && stats.isFile()) {
-      req.__stats = statSync(INDEX_PATH)
-      req.__absolutePath = INDEX_PATH
-      return ResVerify(req, res)
+      ctx.setStats(statSync(INDEX_PATH))
+      ctx.setAbsolutePath(INDEX_PATH)
+      return ResVerify(ctx)
     }
-    return ResNotFound(req, res)
+    return ResNotFound(ctx)
   })
 }

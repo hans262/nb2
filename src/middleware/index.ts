@@ -1,26 +1,20 @@
-import { LOGIN } from '../configure';
 import { Middleware } from '../Interface/Middleware';
 import { CheckController } from './CheckController';
 import { CheckLogin } from './CheckLogin';
-import { GetToken } from './GetToken';
-import { Later } from './Later';
-import { LoginPage } from './LoginPage';
+import { Static } from './Static';
 import { Mount } from './Mount';
 import { ResFavicon } from './ResFavicon';
 import { ProxyServer } from './ProxyServer';
 
-const combineMiddleware = <T>(...middleware: (T | false)[]): T[] =>
-  middleware.filter((m: T | false): m is T => m !== false)
+const combineMiddleware = <T>(...middleware: T[]) => middleware
 
-const MIDDLEWARE: Middleware[] = combineMiddleware<Middleware>(
+const MIDDLEWARE = combineMiddleware<Middleware>(
   Mount,
   ResFavicon,
   ProxyServer,
-  LOGIN && LoginPage,
-  LOGIN && GetToken,
-  LOGIN && CheckLogin,
+  CheckLogin,
   CheckController,
-  Later
+  Static
 )
 
 export default MIDDLEWARE

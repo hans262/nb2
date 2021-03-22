@@ -1,15 +1,14 @@
 import { createReadStream, ReadStream } from 'fs';
-import { ServerResponse } from "http";
-import { Req } from "../Interface/Req";
+import { Context } from "../Interface/Context";
 import { DEBUG } from '../modules/logger';
 
-export function ResFile(req: Req, res: ServerResponse): void {
-  const { __absolutePath, __startTime } = req
-  const stream: ReadStream = createReadStream(__absolutePath!)
+export function ResFile(ctx: Context) {
+  const { absolutePath, startTime, res } = ctx
+  const stream: ReadStream = createReadStream(absolutePath!)
   res.writeHead(200, 'Responed file')
   stream.pipe(res)
   DEBUG({
     type: 'RES_FILE',
-    msg: __absolutePath! + ' +' + (Date.now() - __startTime!) + 'ms'
+    msg: absolutePath! + ' +' + (Date.now() - startTime!) + 'ms'
   })
 }

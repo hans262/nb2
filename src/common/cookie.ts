@@ -1,5 +1,4 @@
-import { ServerResponse } from "http";
-import { Req } from "../Interface/Req";
+import { ServerResponse, IncomingMessage } from "http";
 
 export interface Cookie {
   res: ServerResponse
@@ -18,7 +17,7 @@ export interface Cookie {
  * @param req 
  * @param key 键
  */
-export function getCookie(req: Req, key: string): string | null {
+export function getCookie(req: IncomingMessage, key: string): string | null {
   const { cookie } = req.headers
   if (!cookie) return null
   const reg: RegExp = new RegExp("(^| )" + key + "=([^;]*)(;|$)")
@@ -30,7 +29,7 @@ export function getCookie(req: Req, key: string): string | null {
  * set cookie, not Chinese
  * @param cookie Cookie
  */
-export function setCookie(cookie: Cookie): void {
+export function setCookie(cookie: Cookie) {
   const { res, key, value, maxAge, domain, path, expires, httpOnly, secure } = cookie
   let pairs: Array<string> = [key + '=' + value]
   if (maxAge) pairs.push('Max-Age=' + maxAge)

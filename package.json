@@ -3,8 +3,8 @@
   "version": "4.2.0",
   "description": "Configurable engineering container service is implemented by Node V8.",
   "scripts": {
-    "start": "node out/src/Worker.js",
-    "cluster": "node out/src/Cluster.js",
+    "start": "node out/src/worker.js",
+    "cluster": "node out/src/cluster.js",
     "websocket": "node out/src/service/WebSocket.js",
     "socketserver": "node out/src/service/SocketServer.js",
     "out": "tsc",

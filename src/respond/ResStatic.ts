@@ -1,27 +1,25 @@
-import { stat, Stats } from 'fs';
-import { ServerResponse } from 'http';
+import { stat } from 'fs';
 import { REACT_APP } from '../configure';
-import { Req } from '../Interface/Req';
+import { Context } from '../Interface/Context';
 import { ResDir } from './ResDir';
 import { ResIndex } from './ResIndex';
 import { ResNotFound } from './ResNotFound';
 import { ResVerify } from './ResVerify';
 
-export function ResStatic(req: Req, res: ServerResponse): void {
-  const { __absolutePath } = req
-  stat(__absolutePath!, (err: NodeJS.ErrnoException | null, stats: Stats) => {
+export function ResStatic(ctx: Context) {
+  const { absolutePath } = ctx
+  stat(absolutePath!, (err, stats) => {
     if (err) {
-      return REACT_APP ? ResIndex(req, res) : ResNotFound(req, res)
+      return REACT_APP ? ResIndex(ctx) : ResNotFound(ctx)
     }
-
-    req.__stats = stats
+    ctx.setStats(stats)
 
     if (stats.isDirectory()) {
-      return ResDir(req, res)
+      return ResDir(ctx)
     }
 
     if (stats.isFile()) {
-      return ResVerify(req, res)
+      return ResVerify(ctx)
     }
   })
 }

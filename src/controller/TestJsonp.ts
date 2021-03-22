@@ -1,13 +1,12 @@
-import { ServerResponse } from "http";
 import { Controller } from "../Interface/Controller";
-import { Req } from "../Interface/Req";
+import { Context } from "../Interface/Context";
 
 export class TestJsonp implements Controller {
 	readonly PATH_NAME: string = '/api/jsonp'
-	GET(req: Req, res: ServerResponse): void {
+	GET(ctx: Context) {
+		const { res, query } = ctx
 		res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' })
-		const { __query } = req
-		const { callback, ...data } = __query!
+		const { callback, ...data } = query!
 		res.end(`${callback}(${JSON.stringify(data)})`)
 	}
 }
