@@ -3,17 +3,12 @@ import { IncomingMessage, ServerResponse } from "http";
 import { ParsedUrlQuery } from "querystring";
 
 export class Context {
-  req: IncomingMessage
-  res: ServerResponse
   stats?: Stats
   relativePath?: string
   absolutePath?: string
   query?: ParsedUrlQuery
   startTime?: number
-  constructor(req: IncomingMessage, res: ServerResponse) {
-    this.req = req
-    this.res = res
-  }
+  constructor(public req: IncomingMessage, public res: ServerResponse) { }
   setStats(s: Stats) {
     this.stats = s
   }
