@@ -14,6 +14,6 @@
     "emitDecoratorMetadata": true
   },
   "include": [
-    "src", "typescript", "javascript"
+    "src"
   ]
 }

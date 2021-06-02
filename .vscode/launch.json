@@ -42,24 +42,6 @@
       "outFiles": [
         "${workspaceFolder}/out/**/*.js"
       ]
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "TEST",
-      "program": "${workspaceFolder}/javascript/index.ts",
-      "outFiles": [
-        "${workspaceFolder}/out/**/*.js"
-      ]
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "TSTEST",
-      "program": "${workspaceFolder}/typescript/index.ts",
-      "outFiles": [
-        "${workspaceFolder}/out/**/*.js"
-      ]
     }
   ]
 }
