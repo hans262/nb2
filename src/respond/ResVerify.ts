@@ -1,12 +1,12 @@
-import { CACHE_MAX_AGE } from '../configure';
-import { Context } from '../Interface/Context';
-import { generateETag, isCache } from '../common/cache';
-import { mime } from '../common/mime';
-import { getZipType, ZIP_TYPE } from '../common/zip';
-import { ResCache } from './ResCache';
-import { ResFile } from './ResFile';
-import { ResRange } from './ResRange';
-import { ResZip } from './ResZip';
+import { CACHE_MAX_AGE } from '../configure/index.js';
+import { Context } from '../Interface/Context.js';
+import { generateETag, isCache } from '../common/cache.js';
+import { mime } from '../common/mime.js';
+import { getZipType, ZIP_TYPE } from '../common/zip.js';
+import { ResCache } from './ResCache.js';
+import { ResFile } from './ResFile.js';
+import { ResRange } from './ResRange.js';
+import { ResZip } from './ResZip.js';
 
 export function ResVerify(ctx: Context) {
   const { absolutePath, stats, res, req } = ctx

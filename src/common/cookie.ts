@@ -1,4 +1,4 @@
-import { ServerResponse, IncomingMessage } from "http";
+import { ServerResponse, IncomingMessage } from "node:http";
 
 export interface Cookie {
   res: ServerResponse

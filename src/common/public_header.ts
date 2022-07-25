@@ -1,5 +1,5 @@
-import { ServerResponse } from 'http';
-import { CROSS } from '../configure';
+import { ServerResponse } from 'node:http';
+import { CROSS } from '../configure/index.js';
 
 /**
  * public headers

@@ -42,6 +42,15 @@
       "outFiles": [
         "${workspaceFolder}/out/**/*.js"
       ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "TEST",
+      "program": "${workspaceFolder}/src/test.ts",
+      "outFiles": [
+        "${workspaceFolder}/out/**/*.js"
+      ]
     }
   ]
 }

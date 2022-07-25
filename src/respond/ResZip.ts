@@ -1,8 +1,8 @@
-import { createReadStream, ReadStream } from 'fs';
-import { DEBUG } from '../modules/logger';
-import { ZIP_TYPE } from '../common/zip';
-import { createGzip, createDeflate, Gzip, Deflate } from 'zlib';
-import { Context } from '../Interface/Context';
+import { createReadStream, ReadStream } from 'node:fs';
+import { DEBUG } from '../modules/logger.js';
+import { ZIP_TYPE } from '../common/zip.js';
+import { createGzip, createDeflate, Gzip, Deflate } from 'node:zlib';
+import { Context } from '../Interface/Context.js';
 
 export function ResZip(ctx: Context, zipType: ZIP_TYPE) {
   const { absolutePath, startTime, res } = ctx
@@ -23,8 +23,8 @@ export function ResZip(ctx: Context, zipType: ZIP_TYPE) {
   }
   res.writeHead(200, 'Compressed file')
   stream.pipe(zipstream).pipe(res)
-  DEBUG({ 
-    type: 'RES_ZIP', 
+  DEBUG({
+    type: 'RES_ZIP',
     msg: absolutePath! + ' +' + (Date.now() - startTime!) + 'ms'
   })
 }

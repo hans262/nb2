@@ -1,6 +1,6 @@
-import { createReadStream, ReadStream } from 'fs';
-import { Context } from "../Interface/Context";
-import { DEBUG } from '../modules/logger';
+import { createReadStream, ReadStream } from 'node:fs';
+import { Context } from "../Interface/Context.js";
+import { DEBUG } from '../modules/logger.js';
 
 export function ResFile(ctx: Context) {
   const { absolutePath, startTime, res } = ctx

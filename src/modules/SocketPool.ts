@@ -1,4 +1,4 @@
-import { Socket, createConnection } from "net";
+import { Socket, createConnection } from "node:net";
 
 export interface SocketOptions {
   port: number

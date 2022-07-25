@@ -1,6 +1,6 @@
 import { extname } from 'path';
-import { ZIP_MATCH } from '../configure';
-import { Context } from "../Interface/Context";
+import { ZIP_MATCH } from '../configure/index.js';
+import { Context } from "../Interface/Context.js";
 
 /**
  * check zip

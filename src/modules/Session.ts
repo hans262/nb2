@@ -1,5 +1,5 @@
-import { SESSION_EXPIRES } from '../configure';
-import { Session, SessionStore } from '../Interface/Session';
+import { SESSION_EXPIRES } from '../configure/index.js';
+import { Session, SessionStore } from '../Interface/Session.js';
 
 const SESSION: SessionStore = new Map()
 export const KEY: string = 'SESSION_ID'

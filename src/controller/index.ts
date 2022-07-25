@@ -1,14 +1,14 @@
-import { Controller } from '../Interface/Controller';
-import { DownLoad } from './DownLoad';
-import { GetToken } from './GetToken';
-import { LoginPage } from './LoginPage';
-import { Restart } from './Restart';
-import { ShutDown } from './ShutDown';
-import { TestGet } from './TestGet';
-import { TestJsonp } from './TestJsonp';
-import { TestPost } from './TestPost';
-import { TestRand } from './TestRand';
-import { UpFiles } from './UpFiles';
+import { Controller } from '../Interface/Controller.js';
+import { DownLoad } from './DownLoad.js';
+import { GetToken } from './GetToken.js';
+import { LoginPage } from './LoginPage.js';
+import { Restart } from './Restart.js';
+import { ShutDown } from './ShutDown.js';
+import { TestGet } from './TestGet.js';
+import { TestJsonp } from './TestJsonp.js';
+import { TestPost } from './TestPost.js';
+import { TestRand } from './TestRand.js';
+import { UpFiles } from './UpFiles.js';
 
 const combineController = <T>(...clazz: { new(): T }[]) => clazz.map(c => new c())
 

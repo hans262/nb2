@@ -1,8 +1,8 @@
-import * as http from "http";
-import * as https from "https";
-import { parse } from "url";
-import { proxyConfig } from "../configure";
-import { Middleware } from "../Interface/Middleware";
+import * as http from "node:http";
+import * as https from "node:https";
+import { parse } from "node:url";
+import { proxyConfig } from "../configure/index.js";
+import { Middleware } from "../Interface/Middleware.js";
 
 /**
  * 代理中间件

@@ -1,8 +1,8 @@
-import { createWriteStream, existsSync, mkdirSync, WriteStream } from 'fs';
-import { join } from 'path';
-import { LOGS_PATH } from '../common/path';
-import { MESSAGE, ACTION } from '../Interface/Message';
-import { Stdout } from '../common/stdout';
+import { createWriteStream, existsSync, mkdirSync, WriteStream } from 'node:fs';
+import { join } from 'node:path';
+import { LOGS_PATH } from '../common/path.js';
+import { MESSAGE, ACTION } from '../Interface/Message.js';
+import { Stdout } from '../common/stdout.js';
 
 let STREAM: WriteStream | null = null;
 let CURRENT_DAY: string;

@@ -1,4 +1,4 @@
-import { ClientRequest, IncomingMessage, request, RequestOptions } from 'http';
+import { ClientRequest, IncomingMessage, request, RequestOptions } from 'node:http';
 
 export interface Request extends RequestOptions {
   body?: any

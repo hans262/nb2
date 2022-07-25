@@ -1,9 +1,9 @@
-import { createHash } from 'crypto';
-import { createServer, Socket } from 'net';
-import { decodeDataFrame, encodeDataFrame } from '../common/DataFrame';
-import { WEB_SOCKET_PORT } from '../configure';
-import { SocketHeader } from '../Interface/Headers';
-import { bufferSplit } from '../modules/bufferSplit';
+import { createHash } from 'node:crypto';
+import { createServer, Socket } from 'node:net';
+import { decodeDataFrame, encodeDataFrame } from '../common/DataFrame.js';
+import { WEB_SOCKET_PORT } from '../configure/index.js';
+import { SocketHeader } from '../Interface/Headers.js';
+import { bufferSplit } from '../modules/bufferSplit.js';
 
 const server = createServer()
 server.on('connection', (socket: Socket) => socket.once('data', socket_once))
@@ -11,7 +11,7 @@ server.listen(WEB_SOCKET_PORT)
 
 const sockets = new Map<number, Socket>()
 
-function socket_once(this: Socket, data: Buffer): void {
+function socket_once(this: Socket, data: Buffer) {
   const headers: SocketHeader = parse_headers(data)
   if (headers.Upgrade !== 'websocket') {
     return this.end()

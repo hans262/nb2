@@ -1,5 +1,5 @@
-import { start, REPLServer } from 'repl'
-import { createInterface } from 'readline'
+import { start, REPLServer } from 'node:repl'
+import { createInterface } from 'node:readline'
 
 /**
  * repl server

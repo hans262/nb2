@@ -1,5 +1,5 @@
-import { createServer, Socket } from 'net'
-import { SOCKET_SERVER_PORT } from '../configure';
+import { createServer, Socket } from 'node:net'
+import { SOCKET_SERVER_PORT } from '../configure/index.js';
 
 function RUN(): void {
   //当前已连接的

@@ -5,7 +5,7 @@ import {
 	createDecipheriv,
 	CipherKey,
 	BinaryLike
-} from 'crypto'
+} from 'node:crypto'
 
 /**
  * Hash加密 ->

@@ -1,17 +1,17 @@
-import { Middleware } from '../Interface/Middleware';
-import { Session } from '../Interface/Session';
-import { KEY, remove, reset, select } from '../modules/Session';
-import { ResRedirect } from '../respond/ResRedirect';
-import { getCookie, setCookie } from '../common/cookie';
-import { Context } from '../Interface/Context';
-import { LOGIN } from '../configure';
+import { Middleware } from '../Interface/Middleware.js';
+import { Session } from '../Interface/Session.js';
+import { KEY, remove, reset, select } from '../modules/Session.js';
+import { ResRedirect } from '../respond/ResRedirect.js';
+import { getCookie, setCookie } from '../common/cookie.js';
+import { Context } from '../Interface/Context.js';
+import { LOGIN } from '../configure/index.js';
 
 export const CheckLogin: Middleware = (ctx, next) => {
   if (!LOGIN) {
     next()
     return
   }
-  
+
   //排除不需要登录的接口
   const { req: { method }, relativePath } = ctx
   if ((method === 'GET' && relativePath === '/login') ||

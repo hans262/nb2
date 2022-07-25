@@ -1,5 +1,5 @@
-import { Context } from '../Interface/Context';
-import { DEBUG } from '../modules/logger';
+import { Context } from '../Interface/Context.js';
+import { DEBUG } from '../modules/logger.js';
 
 /**
  * 重定向 301永久/302临时

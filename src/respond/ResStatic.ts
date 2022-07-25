@@ -1,10 +1,10 @@
-import { stat } from 'fs';
-import { REACT_APP } from '../configure';
-import { Context } from '../Interface/Context';
-import { ResDir } from './ResDir';
-import { ResIndex } from './ResIndex';
-import { ResNotFound } from './ResNotFound';
-import { ResVerify } from './ResVerify';
+import { stat } from 'node:fs';
+import { REACT_APP } from '../configure/index.js';
+import { Context } from '../Interface/Context.js';
+import { ResDir } from './ResDir.js';
+import { ResIndex } from './ResIndex.js';
+import { ResNotFound } from './ResNotFound.js';
+import { ResVerify } from './ResVerify.js';
 
 export function ResStatic(ctx: Context) {
   const { absolutePath } = ctx

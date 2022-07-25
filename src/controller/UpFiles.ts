@@ -1,7 +1,7 @@
-import { ServerResponse } from 'http';
-import { Controller } from '../Interface/Controller';
-import { Context } from '../Interface/Context';
-import { bufferSplit } from '../modules/bufferSplit';
+import { ServerResponse } from 'node:http';
+import { Controller } from '../Interface/Controller.js';
+import { Context } from '../Interface/Context.js';
+import { bufferSplit } from '../modules/bufferSplit.js';
 
 /**
  * file uoload

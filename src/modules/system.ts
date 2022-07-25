@@ -1,4 +1,4 @@
-import { exec, ExecException } from 'child_process'
+import { exec, ExecException } from 'node:child_process'
 
 /**
  * @version 2019-10-15

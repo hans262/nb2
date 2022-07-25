@@ -1,10 +1,10 @@
-import { Dirent, readdirSync } from 'fs';
-import { join } from 'path';
-import { INDEX_PAGE } from '../configure';
-import { DEBUG } from '../modules/logger';
-import { ResStatic } from './ResStatic';
-import { ResNotFound } from './ResNotFound';
-import { Context } from '../Interface/Context';
+import { Dirent, readdirSync } from 'node:fs';
+import { join } from 'node:path';
+import { INDEX_PAGE } from '../configure/index.js';
+import { DEBUG } from '../modules/logger.js';
+import { ResStatic } from './ResStatic.js';
+import { ResNotFound } from './ResNotFound.js';
+import { Context } from '../Interface/Context.js';
 
 export function ResDir(ctx: Context) {
   const { absolutePath, relativePath, startTime, res } = ctx
@@ -13,7 +13,7 @@ export function ResDir(ctx: Context) {
     dirents = readdirSync(absolutePath!, {
       withFileTypes: true
     })
-  } catch (error) {
+  } catch (error: any) {
     DEBUG({ type: 'ERROR', msg: error.message })
     return ResNotFound(ctx)
   }
@@ -35,8 +35,8 @@ export function ResDir(ctx: Context) {
   res.setHeader('Content-Type', 'text/html; charset=utf-8')
   res.writeHead(200, 'Access Directory')
   res.end(content)
-  DEBUG({ 
-    type: 'RES_DIR', 
+  DEBUG({
+    type: 'RES_DIR',
     msg: absolutePath! + ' +' + (Date.now() - startTime!) + 'ms'
   })
 }

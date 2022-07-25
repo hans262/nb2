@@ -1,6 +1,6 @@
-import { Middleware } from "../Interface/Middleware";
-import { ResStatic } from "../respond/ResStatic";
-import { FAVION_PATH } from "../common/path";
+import { Middleware } from "../Interface/Middleware.js";
+import { ResStatic } from "../respond/ResStatic.js";
+import { FAVION_PATH } from "../common/path.js";
 
 export const ResFavicon: Middleware = (ctx, next) => {
   const { relativePath, req } = ctx

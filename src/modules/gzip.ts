@@ -1,7 +1,7 @@
-import { createReadStream, createWriteStream, ReadStream, WriteStream } from 'fs';
-import { join } from 'path';
-import { createGzip, Gzip, createGunzip } from 'zlib';
-import { PUBLIC_PATH } from '../common/path';
+import { createReadStream, createWriteStream, ReadStream, WriteStream } from 'node:fs';
+import { join } from 'node:path';
+import { createGzip, Gzip, createGunzip } from 'node:zlib';
+import { PUBLIC_PATH } from '../common/path.js';
 
 /**
  * to gzip

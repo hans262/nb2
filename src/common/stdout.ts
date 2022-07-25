@@ -1,4 +1,4 @@
-import { MessageType } from "../Interface/Message";
+import { MessageType } from "../Interface/Message.js";
 const styles = {
   'underline': '\x1B[4m',
   'inverse': '\x1B[7m',

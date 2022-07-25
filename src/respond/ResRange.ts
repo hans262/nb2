@@ -1,7 +1,7 @@
-import { createReadStream, ReadStream } from 'fs';
-import { DEBUG } from '../modules/logger';
-import { parseRange, Range } from '../common/Range';
-import { Context } from '../Interface/Context';
+import { createReadStream, ReadStream } from 'node:fs';
+import { DEBUG } from '../modules/logger.js';
+import { parseRange, Range } from '../common/Range.js';
+import { Context } from '../Interface/Context.js';
 
 export function ResRange(ctx: Context) {
   const { absolutePath, stats, startTime, req, res } = ctx

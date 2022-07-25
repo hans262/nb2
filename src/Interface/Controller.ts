@@ -1,4 +1,4 @@
-import { Context } from "./Context";
+import { Context } from "./Context.js";
 
 export interface Controller {
   readonly PATH_NAME: string

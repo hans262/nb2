@@ -1,5 +1,5 @@
-import { createInterface, Interface } from 'readline'
-import { createReadStream } from 'fs';
+import { createInterface, Interface } from 'node:readline'
+import { createReadStream } from 'node:fs';
 
 /**
  * @version 2019-10-15

@@ -1,4 +1,4 @@
-import { User } from "../Interface/User";
+import { User } from "../Interface/User.js";
 
 export const PORT: number = 5000
 export const HOST: string = "127.0.0.1"
@@ -29,3 +29,6 @@ export const proxyConfig = {
   '/proxy': 'http://127.0.0.1:7777',
   '/douban': 'https://movie.douban.com/'
 } as const
+
+
+export const HTTPS = true

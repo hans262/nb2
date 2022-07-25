@@ -1,5 +1,5 @@
-import { Stats } from 'fs';
-import { IncomingMessage } from 'http'
+import { Stats } from 'node:fs';
+import { IncomingMessage } from 'node:http'
 /**
  * generate ETag
  * @param stats

@@ -1,6 +1,6 @@
-import { Stats } from "fs";
-import { IncomingMessage, ServerResponse } from "http";
-import { ParsedUrlQuery } from "querystring";
+import { Stats } from "node:fs";
+import { IncomingMessage, ServerResponse } from "node:http";
+import { ParsedUrlQuery } from "node:querystring";
 
 export class Context {
   stats?: Stats

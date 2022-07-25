@@ -1,5 +1,5 @@
-import { Context } from '../Interface/Context';
-import { DEBUG } from '../modules/logger';
+import { Context } from '../Interface/Context.js';
+import { DEBUG } from '../modules/logger.js';
 
 export function ResNotFound(ctx: Context) {
   const { absolutePath, relativePath, startTime,res } = ctx

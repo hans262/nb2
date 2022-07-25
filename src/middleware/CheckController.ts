@@ -1,8 +1,8 @@
-import { API_PREFIX } from '../configure';
-import CONTROLLER from '../controller';
-import { isMethod } from '../Interface/Controller';
-import { Middleware } from '../Interface/Middleware';
-import { DEBUG } from '../modules/logger';
+import { API_PREFIX } from '../configure/index.js';
+import CONTROLLER from '../controller/index.js';
+import { isMethod } from '../Interface/Controller.js';
+import { Middleware } from '../Interface/Middleware.js';
+import { DEBUG } from '../modules/logger.js';
 
 export const CheckController: Middleware = (ctx, next) => {
   const { req, relativePath, absolutePath, startTime } = ctx

@@ -1,9 +1,9 @@
-import { statSync, stat } from "fs";
-import { join } from 'path';
-import { INDEX_PAGE, ROOT } from "../configure";
-import { Context } from "../Interface/Context";
-import { ResVerify } from "./ResVerify";
-import { ResNotFound } from "./ResNotFound";
+import { statSync, stat } from "node:fs";
+import { join } from 'node:path';
+import { INDEX_PAGE, ROOT } from "../configure/index.js";
+import { Context } from "../Interface/Context.js";
+import { ResVerify } from "./ResVerify.js";
+import { ResNotFound } from "./ResNotFound.js";
 
 export function ResIndex(ctx: Context) {
   const INDEX_PATH: string = join(ROOT, INDEX_PAGE)

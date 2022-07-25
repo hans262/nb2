@@ -1,10 +1,10 @@
-import { Middleware } from '../Interface/Middleware';
-import { CheckController } from './CheckController';
-import { CheckLogin } from './CheckLogin';
-import { Static } from './Static';
-import { Mount } from './Mount';
-import { ResFavicon } from './ResFavicon';
-import { ProxyServer } from './ProxyServer';
+import { Middleware } from '../Interface/Middleware.js';
+import { CheckController } from './CheckController.js';
+import { CheckLogin } from './CheckLogin.js';
+import { Static } from './Static.js';
+import { Mount } from './Mount.js';
+import { ResFavicon } from './ResFavicon.js';
+import { ProxyServer } from './ProxyServer.js';
 
 const combineMiddleware = <T>(...middleware: T[]) => middleware
 

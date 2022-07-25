@@ -1,12 +1,12 @@
-import { join } from 'path';
-import { parse } from 'url';
-import { ROOT } from '../configure';
-import { Middleware } from '../Interface/Middleware';
-import { public_header } from '../common/public_header';
+import { join } from 'node:path';
+import { parse } from 'node:url';
+import { ROOT } from '../configure/index.js';
+import { Middleware } from '../Interface/Middleware.js';
+import { public_header } from '../common/public_header.js';
 
 export const Mount: Middleware = (ctx, next) => {
   const { url = '/', method } = ctx.req
-  
+
   //解析url
   const { pathname, query } = parse(url, true)
   //起始时间

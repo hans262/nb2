@@ -1,11 +1,11 @@
-import { Controller } from "../Interface/Controller";
-import { Context } from "../Interface/Context";
-import { parse, ParsedUrlQuery } from 'querystring';
-import { USER } from '../configure';
-import { Session } from '../Interface/Session';
-import { generate, KEY } from '../modules/Session';
-import { ResRedirect } from '../respond/ResRedirect';
-import { setCookie } from '../common/cookie';
+import { Controller } from "../Interface/Controller.js";
+import { Context } from "../Interface/Context.js";
+import { parse, ParsedUrlQuery } from 'node:querystring';
+import { USER } from '../configure/index.js';
+import { Session } from '../Interface/Session.js';
+import { generate, KEY } from '../modules/Session.js';
+import { ResRedirect } from '../respond/ResRedirect.js';
+import { setCookie } from '../common/cookie.js';
 
 export class GetToken implements Controller {
   readonly PATH_NAME: string = '/getToken'

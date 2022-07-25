@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "commonjs",
+    "module": "ESNext",
     "outDir": "./out",
     //保留map用于调试
     "sourceMap": true,
@@ -11,7 +11,8 @@
     "experimentalDecorators": true,
     //提升代码健壮性
     "strict": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "moduleResolution": "NodeNext"
   },
   "include": [
     "src"
