@@ -47,7 +47,7 @@ REPOSITORY_PATH="https://${ACCESS_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" &&
 if [ "$(git ls-remote --heads "$REPOSITORY_PATH" "$BRANCH" | wc -l)" -eq 0 ];
 then
   echo "Creating remote branch ${BRANCH} as it doesn't exist..."
-  git checkout "${BASE_BRANCH:-master}" && \
+  git checkout "${BASE_BRANCH:-main}" && \
   git checkout --orphan $BRANCH && \
   git rm -rf . && \
   touch README.md && \
@@ -63,7 +63,7 @@ then
 fi
 
 # Checks out the base branch to begin the deploy process.
-git checkout "${BASE_BRANCH:-master}" && \
+git checkout "${BASE_BRANCH:-main}" && \
 
 # Builds the project if a build script is provided.
 echo "Running build scripts... $BUILD_SCRIPT" && \
@@ -73,7 +73,7 @@ eval "$BUILD_SCRIPT" && \
 echo "Deploying to GitHub..." && \
 git add -f $FOLDER && \
 
-git commit -m "Deploying to ${BRANCH} from ${BASE_BRANCH:-master} ${GITHUB_SHA}" --quiet && \
+git commit -m "Deploying to ${BRANCH} from ${BASE_BRANCH:-main} ${GITHUB_SHA}" --quiet && \
 # 获取docs文件夹的hash值，只提交docs文件夹到branch分支
-git push $REPOSITORY_PATH `git subtree split --prefix $FOLDER ${BASE_BRANCH:-master}`:$BRANCH --force && \
+git push $REPOSITORY_PATH `git subtree split --prefix $FOLDER ${BASE_BRANCH:-main}`:$BRANCH --force && \
 echo "Deployment succesful!"
