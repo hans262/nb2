@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto';
 import { createServer, Socket } from 'node:net';
 import { decodeDataFrame, encodeDataFrame } from '../common/DataFrame.js';
 import { WEB_SOCKET_PORT } from '../configure/index.js';
-import { SocketHeader } from '../Interface/Headers.js';
+import { SocketHeader } from '../interface/Headers.js';
 import { bufferSplit } from '../modules/bufferSplit.js';
 
 const server = createServer()

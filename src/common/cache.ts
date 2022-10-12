@@ -1,26 +1,21 @@
 import { Stats } from 'node:fs';
 import { IncomingMessage } from 'node:http'
+
 /**
- * generate ETag
+ * 生成 ETags
  * @param stats
  */
-export function generateETag(stats: Stats): string {
-  const mtime: string = stats.mtime.getTime().toString(16)//16进制
+export function generateETag(stats: Stats) {
+  //文件最后修改时间的毫秒值，16进制
+  const mtime: string = stats.mtimeMs.toString(16)
   const size: string = stats.size.toString(16)
   return `W/"${mtime}-${size}"`
 }
 
 /**
- * check cache
- * @param req 
+ * etag缓存校验
  */
-export function isCache(req: IncomingMessage, stats: Stats): boolean {
-  const { headers } = req
-  const { mtime } = stats
-  const noneMatch: string | undefined = headers['if-none-match']//ETag
-  const lastModified: string | undefined = headers['if-modified-since'] //最后修改时间
-  if (!(noneMatch || lastModified)) return false
-  if (noneMatch !== generateETag(stats!)) return false
-  if (lastModified !== mtime.toUTCString()) return false
-  return true
+export function isCache(req: IncomingMessage, stats: Stats) {
+  const ifNoneMatch = req.headers['if-none-match'] //客户端ETag
+  return ifNoneMatch === generateETag(stats)
 }

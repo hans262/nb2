@@ -1,19 +1,23 @@
 import { extname } from 'node:path'
 
 /**
- * fetch mime type
+ * 获取mime类型
  * @param path 
  */
 export function mime(path: string): string {
-  let ext: string = extname(path).slice(1)
-  const type: string = MIME_TYPES[ext]
-  return type ? type : MIME_TYPES['txt']
+  const ext = extname(path).slice(1)
+  if (isMime(ext)) {
+    return MimeTypes[ext]
+  } else {
+    return MimeTypes['txt']
+  }
 }
 
-interface Mime {
-  readonly [name: string]: string
+function isMime(key: string): key is keyof typeof MimeTypes {
+  return Object.keys(MimeTypes).includes(key)
 }
-const MIME_TYPES: Mime = {
+
+export const MimeTypes = {
   "css": "text/css",
   "gif": "image/gif",
   "html": "text/html",
@@ -33,4 +37,4 @@ const MIME_TYPES: Mime = {
   "wmv": "video/x-ms-wmv",
   "xml": "text/xml",
   "unknown": "application/octet-stream"
-}
+} as const

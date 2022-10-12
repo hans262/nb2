@@ -1,4 +1,4 @@
-import { Context } from '../Interface/Context.js';
+import { Context } from '../interface/Context.js';
 import { DEBUG } from '../modules/logger.js';
 
 /**
@@ -11,7 +11,7 @@ export function ResRedirect(redirect: Redirect) {
   res.setHeader('Location', location)
   res.writeHead(code, reasonPhrase)
   res.end()
-  DEBUG({ type: 'REDIRECT', msg: absolutePath! + ' -> ' + location })
+  DEBUG({ type: 'REDIRECT', msg: absolutePath + ' -> ' + location })
 }
 
 export interface Redirect {

@@ -1,5 +1,5 @@
-import { Controller } from "../Interface/Controller.js";
-import { Context } from "../Interface/Context.js";
+import { Controller } from "../interface/Controller.js";
+import { Context } from "../interface/Context.js";
 
 export class LoginPage implements Controller {
   readonly PATH_NAME: string = '/login'
@@ -7,6 +7,7 @@ export class LoginPage implements Controller {
     const { res } = ctx
     res.setHeader('Content-Type', 'text/html; charset=utf-8')
     res.writeHead(200, 'OK')
+
     res.end(`
       <form action="/getToken" method="post">
         Username: <input type="text" name="username">

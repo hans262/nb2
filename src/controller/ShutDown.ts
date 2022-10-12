@@ -1,5 +1,5 @@
-import { Controller } from '../Interface/Controller.js';
-import { Context } from '../Interface/Context.js';
+import { Controller } from '../interface/Controller.js';
+import { Context } from '../interface/Context.js';
 import { SEND } from '../modules/logger.js';
 
 export class ShutDown implements Controller {

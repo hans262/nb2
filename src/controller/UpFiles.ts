@@ -1,6 +1,6 @@
 import { ServerResponse } from 'node:http';
-import { Controller } from '../Interface/Controller.js';
-import { Context } from '../Interface/Context.js';
+import { Controller } from '../interface/Controller.js';
+import { Context } from '../interface/Context.js';
 import { bufferSplit } from '../modules/bufferSplit.js';
 
 /**

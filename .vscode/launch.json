@@ -7,27 +7,6 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "CLUSTER",
-      "program": "${workspaceFolder}/src/cluster.ts",
-      "autoAttachChildProcesses": true,
-      "outFiles": [
-        "${workspaceFolder}/out/**/*.js"
-      ],
-      "outputCapture": "std"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "WORKER",
-      "program": "${workspaceFolder}/src/worker.ts",
-      "outFiles": [
-        "${workspaceFolder}/out/**/*.js"
-      ],
-      "outputCapture": "std"
-    },
-    {
-      "type": "node",
-      "request": "launch",
       "name": "WEB_SOCKET",
       "program": "${workspaceFolder}/src/service/WebSocket.ts",
       "outFiles": [
@@ -46,11 +25,23 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "TEST",
-      "program": "${workspaceFolder}/src/test.ts",
+      "name": "WORKER",
+      "program": "${workspaceFolder}/test/worker.ts",
       "outFiles": [
         "${workspaceFolder}/out/**/*.js"
-      ]
+      ],
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "CLUSTER",
+      "program": "${workspaceFolder}/test/cluster.ts",
+      "autoAttachChildProcesses": true,
+      "outFiles": [
+        "${workspaceFolder}/out/**/*.js"
+      ],
+      "outputCapture": "std"
     }
   ]
 }

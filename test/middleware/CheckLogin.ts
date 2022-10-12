@@ -1,10 +1,9 @@
-import { Middleware } from '../Interface/Middleware.js';
-import { Session } from '../Interface/Session.js';
-import { KEY, remove, reset, select } from '../modules/Session.js';
-import { ResRedirect } from '../respond/ResRedirect.js';
-import { getCookie, setCookie } from '../common/cookie.js';
-import { Context } from '../Interface/Context.js';
-import { LOGIN } from '../configure/index.js';
+import { Middleware } from '../../src/index.js';
+import { KEY, reset, tokens } from '../../src/modules/Token.js';
+import { ResRedirect } from '../../src/respond/ResRedirect.js';
+import { getCookie, setCookie } from '../../src/common/cookie.js';
+import { Context } from '../../src/interface/Context.js';
+import { LOGIN } from '../../src/configure/index.js';
 
 export const CheckLogin: Middleware = (ctx, next) => {
   if (!LOGIN) {
@@ -13,9 +12,9 @@ export const CheckLogin: Middleware = (ctx, next) => {
   }
 
   //排除不需要登录的接口
-  const { req: { method }, relativePath } = ctx
-  if ((method === 'GET' && relativePath === '/login') ||
-    (method === 'POST' && relativePath === '/getToken')
+  const { req: { method }, pathname } = ctx
+  if ((method === 'GET' && pathname === '/login') ||
+    (method === 'POST' && pathname === '/getToken')
   ) {
     next()
     return
@@ -30,19 +29,19 @@ export const CheckLogin: Middleware = (ctx, next) => {
 
 function isLogin(ctx: Context): boolean {
   const { req, res } = ctx
-  const id: string | null = getCookie(req, KEY)
+  const id = getCookie(req, KEY)
   //检查id
   if (!id) return false
   //查询
-  const ses: Session | undefined = select(id)
+  const token = tokens.get(id)
   //不存在
-  if (!ses) {
+  if (!token) {
     setCookie({ res, key: KEY, value: 'delete', expires: new Date(), httpOnly: true })
     return false
   }
   //超时
-  if (ses.expire < Date.now()) {
-    remove(id)
+  if (token.expire < Date.now()) {
+    tokens.delete(id)
     setCookie({ res, key: KEY, value: 'delete', expires: new Date(), httpOnly: true })
     return false
   }

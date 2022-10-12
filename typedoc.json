@@ -1,7 +1,7 @@
 {
   "out": "docs",
   "entryPoints": [
-    "src/service/Worker.ts"
+    "src/index.ts"
   ],
   "theme": "default",
   "includeVersion": true

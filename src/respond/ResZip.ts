@@ -2,7 +2,7 @@ import { createReadStream, ReadStream } from 'node:fs';
 import { DEBUG } from '../modules/logger.js';
 import { ZIP_TYPE } from '../common/zip.js';
 import { createGzip, createDeflate, Gzip, Deflate } from 'node:zlib';
-import { Context } from '../Interface/Context.js';
+import { Context } from '../interface/Context.js';
 
 export function ResZip(ctx: Context, zipType: ZIP_TYPE) {
   const { absolutePath, startTime, res } = ctx
@@ -11,7 +11,7 @@ export function ResZip(ctx: Context, zipType: ZIP_TYPE) {
   res.setHeader('Transfer-Encoding', 'chunked')
   res.removeHeader('Content-Length')
 
-  const stream: ReadStream = createReadStream(absolutePath!)
+  const stream: ReadStream = createReadStream(absolutePath)
   let zipstream: Gzip | Deflate;
 
   if (zipType === 'GZIP') {
@@ -25,6 +25,6 @@ export function ResZip(ctx: Context, zipType: ZIP_TYPE) {
   stream.pipe(zipstream).pipe(res)
   DEBUG({
     type: 'RES_ZIP',
-    msg: absolutePath! + ' +' + (Date.now() - startTime!) + 'ms'
+    msg: absolutePath + ' +' + (Date.now() - startTime) + 'ms'
   })
 }

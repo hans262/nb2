@@ -1,18 +1,17 @@
 import { extname } from 'path';
 import { ZIP_MATCH } from '../configure/index.js';
-import { Context } from "../Interface/Context.js";
+import { Context } from "../interface/Context.js";
 
 /**
- * check zip
- * @param req 
- * @param res 
+ * 获取可以压缩的文件类型
+ * @param ctx
  */
 export function getZipType(ctx: Context): ZIP_TYPE | null {
   const { absolutePath, req } = ctx
-  const type: string = extname(absolutePath!)
+  const type: string = extname(absolutePath)
 
   //检查是否在压缩范围
-  const matched: RegExpMatchArray | null = type.match(ZIP_MATCH)
+  const matched = type.match(ZIP_MATCH)
   if (!matched) return null
 
   //检查客户端支持的压缩类型

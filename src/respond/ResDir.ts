@@ -3,29 +3,29 @@ import { join } from 'node:path';
 import { INDEX_PAGE } from '../configure/index.js';
 import { DEBUG } from '../modules/logger.js';
 import { ResStatic } from './ResStatic.js';
-import { ResNotFound } from './ResNotFound.js';
-import { Context } from '../Interface/Context.js';
+import { Res404 } from './Res404.js';
+import { Context } from '../interface/Context.js';
 
 export function ResDir(ctx: Context) {
-  const { absolutePath, relativePath, startTime, res } = ctx
+  const { absolutePath, pathname, startTime, res } = ctx
   let dirents: Array<Dirent>
   try {
-    dirents = readdirSync(absolutePath!, {
+    dirents = readdirSync(absolutePath, {
       withFileTypes: true
     })
   } catch (error: any) {
     DEBUG({ type: 'ERROR', msg: error.message })
-    return ResNotFound(ctx)
+    return Res404(ctx, error.message)
   }
   if (dirents.find(d => d.name === INDEX_PAGE)) {
     //index存在
-    ctx.setAbsolutePath(join(absolutePath!, INDEX_PAGE))
+    ctx.setAbsolutePath(join(absolutePath, INDEX_PAGE))
     return ResStatic(ctx)
   }
-  let content: string = `<h1>Index of ${relativePath}</h1>`
+  let content: string = `<h1>目录 ${pathname}</h1>`
   dirents.forEach(dirent => {
     let { name } = dirent
-    let href: string = join(relativePath!, name)
+    let href: string = join(pathname, name)
     if (dirent.isDirectory()) {
       href += '/'
       name += '/'
@@ -37,6 +37,6 @@ export function ResDir(ctx: Context) {
   res.end(content)
   DEBUG({
     type: 'RES_DIR',
-    msg: absolutePath! + ' +' + (Date.now() - startTime!) + 'ms'
+    msg: absolutePath + ' +' + (Date.now() - startTime) + 'ms'
   })
 }

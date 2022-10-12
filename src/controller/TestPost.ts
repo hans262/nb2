@@ -1,5 +1,5 @@
-import { Controller } from "../Interface/Controller.js";
-import { Context } from "../Interface/Context.js";
+import { Controller } from "../interface/Controller.js";
+import { Context } from "../interface/Context.js";
 
 export class TestPost implements Controller {
 	readonly PATH_NAME: string = '/api/post'

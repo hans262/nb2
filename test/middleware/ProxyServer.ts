@@ -1,8 +1,8 @@
 import * as http from "node:http";
 import * as https from "node:https";
 import { parse } from "node:url";
-import { proxyConfig } from "../configure/index.js";
-import { Middleware } from "../Interface/Middleware.js";
+import { proxyConfig } from "../../src/configure/index.js";
+import { Middleware } from "../../src/index.js";
 
 /**
  * 代理中间件
@@ -11,9 +11,9 @@ import { Middleware } from "../Interface/Middleware.js";
  * @param next 
  */
 export const ProxyServer: Middleware = (ctx, next) => {
-  const { req, relativePath, res } = ctx
+  const { req, pathname, res } = ctx
   const { method } = req
-  const cf = Object.entries(proxyConfig).find(v => relativePath!.match(
+  const cf = Object.entries(proxyConfig).find(v => pathname.match(
     new RegExp(`^(${v[0]}|${v[0]}\/.*)$`)
   ))
   if (!cf) return next()

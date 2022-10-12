@@ -2,12 +2,16 @@ import cluster from 'node:cluster';
 import { cpus } from 'node:os';
 import { CLUSTER, PORT } from '../configure/index.js';
 import { DEBUG } from '../modules/logger.js';
-import { ACTION } from '../Interface/Message.js';
+import { ACTION } from '../interface/Message.js';
+import {
+  CheckController, CheckLogin, Mounted,
+  ProxyServer, ResFavicon, Static
+} from '../../test/middleware/index.js';
 
 function MASTER() {
   DEBUG({ type: 'MASTER_STARTUP', msg: `Nicest version: 4.2.0` })
   CLUSTER ? cpus().forEach(() => cluster.fork()) : cluster.fork()
-  
+
   //监控子进程发来的消息
   cluster.on('message', (_, action: ACTION) => {
     const { type } = action
@@ -52,6 +56,16 @@ export async function RUN_CLUSTER() {
   } else {
     const { Nicest } = await import('./Worker.js')
     const nicest = new Nicest()
-    nicest.listen(PORT)
+
+    nicest.use(
+      Mounted,
+      ResFavicon,
+      ProxyServer,
+      CheckLogin,
+      CheckController,
+      Static
+    )
+
+    nicest.run(PORT)
   }
 }
