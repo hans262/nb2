@@ -3,10 +3,11 @@ import { cpus } from 'node:os';
 import { CLUSTER, PORT } from '../configure/index.js';
 import { DEBUG } from '../modules/logger.js';
 import { ACTION } from '../interface/Message.js';
+
 import {
-  CheckController, CheckLogin, Mounted,
-  ProxyServer, ResFavicon, Static
-} from '../../test/middleware/index.js';
+  checkController, checkAuth, mounted,
+  proxy, favicon, statics
+} from '../middleware/index.js';
 
 function MASTER() {
   DEBUG({ type: 'MASTER_STARTUP', msg: `Nicest version: 4.2.0` })
@@ -54,16 +55,16 @@ export async function RUN_CLUSTER() {
   if (cluster.isPrimary) {
     MASTER()
   } else {
-    const { Nicest } = await import('./Worker.js')
+    const { Nicest } = await import('./Nicest.js')
     const nicest = new Nicest()
 
     nicest.use(
-      Mounted,
-      ResFavicon,
-      ProxyServer,
-      CheckLogin,
-      CheckController,
-      Static
+      mounted,
+      favicon,
+      proxy,
+      checkAuth,
+      checkController,
+      statics
     )
 
     nicest.run(PORT)

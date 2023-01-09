@@ -5,13 +5,13 @@ import { createGzip, createDeflate, Gzip, Deflate } from 'node:zlib';
 import { Context } from '../interface/Context.js';
 
 export function ResZip(ctx: Context, zipType: ZIP_TYPE) {
-  const { absolutePath, startTime, res } = ctx
+  const { staticPath, startTime, res } = ctx
   //数据需要压缩，分块传输，所以无法得知数据体的真实大小
   //所有要删除Content-Length属性
   res.setHeader('Transfer-Encoding', 'chunked')
   res.removeHeader('Content-Length')
 
-  const stream: ReadStream = createReadStream(absolutePath)
+  const stream: ReadStream = createReadStream(staticPath)
   let zipstream: Gzip | Deflate;
 
   if (zipType === 'GZIP') {
@@ -25,6 +25,6 @@ export function ResZip(ctx: Context, zipType: ZIP_TYPE) {
   stream.pipe(zipstream).pipe(res)
   DEBUG({
     type: 'RES_ZIP',
-    msg: absolutePath + ' +' + (Date.now() - startTime) + 'ms'
+    msg: staticPath + ' +' + (Date.now() - startTime) + 'ms'
   })
 }

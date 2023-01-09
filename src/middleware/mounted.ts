@@ -1,6 +1,6 @@
 import { Middleware, CROSS } from '../../src/index.js';
 
-export const Mounted: Middleware = (ctx, next) => {
+export const mounted: Middleware = (ctx, next) => {
   const { res } = ctx
   //设置公共header
 

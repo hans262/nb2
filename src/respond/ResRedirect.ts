@@ -7,11 +7,11 @@ import { DEBUG } from '../modules/logger.js';
  */
 export function ResRedirect(redirect: Redirect) {
   const { ctx, location, code, reasonPhrase } = redirect
-  const { absolutePath, res } = ctx
+  const { staticPath, res } = ctx
   res.setHeader('Location', location)
   res.writeHead(code, reasonPhrase)
   res.end()
-  DEBUG({ type: 'REDIRECT', msg: absolutePath + ' -> ' + location })
+  DEBUG({ type: 'REDIRECT', msg: staticPath + ' -> ' + location })
 }
 
 export interface Redirect {

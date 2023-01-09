@@ -10,7 +10,7 @@ import { ResZip } from './ResZip.js';
 import { Stats } from 'node:fs';
 
 export function ResVerify(ctx: Context, stats: Stats) {
-  const { absolutePath, res, req } = ctx
+  const { staticPath, res, req } = ctx
   /**
    * 实际应用中的缓存策略
    * 更改频繁的文件，采取协商缓存，Cache-Control: no-cache
@@ -25,7 +25,7 @@ export function ResVerify(ctx: Context, stats: Stats) {
   if (isCache(req, stats)) return ResCache(ctx)
 
   //mime类型
-  res.setHeader('Content-Type', mime(absolutePath) + '; charset=utf-8')
+  res.setHeader('Content-Type', mime(staticPath) + '; charset=utf-8')
   //内容大小
   res.setHeader('Content-Length', stats.size)
 

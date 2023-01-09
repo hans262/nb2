@@ -1,7 +1,8 @@
 import { Context } from "../interface/Context.js"
+import { Method } from "../interface/Controller.js"
 
 export const checkReqest = (ctx: Context, opt: {
-  method?: 'GET' | 'POST' | 'OPTIONS',
+  method?: Method,
   url?: string
 }) => {
   if (opt.method && opt.url) {

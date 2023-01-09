@@ -1,11 +1,11 @@
-import { Middleware } from '../../src/index.js';
-import { KEY, reset, tokens } from '../../src/modules/Token.js';
-import { ResRedirect } from '../../src/respond/ResRedirect.js';
-import { getCookie, setCookie } from '../../src/common/cookie.js';
-import { Context } from '../../src/interface/Context.js';
-import { LOGIN } from '../../src/configure/index.js';
+import { Middleware } from '../index.js';
+import { KEY, reset, tokens } from '../modules/Token.js';
+import { ResRedirect } from '../respond/ResRedirect.js';
+import { getCookie, setCookie } from '../common/cookie.js';
+import { Context } from '../interface/Context.js';
+import { LOGIN } from '../configure/index.js';
 
-export const CheckLogin: Middleware = (ctx, next) => {
+export const checkAuth: Middleware = (ctx, next) => {
   if (!LOGIN) {
     next()
     return

@@ -3,12 +3,12 @@ import { Context } from "../interface/Context.js";
 import { DEBUG } from '../modules/logger.js';
 
 export function ResFile(ctx: Context) {
-  const { absolutePath, startTime, res } = ctx
-  const stream = createReadStream(absolutePath)
+  const { staticPath, startTime, res } = ctx
+  const stream = createReadStream(staticPath)
   res.writeHead(200, 'Responed file')
   stream.pipe(res)
   DEBUG({
     type: 'RES_FILE',
-    msg: absolutePath + ' +' + (Date.now() - startTime) + 'ms'
+    msg: staticPath + ' +' + (Date.now() - startTime) + 'ms'
   })
 }

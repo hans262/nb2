@@ -5,7 +5,7 @@ import { Res404 } from './Res404.js';
 import { ResVerify } from './ResVerify.js';
 
 export function ResStatic(ctx: Context) {
-  stat(ctx.absolutePath, (err, stats) => {
+  stat(ctx.staticPath, (err, stats) => {
     if (err) {
       return Res404(ctx)
     }

@@ -6,6 +6,7 @@ export class TestGet implements Controller {
 	GET(ctx: Context) {
 		const { url: { searchParams }, res } = ctx
 		res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' })
-		res.end(searchParams.toString())
+		console.log(searchParams)
+		res.end(JSON.stringify({ a: 1, b: 2 }))
 	}
 }

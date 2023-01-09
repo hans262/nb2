@@ -1,9 +1,10 @@
 import {
   Middleware,
-  FAVION_PATH, ResStatic
+  FAVION_PATH
 } from "../../src/index.js";
+import { ResStatic } from "../respond/ResStatic.js";
 
-export const ResFavicon: Middleware = (ctx, next) => {
+export const favicon: Middleware = (ctx, next) => {
   const { pathname, req } = ctx
   const { method } = req
   if (method === 'GET' && pathname === '/favicon.ico') {

@@ -5,6 +5,7 @@
 export function encodeBase64(arg: string): string {
   return Buffer.from(arg).toString('base64')
 }
+
 /**
  * base64 decode
  * @param arg 

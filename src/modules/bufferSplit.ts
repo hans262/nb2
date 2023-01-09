@@ -8,10 +8,10 @@ export function bufferSplit(buffer: Buffer, spl: string): Array<Buffer> {
   let offset: number = 0
   let index: number = 0
   while ((index = buffer.indexOf(spl, offset)) !== -1) {
-    result.push(buffer.slice(offset, index))
+    result.push(buffer.subarray(offset, index))
     offset = index + spl.length
   }
-  result.push(buffer.slice(offset))
+  result.push(buffer.subarray(offset))
   return result.filter(b => b.byteLength)
 }
 

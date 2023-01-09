@@ -7,8 +7,8 @@ import { Context } from "../interface/Context.js";
  * @param ctx
  */
 export function getZipType(ctx: Context): ZIP_TYPE | null {
-  const { absolutePath, req } = ctx
-  const type: string = extname(absolutePath)
+  const { staticPath, req } = ctx
+  const type: string = extname(staticPath)
 
   //检查是否在压缩范围
   const matched = type.match(ZIP_MATCH)

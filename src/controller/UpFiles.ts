@@ -2,6 +2,9 @@ import { ServerResponse } from 'node:http';
 import { Controller } from '../interface/Controller.js';
 import { Context } from '../interface/Context.js';
 import { bufferSplit } from '../modules/bufferSplit.js';
+import { writeFileSync } from 'node:fs';
+import { PUBLIC_PATH } from '../index.js';
+import { join } from 'node:path';
 
 /**
  * file uoload
@@ -54,7 +57,7 @@ export class UpFiles implements Controller {
         return this.resError(res, '类容为空')
       }
       //去掉首尾
-      const temp: Buffer = buffers.slice(
+      const temp: Buffer = buffers.subarray(
         startBoundary.byteLength,
         - endBoundary.byteLength
       )
@@ -66,19 +69,20 @@ export class UpFiles implements Controller {
         let type: 'file' | 'data'
         let offset: number = 0, index: number = 0
         index = buf.indexOf('\r\n', offset)
-        const oneLine: string = buf.slice(offset, index).toString()
+        const oneLine: string = buf.subarray(offset, index).toString()
         offset = index + 2
         index = buf.indexOf('\r\n', offset)
-        const twoLine: string = buf.slice(offset, index).toString()
+        const twoLine: string = buf.subarray(offset, index).toString()
 
         //判断是否是文件，文件多一行content-type
         offset = twoLine.length ? index + 2 + 2 : index + 2
         type = twoLine.length ? 'file' : 'data'
 
-        const formData: Buffer = buf.slice(offset)
+        const formData: Buffer = buf.subarray(offset)
         result.push({ oneLine, type, twoLine, formData, byteLength: formData.byteLength })
       }
-      console.log(result)
+      console.log(result[0])
+      writeFileSync(join(PUBLIC_PATH, '/aa.jpg'), result[0].formData)
       this.resOk(res, '上传成功')
     })
   }

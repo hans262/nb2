@@ -5,7 +5,7 @@ import { DEBUG } from '../modules/logger.js';
 import { ResStatic } from './ResStatic.js';
 
 export function Res404(ctx: Context, reason?: string) {
-  const { absolutePath, pathname, startTime, res } = ctx
+  const { staticPath, pathname, startTime, res } = ctx
 
   if (REACT_APP) {
     const reactIndexPath = join(STATIC_PATH, INDEX_PAGE)
@@ -21,6 +21,6 @@ export function Res404(ctx: Context, reason?: string) {
   `)
   DEBUG({
     type: 'RES_404',
-    msg: absolutePath + ' +' + (Date.now() - startTime) + 'ms'
+    msg: staticPath + ' +' + (Date.now() - startTime) + 'ms'
   })
 }

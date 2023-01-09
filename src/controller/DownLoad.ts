@@ -6,7 +6,6 @@ import { PUBLIC_PATH } from '../common/path.js';
 
 export class DownLoad implements Controller {
   readonly PATH_NAME: string = '/api/download'
-  static method: string[] = ['POST'];
   POST(ctx: Context) {
     const file: string = 'ajax.js'
     const filename: string = join(PUBLIC_PATH, file)
@@ -16,7 +15,6 @@ export class DownLoad implements Controller {
     reader.pipe(ctx.res)
   }
 }
-
 
 /*
   前端代码

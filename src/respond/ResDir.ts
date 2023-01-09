@@ -7,10 +7,10 @@ import { Res404 } from './Res404.js';
 import { Context } from '../interface/Context.js';
 
 export function ResDir(ctx: Context) {
-  const { absolutePath, pathname, startTime, res } = ctx
+  const { staticPath, pathname, startTime, res } = ctx
   let dirents: Array<Dirent>
   try {
-    dirents = readdirSync(absolutePath, {
+    dirents = readdirSync(staticPath, {
       withFileTypes: true
     })
   } catch (error: any) {
@@ -19,7 +19,7 @@ export function ResDir(ctx: Context) {
   }
   if (dirents.find(d => d.name === INDEX_PAGE)) {
     //index存在
-    ctx.setAbsolutePath(join(absolutePath, INDEX_PAGE))
+    ctx.setAbsolutePath(join(staticPath, INDEX_PAGE))
     return ResStatic(ctx)
   }
   let content: string = `<h1>目录 ${pathname}</h1>`
@@ -37,6 +37,6 @@ export function ResDir(ctx: Context) {
   res.end(content)
   DEBUG({
     type: 'RES_DIR',
-    msg: absolutePath + ' +' + (Date.now() - startTime) + 'ms'
+    msg: staticPath + ' +' + (Date.now() - startTime) + 'ms'
   })
 }

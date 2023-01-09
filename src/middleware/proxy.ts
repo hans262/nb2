@@ -10,7 +10,7 @@ import { Middleware } from "../../src/index.js";
  * @param res 
  * @param next 
  */
-export const ProxyServer: Middleware = (ctx, next) => {
+export const proxy: Middleware = (ctx, next) => {
   const { req, pathname, res } = ctx
   const { method } = req
   const cf = Object.entries(proxyConfig).find(v => pathname.match(

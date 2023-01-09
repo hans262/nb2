@@ -1,10 +1,10 @@
-import CONTROLLER from '../../src/controller/index.js';
-import { isMethod } from '../../src/interface/Controller.js';
-import { Middleware } from '../../src/index.js';
-import { DEBUG } from '../../src/modules/logger.js';
+import CONTROLLER from '../controller/index.js';
+import { isMethod } from '../interface/Controller.js';
+import { Middleware } from '../index.js';
+import { DEBUG } from '../modules/logger.js';
 
-export const CheckController: Middleware = (ctx, next) => {
-  const { req, pathname, absolutePath, startTime } = ctx
+export const checkController: Middleware = (ctx, next) => {
+  const { req, pathname, staticPath, startTime } = ctx
   const { method } = req
   if (!method || !pathname) return next()
   if (!isMethod(method)) return next()
@@ -24,6 +24,6 @@ export const CheckController: Middleware = (ctx, next) => {
 
   DEBUG({
     type: 'CONTROLLER',
-    msg: absolutePath + ' +' + (Date.now() - startTime) + 'ms'
+    msg: staticPath + ' +' + (Date.now() - startTime) + 'ms'
   })
 }
