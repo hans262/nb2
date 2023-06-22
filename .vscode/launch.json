@@ -42,12 +42,6 @@
         "${workspaceFolder}/out/**/*.js"
       ],
       "outputCapture": "std"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "TEST",
-      "program": "${workspaceFolder}/test/index.ts",
     }
   ]
 }

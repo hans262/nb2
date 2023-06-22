@@ -1,7 +1,6 @@
 {
   "name": "nicest",
   "version": "4.2.0",
-  "description": "Configurable engineering container service is implemented by Node V8.",
   "scripts": {
     "start": "node out/worker.js",
     "cluster": "node out/cluster.js",
@@ -12,14 +11,10 @@
     "doc": "typedoc --options ./typedoc.json"
   },
   "type": "module",
-  "author": "hans",
-  "license": "MIT",
   "dependencies": {
-    "mysql": "^2.18.1",
-    "openai": "^3.1.0"
+    "mysql2": "^3.4.0"
   },
   "devDependencies": {
-    "@types/mysql": "^2.15.21",
     "@types/node": "^18.8.4",
     "typedoc": "^0.23.16",
     "typescript": "^4.8.4"
