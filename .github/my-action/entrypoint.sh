@@ -25,15 +25,11 @@ case "$FOLDER" in /*|./*)
   exit 1
 esac
 
-# Installs Git and jq.
-apt-get update && \
-apt-get install -y git && \
 
-# Directs the action to the the Github workspace.
+# 进入工作目录
 cd $GITHUB_WORKSPACE && \
 
-# Configures Git.
-git init && \
+# 配置 Git.
 git config --global user.email 771565119@qq.com && \
 git config --global user.name Hans && \
 
@@ -62,18 +58,18 @@ then
   fi
 fi
 
-# Checks out the base branch to begin the deploy process.
-git checkout "${BASE_BRANCH:-master}" && \
+# 切换到主分支
+git checkout $BASE_BRANCH && \
 
 # Builds the project if a build script is provided.
-echo "Running build scripts... $BUILD_SCRIPT" && \
+echo "执行脚本 $BUILD_SCRIPT" && \
 eval "$BUILD_SCRIPT" && \
 
-# Commits the data to Github.
-echo "Deploying to GitHub..." && \
+# git 提交
+echo "提交git" && \
 git add -f $FOLDER && \
+git commit -m "Deploying to ${BRANCH} from $BASE_BRANCH ${GITHUB_SHA}" --quiet && \
 
-git commit -m "Deploying to ${BRANCH} from ${BASE_BRANCH:-master} ${GITHUB_SHA}" --quiet && \
 # 获取docs文件夹的hash值，只提交docs文件夹到branch分支
-git push $REPOSITORY_PATH `git subtree split --prefix $FOLDER ${BASE_BRANCH:-master}`:$BRANCH --force && \
-echo "Deployment succesful!"
+git push $REPOSITORY_PATH `git subtree split --prefix $FOLDER $BASE_BRANCH`:$BRANCH --force && \
+echo "发布成功"

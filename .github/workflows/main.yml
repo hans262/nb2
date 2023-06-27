@@ -8,12 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@master
+      uses: actions/checkout@v3
 
-    - name: Run build
-      uses: ./.github/action-deploy-doc
+    - name: build
+      uses: ./.github/my-action
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: gh-pages
         FOLDER: docs
         BUILD_SCRIPT: npm install && npm run doc
+        BASE_BRANCH: master
