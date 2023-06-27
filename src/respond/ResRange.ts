@@ -1,5 +1,5 @@
 import { createReadStream, ReadStream, Stats } from 'node:fs';
-import { DEBUG } from '../modules/logger.js';
+import { DEBUG } from '../common/logger.js';
 import { parseRange, Range } from '../common/Range.js';
 import { Context } from '../interface/Context.js';
 

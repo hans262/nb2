@@ -1,16 +1,7 @@
-import { Middleware } from '../index.js';
-import { KEY, reset, tokens } from '../modules/Token.js';
-import { ResRedirect } from '../respond/ResRedirect.js';
-import { getCookie, setCookie } from '../common/cookie.js';
-import { Context } from '../interface/Context.js';
-import { LOGIN } from '../configure/index.js';
+import { Middleware, handleRedirect, Context, getCookie, setCookie } from '../../src/index.js';
+import { KEY, reset, tokens } from '../token.js';
 
 export const checkAuth: Middleware = (ctx, next) => {
-  if (!LOGIN) {
-    next()
-    return
-  }
-
   //排除不需要登录的接口
   const { req: { method }, pathname } = ctx
   if ((method === 'GET' && pathname === '/login') ||
@@ -21,7 +12,7 @@ export const checkAuth: Middleware = (ctx, next) => {
   }
 
   if (!isLogin(ctx)) {
-    ResRedirect({ ctx, location: '/login', code: 302, reasonPhrase: 'temporarily moved' })
+    handleRedirect({ ctx, location: '/login', code: 302, reasonPhrase: 'temporarily moved' })
   } else {
     next()
   }

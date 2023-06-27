@@ -1,5 +1,5 @@
 import { Context } from '../interface/Context.js';
-import { DEBUG } from '../modules/logger.js';
+import { DEBUG } from '../common/logger.js';
 
 export function ResCache(ctx: Context) {
   const { staticPath, startTime, res } = ctx

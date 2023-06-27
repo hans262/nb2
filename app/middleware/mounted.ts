@@ -1,7 +1,9 @@
-import { Middleware, CROSS } from '../../src/index.js';
+import { Middleware } from '../../src/index.js';
+import { CROSS } from '../constant.js';
 
 export const mounted: Middleware = (ctx, next) => {
   const { res } = ctx
+  
   //设置公共header
 
   //服务器相关信息

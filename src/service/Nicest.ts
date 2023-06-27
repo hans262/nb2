@@ -1,20 +1,33 @@
-import { HOST } from '../configure/index.js';
 import { Middleware } from '../interface/index.js';
 import { Context } from '../interface/Context.js';
-import { DEBUG } from '../modules/logger.js';
+import { DEBUG } from '../common/logger.js';
 import { IncomingMessage, ServerResponse, Server, createServer as createServerHttp } from 'node:http';
 import { createServer as createServerHttps } from 'node:https';
-import { MimeTypes } from '../common/mime.js';
+import { handleController } from '../middleware/handleController.js';
+import { handleStatic } from '../middleware/handleStatic.js';
+import { handle404 } from '../middleware/handle404.js';
+import { Controller } from '../index.js';
 
-interface NicestOpt {
+export interface NicestOpt {
+  /**ip地址 */
+  host: string
+  /**端口 */
+  port: number
+  /**https配置 */
   https?: { key: Buffer, cert: Buffer }
+  /**是否让前端处理路由，以适应react应用的history路由模式 */
+  frontRoute?: boolean
+  /**静态资源根目录 */
+  staticRoot?: string
 }
 
 export class Nicest {
   server: Server
+  /**中间件集合 */
   middlewares: Middleware[] = []
-  
-  constructor(opt: NicestOpt = {}) {
+  /**控制器集合 */
+  controllers: Controller[] = []
+  constructor(public opt: NicestOpt) {
     const { https } = opt
     this.server = https ? createServerHttps(https, this.handler) : createServerHttp(this.handler)
 
@@ -37,26 +50,45 @@ export class Nicest {
         return
     }
   }
+  /**
+   * 安装控制器
+   * @param c 控制器
+   */
+  useControllers(c: Controller[]) {
+    this.controllers = this.controllers.concat(c)
+  }
 
+  /**
+   * 安装中间件
+   * @param m 中间件
+   */
   use(...m: Middleware[]) {
     this.middlewares = this.middlewares.concat(m)
   }
 
-  run(p: number) {
-    this.server.listen(p, HOST, () => {
-      DEBUG({ type: 'WORKER_STARTUP', msg: `port: ${p}` })
+  /**
+   * 启动服务
+   */
+  run() {
+    //安装默认的中间件
+    this.use(handleController(this.controllers))
+    //有静态目录才安装该中间件
+    if (this.opt.staticRoot) {
+      this.use(handleStatic)
+    }
+
+    this.server.listen(this.opt.port, this.opt.host, () => {
+      DEBUG({ type: 'WORKER_STARTUP', msg: `port: ${this.opt.port}` })
     })
   }
 
   private handler = (req: IncomingMessage, res: ServerResponse) => {
-    const ctx = new Context(req, res)
+    const ctx = new Context(req, res, this.opt)
     let i = 0
     const next = (): void => {
       const middleware = this.middlewares[i++]
       if (!middleware) {
-        res.writeHead(404, { 'Content-Type': MimeTypes['txt'] + '; charset=utf-8' })
-        res.end('Not Found')
-        return
+        return handle404(ctx)
       }
       try {
         middleware(ctx, next)

@@ -1,6 +1,6 @@
-import { Controller } from '../interface/Controller.js';
-import { Context } from '../interface/Context.js';
-import { SEND } from '../modules/logger.js';
+import { Controller } from '../../src/interface/Controller.js';
+import { Context } from '../../src/interface/Context.js';
+import { SEND } from '../../src/common/logger.js';
 
 export class ShutDown implements Controller {
 	readonly PATH_NAME:string = '/api/shutdown'

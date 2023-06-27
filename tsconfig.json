@@ -3,18 +3,15 @@
     "target": "ESNext",
     "module": "ESNext",
     "outDir": "./out",
-    //保留map用于调试
+    //用于调试
     "sourceMap": true,
     //删除注释
     "removeComments": true,
-    //装饰器
-    "experimentalDecorators": true,
-    //提升代码健壮性
+    //严格模式
     "strict": true,
-    "emitDecoratorMetadata": true,
     "moduleResolution": "NodeNext"
   },
   "include": [
-    "src", "test"
+    "src", "app"
   ]
 }

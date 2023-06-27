@@ -1,5 +1,5 @@
 import { createServer, Socket } from 'node:net'
-import { SOCKET_SERVER_PORT } from '../configure/index.js';
+import { SOCKET_SERVER_PORT } from '../common/config.js';
 
 function RUN(): void {
   //当前已连接的

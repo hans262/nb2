@@ -1,13 +1,12 @@
 import { Dirent, readdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { INDEX_PAGE } from '../configure/index.js';
-import { DEBUG } from '../modules/logger.js';
-import { ResStatic } from './ResStatic.js';
-import { Res404 } from './Res404.js';
+import { DEBUG } from '../common/logger.js';
+import { resStatic } from './resStatic.js';
 import { Context } from '../interface/Context.js';
+import { handle404 } from '../middleware/handle404.js';
 
 export function ResDir(ctx: Context) {
-  const { staticPath, pathname, startTime, res } = ctx
+  const { staticPath, pathname, startTime, res, indexPageName } = ctx
   let dirents: Array<Dirent>
   try {
     dirents = readdirSync(staticPath, {
@@ -15,12 +14,12 @@ export function ResDir(ctx: Context) {
     })
   } catch (error: any) {
     DEBUG({ type: 'ERROR', msg: error.message })
-    return Res404(ctx, error.message)
+    return handle404(ctx, error.message)
   }
-  if (dirents.find(d => d.name === INDEX_PAGE)) {
+  if (dirents.find(d => d.name === indexPageName)) {
     //index存在
-    ctx.setAbsolutePath(join(staticPath, INDEX_PAGE))
-    return ResStatic(ctx)
+    ctx.setStaticPath(join(staticPath, indexPageName))
+    return resStatic(ctx)
   }
   let content: string = `<h1>目录 ${pathname}</h1>`
   dirents.forEach(dirent => {

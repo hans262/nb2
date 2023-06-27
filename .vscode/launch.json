@@ -25,8 +25,9 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "WORKER",
-      "program": "${workspaceFolder}/src/service/worker.ts",
+      "name": "CLUSTER",
+      "program": "${workspaceFolder}/src/service/cluster.ts",
+      "autoAttachChildProcesses": true,
       "outFiles": [
         "${workspaceFolder}/out/**/*.js"
       ],
@@ -35,13 +36,12 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "CLUSTER",
-      "program": "${workspaceFolder}/src/service/cluster.ts",
-      "autoAttachChildProcesses": true,
+      "name": "APP",
+      "program": "${workspaceFolder}/app/index.ts",
       "outFiles": [
         "${workspaceFolder}/out/**/*.js"
       ],
       "outputCapture": "std"
-    }
+    },
   ]
 }

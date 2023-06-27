@@ -1,4 +1,4 @@
-import { CACHE_MAX_AGE } from '../configure/index.js';
+import { CACHE_MAX_AGE } from '../common/config.js';
 import { Context } from '../interface/Context.js';
 import { generateETag, isCache } from '../common/cache.js';
 import { mime } from '../common/mime.js';

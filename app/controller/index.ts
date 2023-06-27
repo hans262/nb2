@@ -1,4 +1,4 @@
-import { Controller } from '../interface/Controller.js';
+import { combineController } from '../../src/index.js';
 import { DownLoad } from './DownLoad.js';
 import { GetToken } from './GetToken.js';
 import { LoginPage } from './LoginPage.js';
@@ -10,9 +10,7 @@ import { TestPost } from './TestPost.js';
 import { TestRand } from './TestRand.js';
 import { UpFiles } from './UpFiles.js';
 
-const combineController = (...clazz: { new(): Controller }[]) => clazz.map(c => new c())
-
-const CONTROLLER = combineController(
+const Controllers = combineController(
   DownLoad,
   Restart,
   ShutDown,
@@ -25,4 +23,4 @@ const CONTROLLER = combineController(
   GetToken
 )
 
-export default CONTROLLER
+export default Controllers

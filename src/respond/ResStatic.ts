@@ -1,13 +1,13 @@
 import { stat } from 'node:fs';
 import { Context } from '../interface/Context.js';
 import { ResDir } from './ResDir.js';
-import { Res404 } from './Res404.js';
 import { ResVerify } from './ResVerify.js';
+import { handle404 } from '../middleware/handle404.js';
 
-export function ResStatic(ctx: Context) {
+export function resStatic(ctx: Context) {
   stat(ctx.staticPath, (err, stats) => {
     if (err) {
-      return Res404(ctx)
+      return handle404(ctx)
     }
 
     if (stats.isDirectory()) {

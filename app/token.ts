@@ -1,5 +1,5 @@
-import { TOKEN_EXPIRES } from '../configure/index.js';
-import { Token, TokenStore } from '../interface/Token.js';
+import { TOKEN_EXPIRES } from './constant.js';
+import { Token, TokenStore } from './interface.js';
 
 /**
  * token仓库

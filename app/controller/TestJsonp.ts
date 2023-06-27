@@ -1,5 +1,5 @@
-import { Controller } from "../interface/Controller.js";
-import { Context } from "../interface/Context.js";
+import { Controller } from "../../src/interface/Controller.js";
+import { Context } from "../../src/interface/Context.js";
 
 export class TestJsonp implements Controller {
 	readonly PATH_NAME: string = '/api/jsonp'

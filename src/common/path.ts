@@ -12,4 +12,3 @@ const __dirname = dirname(__filename);
 export const ROOT: string = __dirname.split('out')[0]
 export const LOGS_PATH: string = join(ROOT, '/logs')
 export const PUBLIC_PATH: string = join(ROOT, '/public')
-export const FAVION_PATH: string = join(PUBLIC_PATH, '/favicon.ico')

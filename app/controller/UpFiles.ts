@@ -1,9 +1,9 @@
 import { ServerResponse } from 'node:http';
-import { Controller } from '../interface/Controller.js';
-import { Context } from '../interface/Context.js';
-import { bufferSplit } from '../modules/bufferSplit.js';
+import { Controller } from '../../src/interface/Controller.js';
+import { Context } from '../../src/interface/Context.js';
+import { bufferSplit } from '../../src/common/bufferSplit.js';
 import { writeFileSync } from 'node:fs';
-import { PUBLIC_PATH } from '../index.js';
+import { PUBLIC_PATH } from '../../src/index.js';
 import { join } from 'node:path';
 
 /**

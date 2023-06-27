@@ -1,9 +1,7 @@
-import { Controller } from "../interface/Controller.js";
-import { Context } from "../interface/Context.js";
-import { USER } from '../configure/index.js';
-import { generate, KEY } from '../modules/Token.js';
-import { ResRedirect } from '../respond/ResRedirect.js';
-import { setCookie } from '../common/cookie.js';
+import { Controller, Context, handleRedirect } from "../../src/index.js";
+import { generate, KEY } from '../token.js';
+import { setCookie } from '../../src/common/cookie.js';
+import { USER } from "../constant.js";
 
 export class GetToken implements Controller {
   readonly PATH_NAME: string = '/getToken'
@@ -21,9 +19,9 @@ export class GetToken implements Controller {
       if (username === USER.username && password === USER.password) {
         const token = generate()
         setCookie({ res, key: KEY, value: token.id, path: '/', expires: new Date(token.expire), httpOnly: true })
-        ResRedirect({ ctx, location: '/', code: 302, reasonPhrase: 'login success' })
+        handleRedirect({ ctx, location: '/', code: 302, reasonPhrase: 'login success' })
       } else {
-        ResRedirect({ ctx, location: '/login', code: 302, reasonPhrase: 'login failed' })
+        handleRedirect({ ctx, location: '/login', code: 302, reasonPhrase: 'login failed' })
       }
     })
   }

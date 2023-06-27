@@ -35,7 +35,7 @@ cd $GITHUB_WORKSPACE && \
 # Configures Git.
 git init && \
 git config --global user.email 771565119@qq.com && \
-git config --global user.name ounana && \
+git config --global user.name Hans && \
 
 ## Initializes the repository path using the access token.
 REPOSITORY_PATH="https://${ACCESS_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" && \

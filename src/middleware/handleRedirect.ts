@@ -1,11 +1,11 @@
 import { Context } from '../interface/Context.js';
-import { DEBUG } from '../modules/logger.js';
+import { DEBUG } from '../common/logger.js';
 
 /**
  * 重定向 301永久/302临时
  * @param redirect 
  */
-export function ResRedirect(redirect: Redirect) {
+export function handleRedirect(redirect: Redirect) {
   const { ctx, location, code, reasonPhrase } = redirect
   const { staticPath, res } = ctx
   res.setHeader('Location', location)

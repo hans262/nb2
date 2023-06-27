@@ -1,8 +1,8 @@
 import * as http from "node:http";
 import * as https from "node:https";
 import { parse } from "node:url";
-import { proxyConfig } from "../../src/configure/index.js";
 import { Middleware } from "../../src/index.js";
+import { proxyConfig } from "../constant.js";
 
 /**
  * 代理中间件

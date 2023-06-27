@@ -1,5 +1,5 @@
 import { createReadStream, ReadStream } from 'node:fs';
-import { DEBUG } from '../modules/logger.js';
+import { DEBUG } from '../common/logger.js';
 import { ZIP_TYPE } from '../common/zip.js';
 import { createGzip, createDeflate, Gzip, Deflate } from 'node:zlib';
 import { Context } from '../interface/Context.js';

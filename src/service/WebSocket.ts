@@ -1,9 +1,9 @@
 import { createHash } from 'node:crypto';
 import { createServer, Socket } from 'node:net';
 import { decodeDataFrame, encodeDataFrame } from '../common/DataFrame.js';
-import { WEB_SOCKET_PORT } from '../configure/index.js';
+import { WEB_SOCKET_PORT } from '../common/config.js';
 import { SocketHeader } from '../interface/Headers.js';
-import { bufferSplit } from '../modules/bufferSplit.js';
+import { bufferSplit } from '../common/bufferSplit.js';
 
 const server = createServer()
 server.on('connection', (socket: Socket) => socket.once('data', socket_once))
