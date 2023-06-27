@@ -11,7 +11,7 @@
     "doc": "typedoc --options ./typedoc.json"
   },
   "type": "module",
-  "devDependencies": {
+  "dependencies": {
     "@types/node": "^20.3.2",
     "mysql2": "^3.4.2",
     "typedoc": "^0.24.8",
