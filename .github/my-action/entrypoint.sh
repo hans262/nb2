@@ -4,19 +4,19 @@ set -e
 
 if [ -z "$ACCESS_TOKEN" ]
 then
-  echo "请设置仓库的TOKEN环境变量"
+  echo "缺少环境变量ACCESS_TOKEN， 请到github仓库设置"
   exit 1
 fi
 
 if [ -z "$BRANCH" ]
 then
-  echo "请设置发布分支"
+  echo "缺少发布分支环境变量"
   exit 1
 fi
 
 if [ -z "$FOLDER" ]
 then
-  echo "请设置资源文件夹"
+  echo "缺少发布文件夹环境变量"
   exit 1
 fi
 
@@ -24,7 +24,6 @@ case "$FOLDER" in /*|./*)
   echo "文件夹名，不能以/或者./开头"
   exit 1
 esac
-
 
 echo "进入工作目录" && \
 cd $GITHUB_WORKSPACE && \
@@ -40,7 +39,7 @@ REPOSITORY_PATH="https://${ACCESS_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" &&
 # wc -l统计输出行数，-eq对比相等
 if [ "$(git ls-remote --heads $REPOSITORY_PATH $BRANCH | wc -l)" -eq 0 ];
 then
-  echo "创建分支${BRANCH}，如果他不存在"
+  echo "创建分支${BRANCH}"
   git checkout $BASE_BRANCH && \
   git checkout --orphan $BRANCH && \
   git rm -rf . && \
@@ -51,7 +50,7 @@ then
   # 上一条命令的执行失败则退出
   if [ $? -ne 0 ];
   then
-    echo "创建发布分支失败"
+    echo "创建分支失败"
     exit 1
   fi
 fi
@@ -59,7 +58,7 @@ fi
 echo "切换到分支主分支" && \
 git checkout $BASE_BRANCH && \
 
-echo "安装依赖项目" && \
+echo "安装依赖项" && \
 npm install && \
 
 echo "生成文档" && \
@@ -69,11 +68,10 @@ echo "提交git" && \
 git add -f $FOLDER && \
 git commit -m "发布 ${BRANCH} 来自 $BASE_BRANCH 的修改 ${GITHUB_SHA}" --quiet && \
 
-echo "发布到分支"
-# 获取docs文件夹的hash值
+# 获取docs文件夹的hash值，只把该文件夹推到gh-pages分支
 DIR_PRIFIX=`git subtree split --prefix $FOLDER $BASE_BRANCH`
 
-# 只把该文件夹推到gh-pages分支
+echo "推送到分支$BRANCH"
 git push $REPOSITORY_PATH $DIR_PRIFIX:$BRANCH --force && \
 
-echo "发布成功"
+echo "发布成功！"
