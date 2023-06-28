@@ -1,7 +1,7 @@
 import { join } from 'node:path';
 import { DEBUG } from '../common/logger.js';
 import { existsSync } from 'node:fs';
-import { resStatic } from '../respond/resStatic.js';
+import { responseStatic } from '../respond/responseStatic.js';
 import { Context } from '../interface/Context.js';
 
 /**
@@ -17,7 +17,7 @@ export const handle404 = (ctx: Context, reason?: string) => {
     const reactIndexPath = join(ctx.opt.staticRoot, ctx.indexPageName)
     if (existsSync(reactIndexPath)) {
       ctx.setStaticPath(reactIndexPath)
-      return resStatic(ctx)
+      return responseStatic(ctx)
     }
   }
 

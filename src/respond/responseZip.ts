@@ -4,7 +4,7 @@ import { ZIP_TYPE } from '../common/zip.js';
 import { createGzip, createDeflate, Gzip, Deflate } from 'node:zlib';
 import { Context } from '../interface/Context.js';
 
-export function ResZip(ctx: Context, zipType: ZIP_TYPE) {
+export function responseZip(ctx: Context, zipType: ZIP_TYPE) {
   const { staticPath, startTime, res } = ctx
   //数据需要压缩，分块传输，所以无法得知数据体的真实大小
   //所有要删除Content-Length属性

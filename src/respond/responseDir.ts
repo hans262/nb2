@@ -1,11 +1,11 @@
 import { Dirent, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { DEBUG } from '../common/logger.js';
-import { resStatic } from './resStatic.js';
+import { responseStatic } from './responseStatic.js';
 import { Context } from '../interface/Context.js';
 import { handle404 } from '../middleware/handle404.js';
 
-export function ResDir(ctx: Context) {
+export function responseDir(ctx: Context) {
   const { staticPath, pathname, startTime, res, indexPageName } = ctx
   let dirents: Array<Dirent>
   try {
@@ -19,7 +19,7 @@ export function ResDir(ctx: Context) {
   if (dirents.find(d => d.name === indexPageName)) {
     //index存在
     ctx.setStaticPath(join(staticPath, indexPageName))
-    return resStatic(ctx)
+    return responseStatic(ctx)
   }
   let content: string = `<h1>目录 ${pathname}</h1>`
   dirents.forEach(dirent => {

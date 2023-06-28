@@ -3,13 +3,13 @@ import { Context } from '../interface/Context.js';
 import { generateETag, isCache } from '../common/cache.js';
 import { mime } from '../common/mime.js';
 import { getZipType, ZIP_TYPE } from '../common/zip.js';
-import { ResCache } from './ResCache.js';
-import { ResFile } from './ResFile.js';
-import { ResRange } from './ResRange.js';
-import { ResZip } from './ResZip.js';
+import { responseCache } from './responseCache.js';
+import { responseFile } from './responseFile.js';
+import { responseRange } from './responseRange.js';
+import { responseZip } from './responseZip.js';
 import { Stats } from 'node:fs';
 
-export function ResVerify(ctx: Context, stats: Stats) {
+export function responseVerify(ctx: Context, stats: Stats) {
   const { staticPath, res, req } = ctx
   /**
    * 实际应用中的缓存策略
@@ -22,7 +22,7 @@ export function ResVerify(ctx: Context, stats: Stats) {
   res.setHeader('ETag', generateETag(stats))
 
   //判断缓存
-  if (isCache(req, stats)) return ResCache(ctx)
+  if (isCache(req, stats)) return responseCache(ctx)
 
   //mime类型
   res.setHeader('Content-Type', mime(staticPath) + '; charset=utf-8')
@@ -30,14 +30,14 @@ export function ResVerify(ctx: Context, stats: Stats) {
   res.setHeader('Content-Length', stats.size)
 
   //支持范围请求，请求一个文件的一部分
-  if (req.headers['range']) return ResRange(ctx, stats)
+  if (req.headers['range']) return responseRange(ctx, stats)
 
   const zipType: ZIP_TYPE | null = getZipType(ctx)
   //不是压缩
   if (!zipType) {
-    return ResFile(ctx)
+    return responseFile(ctx)
   }
 
   //需要压缩
-  ResZip(ctx, zipType)
+  responseZip(ctx, zipType)
 }

@@ -1,7 +1,7 @@
 import { Context } from '../interface/Context.js';
 import { DEBUG } from '../common/logger.js';
 
-export function ResCache(ctx: Context) {
+export function responseCache(ctx: Context) {
   const { staticPath, startTime, res } = ctx
   res.writeHead(304, 'Not Modified')
   res.end()

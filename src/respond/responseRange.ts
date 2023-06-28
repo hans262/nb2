@@ -3,7 +3,7 @@ import { DEBUG } from '../common/logger.js';
 import { parseRange, Range } from '../common/Range.js';
 import { Context } from '../interface/Context.js';
 
-export function ResRange(ctx: Context, stats: Stats) {
+export function responseRange(ctx: Context, stats: Stats) {
   const { staticPath, startTime, req, res } = ctx
 
   //解析范围
