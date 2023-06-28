@@ -1,4 +1,4 @@
-name: NICEST
+name: deploy-doc
 on:
   push:
     branches:
@@ -10,7 +10,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: build
+    - name: Build
       uses: ./.github/my-action
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}

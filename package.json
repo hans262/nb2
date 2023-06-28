@@ -1,6 +1,7 @@
 {
   "name": "nicest",
   "version": "4.2.0",
+  "type": "module",
   "scripts": {
     "start": "node out/worker.js",
     "cluster": "node out/cluster.js",
@@ -10,7 +11,6 @@
     "out:w": "tsc -watch",
     "doc": "typedoc --options ./typedoc.json"
   },
-  "type": "module",
   "dependencies": {
     "@types/node": "^20.3.2",
     "mysql2": "^3.4.2",
