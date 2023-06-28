@@ -56,7 +56,7 @@ then
   fi
 fi
 
-echo "切换到分支 $BUILD_SCRIPT" && \
+echo "切换到分支 $BASE_BRANCH" && \
 git checkout $BASE_BRANCH && \
 
 echo "执行脚本 $BUILD_SCRIPT" && \
