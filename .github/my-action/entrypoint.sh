@@ -67,9 +67,13 @@ npm run doc && \
 
 echo "提交git" && \
 git add -f $FOLDER && \
-git commit -m "发布到分支 ${BRANCH} 来自 $BASE_BRANCH ${GITHUB_SHA}" --quiet && \
+git commit -m "发布 ${BRANCH} 来自 $BASE_BRANCH 的修改 ${GITHUB_SHA}" --quiet && \
 
 echo "发布到分支"
-# 获取docs文件夹的hash值，只提交docs文件夹到branch分支
-git push $REPOSITORY_PATH `git subtree split --prefix $FOLDER $BASE_BRANCH`:$BRANCH --force && \
+# 获取docs文件夹的hash值
+DIR_PRIFIX=`git subtree split --prefix $FOLDER $BASE_BRANCH`
+
+# 只把该文件夹推到gh-pages分支
+git push $REPOSITORY_PATH $DIR_PRIFIX:$BRANCH --force && \
+
 echo "发布成功"
