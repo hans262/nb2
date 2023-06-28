@@ -56,17 +56,24 @@ then
   fi
 fi
 
-echo "切换到分支 $BASE_BRANCH" && \
+echo "切换到分支主分支" && \
 git checkout $BASE_BRANCH && \
 
-echo "执行脚本 $BUILD_SCRIPT" && \
-eval "$BUILD_SCRIPT" && \
+echo "安装依赖项目" && \
+npm install && \
 
-echo "提交git" && \
-git add -f $FOLDER && \
-git commit -m "Deploying to ${BRANCH} from $BASE_BRANCH ${GITHUB_SHA}" --quiet && \
+echo "生成文档" && \
+npm run doc && \
 
-echo "发布到分支"
-# 获取docs文件夹的hash值，只提交docs文件夹到branch分支
-git push $REPOSITORY_PATH `git subtree split --prefix $FOLDER $BASE_BRANCH`:$BRANCH --force && \
-echo "发布成功"
+if [ -d "./docs" ]; then
+  echo "提交git" && \
+  git add -f $FOLDER && \
+  git commit -m "Deploying to ${BRANCH} from $BASE_BRANCH ${GITHUB_SHA}" --quiet && \
+
+  echo "发布到分支"
+  # 获取docs文件夹的hash值，只提交docs文件夹到branch分支
+  git push $REPOSITORY_PATH `git subtree split --prefix $FOLDER $BASE_BRANCH`:$BRANCH --force && \
+  echo "发布成功"
+  else
+  echo "docs文件夹不存在，构建失败"
+fi
