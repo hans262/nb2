@@ -1,5 +1,5 @@
 import { CACHE_MAX_AGE } from '../common/config.js';
-import { Context } from '../interface/Context.js';
+import { Context } from '../ainterface/Context.js';
 import { generateETag, isCache } from '../common/cache.js';
 import { mime } from '../common/mime.js';
 import { getZipType, ZIP_TYPE } from '../common/zip.js';

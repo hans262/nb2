@@ -2,7 +2,7 @@ import { createReadStream, ReadStream } from 'node:fs';
 import { DEBUG } from '../common/logger.js';
 import { ZIP_TYPE } from '../common/zip.js';
 import { createGzip, createDeflate, Gzip, Deflate } from 'node:zlib';
-import { Context } from '../interface/Context.js';
+import { Context } from '../ainterface/Context.js';
 
 export function responseZip(ctx: Context, zipType: ZIP_TYPE) {
   const { staticPath, startTime, res } = ctx

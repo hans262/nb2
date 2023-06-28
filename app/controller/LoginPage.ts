@@ -1,5 +1,5 @@
-import { Controller } from "../../src/interface/Controller.js";
-import { Context } from "../../src/interface/Context.js";
+import { Controller } from "../../src/ainterface/Controller.js";
+import { Context } from "../../src/ainterface/Context.js";
 
 export class LoginPage implements Controller {
   readonly PATH_NAME: string = '/login'

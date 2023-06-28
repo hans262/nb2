@@ -2,7 +2,7 @@ import { join } from 'node:path';
 import { DEBUG } from '../common/logger.js';
 import { existsSync } from 'node:fs';
 import { responseStatic } from '../respond/responseStatic.js';
-import { Context } from '../interface/Context.js';
+import { Context } from '../ainterface/Context.js';
 
 /**
  * 这不是一个中间件，这里收集404的处理

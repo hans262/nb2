@@ -1,6 +1,6 @@
 import { extname } from 'path';
 import { ZIP_MATCH } from './config.js';
-import { Context } from "../interface/Context.js";
+import { Context } from "../ainterface/Context.js";
 
 /**
  * 获取可以压缩的文件类型

@@ -1,7 +1,7 @@
 import { createWriteStream, existsSync, mkdirSync, WriteStream } from 'node:fs';
 import { join } from 'node:path';
 import { LOGS_PATH } from './path.js';
-import { MESSAGE, ACTION } from '../interface/Message.js';
+import { MESSAGE, ACTION } from '../ainterface/Message.js';
 import { Stdout } from './stdout.js';
 
 let STREAM: WriteStream | null = null;

@@ -1,5 +1,5 @@
-import { Middleware } from '../interface/index.js';
-import { Context } from '../interface/Context.js';
+import { Middleware } from '../ainterface/index.js';
+import { Context } from '../ainterface/Context.js';
 import { DEBUG } from '../common/logger.js';
 import { IncomingMessage, ServerResponse, Server, createServer as createServerHttp } from 'node:http';
 import { createServer as createServerHttps } from 'node:https';

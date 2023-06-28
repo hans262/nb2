@@ -1,4 +1,4 @@
-import { Context } from '../interface/Context.js';
+import { Context } from '../ainterface/Context.js';
 import { DEBUG } from '../common/logger.js';
 
 export function responseCache(ctx: Context) {

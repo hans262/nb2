@@ -1,4 +1,4 @@
-import { isMethod } from '../interface/Controller.js';
+import { isMethod } from '../ainterface/Controller.js';
 import { Middleware, Controller } from '../index.js';
 import { DEBUG } from '../common/logger.js';
 

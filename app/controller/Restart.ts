@@ -1,5 +1,5 @@
 import { Context } from '../../src/index.js';
-import { Controller } from '../../src/interface/Controller.js';
+import { Controller } from '../../src/ainterface/Controller.js';
 import { SEND } from '../../src/common/logger.js';
 
 export class Restart implements Controller {

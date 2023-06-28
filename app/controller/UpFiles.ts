@@ -1,6 +1,6 @@
 import { ServerResponse } from 'node:http';
-import { Controller } from '../../src/interface/Controller.js';
-import { Context } from '../../src/interface/Context.js';
+import { Controller } from '../../src/ainterface/Controller.js';
+import { Context } from '../../src/ainterface/Context.js';
 import { bufferSplit } from '../../src/common/bufferSplit.js';
 import { writeFileSync } from 'node:fs';
 import { PUBLIC_PATH } from '../../src/index.js';

@@ -1,4 +1,4 @@
-import { DataFrame } from "../interface/Headers.js";
+import { DataFrame } from "../ainterface/Headers.js";
 
 /**
  * 数据帧的解码

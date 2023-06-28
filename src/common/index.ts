@@ -1,5 +1,5 @@
-import { Context } from "../interface/Context.js"
-import { Method } from "../interface/Controller.js"
+import { Context } from "../ainterface/Context.js"
+import { Method } from "../ainterface/Controller.js"
 
 export const checkReqest = (ctx: Context, opt: {
   method?: Method,

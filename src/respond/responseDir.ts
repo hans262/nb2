@@ -2,7 +2,7 @@ import { Dirent, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { DEBUG } from '../common/logger.js';
 import { responseStatic } from './responseStatic.js';
-import { Context } from '../interface/Context.js';
+import { Context } from '../ainterface/Context.js';
 import { handle404 } from '../middleware/handle404.js';
 
 export function responseDir(ctx: Context) {
