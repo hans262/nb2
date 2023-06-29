@@ -19,7 +19,6 @@ Configurable engineering container service is implemented by Node V8.
 
 ## compile
 ```
-  npm run out
-  or
-  npm run out:w
+  文档主页
+  浏览器图标
 ```
