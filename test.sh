@@ -1,12 +1,27 @@
 #!/bin/sh -l
 
+set -e
+
+# sed -i '2i \adw' a.txt \aww
+
+# gsed -i "s/1111/& <link rel=icon type=image/svg+xml href=/nicest/vite.svg /> /" a.txt
+
+# echo "123" >> a.txt
+
+# cat > a.txt >>EOF##
+# 1212
+# 2121122
+# 121
+# EOF##
+
+
 # if [ -d "./docs" ];then
 #   echo "文件存在"
 #   else
 #   echo "文件不存在"
 # fi
 
-# set -e
+
 
 # (base) [root@PC1]# ls
 # echo "1"
@@ -29,9 +44,9 @@
 # git subtree split --prefix docs master && \
 
 # DIR_PRIFIX=$(git subtree split --prefix docs master) && \
-git push && \
+# git push && \
 
-echo "推送到分支"
+# echo "推送到分支"
 
 # npm run doc && \
 

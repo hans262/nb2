@@ -9,7 +9,8 @@
     "socketserver": "node out/service/SocketServer.js",
     "out": "tsc",
     "out:w": "tsc -watch",
-    "doc": "typedoc --options ./typedoc.config.cjs"
+    "doc": "typedoc --options ./typedoc.config.cjs",
+    "doc-icon": "node docicon.js"
   },
   "dependencies": {
     "@types/node": "^20.3.2",

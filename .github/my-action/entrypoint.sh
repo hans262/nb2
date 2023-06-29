@@ -66,6 +66,9 @@ npm install && \
 echo "生成文档" && \
 npm run doc && \
 
+echo "制作网站图标"
+npm run doc-icon && \
+
 echo "提交git" && \
 git add -f $FOLDER && \
 git commit -m "发布 ${BRANCH} 来自 $BASE_BRANCH 的修改 ${GITHUB_SHA}" --quiet && \
