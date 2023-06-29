@@ -25,6 +25,8 @@ case "$FOLDER" in /*|./*)
   exit 1
 esac
 
+echo $(node -v) && \
+
 echo "进入工作目录" && \
 cd $GITHUB_WORKSPACE && \
 
@@ -32,20 +34,20 @@ echo "配置git" && \
 git config --global user.email 771565119@qq.com && \
 git config --global user.name Hans && \
 
-## 初始化git仓库地址
+# 初始化git仓库地址
 REPOSITORY_PATH="https://${ACCESS_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" && \
 
-# 检查发布分支是否存在，不存在则创建
-# wc -l统计输出行数，-eq对比相等
-if [ "$(git ls-remote --heads $REPOSITORY_PATH $BRANCH | wc -l)" -eq 0 ];
+# 检查发布分支是否存在
+# $(git status | wc -l) 统计输出行数，-eq 对比相等
+if [ $(git ls-remote --heads $REPOSITORY_PATH $BRANCH | wc -l) -eq 0 ];
 then
-  echo "创建分支${BRANCH}"
+  echo "创建发布分支${BRANCH}"
   git checkout $BASE_BRANCH && \
   git checkout --orphan $BRANCH && \
   git rm -rf . && \
   touch README.md && \
   git add README.md && \
-  git commit -m "Initial ${BRANCH} commit" && \
+  git commit -m "初始化提交" && \
   git push $REPOSITORY_PATH $BRANCH
   # 上一条命令的执行失败则退出
   if [ $? -ne 0 ];
@@ -68,10 +70,10 @@ echo "提交git" && \
 git add -f $FOLDER && \
 git commit -m "发布 ${BRANCH} 来自 $BASE_BRANCH 的修改 ${GITHUB_SHA}" --quiet && \
 
-# 获取docs文件夹的hash值，只把该文件夹推到gh-pages分支
-DIR_PRIFIX=`git subtree split --prefix $FOLDER $BASE_BRANCH`
+# 获取docs文件夹的hash值
+DIR_PRIFIX=$(git subtree split --prefix $FOLDER $BASE_BRANCH) && \
 
-echo "推送到分支$BRANCH"
+echo "推送到分支$BRANCH" && \
 git push $REPOSITORY_PATH $DIR_PRIFIX:$BRANCH --force && \
 
 echo "发布成功！"
