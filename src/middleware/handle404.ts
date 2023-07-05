@@ -1,8 +1,8 @@
 import { join } from 'node:path';
-import { DEBUG } from '../common/logger.js';
+import { stdlog } from '../common/logger.js';
 import { existsSync } from 'node:fs';
 import { responseStatic } from '../respond/responseStatic.js';
-import { Context } from '../ainterface/Context.js';
+import { Context } from '../interface/Context.js';
 
 /**
  * 这不是一个中间件，这里收集404的处理
@@ -28,8 +28,9 @@ export const handle404 = (ctx: Context, reason?: string) => {
   	<p>${pathname} ${reason ?? '当前路径不存在。'} </p>
   `)
 
-  DEBUG({
-    type: 'RES_404',
-    msg: staticPath + ' +' + (Date.now() - startTime) + 'ms'
+  stdlog({
+    type: '404',
+    msg: staticPath + ' +' + (Date.now() - startTime) + 'ms',
+    color: 'green'
   })
 }

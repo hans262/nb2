@@ -1,6 +1,6 @@
 import { IncomingMessage, ServerResponse } from "node:http";
 import { join } from "node:path";
-import { NicestOpt } from "../index.js";
+import { Nicest, NicestOpt } from "../index.js";
 
 export class Context {
   /**请求发起的时间 */
@@ -16,7 +16,8 @@ export class Context {
   constructor(
     public req: IncomingMessage,
     public res: ServerResponse,
-    public opt: NicestOpt
+    public opt: NicestOpt,
+    private nicest: Nicest
   ) {
     this.startTime = Date.now()
 
@@ -24,7 +25,8 @@ export class Context {
 
     this.url = new URL(join(domain, req.url ?? '/'))
     //浏览器url可能会对中文转码
-    this.pathname = decodeURI(this.url.pathname)    
+    this.pathname = decodeURI(this.url.pathname)
+
   }
 
   setStaticPath(path: string) {
@@ -34,4 +36,17 @@ export class Context {
   setIndexPageName(name: string) {
     this.indexPageName = name
   }
+
+  /**
+   * 与主程序通信
+   * @param type 
+   */
+  emit(type: EmitAction) {
+    this.nicest.onContextEmit(type)
+  }
+}
+
+export type EmitAction = {
+  type: 'restart' | 'shutdown',
+  payload?: any
 }

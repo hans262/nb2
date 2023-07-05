@@ -38,7 +38,6 @@ git config --global user.name Hans && \
 REPOSITORY_PATH="https://${ACCESS_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" && \
 
 # 检查发布分支是否存在
-# $(git status | wc -l) 统计输出行数，-eq 对比相等
 if [ $(git ls-remote --heads $REPOSITORY_PATH $BRANCH | wc -l) -eq 0 ];
 then
   echo "创建发布分支${BRANCH}"

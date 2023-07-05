@@ -1,10 +1,25 @@
 import { TOKEN_EXPIRES } from './constant.js';
-import { Token, TokenStore } from './interface.js';
+
+
+export type TokenStore = Map<string, Token>
+export interface Token {
+  id: string
+  /**
+   * 到期时间
+   */
+  expire: number
+  /**
+   * 请求次数
+   */
+  count: number
+}
 
 /**
  * token仓库
  */
 export const tokens: TokenStore = new Map()
+
+/**token的键名 */
 export const KEY: string = 'auth'
 
 const EXPIRES = TOKEN_EXPIRES * 60 * 1000 //转成毫秒

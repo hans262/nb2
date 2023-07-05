@@ -1,5 +1,4 @@
-import { Controller } from "../../src/ainterface/Controller.js";
-import { Context } from "../../src/ainterface/Context.js";
+import { Controller, Context } from "../../src/index.js";
 
 export class TestGet implements Controller {
 	readonly PATH_NAME: string = '/api/get'

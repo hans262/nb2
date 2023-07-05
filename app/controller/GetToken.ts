@@ -1,6 +1,5 @@
-import { Controller, Context, handleRedirect } from "../../src/index.js";
+import { Controller, Context, handleRedirect, setCookie } from "../../src/index.js";
 import { generate, KEY } from '../token.js';
-import { setCookie } from '../../src/common/cookie.js';
 import { USER } from "../constant.js";
 
 export class GetToken implements Controller {

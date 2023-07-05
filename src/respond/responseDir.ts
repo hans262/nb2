@@ -1,8 +1,8 @@
 import { Dirent, readdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { DEBUG } from '../common/logger.js';
+import { stdlog } from '../common/logger.js';
 import { responseStatic } from './responseStatic.js';
-import { Context } from '../ainterface/Context.js';
+import { Context } from '../interface/Context.js';
 import { handle404 } from '../middleware/handle404.js';
 
 export function responseDir(ctx: Context) {
@@ -13,7 +13,7 @@ export function responseDir(ctx: Context) {
       withFileTypes: true
     })
   } catch (error: any) {
-    DEBUG({ type: 'ERROR', msg: error.message })
+    stdlog({ type: 'error', msg: error.message })
     return handle404(ctx, error.message)
   }
   if (dirents.find(d => d.name === indexPageName)) {
@@ -34,8 +34,8 @@ export function responseDir(ctx: Context) {
   res.setHeader('Content-Type', 'text/html; charset=utf-8')
   res.writeHead(200, 'Access Directory')
   res.end(content)
-  DEBUG({
-    type: 'RES_DIR',
+  stdlog({
+    type: 'dir',
     msg: staticPath + ' +' + (Date.now() - startTime) + 'ms'
   })
 }

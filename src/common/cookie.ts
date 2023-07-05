@@ -13,7 +13,7 @@ export interface Cookie {
 }
 
 /**
- * fetch cookie
+ * 获取cookie
  * @param req 
  * @param key 键
  */
@@ -26,7 +26,7 @@ export function getCookie(req: IncomingMessage, key: string): string | null {
 }
 
 /**
- * set cookie, not Chinese
+ * 设置cookie 不支持中文
  * @param cookie Cookie
  */
 export function setCookie(cookie: Cookie) {

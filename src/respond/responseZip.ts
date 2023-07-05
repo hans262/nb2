@@ -1,10 +1,10 @@
 import { createReadStream, ReadStream } from 'node:fs';
-import { DEBUG } from '../common/logger.js';
-import { ZIP_TYPE } from '../common/zip.js';
+import { stdlog } from '../common/logger.js';
 import { createGzip, createDeflate, Gzip, Deflate } from 'node:zlib';
-import { Context } from '../ainterface/Context.js';
+import { Context } from '../interface/Context.js';
+import { ZipType } from './responseVerify.js';
 
-export function responseZip(ctx: Context, zipType: ZIP_TYPE) {
+export function responseZip(ctx: Context, zipType: ZipType) {
   const { staticPath, startTime, res } = ctx
   //数据需要压缩，分块传输，所以无法得知数据体的真实大小
   //所有要删除Content-Length属性
@@ -23,8 +23,8 @@ export function responseZip(ctx: Context, zipType: ZIP_TYPE) {
   }
   res.writeHead(200, 'Compressed file')
   stream.pipe(zipstream).pipe(res)
-  DEBUG({
-    type: 'RES_ZIP',
+  stdlog({
+    type: 'zip',
     msg: staticPath + ' +' + (Date.now() - startTime) + 'ms'
   })
 }

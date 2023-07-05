@@ -1,4 +1,3 @@
-import { combineController } from '../../src/index.js';
 import { DownLoad } from './DownLoad.js';
 import { GetToken } from './GetToken.js';
 import { LoginPage } from './LoginPage.js';
@@ -10,7 +9,7 @@ import { TestPost } from './TestPost.js';
 import { TestRand } from './TestRand.js';
 import { UpFiles } from './UpFiles.js';
 
-const Controllers = combineController(
+export const Controllers = [
   DownLoad,
   Restart,
   ShutDown,
@@ -21,6 +20,4 @@ const Controllers = combineController(
   TestRand,
   LoginPage,
   GetToken
-)
-
-export default Controllers
+]

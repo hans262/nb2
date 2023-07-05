@@ -1,6 +1,6 @@
-import { Middleware } from '../ainterface/index.js';
-import { Context } from '../ainterface/Context.js';
-import { DEBUG } from '../common/logger.js';
+import { Middleware } from '../interface/index.js';
+import { Context, EmitAction } from '../interface/Context.js';
+import { stdlog } from '../common/logger.js';
 import { IncomingMessage, ServerResponse, Server, createServer as createServerHttp } from 'node:http';
 import { createServer as createServerHttps } from 'node:https';
 import { handleController } from '../middleware/handleController.js';
@@ -9,16 +9,27 @@ import { handle404 } from '../middleware/handle404.js';
 import { Controller } from '../index.js';
 
 export interface NicestOpt {
-  /**ip地址 */
-  host: string
   /**端口 */
-  port: number
+  port?: number
+  /**ip地址 */
+  host?: string
   /**https配置 */
   https?: { key: Buffer, cert: Buffer }
   /**是否让前端处理路由，以适应react应用的history路由模式 */
   frontRoute?: boolean
   /**静态资源根目录 */
   staticRoot?: string
+  /**资源压缩范围 */
+  staticZipRange?: string[]
+  /**资源缓存时间 单位：秒*/
+  cacheMaxAge?: number
+}
+
+const defaultNicestOpt: NicestOpt = {
+  host: "127.0.0.1",
+  port: 5000,
+  staticZipRange: ['css', 'html', 'js', 'woff'],
+  cacheMaxAge: 12 * 60 * 60 //一天
 }
 
 export class Nicest {
@@ -27,35 +38,48 @@ export class Nicest {
   middlewares: Middleware[] = []
   /**控制器集合 */
   controllers: Controller[] = []
-  constructor(public opt: NicestOpt) {
-    const { https } = opt
-    this.server = https ? createServerHttps(https, this.handler) : createServerHttp(this.handler)
+  opt: NicestOpt
+  constructor(opt: NicestOpt = defaultNicestOpt) {
+    this.opt = Object.assign(opt, defaultNicestOpt)
+    this.server = this.opt.https ? createServerHttps(this.opt.https, this.handler) : createServerHttp(this.handler)
 
-    process.on('message', this.onMessage)
     process.on('uncaughtException', err => {
-      DEBUG({ type: 'ERROR', msg: err.message })
+      stdlog({ type: 'error', msg: err.message })
     })
   }
 
-  private onMessage = (action: any) => {
-    switch (action.type) {
-      case 'CLOSE_SERVER':
-        const { code } = action
-        //关闭server
-        this.server.close()
-        //等待关闭进程
-        setTimeout(() => {
-          process.exit(code)
-        }, 10000)
-        return
+  onContextEmit(action: EmitAction) {
+    if (action.type === 'restart') {
+      this.closeServer(1)
+    }
+
+    if (action.type === 'shutdown') {
+      this.closeServer(0)
     }
   }
+
+  /**
+   * 关闭服务
+   * 主进程可以通过监听子进程的退出码，来执行不同任务
+   * 1: 重启；0: 退出服务
+   * @param code 退出码
+   */
+  private closeServer(code: 0 | 1) {
+    //停止接收新的请求，这是一个异步函数，然后关闭server
+    this.server.close()
+    setTimeout(() => {
+      process.exit(code)
+    }, 10000)
+  }
+
   /**
    * 安装控制器
    * @param c 控制器
    */
-  useControllers(c: Controller[]) {
-    this.controllers = this.controllers.concat(c)
+  useControllers(clazz: { new(): Controller }[]) {
+    this.controllers = this.controllers.concat(
+      clazz.map(c => new c())
+    )
   }
 
   /**
@@ -78,12 +102,13 @@ export class Nicest {
     }
 
     this.server.listen(this.opt.port, this.opt.host, () => {
-      DEBUG({ type: 'WORKER_STARTUP', msg: `port: ${this.opt.port}` })
+      const msg = `${this.opt.https ? 'https://' : 'http://'}${this.opt.host}:${this.opt.port}`
+      stdlog({ type: 'worker_startup', msg, color: 'yellow' })
     })
   }
 
   private handler = (req: IncomingMessage, res: ServerResponse) => {
-    const ctx = new Context(req, res, this.opt)
+    const ctx = new Context(req, res, this.opt, this)
     let i = 0
     const next = (): void => {
       const middleware = this.middlewares[i++]
@@ -96,7 +121,7 @@ export class Nicest {
         //writeHead只能调用一次，需检查中间件中是否已经调用
         // res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' })
         res.end('statusCode: 500, message: ' + err.message)
-        DEBUG({ type: 'ERROR', msg: err.message })
+        stdlog({ type: 'error', msg: err.message })
       }
     }
     next()

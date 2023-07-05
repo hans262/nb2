@@ -1,6 +1,6 @@
 /**
- * buffer split
- * @param buffer
+ * buffer 分割
+ * @param buffer 需要分割的buffer
  * @param spl
  */
 export function bufferSplit(buffer: Buffer, spl: string): Array<Buffer> {

@@ -1,5 +1,5 @@
 import { stat } from 'node:fs';
-import { Context } from '../ainterface/Context.js';
+import { Context } from '../interface/Context.js';
 import { responseDir } from './responseDir.js';
 import { responseVerify } from './responseVerify.js';
 import { handle404 } from '../middleware/handle404.js';

@@ -1,6 +1,5 @@
 import * as http from "node:http";
 import * as https from "node:https";
-import { parse } from "node:url";
 import { Middleware } from "../../src/index.js";
 import { proxyConfig } from "../constant.js";
 
@@ -19,7 +18,8 @@ export const proxy: Middleware = (ctx, next) => {
   if (!cf) return next()
 
   const [, proxyUrl] = cf
-  const url = parse(proxyUrl)
+  const url = new URL(proxyUrl)
+  
   //没有http类型信息
   if (!url.protocol) return next()
 

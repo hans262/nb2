@@ -13,6 +13,11 @@ export function mime(path: string): string {
   }
 }
 
+/**
+ * 把字符串断言到Mime类型
+ * @param key 
+ * @returns 
+ */
 function isMime(key: string): key is keyof typeof MimeTypes {
   return Object.keys(MimeTypes).includes(key)
 }

@@ -9,7 +9,9 @@
     "removeComments": true,
     //严格模式
     "strict": true,
-    "moduleResolution": "NodeNext"
+    "moduleResolution": "NodeNext",
+    //未知
+    "esModuleInterop":true
   },
   "include": [
     "src", "app"

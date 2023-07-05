@@ -1,13 +1,12 @@
 import { createHash } from 'node:crypto';
 import { createServer, Socket } from 'node:net';
 import { decodeDataFrame, encodeDataFrame } from '../common/DataFrame.js';
-import { WEB_SOCKET_PORT } from '../common/config.js';
-import { SocketHeader } from '../ainterface/Headers.js';
+import { SocketHeader } from '../interface/Headers.js';
 import { bufferSplit } from '../common/bufferSplit.js';
 
 const server = createServer()
 server.on('connection', (socket: Socket) => socket.once('data', socket_once))
-server.listen(WEB_SOCKET_PORT)
+server.listen(8888)
 
 const sockets = new Map<number, Socket>()
 

@@ -1,30 +1,26 @@
 import { createServer, Socket } from 'node:net'
-import { SOCKET_SERVER_PORT } from '../common/config.js';
 
-function RUN(): void {
-  //当前已连接的
-  let sockets: Array<Socket> = []
-  //服务
-  const server = createServer()
-  server.on('connection', (socket: Socket) => {
-    sockets.push(socket)
-    socket.on('data', (data: Buffer) => {
-      socket.write(data)
-    })
+//当前已连接的
+let sockets: Array<Socket> = []
+//服务
+const server = createServer()
+server.on('connection', (socket: Socket) => {
+  sockets.push(socket)
+  socket.on('data', (data: Buffer) => {
+    socket.write(data)
   })
+})
 
-  server.on('error', (err: Error) => {
-    console.log(err)
-  })
+server.on('error', (err: Error) => {
+  console.log(err)
+})
 
-  server.listen(SOCKET_SERVER_PORT, () => {
-    console.log('socket server is listening on port -> ' + SOCKET_SERVER_PORT)
-  })
+server.listen(9999, () => {
+  console.log('socket server is listening on port -> ' + 9999)
+})
 
-  process.on('uncaughtException', err => {
-    console.log(err)
-    //清理掉已经被销毁连接
-    sockets = sockets.filter(s => !s.destroyed && s.readable && s.writable)
-  })
-}
-RUN()
+process.on('uncaughtException', err => {
+  console.log(err)
+  //清理掉已经被销毁连接
+  sockets = sockets.filter(s => !s.destroyed && s.readable && s.writable)
+})

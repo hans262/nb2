@@ -1,10 +1,8 @@
 import { ServerResponse } from 'node:http';
-import { Controller } from '../../src/ainterface/Controller.js';
-import { Context } from '../../src/ainterface/Context.js';
-import { bufferSplit } from '../../src/common/bufferSplit.js';
+import { Controller, Context, bufferSplit } from '../../src/index.js';
 import { writeFileSync } from 'node:fs';
-import { PUBLIC_PATH } from '../../src/index.js';
 import { join } from 'node:path';
+import { PUBLIC_PATH } from '../constant.js';
 
 /**
  * file uoload
