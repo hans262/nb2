@@ -1,6 +1,7 @@
 import { createReadStream, ReadStream } from 'node:fs';
 import { join } from 'node:path';
-import { Controller, Context, PUBLIC_PATH } from '../../src/index.js';
+import { Controller, Context } from '../../src/index.js';
+import { PUBLIC_PATH } from '../constant.js';
 
 export class DownLoad implements Controller {
   readonly PATH_NAME: string = '/api/download'

@@ -1,17 +1,16 @@
 import { createHash } from 'node:crypto';
 import { createServer, Socket } from 'node:net';
-import { decodeDataFrame, encodeDataFrame } from '../common/DataFrame.js';
-import { SocketHeader } from '../interface/Headers.js';
-import { bufferSplit } from '../common/bufferSplit.js';
+import { decodeDataFrame, encodeDataFrame } from './common/frameParse.js';
+import { bufferSplit } from './common/bufferSplit.js';
 
 const server = createServer()
-server.on('connection', (socket: Socket) => socket.once('data', socket_once))
+server.on('connection', socket => socket.once('data', socket_once))
 server.listen(8888)
 
 const sockets = new Map<number, Socket>()
 
 function socket_once(this: Socket, data: Buffer) {
-  const headers: SocketHeader = parse_headers(data)
+  const headers = parse_headers(data)
   if (headers.Upgrade !== 'websocket') {
     return this.end()
   }
@@ -78,7 +77,8 @@ function accept_headers(accept: string): string {
 }
 
 function parse_headers(data: Buffer): SocketHeader {
-  const ret: Buffer[] = bufferSplit(data, '\r\n')
+  console.log(data.toString())
+  const ret = bufferSplit(data, '\r\n')
   const headers: SocketHeader = {}
   ret.slice(1).forEach(v => {
     const r2 = bufferSplit(v, ': ')
@@ -94,4 +94,37 @@ function parse_headers(data: Buffer): SocketHeader {
   Client: 发送请求头，附带密钥
   Server: 验证是否是websokcet，然后回应响应头
   Client: 验证响应头，连接完成
+ */
+
+
+
+interface SocketHeader {
+  'Host'?: string
+  'Connection'?: string
+  'Pragma'?: string
+  'Cache-Control'?: string
+  'User-Agent'?: string
+  'Upgrade'?: string
+  'Origin'?: string
+  'Sec-WebSocket-Version'?: string
+  'Accept-Encoding'?: string
+  'Accept-Language'?: string
+  'Sec-WebSocket-Key'?: string
+  'Sec-WebSocket-Extensions'?: string
+}
+
+/*
+  GET / HTTP/1.1
+  Host: 127.0.0.1:8888
+  Connection: Upgrade
+  Pragma: no-cache
+  Cache-Control: no-cache
+  User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36
+  Upgrade: websocket
+  Origin: file://
+  Sec-WebSocket-Version: 13
+  Accept-Encoding: gzip, deflate, br
+  Accept-Language: zh-CN,zh;q=0.9
+  Sec-WebSocket-Key: lchQ1h5pKNSSFrwlPzLG5Q==
+  Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits
  */

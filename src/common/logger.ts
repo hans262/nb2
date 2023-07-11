@@ -1,6 +1,5 @@
 import { createWriteStream, existsSync, mkdirSync, WriteStream } from 'node:fs';
 import { join } from 'node:path';
-import { LOGS_PATH } from './path.js';
 
 /**日志写入流 */
 let WriteSteamOfLog: WriteStream | null = null;
@@ -11,15 +10,15 @@ let CURRENT_DAY: string;
  * 创建写入流
  * @returns 
  */
-function createStreamOfLog(): WriteStream {
+function createStreamOfLog(logPath: string): WriteStream {
   CURRENT_DAY = new Date().toLocaleDateString().replace(/\//g, '-')
-  const fileName: string = join(LOGS_PATH, `/${CURRENT_DAY}.log`)
+  const fileName = join(logPath, `/${CURRENT_DAY}.log`)
   //检测目录是否存在
-  if (!existsSync(LOGS_PATH)) {
+  if (!existsSync(logPath)) {
     try {
-      mkdirSync(LOGS_PATH)
+      mkdirSync(logPath)
     } catch (error) {
-      throw new Error('创建目录失败')
+      throw new Error('创建日志目录失败，请检查原因')
     }
   }
   return createWriteStream(fileName, { flags: 'a' })
@@ -29,16 +28,16 @@ function createStreamOfLog(): WriteStream {
  * 写入日志到文件
  * @param data 
  */
-function writeLineOfLog(mq: string): void {
+function writeLineOfLog(mq: string, logPath: string): void {
   //检查流是否存在
   if (!WriteSteamOfLog) {
-    WriteSteamOfLog = createStreamOfLog()
+    WriteSteamOfLog = createStreamOfLog(logPath)
   }
   //检查当前时间是否过期
   const newDay: string = new Date().toLocaleDateString()
   if (newDay !== CURRENT_DAY) {
     WriteSteamOfLog.close()
-    WriteSteamOfLog = createStreamOfLog()
+    WriteSteamOfLog = createStreamOfLog(logPath)
   }
   WriteSteamOfLog.write(mq + '\r\n')
 }
@@ -47,17 +46,23 @@ function writeLineOfLog(mq: string): void {
  * 输出日志
  * @param massage 
  */
-export function stdlog(massage: Message) {
+export function stdlog(opt: {
+  type: string
+  msg?: string
+  startTime?: number
+  color?: keyof typeof defaultStyles
+  logPath?: string
+}) {
   //执行微任务，不影响主要程序的任务性能
-  process.nextTick(__stdlog, massage)
-}
-
-function __stdlog(massage: Message) {
-  const { type, msg, color } = massage
-  const date = new Date().toLocaleString()
-  const mq = `[${date}] [${process.pid}] [${type}]${msg ? ' -> ' + msg : ''}`
-  prettyLog(mq, color, 'std')
-  writeLineOfLog(mq)
+  process.nextTick(() => {
+    const { type, msg, color, logPath } = opt
+    const date = new Date().toLocaleString()
+    const mq = `[${date}] [${process.pid}] [${type}]${msg ? ' -> ' + msg : ''}`
+    prettyLog(mq, color, 'std')
+    if (logPath) {
+      writeLineOfLog(mq, logPath)
+    }
+  })
 }
 
 /**
@@ -82,7 +87,7 @@ export function prettyLog(
 }
 
 /**
- * 默认颜色
+ * 默认日志颜色
  */
 const defaultStyles = {
   'red': '\x1B[31m',
@@ -96,12 +101,6 @@ const defaultStyles = {
   'reset': '\x1B[0m', //重置颜色
 } as const
 
-export interface Message {
-  type: string
-  msg?: string
-  startTime?: number
-  color?: keyof typeof defaultStyles
-}
 
 /**
  * 向主进程发送消息

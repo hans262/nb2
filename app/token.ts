@@ -1,6 +1,5 @@
 import { TOKEN_EXPIRES } from './constant.js';
 
-
 export type TokenStore = Map<string, Token>
 export interface Token {
   id: string

@@ -1,70 +1,74 @@
-import { Middleware } from '../interface/index.js';
-import { Context, EmitAction } from '../interface/Context.js';
-import { stdlog } from '../common/logger.js';
 import { IncomingMessage, ServerResponse, Server, createServer as createServerHttp } from 'node:http';
 import { createServer as createServerHttps } from 'node:https';
-import { handleController } from '../middleware/handleController.js';
-import { handleStatic } from '../middleware/handleStatic.js';
-import { handle404 } from '../middleware/handle404.js';
-import { Controller } from '../index.js';
+import { Context } from './common/context.js';
+import { stdlog } from './common/logger.js';
+import { Controller, handleController, Middleware, handleStatic } from './middleware.js';
+import { out404 } from './response.js';
 
-export interface NicestOpt {
+export interface ServerOpt {
   /**端口 */
-  port?: number
+  port: number
   /**ip地址 */
-  host?: string
+  host: string
   /**https配置 */
-  https?: { key: Buffer, cert: Buffer }
+  https: { key: Buffer, cert: Buffer } | false
   /**是否让前端处理路由，以适应react应用的history路由模式 */
-  frontRoute?: boolean
-  /**静态资源根目录 */
+  frontRoute: boolean
+  /**
+   * 静态资源目录，没有则表示不响应静态资源，
+   * 静态资源路径 = 目录 + url
+   */
   staticRoot?: string
-  /**资源压缩范围 */
-  staticZipRange?: string[]
+  /**默认允许压缩的文件*/
+  canZipFile: string[]
   /**资源缓存时间 单位：秒*/
-  cacheMaxAge?: number
+  cacheMaxAge: number
+  /**指定默认渲染的html文件名 */
+  indexPageName: string
+  /**系统日志存放路径 */
+  systemLogPath?: string
 }
 
-const defaultNicestOpt: NicestOpt = {
+/**
+ * 默认配置
+ */
+const defaultServerOpt: ServerOpt = {
   host: "127.0.0.1",
   port: 5000,
-  staticZipRange: ['css', 'html', 'js', 'woff'],
-  cacheMaxAge: 12 * 60 * 60 //一天
+  canZipFile: ['css', 'html', 'js', 'woff'],
+  cacheMaxAge: 12 * 60 * 60, //一天
+  indexPageName: 'index.html',
+  frontRoute: false,
+  https: false,
 }
 
-export class Nicest {
+export class WebServer {
   server: Server
   /**中间件集合 */
   middlewares: Middleware[] = []
   /**控制器集合 */
   controllers: Controller[] = []
-  opt: NicestOpt
-  constructor(opt: NicestOpt = defaultNicestOpt) {
-    this.opt = Object.assign(opt, defaultNicestOpt)
+  opt: ServerOpt
+  constructor(opt: Partial<ServerOpt> = defaultServerOpt) {
+    this.opt = Object.assign(defaultServerOpt, opt)
     this.server = this.opt.https ? createServerHttps(this.opt.https, this.handler) : createServerHttp(this.handler)
 
     process.on('uncaughtException', err => {
-      stdlog({ type: 'error', msg: err.message })
+      stdlog({
+        type: 'error', color: 'red', logPath: this.opt.systemLogPath,
+        msg: err.message
+      })
     })
   }
 
-  onContextEmit(action: EmitAction) {
-    if (action.type === 'restart') {
-      this.closeServer(1)
-    }
-
-    if (action.type === 'shutdown') {
-      this.closeServer(0)
-    }
-  }
-
   /**
-   * 关闭服务
+   * 关闭服务，将执行close函数
+   * 可以设置一个退出状态吗
    * 主进程可以通过监听子进程的退出码，来执行不同任务
    * 1: 重启；0: 退出服务
-   * @param code 退出码
+   * @param code 退出码，主进程可以更具
    */
-  private closeServer(code: 0 | 1) {
+  close(code: 0 | 1) {
     //停止接收新的请求，这是一个异步函数，然后关闭server
     this.server.close()
     setTimeout(() => {
@@ -95,33 +99,43 @@ export class Nicest {
    */
   run() {
     //安装默认的中间件
-    this.use(handleController(this.controllers))
-    //有静态目录才安装该中间件
-    if (this.opt.staticRoot) {
-      this.use(handleStatic)
-    }
+    this.use(handleController)
+    /**
+     * 一般放在最后一个位置，
+     * 如果资源没有找到，那么直接响应404
+     */
+    this.use(handleStatic)
 
     this.server.listen(this.opt.port, this.opt.host, () => {
       const msg = `${this.opt.https ? 'https://' : 'http://'}${this.opt.host}:${this.opt.port}`
-      stdlog({ type: 'worker_startup', msg, color: 'yellow' })
+      stdlog({
+        type: 'worker_startup', msg,
+        color: 'yellow', logPath: this.opt.systemLogPath
+      })
     })
   }
 
   private handler = (req: IncomingMessage, res: ServerResponse) => {
     const ctx = new Context(req, res, this.opt, this)
     let i = 0
-    const next = (): void => {
+    const next = () => {
       const middleware = this.middlewares[i++]
+      //默认的中间件出口
       if (!middleware) {
-        return handle404(ctx)
+        return out404(ctx)
       }
       try {
         middleware(ctx, next)
       } catch (err: any) {
         //writeHead只能调用一次，需检查中间件中是否已经调用
+        //且调用了writeHead不能再设置setHeader
         // res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' })
+        // res.setHeader('Content-Type', 'text/html; charset=utf-8')
         res.end('statusCode: 500, message: ' + err.message)
-        stdlog({ type: 'error', msg: err.message })
+        stdlog({
+          type: 'error', color: 'red',
+          msg: err.message, logPath: this.opt.systemLogPath
+        })
       }
     }
     next()

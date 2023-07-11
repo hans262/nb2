@@ -71,3 +71,6 @@ set -e
 # npm i &&
 
 # npm run doc
+
+# 范围请求
+# curl https://127.0.0.1:5000/doc-icon.js

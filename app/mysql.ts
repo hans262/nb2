@@ -1,20 +1,14 @@
 import { createPool, Pool, PoolConnection } from 'mysql2';
 
-export const CONNECTION_LIMIT: number = 10
-export const HOST: string = "localhost"
-export const PORT: number = 3306
-export const USER: string = "root"
-export const PASSWORD: string = "123456"
-export const DATABASE: string = "my_db"
-
 const POOL: Pool = createPool({
-	connectionLimit: CONNECTION_LIMIT,
-	host: HOST,
-	port: PORT,
-	user: USER,
-	password: PASSWORD,
-	database: DATABASE,
+	connectionLimit: 10,
+	host: "localhost",
+	port: 3306,
+	user: "root",
+	password: "123456",
+	database: "my_db",
 })
+
 /**
  * query sql
  * @param sql 

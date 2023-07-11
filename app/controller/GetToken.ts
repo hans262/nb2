@@ -1,4 +1,4 @@
-import { Controller, Context, handleRedirect, setCookie } from "../../src/index.js";
+import { Controller, Context, setCookie, outRedirect } from "../../src/index.js";
 import { generate, KEY } from '../token.js';
 import { USER } from "../constant.js";
 
@@ -18,9 +18,9 @@ export class GetToken implements Controller {
       if (username === USER.username && password === USER.password) {
         const token = generate()
         setCookie({ res, key: KEY, value: token.id, path: '/', expires: new Date(token.expire), httpOnly: true })
-        handleRedirect({ ctx, location: '/', code: 302, reasonPhrase: 'login success' })
+        outRedirect(ctx, { location: '/', code: 302, reasonPhrase: 'login success' })
       } else {
-        handleRedirect({ ctx, location: '/login', code: 302, reasonPhrase: 'login failed' })
+        outRedirect(ctx, { location: '/login', code: 302, reasonPhrase: 'login failed' })
       }
     })
   }

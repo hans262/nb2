@@ -1,4 +1,4 @@
-import { encodeBase64, decodeBase64 } from '../src/common/base64'
+import { encodeBase64, decodeBase64 } from '../app/common/base64'
 import { bufferSplit } from '../src/common/bufferSplit'
 
 describe('test -> Common', () => {

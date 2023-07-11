@@ -1,4 +1,4 @@
-import { Middleware, handleRedirect, Context, getCookie, setCookie } from '../../src/index.js';
+import { Middleware, outRedirect, Context, getCookie, setCookie } from '../../src/index.js';
 import { KEY, reset, tokens } from '../token.js';
 
 export const checkAuth: Middleware = (ctx, next) => {
@@ -12,7 +12,7 @@ export const checkAuth: Middleware = (ctx, next) => {
   }
 
   if (!isLogin(ctx)) {
-    handleRedirect({ ctx, location: '/login', code: 302, reasonPhrase: 'temporarily moved' })
+    outRedirect(ctx, { location: '/login', code: 302, reasonPhrase: 'temporarily moved' })
   } else {
     next()
   }

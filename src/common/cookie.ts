@@ -20,8 +20,8 @@ export interface Cookie {
 export function getCookie(req: IncomingMessage, key: string): string | null {
   const { cookie } = req.headers
   if (!cookie) return null
-  const reg: RegExp = new RegExp("(^| )" + key + "=([^;]*)(;|$)")
-  const arr: RegExpMatchArray | null = cookie.match(reg)
+  const reg = new RegExp("(^| )" + key + "=([^;]*)(;|$)")
+  const arr = cookie.match(reg)
   return arr ? unescape(arr[2]) : null
 }
 
@@ -31,15 +31,15 @@ export function getCookie(req: IncomingMessage, key: string): string | null {
  */
 export function setCookie(cookie: Cookie) {
   const { res, key, value, maxAge, domain, path, expires, httpOnly, secure } = cookie
-  let pairs: Array<string> = [key + '=' + value]
+  let pairs = [key + '=' + value]
   if (maxAge) pairs.push('Max-Age=' + maxAge)
   if (domain) pairs.push('Domain=' + domain)
   if (path) pairs.push('Path=' + path)
   if (expires) pairs.push('Expires=' + expires.toUTCString())
   if (httpOnly) pairs.push('HttpOnly')
   if (secure) pairs.push('Secure')
-  const cur: string = pairs.join('; ')
-  const pre: string | number | string[] | undefined = res.getHeader('set-cookie')
+  const cur = pairs.join('; ')
+  const pre = res.getHeader('set-cookie')
   if (pre) {
     Array.isArray(pre) ?
       res.setHeader('Set-Cookie', [...pre, cur]) :

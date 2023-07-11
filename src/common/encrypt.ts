@@ -4,8 +4,13 @@ import {
 	createCipheriv,
 	createDecipheriv,
 	CipherKey,
-	BinaryLike
+	BinaryLike,
+	getHashes,
+	getCiphers
 } from 'node:crypto'
+
+// console.log(getCiphers())
+// console.log(getHashes())
 
 /**
  * Hash加密 ->
@@ -13,7 +18,7 @@ import {
  * @param data 加密源
  */
 export function Hash(data: BinaryLike): string {
-	return createHash('md5').update(data).digest('hex')
+	return createHash('sha256').update(data).digest('hex')
 }
 
 /**

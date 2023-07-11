@@ -1,4 +1,11 @@
-import { DataFrame } from "../interface/Headers.js";
+interface DataFrame {
+  FIN: number
+  Opcode: number
+  Mask: number
+  PayloadLength: number
+  MaskingKey?: number[]
+  PayloadData: Buffer
+}
 
 /**
  * 数据帧的解码
@@ -24,7 +31,7 @@ export function decodeDataFrame(e: Buffer): DataFrame {
     //真实长度大于65535，读取后面2个字节，表示的64位无符号整数
     i += 4 //前四位一般为0，因为没有那么大的数据体
     let a = (e[i++] << 24) + (e[i++] << 16) + (e[i++] << 8) + e[i++]
-    PayloadLength =a
+    PayloadLength = a
   }
   //判断是否使用掩码
   if (Mask) {
@@ -35,7 +42,7 @@ export function decodeDataFrame(e: Buffer): DataFrame {
     for (j = 0; j < PayloadLength; j++) {
       PayloadData[j] = e[i + j] ^ MaskingKey[j % 4]
     }
-  }else{
+  } else {
     //否则直接截取数据
     PayloadData = e.slice(i, i + PayloadLength)
   }
@@ -47,11 +54,11 @@ export function decodeDataFrame(e: Buffer): DataFrame {
  * @param e 源
  */
 export function encodeDataFrame(e: DataFrame): Buffer {
-  let s: number[] =[], d = e.PayloadData, l = d.byteLength
+  let s: number[] = [], d = e.PayloadData, l = d.byteLength
   //填充第一个字节
   s.push((e.FIN << 7) + e.Opcode)
   //填充第二个字节，数据长度，永远不使用掩码
-  if(l < 126) s.push(l)
+  if (l < 126) s.push(l)
   else if (l < 0x10000) s.push(126, l >> 8, l & 0b11111111) // s.writeUInt16BE(l, 2)
   else s.push(
     127, 0, 0, 0, 0,

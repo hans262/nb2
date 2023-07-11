@@ -8,7 +8,7 @@
       "type": "node",
       "request": "launch",
       "name": "WEB_SOCKET",
-      "program": "${workspaceFolder}/src/service/WebSocket.ts",
+      "program": "${workspaceFolder}/src/WebSocket.ts",
       "outFiles": [
         "${workspaceFolder}/out/**/*.js"
       ]
@@ -16,8 +16,8 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "SOCKET_SERVER",
-      "program": "${workspaceFolder}/src/service/SocketServer.ts",
+      "name": "SOCKET",
+      "program": "${workspaceFolder}/app/socket.ts",
       "outFiles": [
         "${workspaceFolder}/out/**/*.js"
       ]
