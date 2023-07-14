@@ -3,27 +3,35 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Socket Client</title>
+	<title>Socket Chat</title>
+	<style>
+		button {
+			background: white;
+			border: 1px solid #808080;
+			border-radius: 3px;
+		}
+	</style>
 </head>
 
 <body>
-	<button id="connect">连接</button>
-	<button id="close">断开</button>
-	<br>
 	<textarea id="text" style="width: 200px; height: 100px; vertical-align:bottom;"></textarea>
-	<input id="send" type="submit" value="发送">
+	<button id="connect">连接</button>
+	<button id="send">发送</button>
 	<br>
-	<div id="content">
-	</div>
-	<script>
+	<div id="content"></div>
+	<script type="text/javascript">
 		const connectNode = document.getElementById('connect')
-		const closeNode = document.getElementById('close')
-		const sendNode = document.getElementById('send')
-		const textNode = document.getElementById('text')
 		const contentNode = document.getElementById('content')
+
+		/** @type {WebSocket} */
+		let ws = null
+
 		function createConnect(url) {
 			const ws = new WebSocket('ws://127.0.0.1:8888')
 			ws.onopen = function (event) {
+				connectNode.style.backgroundColor = 'green'
+				connectNode.style.color = 'white'
+				connectNode.innerHTML = '已连接'
 				console.log('连接成功')
 			}
 			ws.onclose = function (event) {
@@ -37,28 +45,28 @@
 			return ws
 		}
 
-		let ws = null
-
-		connectNode.addEventListener('click', function () {
-			if (ws && ws.readyState === 1) {
-				console.log('已连接')
+		connectNode.addEventListener('click', () => {
+			if (ws?.readyState === 1) {
+				connectNode.style.backgroundColor = ''
+				connectNode.style.color = ''
+				connectNode.innerHTML = '连接'
+				ws.close()
 				return
 			}
 			ws = createConnect()
 		})
 
-		closeNode.addEventListener('click', function () {
-			if (ws && ws.readyState == 1) {
-				ws.close()
-			}
-		})
-		sendNode.addEventListener('click', function () {
+		document.getElementById('send').addEventListener('click', function () {
 			if (!ws || ws.readyState !== 1) {
 				console.log('未连接')
 				return
 			}
-			const data = textNode.value
-			ws.send(data)
+			//测试超大buffer
+			// let u8a = new Uint8Array(1024)
+			// u8a[0] = 255
+			// u8a[1] = 22
+			// ws.send(u8a)
+			ws.send(document.getElementById('text').value)
 		})
 	</script>
 </body>

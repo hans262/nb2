@@ -5,8 +5,7 @@
  */
 export function bufferSplit(buffer: Buffer, spl: string): Buffer[] {
   const result: Buffer[] = []
-  let offset = 0
-  let index = 0
+  let offset = 0, index = 0;
   while ((index = buffer.indexOf(spl, offset)) !== -1) {
     result.push(buffer.subarray(offset, index))
     offset = index + spl.length

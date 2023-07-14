@@ -100,18 +100,3 @@ const defaultStyles = {
   'underline': '\x1B[4m', //下划线
   'reset': '\x1B[0m', //重置颜色
 } as const
-
-
-/**
- * 向主进程发送消息
- */
-// export function SEND(cmd: ACTION): void {
-//   const { type } = cmd
-//   //IPC 通道是否连接
-//   console.log(process.connected, process.send)
-//   if (process.connected) {
-//     process.send!({ type })
-//   } else {
-//     console.log('worker进程无法处理命令')
-//   }
-// }

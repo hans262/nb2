@@ -7,8 +7,8 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "WEB_SOCKET",
-      "program": "${workspaceFolder}/src/WebSocket.ts",
+      "name": "WSOCKET",
+      "program": "${workspaceFolder}/app/wsocket.ts",
       "outFiles": [
         "${workspaceFolder}/out/**/*.js"
       ]
@@ -42,6 +42,6 @@
         "${workspaceFolder}/out/**/*.js"
       ],
       "outputCapture": "std"
-    },
+    }
   ]
 }

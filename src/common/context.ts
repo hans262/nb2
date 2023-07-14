@@ -4,7 +4,7 @@ import { WebServer, ServerOpt } from "../webserver.js";
 
 export class Context {
   /**请求发起时间戳 */
-  startTime: number
+  startTime = Date.now()
   /**请求ur对象 */
   url: URL
   /**http请求路径 */
@@ -15,10 +15,7 @@ export class Context {
     public opt: ServerOpt,
     public app: WebServer
   ) {
-    this.startTime = Date.now()
-
     const domain = (opt.https ? 'https://' : 'http://') + opt.host + ':' + opt.port
-
     this.url = new URL(join(domain, req.url ?? '/'))
     //浏览器url可能会对中文转码
     this.pathname = decodeURI(this.url.pathname)

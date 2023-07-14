@@ -15,7 +15,7 @@ export interface Cookie {
 /**
  * 获取cookie
  * @param req 
- * @param key 键
+ * @param key
  */
 export function getCookie(req: IncomingMessage, key: string): string | null {
   const { cookie } = req.headers
@@ -27,7 +27,7 @@ export function getCookie(req: IncomingMessage, key: string): string | null {
 
 /**
  * 设置cookie 不支持中文
- * @param cookie Cookie
+ * @param cookie
  */
 export function setCookie(cookie: Cookie) {
   const { res, key, value, maxAge, domain, path, expires, httpOnly, secure } = cookie

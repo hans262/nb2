@@ -49,7 +49,7 @@ export class WebServer {
   /**控制器集合 */
   controllers: Controller[] = []
   opt: ServerOpt
-  constructor(opt: Partial<ServerOpt> = defaultServerOpt) {
+  constructor(opt?: Partial<ServerOpt>) {
     this.opt = Object.assign(defaultServerOpt, opt)
     this.server = this.opt.https ? createServerHttps(this.opt.https, this.handler) : createServerHttp(this.handler)
 
