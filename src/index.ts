@@ -8,4 +8,4 @@ export * from './common/logger.js'
 export * from './common/bufferSplit.js'
 
 export * from './socketserver.js'
-export * from './websocket.js'
+export * from './wsocket.js'
