@@ -18,6 +18,7 @@ export type Middleware = (ctx: Context, next: () => void) => void
  */
 export const handleController: Middleware = (ctx, next) => {
   const { req, pathname, startTime } = ctx
+  console.log(pathname, req.method )
   if (!req.method || !pathname) return next()
   if (!isMethod(req.method)) return next()
 
@@ -75,7 +76,7 @@ export const handleStatic: Middleware = (ctx, next) => {
  * @param staticPath 静态资源路径
  */
 export function staticTask(ctx: Context, staticPath: string) {
-  stat(staticPath, (err, stats) => {    
+  stat(staticPath, (err, stats) => {
     if (err) {
       return out404(ctx, { staticPath })
     }

@@ -1,21 +1,17 @@
 import { createServer, Socket } from 'node:net'
-import { createHash } from 'node:crypto'
+import { createSecretKey } from './common/utils.js'
 
 /**
  * socket服务端
  */
 export class SocketServer {
   sockets: Map<string, Socket> = new Map()
-
-  createSocketKey() {
-    const data = Date.now() + Math.random()
-    return createHash('sha256').update(data.toString()).digest('hex')
-  }
-
   constructor() {
     const server = createServer()
     server.on('connection', socket => {
-      const key = this.createSocketKey()
+      const key = createSecretKey(
+        (Date.now() + Math.random()).toString(), 'sha256'
+      )
       this.sockets.set(key, socket)
       // socket.write(`${key}`)
 

@@ -1,18 +1,12 @@
-import { Controller, Context } from "../../src/index.js";
+import { Controller, Context, getBodyData } from "../../src/index.js";
 
 export class TestPost implements Controller {
 	readonly PATH_NAME: string = '/api/post'
-	POST(ctx: Context) {
-		const { req, res } = ctx
+	async POST(ctx: Context) {
+		const { res } = ctx
 		res.setHeader('Content-Type', 'application/octet-stream; charset=utf-8')
 		res.writeHead(200, 'OK')
-		const chunks: Array<Buffer> = []
-		req.on('data', (chunk: Buffer) => {
-			chunks.push(chunk)
-		})
-		req.on('end', () => {
-			const buffer: Buffer = Buffer.concat(chunks)
-			res.end(buffer)
-		})
+		const buffer = await getBodyData(ctx.req)
+		res.end(buffer)
 	}
 }

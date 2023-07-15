@@ -5,13 +5,12 @@ import { proxyConfig } from "../constant.js";
 
 /**
  * 代理中间件
- * @param req 
- * @param res 
+ * @param ctx 
  * @param next 
  */
 export const proxy: Middleware = (ctx, next) => {
   const { req, pathname, res } = ctx
-  const { method } = req
+
   const cf = Object.entries(proxyConfig).find(v => pathname.match(
     new RegExp(`^(${v[0]}|${v[0]}\/.*)$`)
   ))
@@ -19,7 +18,7 @@ export const proxy: Middleware = (ctx, next) => {
 
   const [, proxyUrl] = cf
   const url = new URL(proxyUrl)
-  
+
   //没有http类型信息
   if (!url.protocol) return next()
 
@@ -29,7 +28,7 @@ export const proxy: Middleware = (ctx, next) => {
 
   const options: https.RequestOptions = {
     protocol: url.protocol,
-    method: method,
+    method: req.method,
     hostname: url.hostname,
     port: url.port,
     path: req.url,
@@ -41,6 +40,7 @@ export const proxy: Middleware = (ctx, next) => {
     res.writeHead(statusCode, response.headers)
     response.pipe(res)
   })
+
   req.pipe(server)
   server.on('error', err => {
     res.writeHead(400, { 'Content-Type': 'application/json; charset=utf-8' })

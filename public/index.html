@@ -1,1 +1,55 @@
-<h1>hello world</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>index</title>
+</head>
+
+<body>
+  <input id="file" type="file" multiple="multiple" />
+  <button id="submit">上传</button>
+  <button id="down">下载</button>
+  <script>
+    //上传
+    document.getElementById('submit').addEventListener('click', async (e) => {
+      /** @type FileList*/
+      const files = document.getElementById('file').files
+      const formData = new FormData()
+      Array.from(files).forEach(file => {
+        formData.append('myfile', file)
+      })
+      formData.append('name', 'huahua')
+      const ret = await fetch('/api/upfiles', {
+        method: 'POST',
+        body: formData
+      }).then(res => res.json())
+      console.log(ret)
+    })
+
+    //下载
+    document.getElementById('down').addEventListener('click', async (e) => {
+      let filename;
+      const blob = await fetch('/api/download', { method: 'POST' })
+        .then(res => {
+          const cd = res.headers.get('Content-Disposition')
+          let [_, _filename] = cd.match(/filename=([^;]+)/) ?? []
+          filename = _filename
+          return res.blob()
+        })
+      // console.log(ret, m)
+
+      // 创建下载链接
+      const href = window.URL.createObjectURL(blob)
+      // 创建a标签并为其添加属性
+      const link = document.createElement('a')
+      link.href = href
+      link.download = filename
+      // 触发事件
+      link.click()
+    })
+
+  </script>
+</body>
+
+</html>

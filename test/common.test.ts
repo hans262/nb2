@@ -1,5 +1,5 @@
 import { encodeBase64, decodeBase64 } from '../app/common/base64'
-import { bufferSplit } from '../src/common/bufferSplit'
+import { bufferSplit } from '../src/common/utils'
 
 describe('test -> Common', () => {
   test('base64', () => {
@@ -17,13 +17,13 @@ describe('test -> Common', () => {
   test('bufferSplit', () => {
 
     const b = Buffer.from('\r\n大青蛙私たち\r\n一天の一夜他\r\n我看iirftgr\r\n')
-    
+
     const c = bufferSplit(b, '\r')
 
     c.forEach(ic => {
       console.log(ic.toString('utf-8'))
     })
-    // console.log(c)
+    console.log(c)
 
 
     // let m = new Matrix([

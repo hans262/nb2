@@ -1,9 +1,9 @@
 {
   "name": "nicest",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "type": "module",
   "scripts": {
-    "dev": "node app/index.js",
+    "dev": "node out/app/index.js",
     "out": "tsc",
     "out:w": "tsc -watch",
     "doc": "typedoc --options ./typedoc.config.cjs",
