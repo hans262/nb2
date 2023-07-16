@@ -18,13 +18,13 @@ export type Middleware = (ctx: Context, next: () => void) => void
  */
 export const handleController: Middleware = (ctx, next) => {
   const { req, pathname, startTime } = ctx
-  console.log(pathname, req.method )
+
   if (!req.method || !pathname) return next()
   if (!isMethod(req.method)) return next()
 
   const controller = ctx.app.controllers.find(c => {
     const regExp = new RegExp(
-      '^' + c.PATH_NAME.replaceAll('*', '([^\/]+)') + '$'
+      '^' + c.pathname.replaceAll('*', '([^\/]+)') + '$'
     )
     const def = pathname.match(regExp)
     return !!def
@@ -42,7 +42,7 @@ export const handleController: Middleware = (ctx, next) => {
 }
 
 export interface Controller {
-  readonly PATH_NAME: string
+  readonly pathname: string
   GET?(ctx: Context): void
   POST?(ctx: Context): void
   PUT?(ctx: Context): void
@@ -52,7 +52,7 @@ export interface Controller {
 export type Method = 'GET' | 'POST' | 'PUT' | 'DELETE'
 
 export function isMethod(m: string): m is Method {
-  return m === 'GET' || m === 'POST' || m === 'PUT' || m === 'DELETE'
+  return ['GET', 'POST', 'PUT', 'DELETE'].includes(m)
 }
 
 /**

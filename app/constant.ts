@@ -25,10 +25,12 @@ export const USER = {
 export const LOGIN = false
 
 //客户端token过期时间 单位 分钟
-export const TOKEN_EXPIRES: number = 20
+export const TOKEN_EXPIRES = 20
 
 //代理配置
 export const proxyConfig = {
   '/proxy': 'http://127.0.0.1:7777',
-  '/douban': 'https://movie.douban.com/'
+  '/douban': 'https://movie.douban.com',
+  '/package/lodash': 'https://www.npmjs.com',
+  '/hot': 'https://www.zhihu.com'
 } as const

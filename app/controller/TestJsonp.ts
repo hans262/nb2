@@ -1,7 +1,7 @@
 import { Controller, Context } from "../../src/index.js";
 
 export class TestJsonp implements Controller {
-	readonly PATH_NAME: string = '/api/jsonp'
+	readonly pathname = '/api/jsonp'
 	GET(ctx: Context) {
 		const { res, url: { searchParams } } = ctx
 		res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' })

@@ -1,5 +1,5 @@
 import { createServer, Socket } from 'node:net'
-import { createSecretKey } from './common/utils.js'
+import { createHashSecret } from './common/encrypt.js'
 
 /**
  * socket服务端
@@ -9,7 +9,7 @@ export class SocketServer {
   constructor() {
     const server = createServer()
     server.on('connection', socket => {
-      const key = createSecretKey(
+      const key = createHashSecret(
         (Date.now() + Math.random()).toString(), 'sha256'
       )
       this.sockets.set(key, socket)

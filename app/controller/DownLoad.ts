@@ -4,7 +4,7 @@ import { Controller, Context } from '../../src/index.js';
 import { PUBLIC_PATH } from '../constant.js';
 
 export class DownLoad implements Controller {
-  readonly PATH_NAME: string = '/api/download'
+  readonly pathname: string = '/api/download'
   POST(ctx: Context) {
     const file = 'c.png'
     const filename = join(PUBLIC_PATH, file)

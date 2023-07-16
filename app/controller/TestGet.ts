@@ -1,7 +1,7 @@
 import { Controller, Context } from "../../src/index.js";
 
 export class TestGet implements Controller {
-	readonly PATH_NAME: string = '/api/get'
+	readonly pathname = '/api/get'
 	GET(ctx: Context) {
 		const { url: { searchParams }, res } = ctx
 		res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' })

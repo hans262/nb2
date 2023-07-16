@@ -2,17 +2,7 @@
 
 set -e
 
-# sed -i '2i \adw' a.txt \aww
-
-# gsed -i "s/1111/& <link rel=icon type=image/svg+xml href=/nicest/vite.svg /> /" a.txt
-
 # echo "123" >> a.txt
-
-# cat > a.txt >>EOF##
-# 1212
-# 2121122
-# 121
-# EOF##
 
 
 # if [ -d "./docs" ];then
@@ -20,12 +10,6 @@ set -e
 #   else
 #   echo "文件不存在"
 # fi
-
-
-
-# (base) [root@PC1]# ls
-# echo "1"
-# ACCESS_TOKEN="wqdqw"
 
 # $a + 2 
 
@@ -64,13 +48,6 @@ set -e
 # name="huahua"
 # echo $name
 # echo $name
-
-
-# npm -v && 
-
-# npm i &&
-
-# npm run doc
 
 # 范围请求
 # curl https://127.0.0.1:5000/doc-icon.js

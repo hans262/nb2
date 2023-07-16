@@ -1,7 +1,7 @@
 import { Controller, Context } from "../../src/index.js";
 
 export class LoginPage implements Controller {
-  readonly PATH_NAME: string = '/login'
+  readonly pathname = '/login'
   GET(ctx: Context) {
     const { res } = ctx
     res.setHeader('Content-Type', 'text/html; charset=utf-8')

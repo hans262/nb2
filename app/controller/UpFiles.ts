@@ -1,21 +1,15 @@
 import { ServerResponse } from 'node:http';
 import { writeFileSync } from 'node:fs';
 import { extname, join } from 'node:path';
-import { Controller, Context, parseFormData, createSecretKey, getBodyData } from '../../src/index.js';
+import { Controller, Context, parseFormData, createHashSecret, getBodyData } from '../../src/index.js';
 import { PUBLIC_PATH } from '../constant.js';
 
 /**
  * 文件上传
- * FormData格式
- * 所需请求头 ->
- * Content-Type:"multipart/form-data; boundary=----WebKitFormBoundaryTK4tKRxDd34z0iSh"
- * Content-Length:"1024"
- * Content-Type:multipart/form-data 前端不要设置这个，会自动识别，
- * 这样能带上分隔符boundary，自己设置需要自己定义boundary
+ * 支持格式：FormData | ArrayBuffer
  */
-
 export class UpFiles implements Controller {
-  readonly PATH_NAME: string = '/api/upfiles'
+  readonly pathname: string = '/api/upfiles'
   /**限制最大上传10MB*/
   maxSize = 100
 
@@ -29,63 +23,62 @@ export class UpFiles implements Controller {
     res.end(JSON.stringify({ success: true, result: msg }))
   }
 
-  parseHeader(ctx: Context) {
-    let contentType: string | undefined, boundary: string | undefined,
-      contentLength: number | undefined;
-
-    const len = ctx.req.headers['content-length']
-    contentLength = len ? parseInt(len) : undefined
-
-    const ct = ctx.req.headers['content-type']
-
-    if (ct) {
-      let tmp = ct.split('; ') as (string | undefined)[]
-      contentType = tmp[0]
-      boundary = tmp[1]
-    }
-    //解析boundary
-    if (boundary) {
-      boundary = (boundary.match(/^boundary=([^;]+)$/) ?? [])[1]
-    }
-    return { contentType, boundary, contentLength }
+  /**
+   * 创建新的文件名
+   * @param name 
+   */
+  createFileName(name: string) {
+    const ext = extname(name)
+    const base = name.split(ext)[0]
+    return base + '.' + createHashSecret(base) + ext
   }
 
   async POST(ctx: Context) {
     const { req, res } = ctx
     // console.log(req.headers)
-    const { contentType, boundary, contentLength } = this.parseHeader(ctx)
 
-    //拿到content-length，非空检查
+    const [contentLength, contentType] = [
+      parseInt(req.headers['content-length'] ?? ''),
+      req.headers['content-type']
+    ]
+
+    const boundary = contentType?.match(/boundary=([^;]+)/)?.[1]
+    const filename = contentType?.match(/filename=([^;]+)/)?.[1]
+
+    //NaN | 0 排除
     if (!contentLength) {
-      return this.handleFailed(res, 'content-length不存在，或者不合法')
+      return this.handleFailed(res, `content-length错误，contentLength：${contentLength}`)
     }
 
-    //做大小限制
+    //超尺寸限制限制
     if (contentLength > this.maxSize * 1024 * 1024) {
       return this.handleFailed(res, `超出最大上传尺寸${this.maxSize}mb`)
     }
 
-    //接收数据
-    const buf = await getBodyData(ctx.req)
-
-    // 解析formdata数据
-    if (contentType === 'multipart/form-data' && boundary) {
+    // 解析数据
+    if (contentType?.includes('multipart/form-data') && boundary) {
+      //'content-type': 'multipart/form-data; boundary=----WebKitFormBoundaryuA6k9Vw0kI6GjOjd'
+      //前端不要设置content-type，会自动识别，
+      //接收数据
+      const buf = await getBodyData(ctx.req)
       const ret = parseFormData(buf, boundary, contentLength)
       ret.forEach(d => {
         if (d.filename) {
-          const ext = extname(d.filename)
-          const base = d.filename.split(ext)[0]
-          const newFileName = base + '.' + createSecretKey(base) + ext
+          const newFileName = this.createFileName(d.filename)
           writeFileSync(join(PUBLIC_PATH, newFileName), d.data)
         }
       })
-      this.handleSuccess(ctx.res, '上传成功')
-      return
+      return this.handleSuccess(ctx.res, '上传成功')
+    } else if (contentType?.includes('arraybuffer') && filename) {
+      //'content-type': 'arraybuffer; filename=a.txt'
+      //前端需要设置content-type
+      //接收数据
+      const file = await getBodyData(ctx.req)
+      const newFileName = this.createFileName(filename)
+      writeFileSync(join(PUBLIC_PATH, newFileName), file)
+      return this.handleSuccess(ctx.res, '上传成功')
     }
 
-    //校验contentType合不合法
-    this.handleFailed(res,
-      `不支持的上传类型，content-type: ${contentType}; boundary: ${boundary}`
-    )
+    this.handleFailed(res, `不支持的content-type: ${contentType}`)
   }
 }

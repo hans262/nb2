@@ -1,5 +1,7 @@
-import { createHash } from "node:crypto";
 import { IncomingMessage } from "node:http";
+import { createReadStream, createWriteStream } from 'node:fs';
+import { extname } from 'node:path';
+import { createGzip, createGunzip } from 'node:zlib';
 
 /**
  * buffer 分割
@@ -18,12 +20,11 @@ export function bufferSplit(buffer: Buffer, spl: string): Buffer[] {
 }
 /**
  * const buffer = Buffer.from('\r\n大青蛙私たち\r\n一天の一夜他\r\n我看iirftgr\r\n')
- * const results = bufferSplit(buffer, '\r\n')
+ * const ret = bufferSplit(buffer, '\r\n')
  */
 
 /**
  * 解析FormData数据
- * 确保ContentType === multipart/form-data，且boundary存在
  * @param ctx 
  * @param boundary 
  * @param contentLength 
@@ -53,7 +54,7 @@ export function parseFormData(buf: Buffer, boundary: string, contentLength: numb
   //文件分割
   const bufs = bufferSplit(temp, midBoundary)
   for (const buf of bufs) {
-
+    // console.log(buf.toString())
     let index = buf.indexOf('\r\n', 0)
 
     const lineOne = buf.subarray(0, index).toString()
@@ -90,19 +91,6 @@ export interface FormData {
 }
 
 /**
- * 创建密钥
- * 支持算法 md5 sha1 sha256 sha512  16进制
- * @param data 加密源
- * @param hash
- */
-export function createSecretKey(
-  data: string,
-  hash: 'md5' | 'sha1' | 'sha256' | 'sha512' = 'sha1'
-) {
-  return createHash(hash).update(data).digest('hex')
-}
-
-/**
  * 接收body数据
  * @param ctx 
  */
@@ -117,4 +105,46 @@ export function getBodyData(req: IncomingMessage) {
       resolve(Buffer.concat(chunks))
     })
   })
+}
+
+/**
+ * gzip 压缩
+ * 默认存放到原始文件目录
+ * @param name
+ */
+export function toGzip(name: string) {
+  const gzip = createGzip()
+  const inp = createReadStream(name)
+  const out = createWriteStream(name + '.gz')
+  inp.pipe(gzip).pipe(out)
+}
+
+/**
+ * gzip 解压
+ * 默认存放到原始文件目录
+ * @param name
+ */
+export function unGzip(name: string) {
+  const ext = extname(name)
+  const newFileName = name.split(ext)[0]
+  const gzip = createGunzip()
+  const inp = createReadStream(name)
+  const out = createWriteStream(newFileName)
+  inp.pipe(gzip).pipe(out)
+}
+
+/**
+ * base64 编码
+ * @param data
+ */
+export function encodeBase64(data: string) {
+  return Buffer.from(data).toString('base64')
+}
+
+/**
+ * base64 解码
+ * @param data
+ */
+export function decodeBase64(data: string) {
+  return Buffer.from(data, 'base64').toString()
 }

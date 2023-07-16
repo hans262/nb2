@@ -3,7 +3,7 @@ import { generate, KEY } from '../token.js';
 import { USER } from "../constant.js";
 
 export class GetToken implements Controller {
-  readonly PATH_NAME: string = '/getToken'
+  readonly pathname = '/getToken'
   async POST(ctx: Context) {
     const { res } = ctx
     const buffer = await getBodyData(ctx.req)

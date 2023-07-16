@@ -20,8 +20,11 @@
         formData.append('myfile', file)
       })
       formData.append('name', 'huahua')
+
+      const arraybuffer = await files[0].arrayBuffer()
       const ret = await fetch('/api/upfiles', {
         method: 'POST',
+        // headers: { 'content-type': `arraybuffer; filename=${files[0].name}` },
         body: formData
       }).then(res => res.json())
       console.log(ret)

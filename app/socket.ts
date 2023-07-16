@@ -2,7 +2,7 @@ import { createConnection } from 'node:net'
 import { SocketServer } from '../src/index.js'
 
 //启动服务端
-const app = new SocketServer()
+new SocketServer()
 
 //创建连接
 const socket = createConnection({
