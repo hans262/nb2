@@ -1,7 +1,7 @@
 ## nicest
 简单的nodejs服务。
 
-### 脚本
+## 脚本
 ```sh
   # 启动主进程
   npm run dev
