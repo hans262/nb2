@@ -1,4 +1,3 @@
-import { IncomingMessage } from "node:http";
 import { createReadStream, createWriteStream } from 'node:fs';
 import { extname } from 'node:path';
 import { createGzip, createGunzip } from 'node:zlib';
@@ -88,23 +87,6 @@ export interface FormData {
   filename?: string
   ContentType?: string
   data: Buffer
-}
-
-/**
- * 接收body数据
- * @param ctx 
- */
-export function getBodyData(req: IncomingMessage) {
-  return new Promise<Buffer>((resolve) => {
-    const chunks: Buffer[] = []
-    req.on('data', (chunk: Buffer) => {
-      chunks.push(chunk)
-    })
-
-    req.on('end', () => {
-      resolve(Buffer.concat(chunks))
-    })
-  })
 }
 
 /**

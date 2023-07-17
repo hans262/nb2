@@ -1,4 +1,4 @@
-import { Middleware, outRedirect, Context, getCookie, setCookie } from '../../src/index.js';
+import { Middleware, outRedirect, Context, } from '../../src/index.js';
 import { KEY, reset, tokens } from '../token.js';
 
 export const checkAuth: Middleware = (ctx, next) => {
@@ -19,21 +19,20 @@ export const checkAuth: Middleware = (ctx, next) => {
 }
 
 function isLogin(ctx: Context): boolean {
-  const { req, res } = ctx
-  const id = getCookie(req, KEY)
+  const id = ctx.getCookie(KEY)
   //检查id
   if (!id) return false
   //查询
   const token = tokens.get(id)
   //不存在
   if (!token) {
-    setCookie({ res, key: KEY, value: 'delete', expires: new Date(), httpOnly: true })
+    ctx.setCookie(KEY, 'delete', { expires: new Date(), httpOnly: true })
     return false
   }
   //超时
   if (token.expire < Date.now()) {
     tokens.delete(id)
-    setCookie({ res, key: KEY, value: 'delete', expires: new Date(), httpOnly: true })
+    ctx.setCookie(KEY, 'delete', { expires: new Date(), httpOnly: true })
     return false
   }
   //存在 & 重置

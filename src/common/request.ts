@@ -1,6 +1,5 @@
 import * as http from 'node:http';
 import * as https from 'node:https'
-import { getBodyData } from './utils.js';
 
 export interface Request {
   method?: 'GET' | 'POST'
@@ -29,9 +28,16 @@ export function fetchOn(_url: string, opt?: Request) {
       port: url.port,
       method: opt?.method ?? 'GET',
       rejectUnauthorized //拒绝本地自签名证书的校验
-    }, async ret => {
-      const data = await getBodyData(ret)
-      resolve({ statusCode: ret.statusCode, data })
+    }, ret => {
+      const chunks: Buffer[] = []
+      req.on('data', (chunk: Buffer) => {
+        chunks.push(chunk)
+      })
+
+      req.on('end', () => {
+        const data = Buffer.concat(chunks)
+        resolve({ statusCode: ret.statusCode, data })
+      })
     })
 
     req.on('error', (err) => {

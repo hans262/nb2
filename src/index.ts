@@ -6,7 +6,6 @@ export * from './socketserver.js'
 export * from './wsocket.js'
 
 export * from './common/context.js'
-export * from './common/cookie.js'
 export * from './common/logger.js'
 export * from './common/utils.js'
 export * from './common/request.js'

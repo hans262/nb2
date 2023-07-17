@@ -1,6 +1,7 @@
 import { TOKEN_EXPIRES } from './constant.js';
 
 export type TokenStore = Map<string, Token>
+
 export interface Token {
   id: string
   /**
@@ -19,7 +20,7 @@ export interface Token {
 export const tokens: TokenStore = new Map()
 
 /**token的键名 */
-export const KEY: string = 'auth'
+export const KEY = 'auth'
 
 const EXPIRES = TOKEN_EXPIRES * 60 * 1000 //转成毫秒
 

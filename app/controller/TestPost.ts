@@ -1,4 +1,4 @@
-import { Controller, Context, getBodyData } from "../../src/index.js";
+import { Controller, Context } from "../../src/index.js";
 
 export class TestPost implements Controller {
 	readonly pathname = '/api/post'
@@ -6,7 +6,7 @@ export class TestPost implements Controller {
 		const { res } = ctx
 		res.setHeader('Content-Type', 'application/octet-stream; charset=utf-8')
 		res.writeHead(200, 'OK')
-		const buffer = await getBodyData(ctx.req)
+		const buffer = await ctx.getBodyData()
 		res.end(buffer)
 	}
 }

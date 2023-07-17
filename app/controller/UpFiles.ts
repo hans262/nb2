@@ -1,7 +1,7 @@
 import { ServerResponse } from 'node:http';
 import { writeFileSync } from 'node:fs';
 import { extname, join } from 'node:path';
-import { Controller, Context, parseFormData, createHashSecret, getBodyData } from '../../src/index.js';
+import { Controller, Context, parseFormData, createHashSecret } from '../../src/index.js';
 import { PUBLIC_PATH } from '../constant.js';
 
 /**
@@ -60,7 +60,7 @@ export class UpFiles implements Controller {
       //'content-type': 'multipart/form-data; boundary=----WebKitFormBoundaryuA6k9Vw0kI6GjOjd'
       //前端不要设置content-type，会自动识别，
       //接收数据
-      const buf = await getBodyData(ctx.req)
+      const buf = await ctx.getBodyData()
       const ret = parseFormData(buf, boundary, contentLength)
       ret.forEach(d => {
         if (d.filename) {
@@ -73,7 +73,7 @@ export class UpFiles implements Controller {
       //'content-type': 'arraybuffer; filename=a.txt'
       //前端需要设置content-type
       //接收数据
-      const file = await getBodyData(ctx.req)
+      const file = await ctx.getBodyData()
       const newFileName = this.createFileName(filename)
       writeFileSync(join(PUBLIC_PATH, newFileName), file)
       return this.handleSuccess(ctx.res, '上传成功')

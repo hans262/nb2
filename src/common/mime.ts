@@ -4,12 +4,12 @@ import { extname } from 'node:path'
  * 获取mime类型
  * @param path 
  */
-export function mime(path: string): string {
+export function getMimeType(path: string) {
   const ext = extname(path).slice(1)
   if (isMime(ext)) {
-    return MimeTypes[ext]
+    return MimeType[ext]
   } else {
-    return MimeTypes['txt']
+    return MimeType['txt']
   }
 }
 
@@ -18,11 +18,11 @@ export function mime(path: string): string {
  * @param key 
  * @returns 
  */
-function isMime(key: string): key is keyof typeof MimeTypes {
-  return Object.keys(MimeTypes).includes(key)
+function isMime(key: string): key is keyof typeof MimeType {
+  return Object.keys(MimeType).includes(key)
 }
 
-export const MimeTypes = {
+export const MimeType = {
   "css": "text/css",
   "gif": "image/gif",
   "html": "text/html",

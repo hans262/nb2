@@ -2,7 +2,7 @@ import { Context } from './common/context.js';
 import { stdlog } from './common/logger.js';
 import { extname, join } from "node:path";
 import { Stats, stat } from 'node:fs';
-import { mime } from "./common/mime.js";
+import { getMimeType } from "./common/mime.js";
 import { out404, outDir, outFile, outCache, outRange, outZip } from "./response.js";
 
 /**
@@ -101,7 +101,7 @@ export function staticTask(ctx: Context, staticPath: string) {
       if (isHitEtagCache(ctx, stats)) return outCache(ctx, staticPath)
 
       //mime类型
-      res.setHeader('Content-Type', mime(staticPath) + '; charset=utf-8')
+      res.setHeader('Content-Type', getMimeType(staticPath) + '; charset=utf-8')
 
       //内容大小
       res.setHeader('Content-Length', stats.size)
