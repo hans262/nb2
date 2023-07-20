@@ -10,6 +10,7 @@
   <input id="file" type="file" multiple="multiple" />
   <button id="submit">上传</button>
   <button id="down">下载</button>
+  <button id="reqst">请求</button>
   <script>
     //上传
     document.getElementById('submit').addEventListener('click', async (e) => {
@@ -50,6 +51,16 @@
       link.download = filename
       // 触发事件
       link.click()
+    })
+
+    //请求
+    document.getElementById('reqst').addEventListener('click', async (e) => {
+      const ret = await fetch('https://127.0.0.1:5000/api/post', {
+        method: 'POST',
+        body: JSON.stringify({ a: 1, b: 3 })
+      }).then(res => res.json())
+
+      console.log(ret)
     })
 
   </script>

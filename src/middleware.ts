@@ -1,58 +1,89 @@
-import { Context } from './common/context.js';
+import { Context, Methods, Middleware, isMethod } from './common/context.js';
 import { stdlog } from './common/logger.js';
 import { extname, join } from "node:path";
 import { Stats, stat } from 'node:fs';
-import { getMimeType } from "./common/mime.js";
 import { out404, outDir, outFile, outCache, outRange, outZip } from "./response.js";
 
 /**
- * 中间件类型
+ * 初始化中间件
+ * @param ctx 
+ * @param next 
  */
-export type Middleware = (ctx: Context, next: () => void) => void
+export const handleMounted: Middleware = (ctx, next) => {
+  const { res } = ctx
+  //服务器相关信息
+  res.setHeader('Server', 'NodeJs Server')
+
+  /**
+   * 用于缓存控制，决定下一个请求头，
+   * 用一个缓存的response还是向服务器请求一个新的response。
+   */
+  res.setHeader('Vary', 'Accept, Accept-Encoding, User-Agent')
+
+  //是否支持范围请求
+  res.setHeader('Accept-Ranges', 'bytes')
+
+  //服务器时间
+  res.setHeader('Date', new Date().toUTCString())
+
+  /**
+   * 发起一个请求会创建一个tcp连接，会有握手环节
+   * 决定浏览器是否会在下一个请求的时候，继续使用这个连接
+   * timeout 空闲连接需要保持打开状态的最小时长
+   * max 此连接可以发送的请求数的最大值
+   * http/2 将忽略该值
+   */
+  res.setHeader('Connection', 'keep-alive')
+  res.setHeader('Keep-Alive', 'timeout=5, max=1000')
+
+  //服务器支持的请求类型
+  res.setHeader('Allow', Methods.join(', '))
+
+  //跨域
+  if (ctx.opt.cross) {
+    res.setHeader('Access-Control-Allow-Methods', Methods.join(', ') + ', OPTIONS')
+    res.setHeader("Access-Control-Allow-Headers", '*')
+    res.setHeader('Access-Control-Allow-Origin', '*')
+  }
+
+  /**
+   * axios等请求库，发起跨域请求的时候，会多发送一个OPTIONS请求，
+   * 用来检查服务器是否支持跨域，不返回任何内容即可
+   */
+  if (ctx.req.method === 'OPTIONS') return ctx.res.end()
+
+  next()
+}
 
 /**
  * 控制器中间件
  * @param ctx 
  * @param next 
- * @returns 
  */
 export const handleController: Middleware = (ctx, next) => {
   const { req, pathname, startTime } = ctx
 
-  if (!req.method || !pathname) return next()
-  if (!isMethod(req.method)) return next()
-
-  const controller = ctx.app.controllers.find(c => {
-    const regExp = new RegExp(
-      '^' + c.pathname.replaceAll('*', '([^\/]+)') + '$'
-    )
-    const def = pathname.match(regExp)
-    return !!def
-  })
-
-  if (!controller) return next()
-  let handle = controller[req.method]
-  if (!handle) return next()
-  handle.bind(controller)(ctx)
-
-  stdlog({
-    type: 'controller', color: 'green', logPath: ctx.opt.systemLogPath,
-    msg: pathname + ' +' + (Date.now() - startTime) + 'ms'
-  })
-}
-
-export interface Controller {
-  readonly pathname: string
-  GET?(ctx: Context): void
-  POST?(ctx: Context): void
-  PUT?(ctx: Context): void
-  DELETE?(ctx: Context): void
-}
-
-export type Method = 'GET' | 'POST' | 'PUT' | 'DELETE'
-
-export function isMethod(m: string): m is Method {
-  return ['GET', 'POST', 'PUT', 'DELETE'].includes(m)
+  if (req.method && isMethod(req.method)) {
+    // console.log(pathname)
+    const controller = ctx.app.controllers.find(c => {
+      /**
+       * 保证完全相等，包括尾部‘/’，
+       * ‘*’代替任意非‘/’字符
+       */
+      const rexp = new RegExp('^' + c.pathname.replaceAll('*', '[^/]+') + '$')
+      return rexp.test(pathname)
+    })
+    // 且实现了该方法
+    if (controller && controller[req.method]) {
+      controller[req.method]!(ctx)
+      stdlog({
+        type: 'controller', color: 'green', logPath: ctx.opt.systemLogPath,
+        msg: pathname + ' +' + (Date.now() - startTime) + 'ms'
+      })
+      return
+    }
+  }
+  next()
 }
 
 /**
@@ -100,8 +131,8 @@ export function staticTask(ctx: Context, staticPath: string) {
       //判断缓存
       if (isHitEtagCache(ctx, stats)) return outCache(ctx, staticPath)
 
-      //mime类型
-      res.setHeader('Content-Type', getMimeType(staticPath) + '; charset=utf-8')
+      //文件类型
+      res.setHeader('Content-Type', ctx.getContentTypeOfPath(staticPath))
 
       //内容大小
       res.setHeader('Content-Length', stats.size)

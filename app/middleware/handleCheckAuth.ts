@@ -1,24 +1,23 @@
 import { Middleware, outRedirect, Context, } from '../../src/index.js';
 import { KEY, reset, tokens } from '../token.js';
 
-export const checkAuth: Middleware = (ctx, next) => {
+export const handleCheckAuth: Middleware = (ctx, next) => {
+  const { req, pathname } = ctx
+
   //排除不需要登录的接口
-  const { req: { method }, pathname } = ctx
-  if ((method === 'GET' && pathname === '/login') ||
-    (method === 'POST' && pathname === '/getToken')
-  ) {
-    next()
-    return
-  }
+  if (
+    (req.method === 'GET' && pathname === '/login') ||
+    (req.method === 'POST' && pathname === '/getToken')
+  ) return next()
 
   if (!isLogin(ctx)) {
-    outRedirect(ctx, { location: '/login', code: 302, reasonPhrase: 'temporarily moved' })
+    outRedirect(ctx, { location: '/login', code: 302, reason: 'not logged moved' })
   } else {
     next()
   }
 }
 
-function isLogin(ctx: Context): boolean {
+function isLogin(ctx: Context) {
   const id = ctx.getCookie(KEY)
   //检查id
   if (!id) return false

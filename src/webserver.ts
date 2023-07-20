@@ -1,8 +1,8 @@
 import { IncomingMessage, ServerResponse, Server, createServer as createServerHttp } from 'node:http';
 import { createServer as createServerHttps } from 'node:https';
-import { Context } from './common/context.js';
+import { Context, Controller, Middleware } from './common/context.js';
 import { stdlog } from './common/logger.js';
-import { Controller, handleController, Middleware, handleStatic } from './middleware.js';
+import { handleController, handleMounted, handleStatic } from './middleware.js';
 import { out404 } from './response.js';
 
 export interface ServerOpt {
@@ -14,6 +14,8 @@ export interface ServerOpt {
   https: { key: Buffer, cert: Buffer } | false
   /**是否让前端处理路由，以适应react应用的history路由模式 */
   frontRoute: boolean
+  /**是否允许跨域 */
+  cross: boolean
   /**
    * 静态资源目录，没有则表示不响应静态资源，
    * 静态资源路径 = 目录 + url
@@ -40,6 +42,7 @@ const defaultServerOpt: ServerOpt = {
   indexPageName: 'index.html',
   frontRoute: false,
   https: false,
+  cross: true
 }
 
 export class WebServer {
@@ -99,13 +102,15 @@ export class WebServer {
    */
   run() {
     //安装默认的中间件
-    this.use(handleController)
-    /**
-     * 一般放在最后一个位置，
-     * 如果资源没有找到，那么直接响应404
-     */
-    this.use(handleStatic)
-
+    this.use(
+      handleMounted,
+      handleController,
+      /**
+       * 一般放在最后一个位置，
+       * 如果资源没有找到，那么直接响应404
+       */
+      handleStatic
+    )
     this.server.listen(this.opt.port, this.opt.host, () => {
       const msg = `${this.opt.https ? 'https://' : 'http://'}${this.opt.host}:${this.opt.port}`
       stdlog({
@@ -128,9 +133,7 @@ export class WebServer {
         middleware(ctx, next)
       } catch (err: any) {
         //writeHead只能调用一次，需检查中间件中是否已经调用
-        //且调用了writeHead不能再设置setHeader
-        // res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' })
-        // res.setHeader('Content-Type', 'text/html; charset=utf-8')
+        //调用了writeHead不能再掉用setHeader/writeHead
         res.end('statusCode: 500, message: ' + err.message)
         stdlog({
           type: 'error', color: 'red',

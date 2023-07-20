@@ -5,6 +5,7 @@
   // 获取脚本执行结果
   import child_process from 'node:child_process'
   const ret = child_process.execSync('git --version')
+  console.log(ret)
 
   // 逐行读取文件
   import { createInterface } from 'node:readline'
@@ -15,5 +16,4 @@
   rl.on('line', line => {
     console.log(line)
   })
-
 ```

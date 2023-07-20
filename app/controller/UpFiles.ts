@@ -1,7 +1,6 @@
-import { ServerResponse } from 'node:http';
 import { writeFileSync } from 'node:fs';
 import { extname, join } from 'node:path';
-import { Controller, Context, parseFormData, createHashSecret } from '../../src/index.js';
+import { Controller, Context, createHashSecret } from '../../src/index.js';
 import { PUBLIC_PATH } from '../constant.js';
 
 /**
@@ -13,14 +12,14 @@ export class UpFiles implements Controller {
   /**限制最大上传10MB*/
   maxSize = 100
 
-  handleFailed(res: ServerResponse, reason: string) {
-    res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' })
-    res.end(JSON.stringify({ success: false, result: reason }))
+  handleFailed(ctx: Context, reason: string) {
+    ctx.res.writeHead(200, { 'Content-Type': ctx.getContentType('json') })
+    ctx.res.end(JSON.stringify({ success: false, result: reason }))
   }
 
-  handleSuccess(res: ServerResponse, msg: string) {
-    res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' })
-    res.end(JSON.stringify({ success: true, result: msg }))
+  handleSuccess(ctx: Context, msg: string) {
+    ctx.res.writeHead(200, { 'Content-Type': ctx.getContentType('json') })
+    ctx.res.end(JSON.stringify({ success: true, result: msg }))
   }
 
   /**
@@ -47,12 +46,12 @@ export class UpFiles implements Controller {
 
     //NaN | 0 排除
     if (!contentLength) {
-      return this.handleFailed(res, `content-length错误，contentLength：${contentLength}`)
+      return this.handleFailed(ctx, `content-length错误，contentLength：${contentLength}`)
     }
 
     //超尺寸限制限制
     if (contentLength > this.maxSize * 1024 * 1024) {
-      return this.handleFailed(res, `超出最大上传尺寸${this.maxSize}mb`)
+      return this.handleFailed(ctx, `超出最大上传尺寸${this.maxSize}mb`)
     }
 
     // 解析数据
@@ -61,14 +60,14 @@ export class UpFiles implements Controller {
       //前端不要设置content-type，会自动识别，
       //接收数据
       const buf = await ctx.getBodyData()
-      const ret = parseFormData(buf, boundary, contentLength)
+      const ret = ctx.parseFormData(buf, boundary, contentLength)
       ret.forEach(d => {
         if (d.filename) {
           const newFileName = this.createFileName(d.filename)
           writeFileSync(join(PUBLIC_PATH, newFileName), d.data)
         }
       })
-      return this.handleSuccess(ctx.res, '上传成功')
+      return this.handleSuccess(ctx, '上传成功')
     } else if (contentType?.includes('arraybuffer') && filename) {
       //'content-type': 'arraybuffer; filename=a.txt'
       //前端需要设置content-type
@@ -76,9 +75,9 @@ export class UpFiles implements Controller {
       const file = await ctx.getBodyData()
       const newFileName = this.createFileName(filename)
       writeFileSync(join(PUBLIC_PATH, newFileName), file)
-      return this.handleSuccess(ctx.res, '上传成功')
+      return this.handleSuccess(ctx, '上传成功')
     }
 
-    this.handleFailed(res, `不支持的content-type: ${contentType}`)
+    this.handleFailed(ctx, `不支持的content-type: ${contentType}`)
   }
 }

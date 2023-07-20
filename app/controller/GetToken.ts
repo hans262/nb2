@@ -12,9 +12,9 @@ export class GetToken implements Controller {
     if (username === USER.username && password === USER.password) {
       const token = generate()
       ctx.setCookie(KEY, token.id, { path: '/', expires: new Date(token.expire), httpOnly: true })
-      outRedirect(ctx, { location: '/', code: 302, reasonPhrase: 'login success' })
+      outRedirect(ctx, { location: '/', code: 302, reason: 'login success' })
     } else {
-      outRedirect(ctx, { location: '/login', code: 302, reasonPhrase: 'login failed' })
+      outRedirect(ctx, { location: '/login', code: 302, reason: 'login failed' })
     }
   }
 }

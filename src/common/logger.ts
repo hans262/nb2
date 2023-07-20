@@ -36,7 +36,6 @@ function writeLineOfLog(mq: string, logPath: string): void {
   //检查当前时间是否过期，第二天的日志
   //过了12点再写日志，需要重新创建写入流
   const newDay = new Date().toLocaleDateString().replace(/\//g, '-')
-  console.log(newDay, CurrentDay)
   if (newDay !== CurrentDay) {
     WriteSteamOfLog.close()
     WriteSteamOfLog = createStreamOfLog(logPath)

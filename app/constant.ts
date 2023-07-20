@@ -12,9 +12,6 @@ const __dirname = dirname(__filename);
 //公共资源目录
 export const PUBLIC_PATH = join(__dirname.split('out')[0], '/public')
 
-//是否允许跨域
-export const CROSS = true
-
 //当前用户
 export const USER = {
   username: "root",
@@ -24,7 +21,7 @@ export const USER = {
 //是否开启登陆校验
 export const LOGIN = true
 
-//客户端token过期时间 单位 分钟
+//客户端token过期时间 单位/分钟
 export const TOKEN_EXPIRES = 20
 
 //代理配置

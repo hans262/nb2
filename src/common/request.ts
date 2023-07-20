@@ -1,8 +1,9 @@
 import * as http from 'node:http';
 import * as https from 'node:https'
+import { Method } from './context.js';
 
 export interface Request {
-  method?: 'GET' | 'POST'
+  method?: Method
   body?: string | Buffer
 }
 

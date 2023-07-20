@@ -8,8 +8,11 @@ export class DownLoad implements Controller {
   POST(ctx: Context) {
     const file = 'c.png'
     const filename = join(PUBLIC_PATH, file)
-    ctx.res.setHeader('Content-Type', 'application/octet-stream; charset=utf-8')
-    ctx.res.setHeader('Content-Disposition', `attachment; filename=${file}`)
+    ctx.res.writeHead(200, 'OK', {
+      'Content-Type': ctx.getContentType('octet-stream'),
+      'Content-Disposition': `attachment; filename=${file}`
+    })
+
     createReadStream(filename).pipe(ctx.res)
   }
 }

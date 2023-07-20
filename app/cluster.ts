@@ -38,7 +38,6 @@ if (cluster.isPrimary) {
 } else {
   const { WebServer } = await import('../src/webserver.js')
   const { Controllers } = await import('./controller/index.js')
-  const { mounted } = await import('./middleware/mounted.js')
 
   const app = new WebServer({
     staticRoot: '/Users/macbookair/Desktop/develop/nicest',
@@ -46,6 +45,5 @@ if (cluster.isPrimary) {
   })
 
   app.useControllers(Controllers)
-  app.use(mounted)
   app.run()
 }

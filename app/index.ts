@@ -1,9 +1,8 @@
 import { readFileSync } from 'node:fs'
 import { WebServer } from '../src/index.js'
 import { join } from 'node:path'
-import { mounted } from './middleware/mounted.js';
-import { proxy } from './middleware/proxy.js';
-import { checkAuth } from './middleware/checkAuth.js';
+import { handleProxy } from './middleware/handleProxy.js';
+import { handleCheckAuth } from './middleware/handleCheckAuth.js';
 import { LOGIN, PUBLIC_PATH } from './constant.js';
 import { Controllers } from './controller/index.js';
 
@@ -19,11 +18,7 @@ const app = new WebServer({
 
 app.useControllers(Controllers)
 
-app.use(
-  mounted,
-  proxy,
-)
-
-LOGIN && app.use(checkAuth)
+app.use(handleProxy)
+LOGIN && app.use(handleCheckAuth)
 
 app.run()

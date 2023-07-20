@@ -3,10 +3,12 @@ import { Controller, Context } from "../../src/index.js";
 export class TestPost implements Controller {
 	readonly pathname = '/api/post'
 	async POST(ctx: Context) {
-		const { res } = ctx
-		res.setHeader('Content-Type', 'application/octet-stream; charset=utf-8')
-		res.writeHead(200, 'OK')
+		ctx.res.writeHead(200, 'OK', {
+			'Content-Type': ctx.getContentType('json')
+		})
+
 		const buffer = await ctx.getBodyData()
-		res.end(buffer)
+		console.log(buffer.toString())
+		ctx.res.end(JSON.stringify({ a: 1, b: 3 }))
 	}
 }

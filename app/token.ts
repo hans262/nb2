@@ -1,3 +1,4 @@
+import { createHashSecret } from '../src/index.js';
 import { TOKEN_EXPIRES } from './constant.js';
 
 export type TokenStore = Map<string, Token>
@@ -26,7 +27,7 @@ const EXPIRES = TOKEN_EXPIRES * 60 * 1000 //转成毫秒
 
 export function generate() {
   const _token: Token = {
-    id: (Date.now() + Math.random()).toString(),
+    id: createHashSecret((Date.now() + Math.random()).toString()),
     expire: Date.now() + EXPIRES,
     count: 0
   }

@@ -35,9 +35,9 @@ export function outDir(ctx: Context, staticPath: string) {
     })
   } catch (error: any) {
     //证明该文件夹无法打开，可能存在权限等问题。
-    res.setHeader('Content-Type', 'text/html; charset=utf-8')
-    res.writeHead(200, 'Directory Fail')
-    res.end(`
+    res.writeHead(200, 'Directory Fail', {
+      'Content-Type': ctx.getContentType('html')
+    }).end(`
       <h1>目录 ${ctx.pathname}</h1>
       <p style="color:red;">目录访问失败：${error.message}</p>
     `)
@@ -66,9 +66,9 @@ export function outDir(ctx: Context, staticPath: string) {
     }
     content += `<p><a href="${href}">${name}</a></p>`
   })
-  res.setHeader('Content-Type', 'text/html; charset=utf-8')
-  res.writeHead(200, 'Directory Access')
-  res.end(content)
+  res.writeHead(200, 'Directory Access', {
+    'Content-Type': ctx.getContentType('html')
+  }).end(content)
   stdlog({
     type: 'dir', color: 'green', logPath: ctx.opt.systemLogPath,
     msg: staticPath + ' +' + (Date.now() - startTime) + 'ms'
@@ -98,9 +98,9 @@ export const out404 = (ctx: Context, opt?: {
     }
   }
 
-  res.setHeader('Content-Type', 'text/html; charset=utf-8')
-  res.writeHead(404, 'Not Found')
-  res.end(`
+  res.writeHead(404, 'Not Found', {
+    'Content-Type': ctx.getContentType('html')
+  }).end(`
   	<h1>404</h1>
   	<p>${path} ${opt?.reason ?? '当前路径不存在。'} </p>
   `)
@@ -118,8 +118,7 @@ export const out404 = (ctx: Context, opt?: {
  */
 export function outCache(ctx: Context, staticPath: string) {
   const { startTime, res } = ctx
-  res.writeHead(304, 'Not Modified')
-  res.end()
+  res.writeHead(304, 'Not Modified').end()
   stdlog({
     type: 'cache', color: 'cyan', logPath: ctx.opt.systemLogPath,
     msg: staticPath + ' +' + (Date.now() - startTime) + 'ms'
@@ -242,14 +241,13 @@ export function outZip(ctx: Context, staticPath: string, encoding: string) {
 export function outRedirect(ctx: Context, redirect: {
   location: string
   code: number
-  reasonPhrase: string
+  reason: string
 }) {
   const { pathname, res } = ctx
-  const { location, code, reasonPhrase } = redirect
-
-  res.setHeader('Location', location)
-  res.writeHead(code, reasonPhrase)
-  res.end()
+  const { location, code, reason } = redirect
+  res.writeHead(code, reason, {
+    'Location': location
+  }).end()
   stdlog({
     type: 'redirect', color: 'cyan', logPath: ctx.opt.systemLogPath,
     msg: pathname + ' -> ' + location
