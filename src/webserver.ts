@@ -1,9 +1,9 @@
 import { IncomingMessage, ServerResponse, Server, createServer as createServerHttp } from 'node:http';
 import { createServer as createServerHttps } from 'node:https';
 import { Context, Controller, Middleware } from './common/context.js';
-import { stdlog } from './common/logger.js';
 import { handleController, handleMounted, handleStatic } from './middleware.js';
 import { out404 } from './response.js';
+import { Logger } from './common/logger.js';
 
 export interface ServerOpt {
   /**端口 */
@@ -57,7 +57,7 @@ export class WebServer {
     this.server = this.opt.https ? createServerHttps(this.opt.https, this.handler) : createServerHttp(this.handler)
 
     process.on('uncaughtException', err => {
-      stdlog({
+      Logger.self.stdlog({
         type: 'error', color: 'red', logPath: this.opt.systemLogPath,
         msg: err.message
       })
@@ -113,7 +113,7 @@ export class WebServer {
     )
     this.server.listen(this.opt.port, this.opt.host, () => {
       const msg = `${this.opt.https ? 'https://' : 'http://'}${this.opt.host}:${this.opt.port}`
-      stdlog({
+      Logger.self.stdlog({
         type: 'worker_startup', msg,
         color: 'yellow', logPath: this.opt.systemLogPath
       })
@@ -135,7 +135,7 @@ export class WebServer {
         //writeHead只能调用一次，需检查中间件中是否已经调用
         //调用了writeHead不能再掉用setHeader/writeHead
         res.end('statusCode: 500, message: ' + err.message)
-        stdlog({
+        Logger.self.stdlog({
           type: 'error', color: 'red',
           msg: err.message, logPath: this.opt.systemLogPath
         })

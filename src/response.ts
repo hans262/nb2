@@ -2,8 +2,8 @@ import { Dirent, createReadStream, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { Deflate, Gzip, createDeflate, createGzip } from 'node:zlib';
 import { Context } from "./common/context.js";
-import { stdlog } from './common/logger.js';
 import { staticTask } from './middleware.js';
+import { Logger } from './common/logger.js';
 
 /**
  * 响应文件
@@ -15,7 +15,7 @@ export function outFile(ctx: Context, staticPath: string) {
   const stream = createReadStream(staticPath)
   res.writeHead(200, 'Responed file')
   stream.pipe(res)
-  stdlog({
+  Logger.self.stdlog({
     type: 'file', color: 'green', logPath: ctx.opt.systemLogPath,
     msg: staticPath + ' +' + (Date.now() - startTime) + 'ms'
   })
@@ -41,7 +41,7 @@ export function outDir(ctx: Context, staticPath: string) {
       <h1>目录 ${ctx.pathname}</h1>
       <p style="color:red;">目录访问失败：${error.message}</p>
     `)
-    stdlog({
+    Logger.self.stdlog({
       type: 'dir_fail', color: 'red', logPath: ctx.opt.systemLogPath,
       msg: staticPath + ' +' + (Date.now() - startTime) + 'ms'
     })
@@ -69,7 +69,7 @@ export function outDir(ctx: Context, staticPath: string) {
   res.writeHead(200, 'Directory Access', {
     'Content-Type': ctx.getContentType('html')
   }).end(content)
-  stdlog({
+  Logger.self.stdlog({
     type: 'dir', color: 'green', logPath: ctx.opt.systemLogPath,
     msg: staticPath + ' +' + (Date.now() - startTime) + 'ms'
   })
@@ -105,7 +105,7 @@ export const out404 = (ctx: Context, opt?: {
   	<p>${path} ${opt?.reason ?? '当前路径不存在。'} </p>
   `)
 
-  stdlog({
+  Logger.self.stdlog({
     type: '404', color: 'red', logPath: ctx.opt.systemLogPath,
     msg: path + ' +' + (Date.now() - startTime) + 'ms'
   })
@@ -119,7 +119,7 @@ export const out404 = (ctx: Context, opt?: {
 export function outCache(ctx: Context, staticPath: string) {
   const { startTime, res } = ctx
   res.writeHead(304, 'Not Modified').end()
-  stdlog({
+  Logger.self.stdlog({
     type: 'cache', color: 'cyan', logPath: ctx.opt.systemLogPath,
     msg: staticPath + ' +' + (Date.now() - startTime) + 'ms'
   })
@@ -148,7 +148,7 @@ export function outRange(ctx: Context, opt: {
 
     res.writeHead(206, 'Partial content')
     stream.pipe(res)
-    stdlog({
+    Logger.self.stdlog({
       type: 'range', color: 'green', logPath: ctx.opt.systemLogPath,
       msg: opt.staticPath + ' +' + (Date.now() - startTime) + 'ms'
     })
@@ -157,7 +157,7 @@ export function outRange(ctx: Context, opt: {
     res.setHeader('Content-Range', `bytes=*/${opt.size}`)
     res.writeHead(416, 'Out of range')
     res.end()
-    stdlog({
+    Logger.self.stdlog({
       type: 'range_416', color: 'red', logPath: ctx.opt.systemLogPath,
       msg: opt.staticPath + ' +' + (Date.now() - startTime) + 'ms'
     })
@@ -227,7 +227,7 @@ export function outZip(ctx: Context, staticPath: string, encoding: string) {
 
   const stream = createReadStream(staticPath)
   stream.pipe(zipstream).pipe(res)
-  stdlog({
+  Logger.self.stdlog({
     type: 'zip', color: 'green', logPath: ctx.opt.systemLogPath,
     msg: staticPath + ' +' + (Date.now() - startTime) + 'ms'
   })
@@ -248,7 +248,7 @@ export function outRedirect(ctx: Context, redirect: {
   res.writeHead(code, reason, {
     'Location': location
   }).end()
-  stdlog({
+  Logger.self.stdlog({
     type: 'redirect', color: 'cyan', logPath: ctx.opt.systemLogPath,
     msg: pathname + ' -> ' + location
   })

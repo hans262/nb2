@@ -1,8 +1,8 @@
-import { Context, Methods, Middleware, isMethod } from './common/context.js';
-import { stdlog } from './common/logger.js';
 import { extname, join } from "node:path";
 import { Stats, stat } from 'node:fs';
 import { out404, outDir, outFile, outCache, outRange, outZip } from "./response.js";
+import { Context, Methods, Middleware, isMethod } from './common/context.js';
+import { Logger } from "./common/logger.js";
 
 /**
  * 初始化中间件
@@ -76,7 +76,7 @@ export const handleController: Middleware = (ctx, next) => {
     // 且实现了该方法
     if (controller && controller[req.method]) {
       controller[req.method]!(ctx)
-      stdlog({
+      Logger.self.stdlog({
         type: 'controller', color: 'green', logPath: ctx.opt.systemLogPath,
         msg: pathname + ' +' + (Date.now() - startTime) + 'ms'
       })

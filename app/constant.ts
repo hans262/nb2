@@ -19,7 +19,7 @@ export const USER = {
 } as const
 
 //是否开启登陆校验
-export const LOGIN = true
+export const LOGIN = false
 
 //客户端token过期时间 单位/分钟
 export const TOKEN_EXPIRES = 20

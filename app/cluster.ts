@@ -1,17 +1,17 @@
 import cluster from 'node:cluster';
 import { cpus } from 'node:os';
-import { stdlog } from '../src/common/logger.js';
+import { Logger } from '../src/index.js';
 
 //日志存放目录
 const systemLogPath = '/Users/macbookair/Desktop/develop/nicest/logs'
 
 if (cluster.isPrimary) {
-  stdlog({
+  Logger.self.stdlog({
     type: 'master_startup', color: 'magenta', logPath: systemLogPath,
     msg: 'cpus = ' + cpus().length
   })
   cpus().forEach(() => cluster.fork())
-  
+
   //监控子进程退出的信号
   cluster.on('exit', (_, code) => {
     if (code === 1) {
@@ -19,7 +19,7 @@ if (cluster.isPrimary) {
       cluster.fork()
       const pids = Object.values(cluster.workers!).map(w => w?.process.pid)
 
-      stdlog({
+      Logger.self.stdlog({
         type: 'worker_restart', color: 'magenta', logPath: systemLogPath,
         msg: 'current pids: ' + pids.toString()
       })
@@ -28,7 +28,7 @@ if (cluster.isPrimary) {
     if (code === 0) {
       //关闭进程，只关闭了当前进程
       const pids = Object.values(cluster.workers!).map(w => w?.process.pid)
-      stdlog({
+      Logger.self.stdlog({
         type: 'worker_exit', color: 'magenta', logPath: systemLogPath,
         msg: 'current pids: ' + pids.toString()
       })
