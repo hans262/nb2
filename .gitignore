@@ -1,6 +1,9 @@
-node_modules
-package-lock.json
 out
 logs
-.DS_Store
 docs
+
+node_modules
+package-lock.json
+pnpm-lock.yaml
+
+.DS_Store
