@@ -8,8 +8,8 @@ import { Logger } from './common/logger.js';
 export interface ServerOpt {
   /**端口 */
   port: number
-  /**ip地址 */
-  host: string
+  /**ip地址，在服务器上时，要映射服务器内网地址 */
+  host?: string
   /**https配置 */
   https: { key: Buffer, cert: Buffer } | false
   /**是否让前端处理路由，以适应react应用的history路由模式 */
@@ -35,7 +35,6 @@ export interface ServerOpt {
  * 默认配置
  */
 const defaultServerOpt: ServerOpt = {
-  host: "127.0.0.1",
   port: 5000,
   canZipFile: ['css', 'html', 'js', 'woff'],
   cacheMaxAge: 12 * 60 * 60, //一天
@@ -112,7 +111,8 @@ export class WebServer {
       handleStatic
     )
     this.server.listen(this.opt.port, this.opt.host, () => {
-      const msg = `${this.opt.https ? 'https://' : 'http://'}${this.opt.host}:${this.opt.port}`
+      const host = this.opt.host ?? 'localhost'
+      const msg = `${this.opt.https ? 'https://' : 'http://'}${host}:${this.opt.port}`
       Logger.self.stdlog({
         type: 'worker_startup', msg,
         color: 'yellow', logPath: this.opt.systemLogPath
