@@ -6,17 +6,11 @@ import { handleCheckAuth } from './middleware/handleCheckAuth.js';
 import { LOGIN, PUBLIC_PATH } from './constant.js';
 import { Controllers } from './controller/index.js';
 
-
-const argvPort = process.argv.find(v => v.includes('port='))?.split('=')?.[1]
-// console.log(argvPort)
-// const a = Number(argvPort)
-
 const app = new WebServer({
-  port: isNaN(Number(argvPort)) ? undefined : Number(argvPort),
-  https: {
-    key: readFileSync(join(PUBLIC_PATH, './localhost+1-key.pem')),
-    cert: readFileSync(join(PUBLIC_PATH, 'localhost+1.pem'))
-  },
+  // https: {
+  //   key: readFileSync(join(PUBLIC_PATH, './localhost+1-key.pem')),
+  //   cert: readFileSync(join(PUBLIC_PATH, 'localhost+1.pem'))
+  // },
   frontRoute: true,
   staticRoot: PUBLIC_PATH,
   systemLogPath: join(PUBLIC_PATH, '../logs')

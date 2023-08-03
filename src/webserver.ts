@@ -31,11 +31,14 @@ export interface ServerOpt {
   systemLogPath?: string
 }
 
+//如果执行参数携带port，优先执行参数
+const argvPort = process.argv.find(v => v.includes('port='))?.split('=')?.[1]
+
 /**
  * 默认配置
  */
 const defaultServerOpt: ServerOpt = {
-  port: 5000,
+  port: isNaN(Number(argvPort)) ? 5000 : Number(argvPort),
   canZipFile: ['css', 'html', 'js', 'woff'],
   cacheMaxAge: 12 * 60 * 60, //一天
   indexPageName: 'index.html',
@@ -52,7 +55,9 @@ export class WebServer {
   controllers: Controller[] = []
   opt: ServerOpt
   constructor(opt?: Partial<ServerOpt>) {
+    //第二个参数设置 undefined ，也会被拷贝进去
     this.opt = Object.assign(defaultServerOpt, opt)
+
     this.server = this.opt.https ? createServerHttps(this.opt.https, this.handler) : createServerHttp(this.handler)
 
     process.on('uncaughtException', err => {
