@@ -1,24 +1,34 @@
-import { readFileSync } from 'node:fs'
-import { WebServer } from '../src/index.js'
-import { join } from 'node:path'
-import { handleProxy } from './middleware/handleProxy.js';
-import { handleCheckAuth } from './middleware/handleCheckAuth.js';
-import { LOGIN, PUBLIC_PATH } from './constant.js';
-import { Controllers } from './controller/index.js';
+import { readFileSync } from "node:fs";
+import { WebServer } from "../src/index.js";
+import { join } from "node:path";
+import { proxy } from "./middleware/proxy.js";
+import { PATH } from "./common/constant.js";
+import "./controller/index.js";
+import { createEntitySql } from "./common/mysql.js";
+
+createEntitySql();
 
 const app = new WebServer({
-  // https: {
-  //   key: readFileSync(join(PUBLIC_PATH, './localhost+1-key.pem')),
-  //   cert: readFileSync(join(PUBLIC_PATH, 'localhost+1.pem'))
-  // },
-  frontRoute: true,
-  staticRoot: PUBLIC_PATH,
-  systemLogPath: join(PUBLIC_PATH, '../logs')
-})
+  port: 8080,
+  https: {
+    key: readFileSync(join(PATH.__public(), "./localhost+1-key.pem")),
+    cert: readFileSync(join(PATH.__public(), "localhost+1.pem")),
+  },
+  spa: true,
+  staticRoot: PATH.__public(),
+  logDir: PATH.__log(),
+  apiPrefix: "/api",
+});
 
-app.useControllers(Controllers)
+app.use(proxy);
 
-app.use(handleProxy)
-LOGIN && app.use(handleCheckAuth)
+app.run();
 
-app.run()
+/**
+ * 解决端口占用
+ *
+ * # mac关闭端口进程
+ * sudo lsof -i :端口号
+ * sudo kill 进程ID
+ *
+ */

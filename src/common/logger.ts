@@ -18,29 +18,27 @@ export class Logger {
   /**日志写入流 */
   writeSteam?: WriteStream
   /**当前日期 */
-  currentDay = new Date().toLocaleDateString().replace(/\//g, '-')
+  currentDate?: string
 
   /**
    * 输出日志
    * @param opt 
    */
   stdlog(opt: {
-    type: string
+    level: string
     msg?: string
     startTime?: number
     color?: keyof typeof defaultLogStyles
     logPath?: string
   }) {
     //执行微任务，不影响主要程序的任务性能
-    process.nextTick(() => {
-      const { type, msg, color, logPath } = opt
-      const date = new Date().toLocaleString()
-      const mq = `[${date}] [${process.pid}] [${type}]${msg ? ' -> ' + msg : ''}`
-      this.prettyLog(mq, color, 'std')
-      if (logPath) {
-        this.writeLine(mq, logPath)
-      }
-    })
+    const { level, msg, color, logPath } = opt
+    const date = this.getCurrentDateTime()
+    const mq = `${date} ${process.pid} ${level}${msg ? ' -> ' + msg : ''}`
+    this.prettyLog(mq, color, 'console')
+    if (logPath) {
+      this.writeLine(mq, logPath)
+    }
   }
 
   /**
@@ -64,13 +62,24 @@ export class Logger {
     }
   }
 
+  getCurrentDate() {
+    const d = new Date()
+    return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`
+  }
+
+  getCurrentDateTime() {
+    const d = new Date()
+    return `${d.getFullYear()}-${d.getUTCMonth() + 1}-${d.getDate()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
+  }
+
   /**
    * 创建写入流
    * @param logPath 
    */
   _createWriteStream(logPath: string) {
-    this.currentDay = new Date().toLocaleDateString().replace(/\//g, '-')
-    const fileName = join(logPath, `/${this.currentDay}.log`)
+    const currentDate = this.getCurrentDate()
+    this.currentDate = currentDate
+    const logFilePath = join(logPath, `${currentDate}.log`)
     //检测目录是否存在
     if (!existsSync(logPath)) {
       try {
@@ -79,7 +88,7 @@ export class Logger {
         throw new Error('创建日志目录失败，请检查原因')
       }
     }
-    return createWriteStream(fileName, { flags: 'a' })
+    return createWriteStream(logFilePath, { flags: 'a' })
   }
 
   /**
@@ -94,8 +103,8 @@ export class Logger {
     }
     //检查当前时间是否过期，第二天的日志
     //过了12点再写日志，需要重新创建写入流
-    const newDay = new Date().toLocaleDateString().replace(/\//g, '-')
-    if (newDay !== this.currentDay) {
+    const newDay = this.getCurrentDate()
+    if (newDay !== this.currentDate) {
       this.writeSteam.close()
       this.writeSteam = this._createWriteStream(logPath)
     }

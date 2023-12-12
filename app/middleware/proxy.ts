@@ -1,14 +1,14 @@
 import * as http from "node:http";
 import * as https from "node:https";
 import { Middleware } from "../../src/index.js";
-import { proxyConfig } from "../constant.js";
+import { proxyConfig } from "../common/constant.js";
 
 /**
  * 代理中间件
  * @param ctx 
  * @param next 
  */
-export const handleProxy: Middleware = (ctx, next) => {
+export const proxy: Middleware = (ctx, next) => {
   const { req, pathname, res } = ctx
 
   const hitKey = Object.keys(proxyConfig)
@@ -31,6 +31,7 @@ export const handleProxy: Middleware = (ctx, next) => {
       // timeout: 5000, 可监听timeout事件
       rejectUnauthorized: false //关闭https客户端认证
     }, response => {
+
       res.writeHead(response.statusCode ?? 200, response.headers)
       response.pipe(res)
     })
@@ -39,8 +40,7 @@ export const handleProxy: Middleware = (ctx, next) => {
 
     proxyReq.on('error', err => {
       proxyReq.destroy()
-      res.writeHead(400, { 'Content-Type': ctx.getContentType('plain') })
-      res.end('请求代理服务器失败，' + err.message)
+      ctx.statusCode(400).text('请求代理服务器失败，' + err.message)
     })
     return
   }

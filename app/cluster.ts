@@ -1,49 +1,48 @@
 import cluster from 'node:cluster';
 import { cpus } from 'node:os';
 import { Logger } from '../src/index.js';
+import { PATH } from './common/constant.js';
+import { fileURLToPath } from 'node:url';
+import { dirname } from 'node:path';
 
-//日志存放目录
-const systemLogPath = '/Users/macbookair/Desktop/develop/nicest/logs'
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
-if (cluster.isPrimary) {
-  Logger.self.stdlog({
-    type: 'master_startup', color: 'magenta', logPath: systemLogPath,
-    msg: 'cpus = ' + cpus().length
-  })
-  cpus().forEach(() => cluster.fork())
+cluster.setupPrimary({ exec: __dirname + '/index.js' })
 
-  //监控子进程退出的信号
-  cluster.on('exit', (_, code) => {
-    if (code === 1) {
-      //重启，只重启的当前进程
-      cluster.fork()
-      const pids = Object.values(cluster.workers!).map(w => w?.process.pid)
+Logger.self.stdlog({
+  level: 'master_startup', color: 'magenta', logPath: PATH.__log(),
+  msg: 'cpus: ' + cpus().length
+})
 
-      Logger.self.stdlog({
-        type: 'worker_restart', color: 'magenta', logPath: systemLogPath,
-        msg: 'current pids: ' + pids.toString()
-      })
-    }
+cpus().forEach(() => cluster.fork())
 
-    if (code === 0) {
-      //关闭进程，只关闭了当前进程
-      const pids = Object.values(cluster.workers!).map(w => w?.process.pid)
-      Logger.self.stdlog({
-        type: 'worker_exit', color: 'magenta', logPath: systemLogPath,
-        msg: 'current pids: ' + pids.toString()
-      })
-    }
-  })
+cluster.on('message', (_, m) => {
+  if (m === 'restart') {
+    Object.values(cluster.workers!).forEach((w, id) => {
+      setTimeout(() => {
+        w?.send('restart')
+      }, 2000 * id)
+    })
+  }
+})
 
-} else {
-  const { WebServer } = await import('../src/webserver.js')
-  const { Controllers } = await import('./controller/index.js')
+//监控子进程退出的信号
+cluster.on('exit', (_, code) => {
+  if (code === 1) {
+    const pid = _.process.pid
+    cluster.fork()
+    Logger.self.stdlog({
+      level: 'worker_restart', color: 'magenta', logPath: PATH.__log(),
+      msg: 'pid: ' + pid
+    })
+  }
 
-  const app = new WebServer({
-    staticRoot: '/Users/macbookair/Desktop/develop/nicest',
-    systemLogPath
-  })
-
-  app.useControllers(Controllers)
-  app.run()
-}
+  if (code === 0) {
+    //关闭进程，只关闭了当前进程
+    const pids = Object.values(cluster.workers!).map(w => w?.process.pid)
+    Logger.self.stdlog({
+      level: 'worker_exit', color: 'magenta', logPath: PATH.__log(),
+      msg: 'current pids: ' + pids.toString()
+    })
+  }
+})

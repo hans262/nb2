@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "ESNext",
+    "module": "NodeNext",
     "outDir": "./out",
     //用于调试
     "sourceMap": true,
@@ -11,7 +11,9 @@
     "strict": true,
     "moduleResolution": "NodeNext",
     //未知
-    "esModuleInterop":true
+    "esModuleInterop":true,
+    //装饰器支持
+    "experimentalDecorators": true
   },
   "include": [
     "src", "app"

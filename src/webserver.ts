@@ -1,21 +1,34 @@
 import { IncomingMessage, ServerResponse, Server, createServer as createServerHttp } from 'node:http';
 import { createServer as createServerHttps } from 'node:https';
-import { Context, Controller, Middleware } from './common/context.js';
-import { handleController, handleMounted, handleStatic } from './middleware.js';
+import { Context, Middleware } from './common/context.js';
+import { handleController, helmet, handleStatic } from './middleware.js';
 import { out404 } from './response.js';
 import { Logger } from './common/logger.js';
 
 export interface ServerOpt {
   /**端口 */
   port: number
-  /**ip地址，在服务器上时，要映射服务器内网地址 */
-  host?: string
+  /**
+   * 需要侦听的IP地址，
+   * 如果忽略了hostname，那么服务器会接受所有的IPv4地址链接。
+   * IPv4地址包括127.0.0.1、localhost和本地IP。
+   * 
+   * 在服务器上时，最好设置服务器内网IP地址。
+   */
+  hostname?: string
   /**https配置 */
   https: { key: Buffer, cert: Buffer } | false
-  /**是否让前端处理路由，以适应react应用的history路由模式 */
-  frontRoute: boolean
+  /**
+   * 单页应用SPA：全部重定向到index.html，
+   * 让前端处理路由，以适应react/vue应用的history路由模式
+   */
+  spa: boolean
   /**是否允许跨域 */
-  cross: boolean
+  allowCross: boolean
+  /**日志存放路径 */
+  logDir?: string
+  /**api前缀 */
+  apiPrefix?: string
   /**
    * 静态资源目录，没有则表示不响应静态资源，
    * 静态资源路径 = 目录 + url
@@ -25,46 +38,62 @@ export interface ServerOpt {
   canZipFile: string[]
   /**资源缓存时间 单位：秒*/
   cacheMaxAge: number
-  /**指定默认渲染的html文件名 */
-  indexPageName: string
-  /**系统日志存放路径 */
-  systemLogPath?: string
+  /**默认渲染的html文件名 */
+  indexFileName: string
 }
 
-//如果执行参数携带port，优先执行参数
-const argvPort = process.argv.find(v => v.includes('port='))?.split('=')?.[1]
+//执行参数携带number，设置为port
+const argvPort = process.argv.find(v => !isNaN(Number(v)))
 
 /**
  * 默认配置
  */
 const defaultServerOpt: ServerOpt = {
-  port: isNaN(Number(argvPort)) ? 5000 : Number(argvPort),
+  port: argvPort ? Number(argvPort) : 8080,
   canZipFile: ['css', 'html', 'js', 'woff'],
   cacheMaxAge: 12 * 60 * 60, //一天
-  indexPageName: 'index.html',
-  frontRoute: false,
+  indexFileName: 'index.html',
+  spa: false,
   https: false,
-  cross: true
+  allowCross: true
 }
 
 export class WebServer {
+  opt: ServerOpt
   server: Server
   /**中间件集合 */
-  middlewares: Middleware[] = []
-  /**控制器集合 */
-  controllers: Controller[] = []
-  opt: ServerOpt
+  middlewares: Middleware[] = [helmet]
+
+  /**当前域名 */
+  domain: string
   constructor(opt?: Partial<ServerOpt>) {
-    //第二个参数设置 undefined ，也会被拷贝进去
+    /**
+     * 注意，第二个参数里的属性为undefined，也会被拷贝进去
+     * 这算是一种完全覆盖合并
+     */
     this.opt = Object.assign(defaultServerOpt, opt)
+
+    const host = this.opt.hostname ?? '127.0.0.1'
+    this.domain = `${this.opt.https ? 'https://' : 'http://'}${host}:${this.opt.port}`
 
     this.server = this.opt.https ? createServerHttps(this.opt.https, this.handler) : createServerHttp(this.handler)
 
     process.on('uncaughtException', err => {
+      console.log(err)
+      // write EIO，该bug未解决，重复写日志bug
       Logger.self.stdlog({
-        type: 'error', color: 'red', logPath: this.opt.systemLogPath,
-        msg: err.message
+        level: 'ERROR', color: 'red', logPath: this.opt.logDir,
+        msg: 'uncaughtException ' + err.message
       })
+    })
+
+    process.on('message', (d: string) => {
+      if (d === 'restart') {
+        this.close(1)
+      }
+      if (d === 'close') {
+        this.close(0)
+      }
     })
   }
 
@@ -80,25 +109,19 @@ export class WebServer {
     this.server.close()
     setTimeout(() => {
       process.exit(code)
-    }, 10000)
-  }
-
-  /**
-   * 安装控制器
-   * @param c 控制器
-   */
-  useControllers(clazz: { new(): Controller }[]) {
-    this.controllers = this.controllers.concat(
-      clazz.map(c => new c())
-    )
+    }, 2000)
   }
 
   /**
    * 安装中间件
    * @param m 中间件
    */
-  use(...m: Middleware[]) {
+  use(m: Middleware) {
     this.middlewares = this.middlewares.concat(m)
+  }
+
+  useController(...c: any[]) {
+    console.log(c)
   }
 
   /**
@@ -106,21 +129,17 @@ export class WebServer {
    */
   run() {
     //安装默认的中间件
-    this.use(
-      handleMounted,
-      handleController,
-      /**
-       * 一般放在最后一个位置，
-       * 如果资源没有找到，那么直接响应404
-       */
-      handleStatic
-    )
-    this.server.listen(this.opt.port, this.opt.host, () => {
-      const host = this.opt.host ?? 'localhost'
-      const msg = `${this.opt.https ? 'https://' : 'http://'}${host}:${this.opt.port}`
+    this.use(handleController)
+    /**
+     * 一般放在最后一个位置，
+     * 如果资源没有找到，那么直接响应404
+     */
+    this.use(handleStatic)
+
+    this.server.listen(this.opt.port, this.opt.hostname, () => {
       Logger.self.stdlog({
-        type: 'worker_startup', msg,
-        color: 'yellow', logPath: this.opt.systemLogPath
+        level: 'INFO', msg: this.domain,
+        color: 'yellow', logPath: this.opt.logDir
       })
     })
   }
@@ -130,22 +149,22 @@ export class WebServer {
     let i = 0
     const next = () => {
       const middleware = this.middlewares[i++]
-      //默认的中间件出口
-      if (!middleware) {
-        return out404(ctx)
-      }
-      try {
-        middleware(ctx, next)
-      } catch (err: any) {
-        //writeHead只能调用一次，需检查中间件中是否已经调用
-        //调用了writeHead不能再掉用setHeader/writeHead
-        res.end('statusCode: 500, message: ' + err.message)
-        Logger.self.stdlog({
-          type: 'error', color: 'red',
-          msg: err.message, logPath: this.opt.systemLogPath
-        })
-      }
+      //中间件出口
+      if (!middleware) return out404(ctx)
+
+      middleware(ctx, next)
     }
-    next()
+
+    try {
+      next()
+    } catch (err: any) {
+      // write EIO，该bug未解决，重复写日志bug
+      ctx.statusCode(500).text(err.message)
+      // console.log(ctx.pathname)
+      Logger.self.stdlog({
+        level: 'ERROR', color: 'red',
+        msg: ctx.pathname + ' ' + err.message, logPath: this.opt.logDir
+      })
+    }
   }
 }

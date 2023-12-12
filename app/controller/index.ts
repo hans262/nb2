@@ -1,23 +1,10 @@
-import { DownLoad } from './DownLoad.js';
-import { GetToken } from './GetToken.js';
-import { LoginPage } from './LoginPage.js';
-import { Restart } from './Restart.js';
-import { ShutDown } from './ShutDown.js';
-import { TestGet } from './TestGet.js';
-import { TestJsonp } from './TestJsonp.js';
-import { TestPost } from './TestPost.js';
-import { TestRand } from './TestRand.js';
-import { UpFiles } from './UpFiles.js';
-
-export const Controllers = [
-  DownLoad,
-  Restart,
-  ShutDown,
-  TestGet,
-  TestJsonp,
-  TestPost,
-  UpFiles,
-  TestRand,
-  LoginPage,
-  GetToken
-]
+export * from "./User.js";
+export * from "./System.js";
+export * from "./Test.js";
+export * from "./Files.js";
+export * from "./Goods.js";
+export * from "./GoodsOrder.js";
+export * from "./Comment.js";
+export * from "./Collect.js";
+export * from "./Cashout.js";
+export * from "./Follow.js";

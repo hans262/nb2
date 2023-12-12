@@ -23,7 +23,7 @@
       formData.append('name', 'huahua')
 
       const arraybuffer = await files[0].arrayBuffer()
-      const ret = await fetch('/api/upfiles', {
+      const ret = await fetch('/api/files/upload', {
         method: 'POST',
         // headers: { 'content-type': `arraybuffer; filename=${files[0].name}` },
         body: formData
@@ -34,7 +34,7 @@
     //下载
     document.getElementById('down').addEventListener('click', async (e) => {
       let filename;
-      const blob = await fetch('/api/download', { method: 'POST' })
+      const blob = await fetch('/api/files/download', { method: 'POST' })
         .then(res => {
           const cd = res.headers.get('Content-Disposition')
           let [_, _filename] = cd.match(/filename=([^;]+)/) ?? []
@@ -55,7 +55,7 @@
 
     //请求
     document.getElementById('reqst').addEventListener('click', async (e) => {
-      const ret = await fetch('https://127.0.0.1:5000/api/post', {
+      const ret = await fetch('https://127.0.0.1:8080/api/test/post', {
         method: 'POST',
         body: JSON.stringify({ a: 1, b: 3 })
       }).then(res => res.json())
