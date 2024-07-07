@@ -1,32 +1,33 @@
-import { Controller, Context, Post } from "../../src/index.js";
+import { Controller, Context, Post, Off } from "../../src/index.js";
+import { ResBody, Token } from "../common/model.js";
 import { querysql } from "../common/mysql.js";
-import { createRandomNumber, jwtTokenVerify } from "../common/utils.js";
+import { createRandomNumber } from "../common/utils.js";
+import { loginVerify } from "../middlewares/loginVerify.js";
 
 @Controller("/order")
-export class GoodsOrder {
+export class GoodsOrder__ {
   @Post("/paid")
   async paid(ctx: Context) {
-    const body = await ctx.getBodyData("json");
+    const body = await ctx.body("json");
     try {
       await querysql(`
         UPDATE gorder SET
         status = 'paid'
         WHERE id = ${body.order_id}
       `);
-      ctx.statusCode(200).json({ code: 1000, result: "支付成功" });
+      ctx.json<ResBody>({ code: 1000, result: "支付成功" });
     } catch (err: any) {
-      ctx.statusCode(200).json({ code: 400, err: err?.message });
+      ctx.json<ResBody>({ code: 400, msg: err?.message });
     }
   }
 
+  @Off(loginVerify)
   @Post("/create")
   async createOrder(ctx: Context) {
-    const token = await jwtTokenVerify(ctx);
-    if (!token) {
-      return ctx.statusCode(200).json({ code: 1400, err: "请登陆" });
-    }
+    const token = ctx.custom.token as Token;
+
     try {
-      const body = await ctx.getBodyData("json");
+      const body = await ctx.body("json");
 
       //检查是否有未支付的订单
       const [unpaid_order] = await querysql(`
@@ -37,7 +38,7 @@ export class GoodsOrder {
       `);
 
       if (unpaid_order) {
-        return ctx.statusCode(200).json({
+        return ctx.json<ResBody>({
           code: 1000,
           result: unpaid_order,
         });
@@ -60,12 +61,12 @@ export class GoodsOrder {
         WHERE id = ${insertRet.insertId}
       `);
 
-      ctx.statusCode(200).json({
+      ctx.json<ResBody>({
         code: 1000,
         result: order_info,
       });
     } catch (err: any) {
-      ctx.statusCode(200).json({ code: 400, err: err?.message });
+      ctx.json<ResBody>({ code: 400, msg: err?.message });
     }
   }
 }

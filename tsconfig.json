@@ -11,11 +11,13 @@
     "strict": true,
     "moduleResolution": "NodeNext",
     //未知
-    "esModuleInterop":true,
+    "esModuleInterop": true,
     //装饰器支持
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    // 因系统的不同，统一文件大小写引入
+    "forceConsistentCasingInFileNames": true,
+    //元数据支持
+    "emitDecoratorMetadata": true
   },
-  "include": [
-    "src", "app"
-  ]
+  "include": ["src", "app"]
 }

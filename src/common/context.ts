@@ -9,8 +9,14 @@ export class Context {
   startTime = Date.now();
   /**请求ur对象 */
   url: URL;
+  /**url查询参数 */
+  query: { [key: string]: string };
+  /**url参数 */
+  params: { [key: string]: string } = {};
   /**http请求路径 */
   pathname: string;
+  /**自定义数据 */
+  custom: { [key: string]: any } = {};
   constructor(
     public req: IncomingMessage,
     public res: ServerResponse,
@@ -19,7 +25,8 @@ export class Context {
   ) {
     //解析url
     this.url = new URL(join(app.domain, req.url ?? "/"));
-
+    // 解析查询参数
+    this.query = Object.fromEntries(this.url.searchParams);
     //浏览器url可能会对中文转码 decodeURIComponent
     this.pathname = decodeURI(this.url.pathname);
   }
@@ -57,7 +64,7 @@ export class Context {
   /**
    * 接收body数据
    */
-  async getBodyData<T extends "string" | "buffer" | "json">(type: T) {
+  async body<T extends "string" | "buffer" | "json">(type: T) {
     return new Promise<BodyRet<T>>((resolve) => {
       const chunks: Buffer[] = [];
       this.req.on("data", (chunk: Buffer) => {
@@ -133,27 +140,33 @@ export class Context {
   /**
    * 响应json
    * @param opt
+   * @param statusCode
    */
-  json(opt: { [key: string]: any }) {
+  json<T extends { [key: string]: any }>(opt: T, statusCode = 200) {
     this.res.setHeader("Content-Type", this.getContentType("json"));
+    this.statusCode(statusCode);
     this.res.end(JSON.stringify(opt));
   }
 
   /**
    * 响应纯文本
    * @param text
+   * @param statusCode
    */
-  text(text: string) {
+  text(text: string, statusCode = 200) {
     this.res.setHeader("Content-Type", this.getContentType("plain"));
+    this.statusCode(statusCode);
     this.res.end(text);
   }
 
   /**
    * 响应html
    * @param text
+   * @param statusCode
    */
-  html(text: string) {
+  html(text: string, statusCode = 200) {
     this.res.setHeader("Content-Type", this.getContentType("html"));
+    this.statusCode(statusCode);
     this.res.end(text);
   }
 

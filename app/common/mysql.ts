@@ -20,6 +20,9 @@ export function querysql<T = any>(sql: string) {
         connection?.release();
         return reject(err);
       }
+
+      // execute('select * from goods where id=?', [id, id2]); //防止sql注入
+
       connection.query(sql, (err: QueryError, ret: T) => {
         //释放
         connection.release();
@@ -168,8 +171,5 @@ export function createEntitySql() {
   FROM user
   left join follow on follow.uid = 1 and follow.to_uid = user.id
   WHERE user.account = '576713';
-
   select * from follow;
-
-
 `;

@@ -1,3 +1,5 @@
+import "reflect-metadata";
+
 export * from './webserver.js'
 export * from './socketserver.js'
 export * from './wsocket.js'

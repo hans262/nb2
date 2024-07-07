@@ -1,14 +1,16 @@
-import { Controller, Context, Post, Get } from "../../src/index.js";
+import { Controller, Context, Post, Get, Off } from "../../src/index.js";
+import { ResBody, Token } from "../common/model.js";
 import { querysql } from "../common/mysql.js";
-import { jwtTokenVerify } from "../common/utils.js";
+import { getToken } from "../common/utils.js";
+import { loginVerify } from "../middlewares/loginVerify.js";
 
 @Controller("/follow")
-export class Follow {
+export class Follow__ {
   @Get("/relation")
   async getFollowRelation(ctx: Context) {
     try {
-      const token = await jwtTokenVerify(ctx);
-      const to_uid = ctx.url.searchParams.get("to_uid");
+      const token = await getToken(ctx);
+      const to_uid = ctx.query.to_uid;
 
       let followed = false;
 
@@ -22,24 +24,22 @@ export class Follow {
           followed = true;
         }
       }
-      ctx.statusCode(200).json({ code: 1000, result: followed });
+      ctx.json<ResBody>({ code: 1000, result: followed });
     } catch (err: any) {
-      ctx.statusCode(200).json({ code: 400, err: err?.message });
+      ctx.json<ResBody>({ code: 400, msg: err?.message });
     }
   }
 
+  @Off(loginVerify)
   @Post("/switch")
   async switchFollow(ctx: Context) {
-    const token = await jwtTokenVerify(ctx);
-    if (!token) {
-      return ctx.statusCode(200).json({ code: 1400, err: "请登陆" });
-    }
+    const token = ctx.custom.token as Token;
 
     try {
-      const body = await ctx.getBodyData("json");
+      const body = await ctx.body("json");
 
       if (token.uid === body.to_uid) {
-        ctx.statusCode(200).json({ code: 400, err: "你不能关注自己" });
+        ctx.json<ResBody>({ code: 400, msg: "你不能关注自己" });
       }
 
       const [ret] = await querysql(`
@@ -63,9 +63,9 @@ export class Follow {
         `);
         followed = true;
       }
-      ctx.statusCode(200).json({ code: 1000, result: followed });
+      ctx.json<ResBody>({ code: 1000, result: followed });
     } catch (err: any) {
-      ctx.statusCode(200).json({ code: 400, err: err?.message });
+      ctx.json<ResBody>({ code: 400, msg: err?.message });
     }
   }
 }

@@ -1,27 +1,21 @@
 import jwt from "jsonwebtoken";
 import { JWTSecretKey } from "./constant.js";
 import { Context } from "../../src/index.js";
-
-export interface JWTOpt {
-  uid: number;
-  name: string;
-  account: string;
-  exp: number;
-}
+import { Token } from "./model.js";
 
 /**
- * 验证登陆
+ * 获取token
  * @param ctx
  */
-export function jwtTokenVerify(ctx: Context) {
-  return new Promise<JWTOpt | undefined>((resolve) => {
+export function getToken(ctx: Context) {
+  return new Promise<Token | undefined>((resolve) => {
     const token = ctx.req.headers["authorization"];
     if (!token) {
       return resolve(undefined);
     }
 
     try {
-      const info = jwt.verify(token, JWTSecretKey) as JWTOpt;
+      const info = jwt.verify(token, JWTSecretKey) as Token;
       resolve(info);
     } catch (err) {
       resolve(undefined);

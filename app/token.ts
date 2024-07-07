@@ -121,7 +121,7 @@
 
   // @Post('/get_token')
   // async get_token(ctx: Context) {
-  //   const buffer = await ctx.getBodyData()
+  //   const buffer = await ctx.body()
   //   const toQueryString = buffer.toString()
   //   const toObj = new URLSearchParams(toQueryString)
   //   const [username, password] = [toObj.get('username'), toObj.get('password')]

@@ -7,13 +7,14 @@ import {
   Post,
 } from "../../src/index.js";
 import { PATH } from "../common/constant.js";
+import { ResBody } from "../common/model.js";
 
 /**
  * 文件上传 ｜ 下载
  * 支持格式：FormData | ArrayBuffer
  */
 @Controller("files")
-export class Files {
+export class Files__ {
   @Post("download")
   download(ctx: Context) {
     const file = "c.png";
@@ -51,7 +52,7 @@ export class Files {
 
     //NaN | 0 排除
     if (!contentLength) {
-      return ctx.statusCode(200).json({
+      return ctx.json<ResBody>({
         code: 400,
         result: `content-length错误，contentLength：${contentLength}`,
       });
@@ -59,7 +60,7 @@ export class Files {
 
     //超尺寸限制限制
     if (contentLength > this.maxSize * 1024 * 1024) {
-      return ctx.statusCode(200).json({
+      return ctx.json<ResBody>({
         code: 400,
         result: `超出最大上传尺寸${this.maxSize}mb`,
       });
@@ -73,7 +74,7 @@ export class Files {
        */
 
       //接收数据
-      const body = await ctx.getBodyData("buffer");
+      const body = await ctx.body("buffer");
       const ret = ctx.parseFormData(body, boundary, contentLength);
 
       //写入文件
@@ -104,22 +105,22 @@ export class Files {
           url,
         };
       });
-      return ctx.statusCode(200).json({ code: 1000, result: ret2 });
+      return ctx.json<ResBody>({ code: 1000, result: ret2 });
     } else if (contentType?.includes("arraybuffer") && filename) {
       /**
        * 'content-type': 'arraybuffer; filename=a.txt'
        * 前端需要设置content-type，文件名等
        */
       //接收数据
-      const body = await ctx.getBodyData("buffer");
+      const body = await ctx.body("buffer");
       const newFileName = this.createFileName(filename);
       writeFileSync(join(PATH.__upload(), newFileName), body);
 
       //返回文件信息 还未实现
-      return ctx.statusCode(200).json({ code: 1000, result: "上传成功" });
+      return ctx.json<ResBody>({ code: 1000, result: "上传成功" });
     }
 
-    ctx.statusCode(200).json({
+    ctx.json<ResBody>({
       code: 1000,
       result: `不支持的content-type: ${contentType}`,
     });

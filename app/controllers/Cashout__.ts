@@ -1,13 +1,14 @@
-import { Controller, Context, Post, Get } from "../../src/index.js";
+import { Controller, Context, Post, Get, Off } from "../../src/index.js";
+import { ResBody, Token } from "../common/model.js";
 import { querysql } from "../common/mysql.js";
-import { jwtTokenVerify } from "../common/utils.js";
+import { loginVerify } from "../middlewares/loginVerify.js";
 
 @Controller("/cashout")
-export class Cashout {
+export class Cashout__ {
   /**
    * 获取总收入
    */
-  async getTotalIncome(uid: number): Promise<number> {
+  async getTotalIncome(uid: string): Promise<number> {
     const [ret] = await querysql(`
       SELECT gorder.g_uid AS uid,
       ROUND(SUM(gorder.amount), 2) AS income
@@ -25,7 +26,7 @@ export class Cashout {
    * 包含所有发起的提现金额总和
    * 不管提现状态如何
    */
-  async getCashout(uid: number): Promise<number> {
+  async getCashout(uid: string): Promise<number> {
     const [ret] = await querysql(`
       SELECT
       ROUND(SUM(cashout.amount), 2) AS amount
@@ -35,15 +36,13 @@ export class Cashout {
     return ret?.amount ?? 0;
   }
 
+  @Off(loginVerify)
   @Post("/create")
   async createCashout(ctx: Context) {
-    const token = await jwtTokenVerify(ctx);
-    if (!token) {
-      return ctx.statusCode(200).json({ code: 1400, err: "请登陆" });
-    }
+    const token = ctx.custom.token as Token;
 
     try {
-      const body = await ctx.getBodyData("json");
+      const body = await ctx.body("json");
       const after_balance = body.pre_balance - body.amount;
       // 提现后余额 = 当前未提现 - 本次提现金额
 
@@ -56,25 +55,23 @@ export class Cashout {
         mark = '${body.mark || ""}'
       `);
 
-      ctx.statusCode(200).json({
+      ctx.json<ResBody>({
         code: 1000,
         result: "发起提现成功",
       });
     } catch (err: any) {
-      ctx.statusCode(200).json({ code: 400, err: err?.message });
+      ctx.json<ResBody>({ code: 400, msg: err?.message });
     }
   }
 
+  @Off(loginVerify)
   @Get()
   async getCashoutList(ctx: Context) {
-    const token = await jwtTokenVerify(ctx);
-    if (!token) {
-      return ctx.statusCode(200).json({ code: 1400, err: "请登陆" });
-    }
+    const token = ctx.custom.token as Token;
+    let { page = 1, page_size = 10 } = ctx.query;
 
-    const { searchParams } = ctx.url;
-    const page = Number(searchParams.get("page")) || 1;
-    const page_size = Number(searchParams.get("page_size")) || 10;
+    page = Number(page);
+    page_size = Number(page_size);
 
     try {
       const count = await querysql(`
@@ -89,33 +86,30 @@ export class Cashout {
         LIMIT ${(page - 1) * page_size}, ${page_size}
       `);
 
-      ctx.statusCode(200).json({
+      ctx.json<ResBody>({
         code: 1000,
         result: ret,
         info: { page, page_size, total: count[0].total },
       });
     } catch (err: any) {
-      ctx.statusCode(200).json({ code: 400, err: err?.message });
+      ctx.json<ResBody>({ code: 400, msg: err?.message });
     }
   }
 
+  @Off(loginVerify)
   @Get("/stats")
   async getStats(ctx: Context) {
-    const token = await jwtTokenVerify(ctx);
-    if (!token) {
-      return ctx.statusCode(200).json({ code: 1400, err: "请登陆" });
-    }
-
+    const token = ctx.custom.token as Token;
     try {
       const income = await this.getTotalIncome(token.uid);
       // 当前未提现 = 总收入 - 已提现
       const cashout = await this.getCashout(token.uid);
-      ctx.statusCode(200).json({
+      ctx.json<ResBody>({
         code: 1000,
         result: { uid: token.uid, income, unCashout: income - cashout },
       });
     } catch (err: any) {
-      ctx.statusCode(200).json({ code: 400, err: err?.message });
+      ctx.json<ResBody>({ code: 400, msg: err?.message });
     }
   }
 }
