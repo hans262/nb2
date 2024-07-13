@@ -28,7 +28,6 @@ esac
 echo "\e[1;32mnode version: $(node -v)\e[0m" && \
 echo "git version: $(git --version)" && \
 echo "npm version: $(npm -v)" && \
-echo "pnpm version: $(pnpm -v)" && \
 
 echo "安装pnpm" && \
 npm install pnpm -g && \
@@ -69,7 +68,7 @@ echo "切换到主分支" && \
 git checkout $BASE_BRANCH && \
 
 echo "安装依赖" && \
-npm install && \
+pnpm install && \
 
 echo "生成文档" && \
 npm run doc && \

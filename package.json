@@ -4,6 +4,7 @@
   "type": "module",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "license": "MIT",
   "files": [
     "lib"
   ],
@@ -14,14 +15,14 @@
     "doc-icon": "node doc-icon.js",
     "login": "npm login",
     "pub": "npm publish --access=public",
-    "build": "tsc --project tsconfig.pub.json",
+    "build": "tsc --project tsconfig.pb.json",
     "get-registry": "npm get registry",
     "n-registry": "npm config set registry https://registry.npmjs.org",
     "t-registry": "npm config set registry http://registry.npm.taobao.org"
   },
   "dependencies": {
     "@types/node": "^20.14.10",
-    "typedoc": "^0.24.8",
+    "typedoc": "^0.26.4",
     "typescript": "^5.1.6"
   }
 }

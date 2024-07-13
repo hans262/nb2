@@ -113,3 +113,9 @@ export function fetchOn(_url: string, opt?: {
     req.end()
   })
 }
+
+/**
+ * @document documents/external-markdown.md
+ * 
+ * 这里是我的文档
+ */
