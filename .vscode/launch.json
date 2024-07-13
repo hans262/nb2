@@ -1,5 +1,5 @@
 {
-  // 使用 IntelliSense 了解相关属性。 
+  // 使用 IntelliSense 了解相关属性。
   // 悬停以查看现有属性的描述。
   // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
@@ -7,50 +7,9 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "WSOCKET",
-      "program": "${workspaceFolder}/app/wsocket.ts",
-      "outFiles": [
-        "${workspaceFolder}/out/**/*.js"
-      ]
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "SOCKET",
-      "program": "${workspaceFolder}/app/socket.ts",
-      "outFiles": [
-        "${workspaceFolder}/out/**/*.js"
-      ]
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "CLUSTER",
-      "program": "${workspaceFolder}/app/cluster.ts",
-      "autoAttachChildProcesses": true,
-      "outFiles": [
-        "${workspaceFolder}/out/**/*.js"
-      ],
-      "outputCapture": "std"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "APP",
-      "program": "${workspaceFolder}/app/index.ts",
-      "outFiles": [
-        "${workspaceFolder}/out/**/*.js"
-      ],
-      "outputCapture": "std"
-    },
-    {
-      "type": "node",
-      "request": "launch",
       "name": "TEST",
-      "program": "${workspaceFolder}/app/test.ts",
-      "outFiles": [
-        "${workspaceFolder}/out/**/*.js"
-      ]
+      "program": "${workspaceFolder}/test/index.ts",
+      "outFiles": ["${workspaceFolder}/out/**/*.js"]
     }
   ]
 }

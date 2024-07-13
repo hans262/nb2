@@ -1,7 +1,7 @@
-import { Controller, Context, Get, Post } from "../../src/index.js";
+import { Controller, Context, Get, Post } from "../src/index.js";
 
 @Controller("test")
-export class Test__ {
+export class __Test {
   @Get()
   get(ctx: Context) {
     console.log(ctx.query);
@@ -38,7 +38,7 @@ export class Test__ {
 }
 
 @Controller("test2")
-export class Test2__ {
+export class __Test2 {
   @Get("/:name/:age/opp")
   add(ctx: Context) {
     console.log(ctx.params);

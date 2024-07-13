@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "NodeNext",
+    "outDir": "./lib",
+    "removeComments": true,
+    "strict": true,
+    "declaration": true
+  },
+  "include": ["src"]
+}

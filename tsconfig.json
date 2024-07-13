@@ -14,10 +14,8 @@
     "esModuleInterop": true,
     //装饰器支持
     "experimentalDecorators": true,
-    // 因系统的不同，统一文件大小写引入
-    "forceConsistentCasingInFileNames": true,
-    //元数据支持
-    "emitDecoratorMetadata": true
+    //统一文件名大小写
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["src", "app"]
+  "include": ["src", "test"]
 }

@@ -63,7 +63,7 @@ const defaultServerOpt: ServerOpt = {
   cors: true,
 };
 
-export class WebServer {
+export class Dpenx {
   opt: ServerOpt;
   server: Server;
   /**中间件集合 */
@@ -131,9 +131,7 @@ export class WebServer {
     this.middlewares = this.middlewares.concat(m);
   }
 
-  controllers(...c: (new () => any)[]) {
-    // console.log(c);
-  }
+  controllers(..._: (new () => any)[]) {}
 
   /**
    * 启动服务
