@@ -1,4 +1,4 @@
-name: deploy-doc
+name: test
 on:
   push:
     branches:
@@ -7,10 +7,10 @@ jobs:
   DOC-DEPLOY:
     runs-on: ubuntu-latest
     steps:
-    - name: Check out repository code
+    - name: Check out
       uses: actions/checkout@v3
 
-    - name: Run my action
+    - name: Run Action
       uses: ./.github/my-action
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}

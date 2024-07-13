@@ -1,0 +1,20 @@
+name: GLOW DEPLOY
+on:
+  push:
+    branches:
+      - main
+jobs:
+  DOC-DEPLOY:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Build
+      uses: ./.github/my-action
+      env:
+        ACCESS_TOKEN: ${{ secrets.MY_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: dist
+        BUILD_SCRIPT: npm install && npm run build
+        BASE_BRANCH: main

@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 
-fs.copyFileSync('./public/vite.svg', './docs/vite.svg');
+fs.copyFileSync('./vite.svg', './docs/vite.svg');
 
 ['./docs/index.html', './docs/modules.html'].forEach(fileName => {
   const data = fs.readFileSync(fileName).toString('utf-8')
