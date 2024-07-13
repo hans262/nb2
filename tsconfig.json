@@ -3,18 +3,12 @@
     "target": "ESNext",
     "module": "NodeNext",
     "outDir": "./out",
-    //用于调试
     "sourceMap": true,
-    //删除注释
     "removeComments": true,
-    //严格模式
     "strict": true,
     "moduleResolution": "NodeNext",
-    //未知
     "esModuleInterop": true,
-    //装饰器支持
     "experimentalDecorators": true,
-    //统一文件名大小写
     "forceConsistentCasingInFileNames": true
   },
   "include": ["src", "test"]

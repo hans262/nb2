@@ -1,16 +1,16 @@
-name: test
+name: dpenx
 on:
   push:
     branches:
       - master
 jobs:
-  DOC-DEPLOY:
+  doc-deploy:
     runs-on: ubuntu-latest
     steps:
     - name: Check out
       uses: actions/checkout@v3
 
-    - name: Run Action
+    - name: Run action
       uses: ./.github/my-action
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}

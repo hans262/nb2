@@ -1,4 +1,4 @@
-FROM node:18.0.0
+FROM node:lts
 
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
