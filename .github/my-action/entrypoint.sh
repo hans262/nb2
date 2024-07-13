@@ -27,8 +27,11 @@ esac
 
 echo $(node -v) && \
 
+git config --global --add safe.directory $GITHUB_WORKSPACE
+
 echo "进入工作目录" && \
 cd $GITHUB_WORKSPACE && \
+
 
 echo "配置git" && \
 git config --global user.email 771565119@qq.com && \
