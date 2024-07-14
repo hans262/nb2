@@ -1,4 +1,4 @@
-name: dpenx
+name: dopx
 on:
   push:
     branches:

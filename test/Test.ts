@@ -1,48 +1,27 @@
 import { Controller, Context, Get, Post } from "../src/index.js";
 
 @Controller("test")
-export class __Test {
+export class Test {
+  // path -> /test?a=1&b=2
   @Get()
   get(ctx: Context) {
-    console.log(ctx.query);
-    // ctx.url
-    ctx.json({ a: 1, b: 2 });
+    ctx.json(ctx.query);
   }
-
+  // path -> /test/post
   @Post("post")
   async post(ctx: Context) {
-    const body = await ctx.body("string");
-    console.log(body);
+    const body = await ctx.body("json");
 
-    ctx.json({ a: 1, b: 3 });
+    ctx.json(body);
   }
-
-  @Get("jsonp")
-  jsonp(ctx: Context) {
-    //客户端一定要传的参数
-    const callbackName = ctx.query.callback;
-    //响应的数据
-    const data = JSON.stringify({ a: 1, b: 2 });
-    ctx.text(`${callbackName}(${data})`);
-  }
-
+  // path -> /test/rand/123
   @Get("rand/*")
   rand(ctx: Context) {
-    ctx.text(ctx.pathname);
+    ctx.text("hello world");
   }
-
+  // path -> /test/123/hans
   @Get(":id/:name")
   param(ctx: Context) {
-    ctx.json(ctx.params);
-  }
-}
-
-@Controller("test2")
-export class __Test2 {
-  @Get("/:name/:age/opp")
-  add(ctx: Context) {
-    console.log(ctx.params);
-    // throw new Error("错误");
     ctx.json(ctx.params);
   }
 }

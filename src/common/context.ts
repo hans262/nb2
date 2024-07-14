@@ -100,7 +100,9 @@ export class Context {
 
   /**
    * 设置cookie
-   * @param cookie
+   * @param key
+   * @param value
+   * @param opt
    */
   setCookie(
     key: string,
@@ -297,7 +299,7 @@ export interface FormData {
   data: Buffer;
 }
 
-type BodyRet<T> = T extends "string"
+export type BodyRet<T> = T extends "string"
   ? string
   : T extends "buffer"
   ? Buffer

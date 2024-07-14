@@ -1,6 +1,6 @@
 import { Method, Middleware } from "./context.js";
 
-interface Metadata {
+export interface Metadata {
   /**控制器对象上的path，必传参数 */
   cpath?: string;
   /**方法路径，可不传，默认值 = '' */
