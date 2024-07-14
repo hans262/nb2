@@ -1,6 +1,6 @@
 import { IncomingMessage, ServerResponse } from "node:http";
 import { extname, join } from "node:path";
-import { Dpenx, ServerOpt } from "../dpenx.js";
+import { Dopx, ServerOpt } from "../dopx.js";
 import { bufferSplit } from "./utils.js";
 import { Logger } from "./logger.js";
 
@@ -21,7 +21,7 @@ export class Context {
     public req: IncomingMessage,
     public res: ServerResponse,
     public opt: ServerOpt,
-    public app: Dpenx
+    public app: Dopx
   ) {
     //解析url
     this.url = new URL(join(app.domain, req.url ?? "/"));

@@ -1,4 +1,4 @@
-export * from "./dpenx.js";
+export * from "./dopx.js";
 export * from "./socketserver.js";
 export * from "./wsocket.js";
 

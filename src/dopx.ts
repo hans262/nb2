@@ -63,7 +63,7 @@ const defaultServerOpt: ServerOpt = {
   cors: true,
 };
 
-export class Dpenx {
+export class Dopx {
   opt: ServerOpt;
   server: Server;
   /**中间件集合 */

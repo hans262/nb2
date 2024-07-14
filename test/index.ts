@@ -1,7 +1,7 @@
-import { Dpenx } from "../src/index.js";
+import { Dopx } from "../src/index.js";
 import { __Test2, __Test } from "./Test.js";
 
-const app = new Dpenx({
+const app = new Dopx({
   port: 8080,
   spa: true,
   staticRoot: "/",
