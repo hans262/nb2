@@ -1,6 +1,6 @@
 {
   "name": "dopx",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

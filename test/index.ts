@@ -3,9 +3,11 @@ import { Test } from "./Test.js";
 
 const dopx = new Dopx({
   port: 8080,
-  // spa: true,
-  // staticRoot: "/",
   apiPrefix: "/api",
+  static: {
+    root: "/",
+  },
+  // logDir:'/Users/macbookair/Desktop/develop/dopx/logs'
 });
 
 dopx.controllers(Test);

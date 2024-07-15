@@ -120,11 +120,8 @@ export const handleController: Middleware = async (ctx, next) => {
  * @param next
  */
 export const handleStatic: Middleware = (ctx, next) => {
-  //没有资源目录，迅速跳掉下一个中间件
-  if (!ctx.opt.staticRoot) return next();
-
-  //拼接静态资源路径
-  const staticPath = join(ctx.opt.staticRoot, ctx.pathname);
+  //静态资源绝对路径
+  const staticPath = join(ctx.opt.static?.root!, ctx.pathname);
   staticTask(ctx, staticPath);
 };
 
@@ -152,7 +149,7 @@ export function staticTask(ctx: Context, staticPath: string) {
        * Cache-Control 强制缓存
        * ETag 协商缓存
        */
-      res.setHeader("Cache-Control", `max-age=${opt.cacheMaxAge}`);
+      res.setHeader("Cache-Control", `max-age=${opt.static!.cacheMaxAge!}`);
       res.setHeader("ETag", generateETag(stats));
 
       //判断缓存
@@ -214,7 +211,7 @@ export function isHitEtagCache(ctx: Context, stats: Stats) {
 export function isHitZipType(ctx: Context, staticPath: string) {
   const extName = extname(staticPath);
   //满足服务器设定的压缩文件范围
-  if (!ctx.opt.canZipFile.includes(extName.slice(1))) {
+  if (!ctx.opt.static!.canZipFile!.includes(extName.slice(1))) {
     return false;
   }
 

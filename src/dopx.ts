@@ -12,55 +12,54 @@ import { Logger } from "./common/logger.js";
 
 export interface ServerOpt {
   /**端口 */
-  port: number;
+  port?: number;
   /**
    * 需要侦听的IP地址，
    * 如果忽略了hostname，那么服务器会接受所有的IPv4地址链接。
    * IPv4地址包括127.0.0.1、localhost和本地IP。
-   *
-   * 在服务器上时，最好设置服务器内网IP地址。
    */
   hostname?: string;
   /**https配置 */
-  https: { key: Buffer; cert: Buffer } | false;
-  /**
-   * 单页应用SPA：全部重定向到index.html，
-   * 让前端处理路由，以适应react/vue应用的history路由模式
-   */
-  spa: boolean;
+  https?: { key: Buffer; cert: Buffer } | false;
   /**是否允许跨域 */
-  cors: boolean;
+  cors?: boolean;
   /**日志存放路径 */
   logDir?: string;
   /**api前缀 */
   apiPrefix?: string;
-  /**
-   * 静态资源目录，没有则表示不响应静态资源，
-   * 静态资源路径 = 目录 + url
-   */
-  staticRoot?: string;
-  /**默认允许压缩的文件*/
-  canZipFile: string[];
-  /**资源缓存时间 单位：秒*/
-  cacheMaxAge: number;
-  /**默认渲染的html文件名 */
-  indexFileName: string;
-}
 
-//执行参数携带number，设置为port
-const argvPort = process.argv.find((v) => !isNaN(Number(v)));
+  /**静态资源，没有则表示不响应静态资源 */
+  static?: {
+    /**静态资源本地根路径*/
+    root: string;
+    /**默认允许压缩的文件*/
+    canZipFile?: string[];
+    /**资源缓存时间 单位：秒*/
+    cacheMaxAge?: number;
+    /**默认渲染的html文件名 */
+    indexFileName?: string;
+    /**
+     * 单页应用SPA：全部重定向到index.html，
+     * 让前端处理路由，以适应react/vue应用的history路由模式
+     */
+    spa?: boolean;
+  };
+}
 
 /**
  * 默认配置
  */
-const defaultServerOpt: ServerOpt = {
-  port: argvPort ? Number(argvPort) : 8080,
+const dServerOpt: ServerOpt = {
+  port: 8080,
+  https: false,
+  cors: true,
+};
+
+const dStaticOpt: Partial<ServerOpt["static"]> = {
   canZipFile: ["css", "html", "js", "woff"],
   cacheMaxAge: 12 * 60 * 60, //一天
   indexFileName: "index.html",
   spa: false,
-  https: false,
-  cors: true,
 };
 
 export class Dopx {
@@ -71,13 +70,18 @@ export class Dopx {
 
   /**当前域名 */
   domain: string;
-  constructor(opt?: Partial<ServerOpt>) {
+  constructor(opt?: ServerOpt) {
     /**
      * 注意，第二个参数里的属性为undefined，也会被拷贝进去
      * 这算是一种完全覆盖合并
      */
-    this.opt = Object.assign(defaultServerOpt, opt);
+    const _opt = Object.assign({}, dServerOpt, opt);
 
+    if (_opt.static) {
+      _opt.static = Object.assign({}, dStaticOpt, _opt.static);
+    }
+    this.opt = _opt;
+    // console.log(_opt);
     const host = this.opt.hostname ?? "127.0.0.1";
     this.domain = `${this.opt.https ? "https://" : "http://"}${host}:${
       this.opt.port
@@ -139,11 +143,13 @@ export class Dopx {
   run() {
     //安装控制器中间件
     this.use(handleController);
+
     /**
-     * 一般放在最后一个位置，
-     * 如果资源没有找到，那么直接响应404
+     * 静态资源中间件
      */
-    this.use(handleStatic);
+    if (this.opt.static) {
+      this.use(handleStatic);
+    }
 
     this.server.listen(this.opt.port, this.opt.hostname, () => {
       Logger.self.stdlog({
@@ -160,10 +166,12 @@ export class Dopx {
     let i = 0;
     const next = () => {
       const middleware = this.middlewares[i++];
-      //中间件出口
-      if (!middleware) return out404(ctx);
-
-      middleware(ctx, next);
+      if (middleware) {
+        middleware(ctx, next);
+      } else {
+        //出口
+        return out404(ctx);
+      }
     };
 
     try {
