@@ -1,5 +1,5 @@
 import { Dirent, createReadStream, existsSync, readdirSync } from "node:fs";
-import { join } from "node:path";
+import { posix } from "node:path";
 import { Deflate, Gzip, createDeflate, createGzip } from "node:zlib";
 import { Context } from "./common/context.js";
 import { staticTask } from "./middleware.js";
@@ -54,13 +54,16 @@ export function outDir(ctx: Context, staticPath: string) {
    * 若存在则渲染该文件，需要重新拼接资源路径
    */
   if (dirents.find((d) => d.name === ctx.opt.static!.indexFileName)) {
-    return staticTask(ctx, join(staticPath, ctx.opt.static!.indexFileName!));
+    return staticTask(
+      ctx,
+      posix.join(staticPath, ctx.opt.static!.indexFileName!)
+    );
   }
 
   let content = `<h1>目录 ${ctx.pathname}</h1>`;
   dirents.forEach((dirent) => {
     let { name } = dirent;
-    let href = join(ctx.pathname, name);
+    let href = posix.join(ctx.pathname, name);
     if (dirent.isDirectory()) {
       href += "/";
       name += "/";
@@ -97,7 +100,7 @@ export const out404 = (
      * 注意检查该文件是否存在，避免造成死循环
      * 这里拼接root/index.html路径
      */
-    const reactIndexPath = join(
+    const reactIndexPath = posix.join(
       ctx.opt.static.root,
       ctx.opt.static!.indexFileName!
     );

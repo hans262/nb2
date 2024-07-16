@@ -1,5 +1,5 @@
 import { IncomingMessage, ServerResponse } from "node:http";
-import { extname, join } from "node:path";
+import { posix } from "node:path";
 import { Dopx, ServerOpt } from "../dopx.js";
 import { bufferSplit } from "./utils.js";
 import { Logger } from "./logger.js";
@@ -24,7 +24,7 @@ export class Context {
     public app: Dopx
   ) {
     //解析url
-    this.url = new URL(join(app.domain, req.url ?? "/"));
+    this.url = new URL(posix.join(app.domain, req.url ?? "/"));
     // 解析查询参数
     this.query = Object.fromEntries(this.url.searchParams);
     //浏览器url可能会对中文转码 decodeURIComponent
@@ -45,7 +45,7 @@ export class Context {
    * @param path
    */
   getContentTypeOfPath(path: string) {
-    const ext = extname(path).slice(1);
+    const ext = posix.extname(path).slice(1);
     if (isMime(ext)) {
       return MimeTypes[ext] + "; charset=utf-8";
     } else {

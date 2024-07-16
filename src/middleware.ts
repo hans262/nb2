@@ -1,4 +1,4 @@
-import { extname, join } from "node:path";
+import { extname, posix } from "node:path";
 import { Stats, stat } from "node:fs";
 import {
   out404,
@@ -79,7 +79,7 @@ export const handleController: Middleware = async (ctx, next) => {
     if (!c.cpath) return false;
 
     //如果没有'/'前缀，加上前缀'/'
-    path = join("/", ctx.opt.apiPrefix ?? "/", c.cpath, c.mpath!);
+    path = posix.join("/", ctx.opt.apiPrefix ?? "/", c.cpath, c.mpath!);
     return ctx.matchRoutes(path);
   });
 
@@ -121,7 +121,7 @@ export const handleController: Middleware = async (ctx, next) => {
  */
 export const handleStatic: Middleware = (ctx, next) => {
   //静态资源绝对路径
-  const staticPath = join(ctx.opt.static?.root!, ctx.pathname);
+  const staticPath = posix.join(ctx.opt.static?.root!, ctx.pathname);
   staticTask(ctx, staticPath);
 };
 
