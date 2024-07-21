@@ -1,5 +1,5 @@
 import { createServer, Socket } from 'node:net'
-import { createHashSecret } from './common/encrypt.js'
+import { createHashSecret } from './keep.js'
 
 /**
  * socket服务端

@@ -13,7 +13,7 @@ npm install dopx
 
 - Middleware
 - Controller
-- Response static: Cache | Zip | Range download
+- Response static: Cache | Zip | Range
 - Logs
 
 ## The simple example
@@ -51,7 +51,6 @@ export class Test {
   @Post("post")
   async post(ctx: Context) {
     const body = await ctx.body("json");
-
     ctx.json(body);
   }
 
@@ -61,8 +60,8 @@ export class Test {
     ctx.text("hello world");
   }
 
-  // path -> /test/123/hans
-  @Get(":id/:name")
+  // path -> /test/123
+  @Get(":id")
   param(ctx: Context) {
     ctx.json(ctx.params);
   }
@@ -72,5 +71,6 @@ export class Test {
 Install the Controller into the service.
 
 ```ts
-dopx.controllers(Test);
+dopx.controllers("/api", Test);
+dopx.controllers("/admin", Test2, Test3, ...);
 ```

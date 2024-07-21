@@ -1,8 +1,9 @@
 import { IncomingMessage, ServerResponse } from "node:http";
-import { posix } from "node:path";
-import { Dopx, ServerOpt } from "../dopx.js";
+import posix from "node:path/posix";
+import { _ServerOpt, Dopx } from "../dopx.js";
 import { bufferSplit } from "./utils.js";
-import { Logger } from "./logger.js";
+import { hitMime, MimeTypes } from "./compare.js";
+import { _FormData, BodyData } from "./model.js";
 
 export class Context {
   /**请求发起时间戳 */
@@ -20,7 +21,7 @@ export class Context {
   constructor(
     public req: IncomingMessage,
     public res: ServerResponse,
-    public opt: ServerOpt,
+    public opt: _ServerOpt,
     public app: Dopx
   ) {
     //解析url
@@ -29,15 +30,42 @@ export class Context {
     this.query = Object.fromEntries(this.url.searchParams);
     //浏览器url可能会对中文转码 decodeURIComponent
     this.pathname = decodeURI(this.url.pathname);
+    //服务器时间
+    res.setHeader("Date", new Date().toUTCString());
   }
 
   /**
-   * 完全匹配路由，包括尾部'/'，
-   * 支持通配符['*', ':id']，代替任意字符
+   * 匹配路由，包函解析参数
+   * 去除尾部'/'的比较
+   * 支持通配符: *, :id
+   * 直接把params参数解析出来
    */
-  matchRoutes(path: string) {
+  matchRoutes(path: string): {
+    matched: boolean;
+    params: { [key: string]: string };
+  } {
+    path = path.endsWith("/") ? path.slice(0, -1) : path;
+    const pathname = this.pathname.endsWith("/")
+      ? this.pathname.slice(0, -1)
+      : this.pathname;
     const rexp = new RegExp(`^${path.replaceAll(/(\*+)|(:[^/]+)/g, "[^/]+")}$`);
-    return rexp.test(this.pathname);
+    const matched = rexp.test(pathname);
+
+    // 解析url参数 (?<id>[^/]+)
+    if (matched) {
+      const pm2 = path.match(/:([^/]+)/g);
+      if (pm2?.length) {
+        let regStr = path;
+        pm2.forEach((v) => {
+          regStr = regStr.replace(v, `(?<${v.slice(1)}>[^/]+)`);
+        });
+        const pm3 = pathname.match(new RegExp(regStr));
+        const params = { ...pm3?.groups };
+        return { matched, params };
+      }
+    }
+
+    return { matched, params: {} };
   }
 
   /**
@@ -46,7 +74,7 @@ export class Context {
    */
   getContentTypeOfPath(path: string) {
     const ext = posix.extname(path).slice(1);
-    if (isMime(ext)) {
+    if (hitMime(ext)) {
       return MimeTypes[ext] + "; charset=utf-8";
     } else {
       return MimeTypes["plain"] + "; charset=utf-8";
@@ -65,21 +93,21 @@ export class Context {
    * 接收body数据
    */
   async body<T extends "string" | "buffer" | "json">(type: T) {
-    return new Promise<BodyRet<T>>((resolve) => {
+    return new Promise<BodyData<T>>((resolve) => {
       const chunks: Buffer[] = [];
       this.req.on("data", (chunk: Buffer) => {
         chunks.push(chunk);
       });
       this.req.on("end", () => {
         if (type === "buffer") {
-          resolve(Buffer.concat(chunks) as BodyRet<T>);
+          resolve(Buffer.concat(chunks) as BodyData<T>);
         }
         if (type === "string") {
-          resolve(Buffer.concat(chunks).toString() as BodyRet<T>);
+          resolve(Buffer.concat(chunks).toString() as BodyData<T>);
         }
         if (type === "json") {
           const ret = Buffer.concat(chunks).toString();
-          resolve(JSON.parse(ret) as BodyRet<T>);
+          resolve(JSON.parse(ret) as BodyData<T>);
         }
       });
     });
@@ -134,7 +162,7 @@ export class Context {
    * 设置statusCode
    * @param code
    */
-  statusCode(code: number) {
+  status(code: number) {
     this.res.statusCode = code;
     return this;
   }
@@ -142,50 +170,45 @@ export class Context {
   /**
    * 响应json
    * @param opt
-   * @param statusCode
+   * @param status
    */
-  json<T extends { [key: string]: any }>(opt: T, statusCode = 200) {
+  json<T extends { [key: string]: any }>(opt: T, status = 200) {
     this.res.setHeader("Content-Type", this.getContentType("json"));
-    this.statusCode(statusCode);
+    this.status(status);
     this.res.end(JSON.stringify(opt));
   }
 
   /**
    * 响应纯文本
    * @param text
-   * @param statusCode
+   * @param status
    */
-  text(text: string, statusCode = 200) {
+  text(text: string, status = 200) {
     this.res.setHeader("Content-Type", this.getContentType("plain"));
-    this.statusCode(statusCode);
+    this.status(status);
     this.res.end(text);
   }
 
   /**
    * 响应html
    * @param text
-   * @param statusCode
+   * @param status
    */
-  html(text: string, statusCode = 200) {
+  html(text: string, status = 200) {
     this.res.setHeader("Content-Type", this.getContentType("html"));
-    this.statusCode(statusCode);
+    this.status(status);
     this.res.end(text);
   }
 
   /**
    * 重定向
+   * 301 永久
+   * 302 临时
    */
-  redirect(url: string, code: number) {
-    this.statusCode(code);
+  redirect(url: string, code = 302) {
+    this.status(code);
     this.res.setHeader("Location", url);
     this.res.end();
-
-    Logger.self.stdlog({
-      level: "redirect",
-      color: "cyan",
-      logPath: this.opt.logDir,
-      msg: this.pathname + " -> " + url,
-    });
   }
 
   /**
@@ -195,7 +218,7 @@ export class Context {
    * @param contentLength
    */
   parseFormData(buf: Buffer, boundary: string, contentLength: number) {
-    const result: FormData[] = [];
+    const result: _FormData[] = [];
 
     //中间标志
     const midBoundary = "\r\n--" + boundary + "\r\n";
@@ -227,7 +250,7 @@ export class Context {
       const [_, filename] = lineOne.match(/filename="([^;]+)"/) ?? [];
       const [__, name] = lineOne.match(/name="([^;]+)"/) ?? [];
 
-      let ContentType: FormData["ContentType"];
+      let ContentType: _FormData["ContentType"];
 
       if (filename) {
         //文件多一行content-type
@@ -247,62 +270,3 @@ export class Context {
     return result;
   }
 }
-
-/**
- * 把字符串断言到Mime类型
- * @param key
- */
-export function isMime(key: string): key is keyof typeof MimeTypes {
-  return Object.keys(MimeTypes).includes(key);
-}
-
-export const MimeTypes = {
-  ogg: "audio/ogg",
-  mp4: "video/mp4",
-  css: "text/css",
-  gif: "image/gif",
-  html: "text/html",
-  ico: "image/x-icon",
-  jpeg: "image/jpeg",
-  jpg: "image/jpeg",
-  js: "application/javascript",
-  json: "application/json",
-  pdf: "application/pdf",
-  png: "image/png",
-  svg: "image/svg+xml",
-  swf: "application/x-shockwave-flash",
-  tiff: "image/tiff",
-  plain: "text/plain",
-  wav: "audio/x-wav",
-  wma: "audio/x-ms-wma",
-  wmv: "video/x-ms-wmv",
-  xml: "text/xml",
-  "octet-stream": "application/octet-stream",
-} as const;
-
-/**
- * 支持的请求方法
- */
-export type Method = "GET" | "POST" | "PUT" | "DELETE";
-export const Methods: Method[] = ["GET", "POST", "PUT", "DELETE"];
-
-/**
- * 中间件类型
- */
-export type Middleware = (ctx: Context, next: () => void) => void;
-
-export interface FormData {
-  name: string;
-  /**文件才有，没有就是纯数据 */
-  filename?: string;
-  ContentType?: string;
-  data: Buffer;
-}
-
-export type BodyRet<T> = T extends "string"
-  ? string
-  : T extends "buffer"
-  ? Buffer
-  : T extends "json"
-  ? { [key: string]: any }
-  : never;

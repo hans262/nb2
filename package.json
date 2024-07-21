@@ -1,6 +1,6 @@
 {
   "name": "dopx",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "type": "module",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -14,16 +14,12 @@
     "lib"
   ],
   "scripts": {
-    "start": "node out/app/index.js",
     "out": "tsc -w",
     "doc": "typedoc --options ./typedoc.config.cjs",
     "doc-icon": "node doc-icon.js",
     "login": "npm login",
     "build": "tsc --project tsconfig.pb.json",
-    "publish": "npm publish --access=public",
-    "get-registry": "npm get registry",
-    "n-registry": "npm config set registry https://registry.npmjs.org",
-    "t-registry": "npm config set registry http://registry.npm.taobao.org"
+    "get-registry": "npm get registry"
   },
   "devDependencies": {
     "@types/node": "^20.14.10",

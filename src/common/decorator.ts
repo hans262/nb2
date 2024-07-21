@@ -1,7 +1,7 @@
-import { Method, Middleware } from "./context.js";
+import { Method, Middleware } from "./model.js";
 
 export interface Metadata {
-  /**控制器对象上的path，必传参数 */
+  /**控制器path，必传，不挂载控制器，可能为undefined */
   cpath?: string;
   /**方法路径，可不传，默认值 = '' */
   mpath?: string;
@@ -10,9 +10,11 @@ export interface Metadata {
   /**请求类型 */
   method?: Method;
   /**函数名称 */
-  propertyKey: string | symbol;
-  /**控制器对象实例，挂装饰器才会有 */
+  functionName: string | symbol;
+  /**控制器对象实例，不挂载控制器，可能为undefined */
   instance?: any;
+  /**api前缀 */
+  apifix?: string;
   /**拦截函数 */
   tf?: Middleware;
 }
@@ -25,36 +27,33 @@ export const metadatas: Metadata[] = [];
 export function Controller(cpath: string): ClassDecorator {
   return (constructor: any) => {
     const instance = new constructor();
-    metadatas.map((m) => {
-      if (m.constructorName === constructor.name) {
-        m.cpath = cpath;
-        //添加controller实例
-        m.instance = instance;
-        return true;
+    for (let i = 0; i < metadatas.length; i++) {
+      const item = metadatas[i];
+      if (item.constructorName === constructor.name) {
+        item.cpath = cpath;
+        item.instance = instance;
+        item.apifix = "/"; //给一个默认值
       }
-    });
+    }
   };
 }
 
 function createMethodDecorator(method: Method) {
-  return (mpath: string = ""): MethodDecorator =>
+  return (mpath = ""): MethodDecorator =>
     (target, propertyKey) => {
-      const meta = metadatas.find((m) => {
-        if (
+      const meta = metadatas.find(
+        (m) =>
           m.constructorName === target.constructor.name &&
-          m.propertyKey === propertyKey
-        ) {
-          m.method = method;
-          m.mpath = mpath;
-          return true;
-        }
-      });
-
-      if (!meta) {
+          m.functionName === propertyKey
+      );
+      if (meta) {
+        meta.method = method;
+        meta.mpath = mpath;
+      } else {
         metadatas.push({
           method,
           mpath,
-          propertyKey,
+          functionName: propertyKey,
           constructorName: target.constructor.name,
         });
       }
@@ -65,14 +64,14 @@ export const Get = createMethodDecorator("GET");
 export const Post = createMethodDecorator("POST");
 export const Put = createMethodDecorator("PUT");
 export const Delete = createMethodDecorator("DELETE");
+export const Patch = createMethodDecorator("PATCH");
 
 export function Off(tf?: Middleware): MethodDecorator {
   return (target, propertyKey) => {
-    // console.log(tf);
     metadatas.find((m) => {
       if (
         m.constructorName === target.constructor.name &&
-        m.propertyKey === propertyKey
+        m.functionName === propertyKey
       ) {
         m.tf = tf;
         return true;

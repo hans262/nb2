@@ -2,6 +2,9 @@
 
 ## api 前缀
 
-- apiPrefix: 'api'
+- aipfix: 'api'
 
 这样就可以添加一个路由前缀
+
+
+完善 parseFormData 函数

@@ -1,9 +1,9 @@
-import { Dirent, createReadStream, existsSync, readdirSync } from "node:fs";
-import { posix } from "node:path";
+import { Dirent, createReadStream, readdirSync, stat } from "node:fs";
+import posix from "node:path/posix";
 import { Deflate, Gzip, createDeflate, createGzip } from "node:zlib";
 import { Context } from "./common/context.js";
-import { staticTask } from "./middleware.js";
-import { Logger } from "./common/logger.js";
+import { taskFile } from "./middleware.js";
+import { Logger, parseRange } from "./common/utils.js";
 
 /**
  * 响应文件
@@ -11,16 +11,22 @@ import { Logger } from "./common/logger.js";
  * @param staticPath
  */
 export function outFile(ctx: Context, staticPath: string) {
-  const { startTime, res } = ctx;
+  const { res } = ctx;
   const stream = createReadStream(staticPath);
-  ctx.statusCode(200);
-  stream.pipe(res);
-  Logger.self.stdlog({
-    level: "file",
-    color: "green",
-    logPath: ctx.opt.logDir,
-    msg: staticPath + " +" + (Date.now() - startTime) + "ms",
+  stream.on("error", (err) => {
+    stream.unpipe(res);
+    //这里无法正确响应，问题待排查
+    ctx.status(403).html(`
+      <h2>权限错误</h2>
+      <p>无法访问该路径：${staticPath}</p>
+      <p>错误信息：${err.message}</p>
+    `);
+    Logger.self.log({ level: "error", path: staticPath, msg: err.message });
   });
+  ctx.status(200);
+  stream.pipe(res);
+
+  Logger.self.log({ level: "static", path: staticPath });
 }
 
 /**
@@ -36,31 +42,37 @@ export function outDir(ctx: Context, staticPath: string) {
     });
   } catch (error: any) {
     //证明该文件夹无法打开，可能存在权限等问题。
-    ctx.statusCode(200).html(`
-      <h1>目录 ${ctx.pathname}</h1>
-      <p style="color:red;">目录访问失败：${error.message}</p>
+    ctx.status(403).html(`
+      <h2>权限错误</h2>
+      <p>无法访问该路径：${ctx.pathname}</p>
+      <p>错误信息：${error.message}</p>
     `);
-    Logger.self.stdlog({
-      level: "dir_fail",
-      color: "red",
-      logPath: ctx.opt.logDir,
-      msg: staticPath + " +" + (Date.now() - ctx.startTime) + "ms",
+    Logger.self.log({
+      level: "error",
+      path: staticPath,
+      msg: "权限错误",
     });
     return;
   }
 
-  /**
-   * 检查目录下index.html文件是否存在
-   * 若存在则渲染该文件，需要重新拼接资源路径
-   */
-  if (dirents.find((d) => d.name === ctx.opt.static!.indexFileName)) {
-    return staticTask(
-      ctx,
-      posix.join(staticPath, ctx.opt.static!.indexFileName!)
-    );
+  // 检查index.html文件是否存在
+  if (dirents.find((d) => d.name === ctx.opt.static!.indexName)) {
+    const indexPath = posix.join(staticPath, ctx.opt.static!.indexName!);
+    stat(indexPath, (err, stats) => {
+      if (err) {
+        ctx.status(403).html(`
+          <h2>权限错误</h2>
+          <p>无法访问该路径：${indexPath}</p>
+          <p>错误信息：${err.message}</p>
+        `);
+      } else {
+        taskFile(ctx, stats, indexPath);
+      }
+    });
+    return;
   }
 
-  let content = `<h1>目录 ${ctx.pathname}</h1>`;
+  let content = `<h2>目录 ${ctx.pathname}</h2>`;
   dirents.forEach((dirent) => {
     let { name } = dirent;
     let href = posix.join(ctx.pathname, name);
@@ -70,12 +82,10 @@ export function outDir(ctx: Context, staticPath: string) {
     }
     content += `<p><a href="${href}">${name}</a></p>`;
   });
-  ctx.statusCode(200).html(content);
-  Logger.self.stdlog({
-    level: "dir",
-    color: "green",
-    logPath: ctx.opt.logDir,
-    msg: staticPath + " +" + (Date.now() - ctx.startTime) + "ms",
+  ctx.html(content);
+  Logger.self.log({
+    level: "static",
+    path: staticPath,
   });
 }
 
@@ -92,32 +102,39 @@ export const out404 = (
   }
 ) => {
   const path = opt?.staticPath ?? ctx.pathname;
-  if (ctx.opt.static && ctx.opt.static.spa) {
-    /**
-     * spa应用路由模式
-     * 需把404内容，返回 root/index.html文件
-     * 检查是否支持静态资源响应
-     * 注意检查该文件是否存在，避免造成死循环
-     * 这里拼接root/index.html路径
-     */
-    const reactIndexPath = posix.join(
+  /**
+   * spa应用路由模式
+   * 需把404 -> root/index.html
+   * 检查是否支持静态资源响应
+   * 注意检查该文件是否存在，避免造成死循环
+   * 这里拼接root/index.html路径
+   */
+  if (ctx.opt.static?.spa) {
+    const indexPath = posix.join(
       ctx.opt.static.root,
-      ctx.opt.static!.indexFileName!
+      ctx.opt.static!.indexName!
     );
-    if (existsSync(reactIndexPath)) {
-      return staticTask(ctx, reactIndexPath);
-    }
+    stat(indexPath, (_, stats) => {
+      if (stats?.isFile()) {
+        taskFile(ctx, stats, indexPath);
+        return;
+      }
+      ctx.status(404).html(`
+        <h2>404</h2>
+        <p>你的spa应用没有正确存放index.html文件</p>
+      `);
+    });
+    return;
   }
-  ctx.statusCode(404).html(`
-    <h1>404</h1>
-  	<p>${path} ${opt?.reason ?? "当前路径不存在。"} </p>
-  `);
 
-  Logger.self.stdlog({
-    level: "404",
-    color: "red",
-    logPath: ctx.opt.logDir,
-    msg: path + " +" + (Date.now() - ctx.startTime) + "ms",
+  ctx.status(404).html(`
+    <h2>404</h2>
+    <p>${path} ${opt?.reason ?? "当前路径不存在。"} </p>
+  `);
+  Logger.self.log({
+    level: "info",
+    path: path,
+    msg: "notfound",
   });
 };
 
@@ -127,12 +144,11 @@ export const out404 = (
  * @param staticPath
  */
 export function outCache(ctx: Context, staticPath: string) {
-  ctx.statusCode(304).res.end();
-  Logger.self.stdlog({
-    level: "cache",
-    color: "cyan",
-    logPath: ctx.opt.logDir,
-    msg: staticPath + " +" + (Date.now() - ctx.startTime) + "ms",
+  ctx.status(304).res.end();
+  Logger.self.log({
+    level: "static",
+    path: staticPath,
+    msg: "cache",
   });
 }
 
@@ -149,7 +165,7 @@ export function outRange(
     range: string;
   }
 ) {
-  const { startTime, res } = ctx;
+  const { res } = ctx;
   //解析范围
   const range = parseRange(opt.range, opt.size);
 
@@ -160,63 +176,24 @@ export function outRange(
     res.setHeader("Content-Length", end - start + 1);
     const stream = createReadStream(opt.staticPath, { start, end });
 
-    ctx.statusCode(206);
+    ctx.status(206);
     stream.pipe(res);
-    Logger.self.stdlog({
-      level: "range",
-      color: "green",
-      logPath: ctx.opt.logDir,
-      msg: opt.staticPath + " +" + (Date.now() - startTime) + "ms",
+    Logger.self.log({
+      level: "static",
+      path: opt.staticPath,
+      msg: "range",
     });
   } else {
+    //范围不存在
     res.removeHeader("Content-Length");
     res.setHeader("Content-Range", `bytes */${opt.size}`);
-    ctx.statusCode(416);
+    ctx.status(416);
     res.end();
-    Logger.self.stdlog({
-      level: "range_416",
-      color: "red",
-      logPath: ctx.opt.logDir,
-      msg: opt.staticPath + " +" + (Date.now() - startTime) + "ms",
+    Logger.self.log({
+      level: "error",
+      path: opt.staticPath,
+      msg: "range 416",
     });
-  }
-}
-
-/**
- * 解析请求范围
- * 格式要求: Content-Range: bytes=start-end
- * 如果文件 bytelength=10， 全部范围: bytes=0-9 ，
- * bytes=x-x 表示第x字节的内容
- * bytes=0- 表示全部范围
- *
- * 不支持以下格式
- * Range: <unit>=<range-start>-<range-end>, <range-start>-<range-end>
- *
- * @param range
- * @param size 文件大小
- */
-export function parseRange(
-  range: string,
-  size: number
-): {
-  start: number;
-  end: number;
-} | null {
-  const matched = range.match(/^bytes=(\d+)-(\d*)$/);
-  //格式不正确
-  if (!matched) return null;
-
-  const start = parseInt(matched[1]);
-
-  //兼容bytes=0-，这种格式
-  const end = matched[2] === "" ? size - 1 : parseInt(matched[2]);
-
-  if (start >= 0 && start <= end && end < size) {
-    //合理范围
-    return { start, end };
-  } else {
-    //不存在的范围
-    return null;
   }
 }
 
@@ -228,7 +205,7 @@ export function parseRange(
  * @returns
  */
 export function outZip(ctx: Context, staticPath: string, encoding: string) {
-  const { startTime, res } = ctx;
+  const { res } = ctx;
 
   let zipstream: Gzip | Deflate | null = null;
 
@@ -251,14 +228,29 @@ export function outZip(ctx: Context, staticPath: string, encoding: string) {
   //所有要删除Content-Length属性
   res.setHeader("Transfer-Encoding", "chunked");
   res.removeHeader("Content-Length");
-  ctx.statusCode(200);
+  ctx.status(200);
 
   const stream = createReadStream(staticPath);
   stream.pipe(zipstream).pipe(res);
-  Logger.self.stdlog({
-    level: "zip",
-    color: "green",
-    logPath: ctx.opt.logDir,
-    msg: staticPath + " +" + (Date.now() - startTime) + "ms",
+  Logger.self.log({
+    level: "static",
+    path: staticPath,
   });
 }
+
+/**
+ * 响应500
+ * @param ctx
+ * @param err
+ */
+export const out500 = (ctx: Context, err: Error) => {
+  ctx.status(500).html(`
+    <h2>500 Error</h2>
+    <p>${err}</p>
+  `);
+  Logger.self.log({
+    level: "error",
+    path: ctx.pathname,
+    msg: err as any,
+  });
+};

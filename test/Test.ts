@@ -2,9 +2,12 @@ import { Controller, Context, Get, Post } from "../src/index.js";
 
 @Controller("test")
 export class Test {
+  a = 2;
   // path -> /test?a=1&b=2
   @Get()
   get(ctx: Context) {
+    console.log(this.a);
+    // throw new Error("控制器异常");
     ctx.json(ctx.query);
   }
   // path -> /test/post
@@ -23,5 +26,14 @@ export class Test {
   @Get(":id/:name")
   param(ctx: Context) {
     ctx.json(ctx.params);
+  }
+}
+
+@Controller("test2")
+export class Test2 {
+  // path -> /test2?a=1&b=2
+  @Get()
+  get(ctx: Context) {
+    ctx.json(ctx.query);
   }
 }

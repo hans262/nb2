@@ -5,126 +5,149 @@ import {
   createServer as createServerHttp,
 } from "node:http";
 import { createServer as createServerHttps } from "node:https";
-import { Context, Middleware } from "./common/context.js";
-import { handleController, helmet, handleStatic } from "./middleware.js";
-import { out404 } from "./response.js";
-import { Logger } from "./common/logger.js";
+import { Context } from "./common/context.js";
+import { controllerHandle, staticHandle, corsHandle } from "./middleware.js";
+import { out404, out500 } from "./response.js";
+import { Middleware } from "./common/model.js";
+import { Logger } from "./common/utils.js";
+import { metadatas } from "./common/decorator.js";
 
 export interface ServerOpt {
   /**端口 */
   port?: number;
   /**
-   * 需要侦听的IP地址，
-   * 如果忽略了hostname，那么服务器会接受所有的IPv4地址链接。
-   * IPv4地址包括127.0.0.1、localhost和本地IP。
+   * 默认值127.0.0.1
    */
   hostname?: string;
   /**https配置 */
   https?: { key: Buffer; cert: Buffer } | false;
   /**是否允许跨域 */
-  cors?: boolean;
-  /**日志存放路径 */
-  logDir?: string;
-  /**api前缀 */
-  apiPrefix?: string;
+  cors?:
+    | {
+        origin: string;
+        /**
+         * 是否携带cookies、http认证信息
+         * 如果为true，则origin不能为*
+         */
+        credentials?: boolean;
+        //预检请求的缓存时间
+        maxAge?: number;
+      }
+    | boolean;
 
   /**静态资源，没有则表示不响应静态资源 */
-  static?: {
-    /**静态资源本地根路径*/
-    root: string;
-    /**默认允许压缩的文件*/
-    canZipFile?: string[];
-    /**资源缓存时间 单位：秒*/
-    cacheMaxAge?: number;
-    /**默认渲染的html文件名 */
-    indexFileName?: string;
-    /**
-     * 单页应用SPA：全部重定向到index.html，
-     * 让前端处理路由，以适应react/vue应用的history路由模式
-     */
-    spa?: boolean;
-  };
+  static?:
+    | {
+        /**静态资源本地根路径*/
+        root: string;
+        /**默认允许压缩的文件*/
+        canZipFile?: string[];
+        /**资源缓存时间 单位：秒*/
+        cacheMaxAge?: number;
+        /**默认渲染的html文件名 */
+        indexName?: string;
+        /**
+         * 单页SPA应用：全部重定向到index.html，
+         */
+        spa?: boolean;
+      }
+    | string;
 }
 
-/**
- * 默认配置
- */
-const dServerOpt: ServerOpt = {
+export interface _ServerOpt
+  extends Required<Omit<ServerOpt, "static" | "cors">> {
+  static: Required<Exclude<ServerOpt["static"], string>>;
+  cors: Required<Exclude<ServerOpt["cors"], boolean>>;
+}
+
+const defaultServerOpt: Omit<_ServerOpt, "static" | "cors"> = {
   port: 8080,
+  hostname: "127.0.0.1",
   https: false,
-  cors: true,
 };
 
-const dStaticOpt: Partial<ServerOpt["static"]> = {
+const defaultStaticOpt: _ServerOpt["static"] = {
+  root: "/",
   canZipFile: ["css", "html", "js", "woff"],
   cacheMaxAge: 12 * 60 * 60, //一天
-  indexFileName: "index.html",
+  indexName: "index.html",
   spa: false,
 };
 
+const defaultCorsOpt: _ServerOpt["cors"] = {
+  origin: "*",
+  credentials: false,
+  maxAge: 60,
+};
+
 export class Dopx {
-  opt: ServerOpt;
+  opt: _ServerOpt;
   server: Server;
   /**中间件集合 */
-  middlewares: Middleware[] = [helmet];
+  middlewares: Middleware[] = [];
 
   /**当前域名 */
   domain: string;
   constructor(opt?: ServerOpt) {
-    /**
-     * 注意，第二个参数里的属性为undefined，也会被拷贝进去
-     * 这算是一种完全覆盖合并
-     */
-    const _opt = Object.assign({}, dServerOpt, opt);
+    // 拷贝第一层
+    const _opt = Object.assign({}, defaultServerOpt, opt) as _ServerOpt;
 
-    if (_opt.static) {
-      _opt.static = Object.assign({}, dStaticOpt, _opt.static);
+    //拷贝static
+    if (opt?.static) {
+      if (typeof opt.static === "string") {
+        _opt.static = Object.assign({}, defaultStaticOpt, {
+          root: opt.static,
+        });
+      }
+      if (typeof opt.static === "object") {
+        _opt.static = Object.assign({}, defaultStaticOpt, opt.static);
+      }
     }
-    this.opt = _opt;
+    //拷贝cors
+    if (opt?.cors) {
+      if (opt.cors === true) _opt.cors = defaultCorsOpt;
+      if (typeof opt.cors === "object")
+        _opt.cors = Object.assign({}, defaultCorsOpt, opt.cors);
+    }
+
     // console.log(_opt);
-    const host = this.opt.hostname ?? "127.0.0.1";
-    this.domain = `${this.opt.https ? "https://" : "http://"}${host}:${
-      this.opt.port
-    }`;
+    this.opt = _opt;
+
+    this.domain = `${this.opt.https ? "https://" : "http://"}${
+      this.opt.hostname
+    }:${this.opt.port}`;
+
+    if (this.opt.cors) {
+      this.use(corsHandle);
+    }
 
     this.server = this.opt.https
       ? createServerHttps(this.opt.https, this.handler)
       : createServerHttp(this.handler);
 
-    process.on("uncaughtException", (err) => {
-      console.log(err);
-      // write EIO，该bug未解决，重复写日志bug
-      Logger.self.stdlog({
-        level: "ERROR",
-        color: "red",
-        logPath: this.opt.logDir,
-        msg: "uncaughtException " + err.message,
-      });
+    process.on("unhandledRejection", (err: any) => {
+      //全局未处理的异步异常
+      Logger.self.log({ level: "error", path: "unhandledRejection", msg: err });
     });
 
-    process.on("message", (d: string) => {
-      if (d === "restart") {
-        this.close(1);
-      }
-      if (d === "close") {
-        this.close(0);
-      }
+    process.on("uncaughtException", (err) => {
+      //全局未捕获的同步异常
+      Logger.self.log({
+        level: "error",
+        path: "uncaughtException",
+        msg: err.message,
+      });
+      //退出进程记录日志
+      process.exit(1);
     });
   }
 
   /**
-   * 关闭服务，将执行close函数
-   * 可以设置一个退出状态吗
-   * 主进程可以通过监听子进程的退出码，来执行不同任务
-   * 1: 重启；0: 退出服务
-   * @param code 退出码，主进程可以更具
+   * 优雅的关闭服务
+   * @param callback
    */
-  close(code: 0 | 1) {
-    //停止接收新的请求，这是一个异步函数，然后关闭server
-    this.server.close();
-    setTimeout(() => {
-      process.exit(code);
-    }, 2000);
+  close(callback?: (err?: Error) => void) {
+    this.server.close(callback);
   }
 
   /**
@@ -135,28 +158,38 @@ export class Dopx {
     this.middlewares = this.middlewares.concat(m);
   }
 
-  controllers(..._: (new () => any)[]) {}
+  /**
+   * 安装控制器
+   * @param apifix
+   * @param cs
+   */
+  controllers(apifix: string, ...cs: (new () => any)[]) {
+    for (const c of cs) {
+      const items = metadatas.filter((m) => m.constructorName === c.name);
+      for (const item of items) {
+        item.apifix = apifix;
+      }
+    }
+  }
 
   /**
    * 启动服务
    */
   run() {
     //安装控制器中间件
-    this.use(handleController);
+    this.use(controllerHandle);
 
     /**
      * 静态资源中间件
      */
     if (this.opt.static) {
-      this.use(handleStatic);
+      this.use(staticHandle);
     }
 
     this.server.listen(this.opt.port, this.opt.hostname, () => {
-      Logger.self.stdlog({
-        level: "INFO",
-        msg: this.domain,
-        color: "yellow",
-        logPath: this.opt.logDir,
+      Logger.self.log({
+        level: "system",
+        path: this.domain,
       });
     });
   }
@@ -164,28 +197,19 @@ export class Dopx {
   private handler = (req: IncomingMessage, res: ServerResponse) => {
     const ctx = new Context(req, res, this.opt, this);
     let i = 0;
-    const next = () => {
+    const next = async () => {
       const middleware = this.middlewares[i++];
       if (middleware) {
-        middleware(ctx, next);
+        try {
+          await middleware(ctx, next);
+        } catch (err: any) {
+          out500(ctx, err);
+        }
       } else {
-        //出口
+        //全局的404
         return out404(ctx);
       }
     };
-
-    try {
-      next();
-    } catch (err: any) {
-      // write EIO，该bug未解决，重复写日志bug
-      ctx.statusCode(500).text(err.message);
-      // console.log(ctx.pathname)
-      Logger.self.stdlog({
-        level: "ERROR",
-        color: "red",
-        msg: ctx.pathname + " " + err.message,
-        logPath: this.opt.logDir,
-      });
-    }
+    next();
   };
 }

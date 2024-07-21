@@ -1,24 +1,18 @@
-import { createReadStream, createWriteStream } from 'node:fs';
-import { extname } from 'node:path';
-import { createGzip, createGunzip } from 'node:zlib';
-import * as http from 'node:http';
-import * as https from 'node:https'
-import { Method } from './context.js';
-
 /**
  * buffer 分割
  * @param buffer 需要分割的buffer
  * @param spl
  */
 export function bufferSplit(buffer: Buffer, spl: string): Buffer[] {
-  const result: Buffer[] = []
-  let offset = 0, index = 0;
+  const result: Buffer[] = [];
+  let offset = 0,
+    index = 0;
   while ((index = buffer.indexOf(spl, offset)) !== -1) {
-    result.push(buffer.subarray(offset, index))
-    offset = index + spl.length
+    result.push(buffer.subarray(offset, index));
+    offset = index + spl.length;
   }
-  result.push(buffer.subarray(offset))
-  return result.filter(b => b.byteLength)
+  result.push(buffer.subarray(offset));
+  return result.filter((b) => b.byteLength);
 }
 /**
  * const buffer = Buffer.from('\r\n大青蛙私たち\r\n一天の一夜他\r\n我看iirftgr\r\n')
@@ -26,96 +20,94 @@ export function bufferSplit(buffer: Buffer, spl: string): Buffer[] {
  */
 
 /**
- * gzip 压缩
- * 默认存放到原始文件目录
- * @param name
+ * 日志对象
+ * 单例模式 Logger.self
  */
-export function toGzip(name: string) {
-  const gzip = createGzip()
-  const inp = createReadStream(name)
-  const out = createWriteStream(name + '.gz')
-  inp.pipe(gzip).pipe(out)
-}
-
-/**
- * gzip 解压
- * 默认存放到原始文件目录
- * @param name
- */
-export function unGzip(name: string) {
-  const ext = extname(name)
-  const newFileName = name.split(ext)[0]
-  const gzip = createGunzip()
-  const inp = createReadStream(name)
-  const out = createWriteStream(newFileName)
-  inp.pipe(gzip).pipe(out)
-}
-
-/**
- * base64 编码
- * @param data
- */
-export function encodeBase64(data: string) {
-  return Buffer.from(data).toString('base64')
-}
-
-/**
- * base64 解码
- * @param data
- */
-export function decodeBase64(data: string) {
-  return Buffer.from(data, 'base64').toString()
-}
-
-/**
- * 网络请求 请求
- * @param opt
- */
-export function fetchOn(_url: string, opt?: {
-  method?: Method
-  body?: string | Buffer
-}) {
-  const url = new URL(_url)
-  const rejectUnauthorized = url.protocol === 'https:' && (url.hostname === '127.0.0.1' ||
-    url.hostname === 'localhost' || url.hostname === '0.0.0.0') ? false : true
-
-  return new Promise<{
-    statusCode?: number
-    data: Buffer
-  }>((resolve, reject) => {
-    const request = url.protocol === 'https:' ? https.request : http.request;
-    const req = request({
-      path: url.pathname + url.search,
-      hostname: url.hostname,
-      port: url.port,
-      method: opt?.method ?? 'GET',
-      rejectUnauthorized //拒绝本地自签名证书的校验
-    }, ret => {
-      const chunks: Buffer[] = []
-      req.on('data', (chunk: Buffer) => {
-        chunks.push(chunk)
-      })
-
-      req.on('end', () => {
-        const data = Buffer.concat(chunks)
-        resolve({ statusCode: ret.statusCode, data })
-      })
-    })
-
-    req.on('error', (err) => {
-      reject(err)
-    })
-
-    if (opt?.method === 'POST' && opt.body) {
-      req.write(opt.body)
+export class Logger {
+  private constructor() {}
+  private static _self?: Logger;
+  static get self() {
+    if (!this._self) {
+      this._self = new Logger();
     }
+    return this._self;
+  }
+  /**
+   * 默认日志颜色
+   */
 
-    req.end()
-  })
+  defaultLogStyles = {
+    error: "\x1B[31m", // red
+    info: "\x1B[32m", // green
+    controller: "\x1B[34m", // blue
+    system: "\x1B[33m", // yellow
+    static: "\x1B[36m", //蓝绿
+
+    black: "\x1B[30m", //black
+    magenta: "\x1B[35m", //品红
+    underline: "\x1B[4m", //下划线
+    reset: "\x1B[0m", //重置颜色
+  } as const;
+
+  /**
+   * 输出日志
+   * @param opt
+   */
+  log(opt: {
+    level: "error" | "info" | "controller" | "static" | "system";
+    path: string; //路径
+    msg?: string; //原因
+  }) {
+    const { level, path, msg } = opt;
+    const date = this.getCurrentDateTime();
+    let mq = `${date} ${process.pid} ${level}${" -> " + path}`;
+    mq = msg ? mq + `\n${msg}` : mq;
+    mq = this.defaultLogStyles[level] + mq + this.defaultLogStyles["reset"];
+    console.log(mq);
+  }
+
+  getCurrentDateTime() {
+    const d = new Date();
+    return `${d.getFullYear()}-${
+      d.getUTCMonth() + 1
+    }-${d.getDate()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`;
+  }
 }
 
 /**
- * @document documents/external-markdown.md
- * 
- * 这里是我的文档
+ * 解析请求范围
+ * 格式要求: Content-Range: bytes=start-end
+ * 如果文件 bytelength=10， 全部范围: bytes=0-9 ，
+ * bytes=x-x 表示第x字节的内容
+ * bytes=0- 表示全部范围
+ *
+ * 不支持以下格式
+ * Range: <unit>=<range-start>-<range-end>, <range-start>-<range-end>
+ *
+ * @param range
+ * @param size 文件大小
  */
+export function parseRange(
+  range: string,
+  size: number
+): {
+  start: number;
+  end: number;
+} | null {
+  const matched = range.match(/^bytes=(\d+)-(\d*)$/);
+  //格式不正确
+  if (!matched) return null;
+
+  const start = parseInt(matched[1]);
+
+  //兼容bytes=0-，这种格式
+  const end = matched[2] === "" ? size - 1 : parseInt(matched[2]);
+
+  if (start >= 0 && start <= end && end < size) {
+    //合理范围
+    return { start, end };
+  } else {
+    //不存在的范围
+    return null;
+  }
+}
