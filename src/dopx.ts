@@ -15,13 +15,11 @@ import { metadatas } from "./common/decorator.js";
 export interface ServerOpt {
   /**端口 */
   port?: number;
-  /**
-   * 默认值127.0.0.1
-   */
+  /**默认值127.0.0.1 */
   hostname?: string;
   /**https配置 */
   https?: { key: Buffer; cert: Buffer } | false;
-  /**是否允许跨域 */
+  /**跨域配置 */
   cors?:
     | {
         origin: string;
@@ -30,12 +28,11 @@ export interface ServerOpt {
          * 如果为true，则origin不能为*
          */
         credentials?: boolean;
-        //预检请求的缓存时间
+        /**预检请求的缓存时间 */
         maxAge?: number;
       }
     | boolean;
-
-  /**静态资源，没有则表示不响应静态资源 */
+  /**静态资源配置 */
   static?:
     | {
         /**静态资源本地根路径*/
@@ -44,10 +41,11 @@ export interface ServerOpt {
         canZipFile?: string[];
         /**资源缓存时间 单位：秒*/
         cacheMaxAge?: number;
-        /**默认渲染的html文件名 */
-        indexName?: string;
+        /**是否默认响应index.html文件 */
+        index?: boolean;
         /**
-         * 单页SPA应用：全部重定向到index.html，
+         * 单页SPA应用
+         * 是否将全局的404重定向到index.html
          */
         spa?: boolean;
       }
@@ -69,8 +67,8 @@ const defaultServerOpt: Omit<_ServerOpt, "static" | "cors"> = {
 const defaultStaticOpt: _ServerOpt["static"] = {
   root: "/",
   canZipFile: ["css", "html", "js", "woff"],
-  cacheMaxAge: 12 * 60 * 60, //一天
-  indexName: "index.html",
+  cacheMaxAge: 86400, //一天
+  index: true,
   spa: false,
 };
 

@@ -1,13 +1,13 @@
 import { Dopx } from "../src/index.js";
-import { Test, Test2 } from "./Test.js";
+import { Test, Test2 } from "./controllers.js";
 
-const dopx = new Dopx({
+const app = new Dopx({
   port: 8080,
   static: "/",
   cors: true,
 });
 
-dopx.controllers("/api", Test);
-dopx.controllers("/admin", Test2);
+app.controllers("/api", Test);
+app.controllers("/admin", Test2);
 
-dopx.run();
+app.run();

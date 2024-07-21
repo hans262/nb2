@@ -56,8 +56,8 @@ export function outDir(ctx: Context, staticPath: string) {
   }
 
   // 检查index.html文件是否存在
-  if (dirents.find((d) => d.name === ctx.opt.static!.indexName)) {
-    const indexPath = posix.join(staticPath, ctx.opt.static!.indexName!);
+  if (ctx.opt.static?.index && dirents.find((d) => d.name === "index.html")) {
+    const indexPath = posix.join(staticPath, "index.html");
     stat(indexPath, (err, stats) => {
       if (err) {
         ctx.status(403).html(`
@@ -110,10 +110,7 @@ export const out404 = (
    * 这里拼接root/index.html路径
    */
   if (ctx.opt.static?.spa) {
-    const indexPath = posix.join(
-      ctx.opt.static.root,
-      ctx.opt.static!.indexName!
-    );
+    const indexPath = posix.join(ctx.opt.static.root, "index.html");
     stat(indexPath, (_, stats) => {
       if (stats?.isFile()) {
         taskFile(ctx, stats, indexPath);
