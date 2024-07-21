@@ -13,17 +13,15 @@ npm install dopx
 
 - Middleware
 - Controller
+- Decorator route
 - Response static: Cache | Zip | Range
-- Logs
 
 ## The simple example
 
 ```ts
 import { Dopx } from "dopx";
-
-const dopx = new Dopx({ port: 8080 });
-
-dopx.run();
+const app = new Dopx({ port: 8080 });
+app.run();
 ```
 
 ## Use Controller
@@ -71,6 +69,6 @@ export class Test {
 Install the Controller into the service.
 
 ```ts
-dopx.controllers("/api", Test);
-dopx.controllers("/admin", Test2, Test3, ...);
+app.controllers("/api", Test);
+app.controllers("/admin", Test2, Test3, ...);
 ```

@@ -4,6 +4,12 @@
 
 装饰器是 TypeScript 提供的一种强大特性，它允许我们在编译时向类、方法、属性或参数添加元数据。在我们的框架中，装饰器主要用于定义路由和 HTTP 方法，这极大地简化了路由的配置过程，使路由定义更加直观和灵活。
 
+要在你的项目中使用装饰器，你需要在你的 tsconfig.json 文件中配置：
+
+```json
+{ "experimentalDecorators": true }
+```
+
 ### `@Controller`
 
 - **用途**: 定义一个控制器类，控制器类是处理 HTTP 请求的主要载体。
@@ -15,7 +21,7 @@
 export class Test {}
 ```
 
-### @Get, @Post, @Put, @Delete, @Patch
+### `@Get, @Post, @Put, @Delete, @Patch`
 
 - **用途**: 定义控制器方法对应的 HTTP 请求类型。
 - **参数**: 路由的后半段，即具体方法的路径。
@@ -72,11 +78,11 @@ export class Test {
 
 使用 app.controllers 函数可以批量安装控制器类，指定控制器的前缀，从而构建完整的路由系统。
 
-示例
+- 示例
 
 ```ts
 app.controllers("/api", Test);
-app.controllers("/admin", Test2);
+app.controllers("/admin", Test2, Test3, ...);
 ```
 
 以上文档详细介绍了如何使用装饰器来定义路由，以及如何组织和安装控制器类，帮助用户快速上手并构建出高效、可扩展的路由系统。
