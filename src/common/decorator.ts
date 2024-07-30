@@ -79,3 +79,7 @@ export function Off(tf?: Middleware): MethodDecorator {
     });
   };
 }
+
+export function symb() {
+  return Symbol();
+}

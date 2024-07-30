@@ -1,6 +1,6 @@
 {
   "name": "dopx",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "type": "module",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -18,8 +18,7 @@
     "doc": "typedoc --options ./typedoc.config.cjs",
     "doc-icon": "node doc-icon.js",
     "login": "npm login",
-    "build": "tsc --project tsconfig.pb.json",
-    "get-registry": "npm get registry"
+    "build": "tsc --project tsconfig.pb.json"
   },
   "devDependencies": {
     "@types/node": "^20.14.10",

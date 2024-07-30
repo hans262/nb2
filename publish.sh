@@ -13,3 +13,4 @@ echo "开始发布"
 npm publish --access=public || { echo "发布失败"; exit 1; }
 
 npm config set registry http://registry.npm.taobao.org
+echo "当前镜像：$(npm get registry)"
