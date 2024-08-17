@@ -1,9 +1,8 @@
 import { IncomingMessage, ServerResponse } from "node:http";
 import posix from "node:path/posix";
-import { _ServerOpt, Dopx } from "../dopx.js";
+import { Dopx } from "./dopx.js";
 import { bufferSplit } from "./utils.js";
-import { hitMime, MimeTypes } from "./compare.js";
-import { _FormData, BodyData } from "./model.js";
+import { hitMime, MimeTypes } from "./statics.js";
 
 export class Context {
   /**请求发起时间戳 */
@@ -21,11 +20,10 @@ export class Context {
   constructor(
     public req: IncomingMessage,
     public res: ServerResponse,
-    public opt: _ServerOpt,
     public app: Dopx
   ) {
     //解析url
-    this.url = new URL(posix.join(app.domain, req.url ?? "/"));
+    this.url = new URL(posix.join(app.cname, req.url ?? "/"));
     // 解析查询参数
     this.query = Object.fromEntries(this.url.searchParams);
     //浏览器url可能会对中文转码 decodeURIComponent
@@ -270,3 +268,19 @@ export class Context {
     return result;
   }
 }
+
+export interface _FormData {
+  name: string;
+  /**文件才有，没有就是纯数据 */
+  filename?: string;
+  ContentType?: string;
+  data: Buffer;
+}
+
+export type BodyData<T> = T extends "string"
+  ? string
+  : T extends "buffer"
+  ? Buffer
+  : T extends "json"
+  ? { [key: string]: any }
+  : never;

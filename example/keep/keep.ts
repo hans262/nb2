@@ -3,7 +3,6 @@ import posix from "node:path/posix";
 import { createGzip, createGunzip } from "node:zlib";
 import * as http from "node:http";
 import * as https from "node:https";
-import { Method } from "../common/model.js";
 import {
   createHash,
   createHmac,
@@ -62,7 +61,7 @@ export function decodeBase64(data: string) {
 export function fetchOn(
   _url: string,
   opt?: {
-    method?: Method;
+    method?: string;
     body?: string | Buffer;
   }
 ) {
@@ -165,4 +164,16 @@ export function deCipheriv(data: string, key: BinaryLike, iv: BinaryLike) {
   let decrypted = decipher.update(data, "hex", "utf8");
   decrypted += decipher.final("utf8");
   return decrypted;
+}
+
+//单利
+export class Logger {
+  private constructor() {}
+  private static _self?: Logger;
+  static get self() {
+    if (!this._self) {
+      this._self = new Logger();
+    }
+    return this._self;
+  }
 }

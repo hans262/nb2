@@ -5,12 +5,9 @@ import {
   createServer as createServerHttp,
 } from "node:http";
 import { createServer as createServerHttps } from "node:https";
-import { Context } from "./common/context.js";
-import { controllerHandle, staticHandle, corsHandle } from "./middleware.js";
-import { out404, out500 } from "./response.js";
-import { Middleware } from "./common/model.js";
-import { Logger } from "./common/utils.js";
-import { metadatas } from "./common/decorator.js";
+import { Context } from "./context.js";
+import { Logger, out404, out500 } from "./utils.js";
+import { Middleware } from "./middleware.js";
 
 export interface ServerOpt {
   /**端口 */
@@ -19,122 +16,44 @@ export interface ServerOpt {
   hostname?: string;
   /**https配置 */
   https?: { key: Buffer; cert: Buffer } | false;
-  /**跨域配置 */
-  cors?:
-    | {
-        origin: string;
-        /**
-         * 是否携带cookies、http认证信息
-         * 如果为true，则origin不能为*
-         */
-        credentials?: boolean;
-        /**预检请求的缓存时间 */
-        maxAge?: number;
-      }
-    | boolean;
-  /**静态资源配置 */
-  static?:
-    | {
-        /**静态资源本地根路径*/
-        root: string;
-        /**默认允许压缩的文件*/
-        canZipFile?: string[];
-        /**资源缓存时间 单位：秒*/
-        cacheMaxAge?: number;
-        /**是否默认响应index.html文件 */
-        index?: boolean;
-        /**
-         * 单页SPA应用
-         * 是否将全局的404重定向到index.html
-         */
-        spa?: boolean;
-      }
-    | string;
+  log?: ("error" | "info")[];
 }
 
-export interface _ServerOpt
-  extends Required<Omit<ServerOpt, "static" | "cors">> {
-  static: Required<Exclude<ServerOpt["static"], string>>;
-  cors: Required<Exclude<ServerOpt["cors"], boolean>>;
-}
-
-const defaultServerOpt: Omit<_ServerOpt, "static" | "cors"> = {
+var dssopt: Required<ServerOpt> = {
   port: 8080,
   hostname: "127.0.0.1",
   https: false,
-};
-
-const defaultStaticOpt: _ServerOpt["static"] = {
-  root: "/",
-  canZipFile: ["css", "html", "js", "woff"],
-  cacheMaxAge: 86400, //一天
-  index: true,
-  spa: false,
-};
-
-const defaultCorsOpt: _ServerOpt["cors"] = {
-  origin: "*",
-  credentials: false,
-  maxAge: 60,
+  log: ["error", "info"],
 };
 
 export class Dopx {
-  opt: _ServerOpt;
+  opt: Required<ServerOpt>;
   server: Server;
   /**中间件集合 */
   middlewares: Middleware[] = [];
-
-  /**当前域名 */
-  domain: string;
+  /**域名 */
+  cname: string;
+  log: Logger;
   constructor(opt?: ServerOpt) {
-    // 拷贝第一层
-    const _opt = Object.assign({}, defaultServerOpt, opt) as _ServerOpt;
+    this.opt = Object.assign({}, dssopt, opt);
+    this.log = new Logger(this.opt.log);
 
-    //拷贝static
-    if (opt?.static) {
-      if (typeof opt.static === "string") {
-        _opt.static = Object.assign({}, defaultStaticOpt, {
-          root: opt.static,
-        });
-      }
-      if (typeof opt.static === "object") {
-        _opt.static = Object.assign({}, defaultStaticOpt, opt.static);
-      }
-    }
-    //拷贝cors
-    if (opt?.cors) {
-      if (opt.cors === true) _opt.cors = defaultCorsOpt;
-      if (typeof opt.cors === "object")
-        _opt.cors = Object.assign({}, defaultCorsOpt, opt.cors);
-    }
-
-    // console.log(_opt);
-    this.opt = _opt;
-
-    this.domain = `${this.opt.https ? "https://" : "http://"}${
+    this.cname = `${this.opt.https ? "https://" : "http://"}${
       this.opt.hostname
     }:${this.opt.port}`;
 
-    if (this.opt.cors) {
-      this.use(corsHandle);
-    }
-
     this.server = this.opt.https
-      ? createServerHttps(this.opt.https, this.handler)
-      : createServerHttp(this.handler);
+      ? createServerHttps(this.opt.https, this.handle)
+      : createServerHttp(this.handle);
 
     process.on("unhandledRejection", (err: any) => {
-      //全局未处理的异步异常
-      Logger.self.log({ level: "error", path: "unhandledRejection", msg: err });
+      //未处理的异步异常
+      this.log.error(err, "unhandledRejection");
     });
 
     process.on("uncaughtException", (err) => {
-      //全局未捕获的同步异常
-      Logger.self.log({
-        level: "error",
-        path: "uncaughtException",
-        msg: err.message,
-      });
+      //未处理的同步异常
+      this.log.error(err, "uncaughtException");
       //退出进程记录日志
       process.exit(1);
     });
@@ -157,43 +76,16 @@ export class Dopx {
   }
 
   /**
-   * 安装控制器
-   * @param apifix
-   * @param cs
-   */
-  controllers(apifix: string, ...cs: (new () => any)[]) {
-    for (const c of cs) {
-      const items = metadatas.filter((m) => m.constructorName === c.name);
-      for (const item of items) {
-        item.apifix = apifix;
-      }
-    }
-  }
-
-  /**
    * 启动服务
    */
   run() {
-    //安装控制器中间件
-    this.use(controllerHandle);
-
-    /**
-     * 静态资源中间件
-     */
-    if (this.opt.static) {
-      this.use(staticHandle);
-    }
-
-    this.server.listen(this.opt.port, this.opt.hostname, () => {
-      Logger.self.log({
-        level: "system",
-        path: this.domain,
-      });
+    this.server.listen(this.opt.port!, this.opt.hostname, () => {
+      this.log.info(`server runing on -> ${this.cname}`, "yellow");
     });
   }
 
-  private handler = (req: IncomingMessage, res: ServerResponse) => {
-    const ctx = new Context(req, res, this.opt, this);
+  private handle = (req: IncomingMessage, res: ServerResponse) => {
+    const ctx = new Context(req, res, this);
     let i = 0;
     const next = async () => {
       const middleware = this.middlewares[i++];

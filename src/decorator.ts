@@ -1,4 +1,6 @@
-import { Method, Middleware } from "./model.js";
+import { out500 } from "./utils.js";
+import { Context } from "./context.js";
+import { Middleware } from "./middleware.js";
 
 export interface Metadata {
   /**控制器path，必传，不挂载控制器，可能为undefined */
@@ -8,15 +10,13 @@ export interface Metadata {
   /**控制器对象名称 */
   constructorName: string;
   /**请求类型 */
-  method?: Method;
+  method?: "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
   /**函数名称 */
   functionName: string | symbol;
   /**控制器对象实例，不挂载控制器，可能为undefined */
   instance?: any;
   /**api前缀 */
   apifix?: string;
-  /**拦截函数 */
-  tf?: Middleware;
 }
 
 /**
@@ -38,7 +38,7 @@ export function Controller(cpath: string): ClassDecorator {
   };
 }
 
-function createMethodDecorator(method: Method) {
+function createMethodDecorator(method: Metadata["method"]) {
   return (mpath = ""): MethodDecorator =>
     (target, propertyKey) => {
       const meta = metadatas.find(
@@ -66,20 +66,22 @@ export const Put = createMethodDecorator("PUT");
 export const Delete = createMethodDecorator("DELETE");
 export const Patch = createMethodDecorator("PATCH");
 
-export function Off(tf?: Middleware): MethodDecorator {
-  return (target, propertyKey) => {
-    metadatas.find((m) => {
-      if (
-        m.constructorName === target.constructor.name &&
-        m.functionName === propertyKey
-      ) {
-        m.tf = tf;
-        return true;
-      }
-    });
+/**
+ * AOP切面装饰器
+ * @param midfn
+ */
+export function Use(midfn: Middleware): MethodDecorator {
+  return (_, __, descriptor: PropertyDescriptor) => {
+    const originalMethod = descriptor.value;
+    descriptor.value = async function (ctx: Context) {
+      await midfn(ctx, async () => {
+        try {
+          await originalMethod.bind(this)(ctx);
+        } catch (err: any) {
+          out500(ctx, err);
+        }
+      });
+    };
+    return descriptor;
   };
-}
-
-export function symb() {
-  return Symbol();
 }

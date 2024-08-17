@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 import { createServer, Socket, Server } from "node:net";
-import { bufferSplit } from "./common/utils.js";
+import { bufferSplit } from "./utils.js";
 
 export interface WebSocketOpt {
   port: number;
