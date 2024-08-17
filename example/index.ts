@@ -7,6 +7,6 @@ nb.use(cors());
 nb.use(controllers("/api", Test, Test2));
 nb.use(controllers("/admin", Test2));
 
-// nb.use(statics());
+// nb.use(statics("/"));
 
 nb.run();

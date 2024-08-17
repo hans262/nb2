@@ -14,7 +14,7 @@ npm install nb2
 - Middleware
 - Controller
 - Decorator route
-- Response static: Cache | Zip | Range
+- Response static
 
 ## The simple example
 
@@ -35,32 +35,32 @@ Routing syntax utilizes decorators, need to configure in tsconfig.json:
 Your Controller code.
 
 ```ts
-import { Controller, Context, Get, Post } from "nb2";
+import { Controller, Context, Get, Post, sfn } from "nb2";
 
 @Controller("test")
 export class Test {
   // path -> /test?a=1&b=2
   @Get()
-  get(ctx: Context) {
+  [sfn()](ctx: Context) {
     ctx.json(ctx.query);
   }
 
   // path -> /test/post
   @Post("post")
-  async post(ctx: Context) {
+  async [sfn()](ctx: Context) {
     const body = await ctx.body("json");
     ctx.json(body);
   }
 
   // path -> /test/rand/123
   @Get("rand/*")
-  rand(ctx: Context) {
+  [sfn()](ctx: Context) {
     ctx.text("hello world");
   }
 
   // path -> /test/123
   @Get(":id")
-  param(ctx: Context) {
+  [sfn()](ctx: Context) {
     ctx.json(ctx.params);
   }
 }
