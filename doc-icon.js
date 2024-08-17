@@ -7,7 +7,7 @@ fs.copyFileSync('./vite.svg', './docs/vite.svg');
 
   const tmp = data.split('<head>')
 
-  const result = tmp[0] + '<head><link rel=icon type=image/svg+xml href=/nicest/vite.svg />' + tmp[1]
+  const result = tmp[0] + '<head><link rel=icon type=image/svg+xml href=/nb2/vite.svg />' + tmp[1]
 
   fs.writeFileSync(fileName, result);
 })

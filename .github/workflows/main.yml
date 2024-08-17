@@ -2,7 +2,7 @@ name: nb2
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   doc-deploy:
     runs-on: ubuntu-latest
@@ -16,4 +16,4 @@ jobs:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: gh-pages
         FOLDER: docs
-        BASE_BRANCH: master
+        BASE_BRANCH: main

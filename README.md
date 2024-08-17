@@ -13,7 +13,7 @@ npm install nb2
 
 - Middleware
 - Controller
-- Decorator route
+- Route decorator
 - Response static
 
 ## The simple example
