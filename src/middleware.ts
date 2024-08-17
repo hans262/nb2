@@ -95,8 +95,7 @@ export function controllers(
     try {
       await md.instance[md.functionName](ctx);
     } catch (err: any) {
-      out500(ctx, err);
-      return;
+      return out500(ctx, err);
     }
     ctx.app.log.info(`hit controller -> ${pathname}`);
   };

@@ -1,4 +1,4 @@
-export * from "./dopx.js";
+export * from "./nb2.js";
 export * from "./wsocket.js";
 
 export * from "./middleware.js";

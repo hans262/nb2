@@ -1,4 +1,4 @@
-name: dopx
+name: nb2
 on:
   push:
     branches:

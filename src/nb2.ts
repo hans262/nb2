@@ -16,6 +16,7 @@ export interface ServerOpt {
   hostname?: string;
   /**https配置 */
   https?: { key: Buffer; cert: Buffer } | false;
+  /**日志 */
   log?: ("error" | "info")[];
 }
 
@@ -26,14 +27,12 @@ var dssopt: Required<ServerOpt> = {
   log: ["error", "info"],
 };
 
-export class Dopx {
+export class Nb2 {
   opt: Required<ServerOpt>;
-  server: Server;
-  /**中间件集合 */
-  middlewares: Middleware[] = [];
-  /**域名 */
-  cname: string;
   log: Logger;
+  cname: string;
+  private server: Server;
+  private middlewares: Middleware[] = [];
   constructor(opt?: ServerOpt) {
     this.opt = Object.assign({}, dssopt, opt);
     this.log = new Logger(this.opt.log);
@@ -84,20 +83,18 @@ export class Dopx {
     });
   }
 
-  private handle = (req: IncomingMessage, res: ServerResponse) => {
+  private handle = async (req: IncomingMessage, res: ServerResponse) => {
     const ctx = new Context(req, res, this);
     let i = 0;
+
     const next = async () => {
       const middleware = this.middlewares[i++];
-      if (middleware) {
-        try {
-          await middleware(ctx, next);
-        } catch (err: any) {
-          out500(ctx, err);
-        }
-      } else {
-        //全局的404
-        return out404(ctx);
+      //全局404
+      if (!middleware) return out404(ctx);
+      try {
+        await middleware(ctx, next);
+      } catch (err: any) {
+        out500(ctx, err);
       }
     };
     next();

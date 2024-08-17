@@ -1,10 +1,10 @@
 /** @type {import('typedoc').TypeDocOptions} */
 module.exports = {
-  name: "Dopx",
+  name: "Nb2",
   out: "docs",
   navigationLinks: {
-    GitHub: "https://github.com/hans262/dopx",
-    Npm: "https://www.npmjs.com/package/dopx"
+    GitHub: "https://github.com/hans262/nb2",
+    Npm: "https://www.npmjs.com/package/nb2"
   },
   entryPoints: [
     "src/index.ts",

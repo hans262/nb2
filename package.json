@@ -1,14 +1,14 @@
 {
-  "name": "dopx",
-  "version": "0.0.9",
+  "name": "nb2",
+  "version": "0.0.1",
   "type": "module",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "license": "MIT",
-  "homepage": "https://hans262.github.io/dopx/",
+  "homepage": "https://hans262.github.io/nb2/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hans262/dopx.git"
+    "url": "https://github.com/hans262/nb2.git"
   },
   "files": [
     "lib"
