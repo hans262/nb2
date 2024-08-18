@@ -82,9 +82,9 @@ export function controllers(
 
       //如果没有'/'前缀，加上前缀'/'
       const path = posix.join("/", c.apifix ?? "/", c.cpath, c.mpath!);
-      const match = ctx.matchRoutes(path);
+      const match = ctx.matchRoute(path);
       params = match.params;
-      return match.matched;
+      return match.hit;
     });
 
     if (!md) return next();

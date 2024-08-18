@@ -1,8 +1,6 @@
 import { IncomingMessage, ServerResponse } from "node:http";
 import posix from "node:path/posix";
 import { Nb2 } from "./nb2.js";
-import { bufferSplit } from "./utils.js";
-import { hitMime, MimeTypes } from "./statics.js";
 
 export class Context {
   /**请求发起时间戳 */
@@ -26,76 +24,62 @@ export class Context {
     this.url = new URL(posix.join(app.cname, req.url || "/"));
     // 解析查询参数
     this.query = Object.fromEntries(this.url.searchParams);
-    //浏览器url可能会对中文转码 decodeURIComponent
+    //浏览器url可能会对中文转码
     this.pathname = decodeURI(this.url.pathname);
     //服务器时间
     res.setHeader("Date", new Date().toUTCString());
   }
 
   /**
-   * 匹配路由，包函解析参数
-   * 去除尾部'/'的比较
-   * 支持通配符: *, :id
-   * 直接把params参数解析出来
-   */
-  matchRoutes(path: string): {
-    matched: boolean;
-    params: { [key: string]: string };
-  } {
-    path = path.endsWith("/") ? path.slice(0, -1) : path;
-    const pathname = this.pathname.endsWith("/")
-      ? this.pathname.slice(0, -1)
-      : this.pathname;
-    const rexp = new RegExp(`^${path.replaceAll(/(\*+)|(:[^/]+)/g, "[^/]+")}$`);
-    const matched = rexp.test(pathname);
-
-    // 解析url参数 (?<id>[^/]+)
-    if (matched) {
-      const pm2 = path.match(/:([^/]+)/g);
-      if (pm2?.length) {
-        let regStr = path;
-        pm2.forEach((v) => {
-          regStr = regStr.replace(v, `(?<${v.slice(1)}>[^/]+)`);
-        });
-        const pm3 = pathname.match(new RegExp(regStr));
-        const params = { ...pm3?.groups };
-        return { matched, params };
-      }
-    }
-
-    return { matched, params: {} };
-  }
-
-  /**
-   * 根据资源路径获取Content-Type
+   * 匹配路由，包函解析param参数
+   * 忽略尾部'/'
+   * 通配符: *, :id
    * @param path
    */
-  getContentTypeOfPath(path: string) {
-    const ext = posix.extname(path).slice(1);
-    if (hitMime(ext)) {
-      return MimeTypes[ext] + "; charset=utf-8";
-    } else {
-      return MimeTypes["plain"] + "; charset=utf-8";
+  matchRoute(path: string): {
+    hit: boolean;
+    params: { [key: string]: string };
+  } {
+    const pathname = this.pathname;
+    const rexp = new RegExp(
+      `^${
+        path
+          .replace(/\*/g, "[^/]*") // 处理星号通配符
+          .replace(/:(\w+)/g, "(?<$1>[^/]+)") // 处理参数占位符
+          .replace(/\/$/, "(/?)") // 处理尾部斜杠
+      }(/?)$`
+    );
+    const matched = pathname.match(rexp);
+    if (matched) {
+      return { hit: true, params: { ...matched.groups } };
     }
+    return { hit: false, params: {} };
   }
 
   /**
-   * 获取Content-Type
+   * 解析body数据
    * @param type
+   * @param limit byte
+   * @returns
    */
-  getContentType(type: keyof typeof MimeTypes) {
-    return MimeTypes[type] + "; charset=utf-8";
-  }
-
-  /**
-   * 接收body数据
-   */
-  async body<T extends "string" | "buffer" | "json">(type: T) {
-    return new Promise<BodyData<T>>((resolve) => {
+  async body<T extends "string" | "buffer" | "json">(
+    type: T,
+    limit = 1024 * 1024
+  ) {
+    return new Promise<BodyData<T>>((resolve, reject) => {
+      let dataLength = 0;
       const chunks: Buffer[] = [];
-      this.req.on("data", (chunk: Buffer) => {
-        chunks.push(chunk);
-      });
+      let dataListener: any;
+      dataListener = (chunk: Buffer) => {
+        dataLength += chunk.length;
+        if (dataLength > limit) {
+          this.req.removeListener("data", dataListener);
+          reject(new Error(`数据超过最大尺寸 ${limit} 了。`));
+        } else {
+          chunks.push(chunk);
+        }
+      };
+      this.req.on("data", dataListener);
       this.req.on("end", () => {
         if (type === "buffer") {
           resolve(Buffer.concat(chunks) as BodyData<T>);
@@ -116,12 +100,11 @@ export class Context {
    * @param key
    */
   getCookie(key: string) {
-    let cookie = this.req.headers["cookie"];
-    if (!cookie) return null;
-    cookie = decodeURIComponent(cookie);
-    const rexp = new RegExp(`${key}=([^;]+)`);
-    const value = cookie.match(rexp)?.[1];
-    return value;
+    let cookies = this.req.headers["cookie"];
+    if (!cookies) return null;
+    cookies = decodeURIComponent(cookies);
+    const rexp = new RegExp(`${key}=([^;]*)`);
+    return cookies.match(rexp)?.[1];
   }
 
   /**
@@ -135,25 +118,23 @@ export class Context {
     value: string,
     opt?: {
       maxAge?: string;
+      expires?: Date;
       domain?: string;
       path?: string;
-      expires?: Date;
       httpOnly?: boolean;
       secure?: boolean;
     }
   ) {
     let pairs = [key + "=" + encodeURIComponent(value)];
     if (opt?.maxAge) pairs.push("Max-Age=" + opt.maxAge);
+    if (opt?.expires) pairs.push("Expires=" + opt.expires.toUTCString());
     if (opt?.domain) pairs.push("Domain=" + opt.domain);
     if (opt?.path) pairs.push("Path=" + opt.path);
-    if (opt?.expires) pairs.push("Expires=" + opt.expires.toUTCString());
     if (opt?.httpOnly) pairs.push("HttpOnly");
     if (opt?.secure) pairs.push("Secure");
-    const ret = pairs.join("; ");
-    //之前有设置过的地方
-    const pre =
-      (this.res.getHeader("set-cookie") as string[] | undefined) ?? [];
-    this.res.setHeader("Set-Cookie", [...pre, ret]);
+    const cookies = pairs.join("; ");
+    const exists = (this.res.getHeader("set-cookie") as string[]) || [];
+    this.res.setHeader("Set-Cookie", [...exists, cookies]);
   }
 
   /**
@@ -171,7 +152,7 @@ export class Context {
    * @param status
    */
   json<T extends { [key: string]: any }>(opt: T, status = 200) {
-    this.res.setHeader("Content-Type", this.getContentType("json"));
+    this.res.setHeader("Content-Type", "application/json; charset=utf-8");
     this.status(status);
     this.res.end(JSON.stringify(opt));
   }
@@ -182,7 +163,7 @@ export class Context {
    * @param status
    */
   text(text: string, status = 200) {
-    this.res.setHeader("Content-Type", this.getContentType("plain"));
+    this.res.setHeader("Content-Type", "text/plain; charset=utf-8");
     this.status(status);
     this.res.end(text);
   }
@@ -193,7 +174,7 @@ export class Context {
    * @param status
    */
   html(text: string, status = 200) {
-    this.res.setHeader("Content-Type", this.getContentType("html"));
+    this.res.setHeader("Content-Type", "text/html; charset=utf-8");
     this.status(status);
     this.res.end(text);
   }
@@ -208,73 +189,6 @@ export class Context {
     this.res.setHeader("Location", url);
     this.res.end();
   }
-
-  /**
-   * 解析FormData数据
-   * @param buf
-   * @param boundary
-   * @param contentLength
-   */
-  parseFormData(buf: Buffer, boundary: string, contentLength: number) {
-    const result: _FormData[] = [];
-
-    //中间标志
-    const midBoundary = "\r\n--" + boundary + "\r\n";
-    //开始标志
-    const startBoundary = Buffer.from("--" + boundary + "\r\n");
-    //结束标志
-    const endBoundary = Buffer.from("\r\n--" + boundary + "--\r\n");
-    //空对象的全部内容
-    const nullContent = Buffer.from("--" + boundary + "--\r\n");
-
-    //空类容检查 'FormData对象内容为空'
-    if (contentLength <= nullContent.byteLength) {
-      return result;
-    }
-
-    //去掉首尾
-    const temp = buf.subarray(
-      startBoundary.byteLength,
-      buf.byteLength - endBoundary.byteLength
-    );
-    //文件分割
-    const bufs = bufferSplit(temp, midBoundary);
-    for (const buf of bufs) {
-      // console.log(buf.toString())
-      let index = buf.indexOf("\r\n", 0);
-
-      const lineOne = buf.subarray(0, index).toString();
-
-      const [_, filename] = lineOne.match(/filename="([^;]+)"/) ?? [];
-      const [__, name] = lineOne.match(/name="([^;]+)"/) ?? [];
-
-      let ContentType: _FormData["ContentType"];
-
-      if (filename) {
-        //文件多一行content-type
-        const tmp = buf.indexOf("\r\n", index + 2);
-        const lineTwo = buf.subarray(index + 2, tmp).toString();
-        const [__, ct] = lineTwo.match(/Content-Type:\s([^;]+)/) ?? [];
-        ContentType = ct;
-
-        index = tmp + 4;
-      } else {
-        index += 4;
-      }
-      const data = buf.subarray(index);
-
-      result.push({ name, filename, data, ContentType });
-    }
-    return result;
-  }
-}
-
-export interface _FormData {
-  name: string;
-  /**文件才有，没有就是纯数据 */
-  filename?: string;
-  ContentType?: string;
-  data: Buffer;
 }
 
 export type BodyData<T> = T extends "string"

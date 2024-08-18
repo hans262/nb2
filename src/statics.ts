@@ -2,7 +2,6 @@ import { Dirent, Stats, createReadStream, readdirSync, stat } from "node:fs";
 import posix from "node:path/posix";
 import { Deflate, Gzip, createDeflate, createGzip } from "node:zlib";
 import { Context } from "./context.js";
-import { Logger } from "./utils.js";
 import { Middleware } from "./middleware.js";
 
 interface StaticConfig {
@@ -103,7 +102,7 @@ export function taskFile(ctx: Context, stats: Stats, staticPath: string) {
   if (isHitEtagCache(ctx, stats)) return outCache(ctx, staticPath);
 
   //资源类型
-  res.setHeader("Content-Type", ctx.getContentTypeOfPath(staticPath));
+  res.setHeader("Content-Type", getContentType(staticPath));
 
   //资源大小
   res.setHeader("Content-Length", stats.size);
@@ -290,12 +289,16 @@ export function outZip(ctx: Context, staticPath: string, encoding: string) {
 }
 
 /**
- * 命中Mime
- * 把字符串断言到Mime类型
- * @param key
+ * 根据资源路径获取mime-type
+ * @param path
  */
-export function hitMime(key: string): key is keyof typeof MimeTypes {
-  return Object.keys(MimeTypes).includes(key);
+export function getContentType(path: string) {
+  const ext = posix.extname(path).slice(1) as keyof typeof MimeTypes;
+  if (MimeTypes[ext]) {
+    return MimeTypes[ext] + "; charset=utf-8";
+  } else {
+    return MimeTypes["plain"] + "; charset=utf-8";
+  }
 }
 
 export const MimeTypes = {
@@ -320,7 +323,7 @@ export const MimeTypes = {
   wmv: "video/x-ms-wmv",
   xml: "text/xml",
   "octet-stream": "application/octet-stream",
-} as const;
+};
 
 /**
  * 校验当前资源是否命中etag缓存
